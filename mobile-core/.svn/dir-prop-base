@@ -1,0 +1,16 @@
+K 10
+svn:ignore
+V 37
+.settings
+target
+.classpath
+.project
+
+K 13
+svn:mergeinfo
+V 385
+/branches/mobile-server/2.9.0/mobile-core:11616-11979
+/branches/mobile-server/mmkt_branch/mobile-core:10983-11455,11899-12014,12554,13457,13477,13528,13681,13788,13809-13810,14230,14303-14304,14437,14521-14643
+/trunk_k/servers/branches/mobile-server/mobile-server20160215/mobile-core:23523-23821
+/trunk_k/servers/branches/mobile-server/mobile-server20160215-3.8/mobile-core:23822-24829
+END

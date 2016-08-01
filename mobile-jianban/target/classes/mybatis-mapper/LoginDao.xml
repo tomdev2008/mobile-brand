@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.simple.dao.LoginDao">
+		<insert id="insertRecommendRegister" parameterType="recommendRegBo">
+		 	insert into xiu_goods.X_ITATION_RECORD 
+		 	( ID, CUSTOMER_ID , EMAIL_ADDRESS ,  SEND_TIME  ,  REGISTER ,OPTCOUNTER,REGSSOUSERID ,COMMNAME,REGTIME) 
+		 	values(xiu_goods.X_ITATION_RECORD_SEQ.NEXTVAL,#{customerId},  #{logonName}, sysdate, 1 ,null,#{regSSOUserId},null,sysdate)
+	  	</insert>
+</mapper>

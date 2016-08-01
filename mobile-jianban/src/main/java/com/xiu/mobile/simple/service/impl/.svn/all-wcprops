@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/service/impl
+END
+UserServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/service/impl/UserServiceImpl.java
+END
+SysParamServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/service/impl/SysParamServiceImpl.java
+END
+ProductServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/service/impl/ProductServiceImpl.java
+END
+BookmarkServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/service/impl/BookmarkServiceImpl.java
+END
+TopicActivityGoodsServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/service/impl/TopicActivityGoodsServiceImpl.java
+END
+LoginServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/service/impl/LoginServiceImpl.java
+END
+WellChosenBrandServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/service/impl/WellChosenBrandServiceImpl.java
+END
+ActivityNoregularServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/service/impl/ActivityNoregularServiceImpl.java
+END
+GoodsServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/service/impl/GoodsServiceImpl.java
+END

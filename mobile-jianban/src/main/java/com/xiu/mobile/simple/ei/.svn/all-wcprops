@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/ei
+END
+EIChannelInventoryManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/ei/EIChannelInventoryManager.java
+END
+EIPromotionManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/ei/EIPromotionManager.java
+END
+EImageManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/ei/EImageManager.java
+END
+EIUUCManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/ei/EIUUCManager.java
+END
+EISysParamManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/ei/EISysParamManager.java
+END
+EIProductManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/ei/EIProductManager.java
+END
+EISmsManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/ei/EISmsManager.java
+END
+EISSOManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/ei/EISSOManager.java
+END

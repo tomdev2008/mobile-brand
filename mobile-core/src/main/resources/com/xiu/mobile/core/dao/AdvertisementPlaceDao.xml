@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.core.dao.AdvertisementPlaceDao">
+
+	<resultMap id="advertisementPlaceResult" type="advertisementPlace">
+		<result property="id" column="id" />
+		<result property="code" column="code" />
+		<result property="name" column="name" />
+		<result property="memo" column="memo" />
+		<result property="create_by" column="create_by" />
+	</resultMap>
+	
+   <!-- 查询广告位分页 -->
+   <select id="getAdvertisementPlaceList" resultMap="advertisementPlaceResult"  parameterType="java.util.Map">
+		<![CDATA[
+          select * from (
+	         select advp.*, rownum as rowno  from adv_place advp
+	         where 1=1  and advp.deleted=0 
+	         and  rownum <= #{pageMax} order by advp.create_dt desc
+         ) table_alias where table_alias.rowno>=#{pageMin}
+          ]]>            
+	</select>
+	
+   <!-- 查询广告位分页 -->
+   <select id="getAdvertisementPlaceListAll" resultMap="advertisementPlaceResult"  parameterType="java.util.Map">
+		<![CDATA[
+	         select advp.*  from adv_place advp
+	         where  advp.deleted=0 
+	         order by advp.create_dt desc
+          ]]>            
+	</select>
+	
+	<select id="getAdvertisementPlaceTotalCount" resultType="java.lang.String"  parameterType="java.util.Map">
+		<![CDATA[select count(id) from adv_place advp where  advp.deleted=0  ]]>
+	</select>
+	
+	 <!--根据广告位ID查询广告位-->
+	 <select id="getAdvertisementPlaceById" resultMap="advertisementPlaceResult"  parameterType="java.lang.Long">
+		<![CDATA[
+          	select * from adv_place  where id=#{id}
+          ]]>            
+       
+	</select>
+	
+	<!--查询是否存在该广告位-->
+	<select id="isExistAdvPlace"   parameterType="advertisementPlace" resultType="java.lang.Integer">
+		<![CDATA[
+		   select count(1) from adv_place advp where 1=1
+		   ]]>
+		   <if test="id!=null"> and advp.id!=#{id}</if>
+		   <![CDATA[
+		    and( advp.name=#{name} or code=#{code})
+          ]]>  
+           and deleted=0
+                    
+	</select>
+	
+
+    <!-- 添加广告位 -->
+	<insert id="save" parameterType="advertisementPlace">
+	  <![CDATA[ 
+	  insert into adv_place(id,code,name,memo,create_by,create_dt) 
+	  values(ADV_PLACE_SEQ.NEXTVAL,#{code},#{name},#{memo},#{create_by},sysdate)
+	 ]]>
+	</insert>
+
+    <!-- 修改广告位-->
+	<update id="update" parameterType="advertisementPlace">
+	 <![CDATA[ 
+	 update adv_place set
+     code=#{code},
+     name=#{name},
+     memo=#{memo},
+     last_update_by=#{last_update_by},
+     last_update_dt=sysdate
+     where id=#{id}
+     ]]>
+	</update>
+	
+   <!-- 删除广告位 -->
+   <update id="delete" parameterType="advertisementPlace">
+	 <![CDATA[ 
+	 	update adv_place set deleted=#{deleted} where id=#{id}
+     ]]>
+	</update>
+</mapper>

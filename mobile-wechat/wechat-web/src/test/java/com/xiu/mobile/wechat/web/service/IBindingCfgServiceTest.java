@@ -1,0 +1,51 @@
+package com.xiu.mobile.wechat.web.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import junit.framework.Assert;
+
+import org.junit.Test;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
+
+import com.xiu.mobile.wechat.web.model.BindingCfgVo;
+
+/**
+* 类描述 
+*
+* @author wangzhenjiang
+*
+* @since  2014年6月23日
+*/
+@ContextConfiguration(locations = {"classpath:applicationContext-web.xml"})
+public class IBindingCfgServiceTest extends AbstractJUnit4SpringContextTests {
+
+	@Resource(name = "bindingCfgService")
+	IBindingCfgService bindingCfgService;
+
+	@Test
+	public void testSave() {
+		// BindingCfgVo vo = new BindingCfgVo();
+		// vo.setOpenId("test");
+		// vo.setXiuMode("1");
+		// int i = bindingCfgService.saveBindingCfg(vo);
+		// Assert.assertEquals(i, 1);
+	}
+
+	@Test
+	public void testDelete() {
+		// List<Long> ids = new ArrayList<Long>();
+		// ids.add(445L);
+		// int i = bindingCfgService.deleteBindingCfgList(ids);
+		// Assert.assertEquals(i, 0);
+	}
+	
+	@Test
+	public void testGetByOpenId() {
+		// BindingCfgVo vo = bindingCfgService.getBindingCfg("oKr0st86VMPwWMdi10CJLEXkdskI");
+		// Assert.assertNotNull(vo);
+	}
+}

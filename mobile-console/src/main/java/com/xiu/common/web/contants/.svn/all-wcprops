@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/mobile/!svn/ver/26367/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/common/web/contants
+END
+LinkType.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/mobile/!svn/ver/24142/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/common/web/contants/LinkType.java
+END
+UrlConstants.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/common/web/contants/UrlConstants.java
+END
+ErrConstants.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/19630/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/common/web/contants/ErrConstants.java
+END
+AuthLevel.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/common/web/contants/AuthLevel.java
+END
+Constants.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/26367/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/common/web/contants/Constants.java
+END

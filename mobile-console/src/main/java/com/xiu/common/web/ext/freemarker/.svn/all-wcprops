@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/common/web/ext/freemarker
+END
+ApacheCommonConfigurationModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/common/web/ext/freemarker/ApacheCommonConfigurationModel.java
+END
+MessageMethod.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/common/web/ext/freemarker/MessageMethod.java
+END
+HtmlTemplateLoader.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/common/web/ext/freemarker/HtmlTemplateLoader.java
+END
+FreeMarkerConfigurerExt.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/common/web/ext/freemarker/FreeMarkerConfigurerExt.java
+END

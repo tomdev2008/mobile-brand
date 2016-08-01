@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.core.dao.FindMenuMgtDao">
+
+	<!-- 查询栏目列表 -->
+	<select id="getFindMenuList" parameterType="java.util.HashMap" resultType="com.xiu.mobile.core.model.FindMenuMgt">
+		select b.* from (
+			select a.*,rownum rn from (
+				select t.id,t.name,t.font_color as fontColor,t.icon_url as iconUrl, t.slogan, t.block,
+					   t.order_seq as orderSeq,t.type,t.url,t.status,t.create_date as createDate, t.wap_url as wapUrl, t.version,
+					   t.is_need_login isNeedLogin
+				  from find_menu_mgt t
+				 where 1=1
+				 <if test="id != null and id != ''"> and t.id = #{id}</if> 
+				 <if test="name != null and name != ''"> and t.name like '%'||#{name}||'%'</if> 
+				 <if test="block != null"> and t.block = #{block}</if> 
+				 <if test="type != null"> and t.type = #{type}</if> 
+				 <if test="status != null"> and t.status = #{status}</if> 
+				 order by t.status desc, t.block, t.order_seq desc) a
+			where rownum &lt; #{lineMax} ) b
+		where rn &gt;= #{lineMin}
+	</select>
+	
+	<!-- 查询栏目数量 -->
+	<select id="getFindMenuCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+		select count(1) counts
+		  from find_menu_mgt t
+		 where 1=1
+		 <if test="id != null and id != ''"> and t.id = #{id}</if> 
+		 <if test="name != null and name != ''"> and t.name like '%'||#{name}||'%'</if> 
+		 <if test="block != null"> and t.block = #{block}</if> 
+		 <if test="type != null"> and t.type = #{type}</if> 
+		 <if test="status != null"> and t.status = #{status}</if>  
+	</select>
+	
+	<!-- 查询栏目 -->
+	<select id="getFindMenu" parameterType="java.util.HashMap" resultType="com.xiu.mobile.core.model.FindMenuMgt">
+		select t.id,t.name,t.font_color as fontColor,t.icon_url as iconUrl, t.slogan, t.block,
+			   t.order_seq as orderSeq,t.type,t.url,t.status,t.create_date as createDate, t.wap_url as wapUrl,t.version,t.animation,t.bg_color bgColor,t.icon_click_url iconClickUrl,
+			   t.is_need_login isNeedLogin,t.support_version supportVersion
+		  from find_menu_mgt t
+		 where t.id = #{id}
+	</select>
+	
+	<!-- 新增栏目 -->
+	<insert id="insert" parameterType="com.xiu.mobile.core.model.FindMenuMgt">
+		insert into find_menu_mgt(id, name,font_color,icon_url,slogan,block,order_seq,type,url,status,create_date,wap_url,version,animation,bg_color,icon_click_url,is_need_login,support_version)
+		values(#{id},#{name},#{fontColor},#{iconUrl},#{slogan},#{block},#{orderSeq},#{type},#{url},#{status},sysdate,#{wapUrl},1,#{animation},#{bgColor},#{iconClickUrl},#{isNeedLogin},#{supportVersion})
+	</insert>
+	<select id="getFindMenuId" resultType="java.lang.Long">
+		select find_menu_mgt_seq.nextval from dual
+	</select>
+	<!-- 修改栏目 -->
+	<update id="update" parameterType="com.xiu.mobile.core.model.FindMenuMgt">
+		update find_menu_mgt
+		set name = #{name},
+			font_color = #{fontColor},
+			bg_color = #{bgColor},
+			<if test="iconUrl != null and iconUrl != ''">icon_url = #{iconUrl},</if>
+			<if test="iconClickUrl != null and iconClickUrl != ''">icon_click_url = #{iconClickUrl},</if>
+			<if test="isNeedLogin != null and isNeedLogin != ''">is_need_login = #{isNeedLogin},</if>
+			slogan = #{slogan},
+			block = #{block},
+			order_seq = #{orderSeq},
+			url = #{url},
+			status = #{status},
+			animation = #{animation},
+			wap_url = #{wapUrl},
+			support_version=#{supportVersion}
+		where id = #{id}
+	</update>
+	
+	<!-- 删除栏目 -->
+	<delete id="delete" parameterType="java.util.HashMap">
+		delete from find_menu_mgt where id = #{id}
+	</delete>
+	
+	<!-- 更新栏目状态 -->
+	<update id="updateStatus" parameterType="java.util.HashMap">
+		update find_menu_mgt 
+		set status = #{status}
+		where id = #{id}
+	</update>
+	
+	<!-- 更新版本号 -->
+	<update id="updateVersion" parameterType="java.util.HashMap">
+		update find_menu_mgt
+		set version = ${version}
+		where id = #{id} and version = #{oldVersion}
+	</update>
+</mapper>

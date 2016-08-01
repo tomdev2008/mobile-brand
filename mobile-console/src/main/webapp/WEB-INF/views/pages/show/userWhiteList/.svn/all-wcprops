@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/22827/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/userWhiteList
+END
+list.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/22827/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/userWhiteList/list.ftl
+END
+create.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/21012/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/userWhiteList/create.ftl
+END

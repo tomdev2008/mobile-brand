@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-facade/src/main/java/com/xiu/mobile/wechat/facade/model
+END
+ArticleInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-facade/src/main/java/com/xiu/mobile/wechat/facade/model/ArticleInfo.java
+END
+MessageInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-facade/src/main/java/com/xiu/mobile/wechat/facade/model/MessageInfo.java
+END
+TextInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-facade/src/main/java/com/xiu/mobile/wechat/facade/model/TextInfo.java
+END
+VoiceInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-facade/src/main/java/com/xiu/mobile/wechat/facade/model/VoiceInfo.java
+END
+OrderBaseInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-facade/src/main/java/com/xiu/mobile/wechat/facade/model/OrderBaseInfo.java
+END
+VideoInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-facade/src/main/java/com/xiu/mobile/wechat/facade/model/VideoInfo.java
+END
+NotifyResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-facade/src/main/java/com/xiu/mobile/wechat/facade/model/NotifyResult.java
+END
+NewsInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-facade/src/main/java/com/xiu/mobile/wechat/facade/model/NewsInfo.java
+END
+MusicInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-facade/src/main/java/com/xiu/mobile/wechat/facade/model/MusicInfo.java
+END
+ImageInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-facade/src/main/java/com/xiu/mobile/wechat/facade/model/ImageInfo.java
+END

@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.core.dao.WellChosenBrandDao">
+	<resultMap id="wellChosenBrandResult" type="wellChosenBrandBo">
+			<result property="id" column="id"/>
+			<result property="brandId" column="brand_id"/>
+			<result property="brandCode" column="brand_code"/>
+			<result property="orderSequence" column="order_sequence"/>
+			<result property="createDate" column="create_date"/>
+			<result property="createBy" column="create_by"/>
+			<result property="deleted" column="deleted"/>
+			<result property="replaced" column="replaced"/>
+			<result property="bannerPic" column="banner_pic"/>
+			<result property="onlineGoods" column="online_goods"/>
+		</resultMap>
+	<resultMap id="wellChosenBrandVoResult" type="wellChosenBrandVo">
+			<result property="id" column="id"/>
+			<result property="brandId" column="brand_id"/>
+			<result property="brandCode" column="brand_code"/>
+			<result property="orderSequence" column="order_sequence"/>
+			<result property="createDate" column="create_date"/>
+			<result property="createBy" column="create_by"/>
+			<result property="deleted" column="deleted"/>
+			<result property="replaced" column="replaced"/>
+			<result property="bannerPic" column="banner_pic"/>
+			<result property="brandName" column="brand_name"/>
+			<result property="brandImg" column="brand_img"/>
+			<result property="onlineGoods" column="online_goods"/>
+		</resultMap>
+		<!-- 添加 -->
+		 <insert id="addWellChosenBrand" parameterType="wellChosenBrandBo">
+			 insert into  xiu_wap.well_chosen_brand(id,brand_id,brand_code,order_sequence,create_date,create_by,deleted,replaced,banner_pic,online_goods) 
+			 values(WELL_CHOSEN_BRAND_SEQ.Nextval,#{brandId},#{brandCode},#{orderSequence},#{createDate},#{createBy},#{deleted},#{replaced},#{bannerPic},#{onlineGoods})
+		 </insert>
+	  	 
+	  	 <!-- 修改 -->
+	  	 <update id="updateWellChosenBrandByBrandId" parameterType="java.util.Map">
+			 	<![CDATA[
+			 	update xiu_wap.well_chosen_brand
+			 	   set order_sequence=#{orderSequence}
+			 	    ]]>
+			 	    <if test="bannerPic != null and bannerPic!=''">
+               		 ,banner_pic=#{bannerPic}
+               		</if>
+               		<if test="onlineGoods != null and onlineGoods!=''">
+               		 ,online_goods=#{onlineGoods}
+               		</if>
+               <![CDATA[
+			 	 where id=#{id}
+			 	 ]]>
+		</update>
+	  	 <!-- 删除 -->
+	  	<update id="deleteWellChosenBrandByBrandId" parameterType="java.lang.Long">
+			 	<![CDATA[
+			 	update xiu_wap.well_chosen_brand
+			 	   set deleted='Y'
+			 	 where id=#{id}
+			 	 ]]>
+		</update>
+	  	<!--批量删除 -->
+	  	<update id="deleteWellChosenBrandByIds" parameterType="java.lang.Long">
+			 	 
+			 	update xiu_wap.well_chosen_brand
+			 	   set deleted='Y'
+			 	   where id in
+		 	   <foreach collection="ids" item="id" open="(" close=")" separator=",">
+				   #{id}
+				</foreach>
+		</update>
+	  	 <!--添加前判断该品牌是否存在 -->
+	  	 <select id="getWellChosenBrandByBrandId" parameterType="java.lang.Long" resultMap="wellChosenBrandResult">
+	  	  select * from xiu_wap.well_chosen_brand 
+	  	  where brand_id=#{brandId} and deleted='N' and replaced='N'
+	  	 </select>
+	  	 <!-- 修改前的查询 -->
+	  	 <select id="getWellChosenBrandVoList" parameterType="java.lang.Long" resultMap="wellChosenBrandVoResult">
+	  	  <![CDATA[	select f.id as id,
+	  	  				   f.brand_id as brandId,
+					       f.brand_code as brandCode,
+					       f.banner_pic as bannerPic,
+					       b.main_name as brandName,
+					       f.online_goods as onlineGoods,
+					       f.order_sequence as orderSequence
+					      from xiu_goods.x_data_brand b, xiu_wap.well_chosen_brand  f
+				    	 where 
+				    	 b.brand_id=f.brand_id
+				    	 and f.id=#{id}
+					     
+					      
+			 ]]>
+	  	</select>
+	  	 <!-- 分页查询 -->
+	  	 <select id="getWellChosenBrandList" parameterType="java.util.Map" resultMap="wellChosenBrandVoResult">
+	  	  <![CDATA[	
+	  	  	select * from (
+			    select rownum as rowno,fg.* from(
+	  	  select 
+	  	  	   f.id as id,
+	  	  	   f.brand_id as brandId,
+		       f.brand_code as brandCode,
+		       f.order_sequence as orderSequence,
+		       f.create_date as createDate,
+		       f.banner_pic as bannerPic,
+		       f.online_goods as onlineGoods,
+		       b.brand_name as brandName,
+               (select count(1) from xiu_wap.favor_brand f where f.brand_id = b.brand_id) followNum,
+		       b.en_name as enName,
+		       case b.orgauth_flag
+		       when 1 then
+		        b.authimgurl
+		       else
+		       b.storeimgurl
+		       end as brandImg
+		       from xiu_goods.x_data_brand b,xiu_wap.well_chosen_brand  f
+		         where b.brand_id = f.brand_id 
+	    	 	    and f.deleted = 'N'
+	                and f.replaced = 'N'
+			 ]]>
+			  <if test="brandCode != null and brandCode!=''">
+               		and f.brand_code like '%'||#{brandCode}||'%'
+               </if>
+                <if test="brandName != null and brandName!=''">
+               		and( upper(b.brand_name) like upper('%'||#{brandName}||'%') or upper(b.en_name) like upper('%'||#{brandName}||'%'))
+			    </if>
+			     <if test="startDate != null and startDate!=''">
+			     <if test="endDate == null or endDate==''">
+			     <![CDATA[
+			      and f.create_date>= to_date(#{startDate},'yyyy-MM-dd hh24:mi:ss')
+			      	]]>
+			     </if>
+			       <if test="endDate != null and endDate!=''">
+			       <![CDATA[
+			     and f.create_date>= to_date(#{startDate},'yyyy-MM-dd hh24:mi:ss')
+			     and f.create_date<= to_date(#{endDate},'yyyy-MM-dd hh24:mi:ss')
+			     ]]>
+			     </if>
+			     </if>
+			  <if test="startDate == null or startDate==''">
+			  <if test="endDate != null and endDate!=''">
+               	<![CDATA[
+               		 and f.create_date<= to_date(#{endDate},'yyyy-MM-dd hh24:mi:ss')
+               	]]>
+               	</if>
+			    </if>
+			    
+			    <if test="status != 0">
+			  <if test="status==1">
+               	<![CDATA[
+               		 and f.banner_pic is not null
+               	]]>
+               	</if>
+               	<if test="status==2">
+               	<![CDATA[
+               		 and f.banner_pic is  null
+               	]]>
+               	</if>
+			    </if>
+			    
+			      <![CDATA[
+			      order by substr(b.en_name, 0, 1), f.order_sequence desc
+			      ) fg
+			      )cc
+			      where cc.rowno>= #{pageMin}
+			        	and cc.rowno < #{pageMax}
+      			]]>
+	  	</select>
+	  	<!-- 分页查询总数 -->
+	  	 <select id="getWellChosenBrandListCount" parameterType="java.util.Map" resultType="int">
+	  	  <![CDATA[	
+	  	  select count(f.brand_id)
+		       from xiu_goods.x_data_brand b,xiu_wap.well_chosen_brand  f
+		         where b.brand_id = f.brand_id
+	    	 	    and f.deleted = 'N'
+	                and f.replaced = 'N'
+			 ]]>
+			   <if test="brandCode != null and brandCode!=''">
+               		and f.brand_code like '%'||#{brandCode}||'%'
+               </if>
+                <if test="brandName != null and brandName!=''">
+               		and( upper(b.brand_name) like upper('%'||#{brandName}||'%') or upper(b.en_name) like upper('%'||#{brandName}||'%'))
+			    </if>
+			     <if test="startDate != null and startDate!=''">
+			     <if test="endDate == null or endDate==''">
+			     <![CDATA[
+			      and f.create_date>= to_date(#{startDate},'yyyy-MM-dd hh24:mi:ss')
+			      	]]>
+			     </if>
+			       <if test="endDate != null and endDate!=''">
+			       <![CDATA[
+			     and f.create_date>= to_date(#{startDate},'yyyy-MM-dd hh24:mi:ss')
+			     and f.create_date<= to_date(#{endDate},'yyyy-MM-dd hh24:mi:ss')
+			     ]]>
+			     </if>
+			     </if>
+			  <if test="startDate == null or startDate==''">
+			  <if test="endDate != null and endDate!=''">
+               	<![CDATA[
+               		 and f.create_date<= to_date(#{endDate},'yyyy-MM-dd hh24:mi:ss')
+               	]]>
+               	</if>
+			    </if>
+			 <if test="status != 0">
+			  <if test="status==1">
+               	<![CDATA[
+               		 and f.banner_pic is not null
+               	]]>
+               	</if>
+               	<if test="status==2">
+               	<![CDATA[
+               		 and f.banner_pic is  null
+               	]]>
+               	</if>
+			    </if>
+	  	</select>
+	  	 <!-- 批量修改 -->
+	  	 <update id="updateReplace" >
+	  	 update xiu_wap.well_chosen_brand
+			 	   set replaced='Y'
+			 	 where deleted='N' and replaced='N' and brand_code in
+	  	 <foreach collection="brandCodeList" item="code" open="(" close=")" separator=",">
+		   #{code}
+		</foreach>
+	  	 </update>
+</mapper>

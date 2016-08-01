@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/mobile/!svn/ver/25022/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/raiders
+END
+RaiderIndexController.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/mobile/!svn/ver/24895/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/raiders/RaiderIndexController.java
+END
+RaiderGoodController.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/mobile/!svn/ver/24895/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/raiders/RaiderGoodController.java
+END
+RaiderOrderController.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/mobile/!svn/ver/24901/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/raiders/RaiderOrderController.java
+END
+RaiderShoppingCatController.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/mobile/!svn/ver/25022/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/raiders/RaiderShoppingCatController.java
+END
+RaiderNewIndexController.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/mobile/!svn/ver/24825/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/raiders/RaiderNewIndexController.java
+END

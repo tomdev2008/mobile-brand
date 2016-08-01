@@ -1,0 +1,40 @@
+10
+
+dir
+27900
+http://192.168.3.5/svn/mobile/trunk_k/servers/mobile-server/mobile-wechat/wechat-core/src/main/java/com/xiu/mobile/wechat/core
+http://192.168.3.5/svn/mobile
+
+
+
+2015-08-13T08:21:36.772672Z
+15117
+qiuxianwen
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+116ee1c2-f573-4082-bb7f-c5aa002ae3e3
+
+model
+dir
+
+utils
+dir
+
+dao
+dir
+
+constants
+dir
+

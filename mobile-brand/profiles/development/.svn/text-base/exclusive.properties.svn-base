@@ -1,0 +1,62 @@
+#\u4E13\u4EAB\u76F8\u5173\u914D\u7F6E\u6587\u4EF6
+#the category refer to the sex
+category.sex.man=100003707,100003689,100000459,100000460,100003691
+category.sex.woman=100000357,100000651,100000688
+category.sex.normal=100000089,100000072,100000082,100000085,100000086,100000545,100000715
+#the relationship between category and size attribute
+category.size.man.1001=100000094,100000119,100000120
+category.size.man.1002=100000101,100003699
+category.size.man.1003=100000091,100000292,100000294,100000290
+category.size.man.1004=100003688
+category.size.woman.2001=100000427,100000464,100000398
+category.size.woman.2002=100000453
+category.size.woman.2003=100000087
+#the target of the man style really means(brand|category)
+style.man.target=brand
+#the target with the fixed style ,if target is brand ,the values refer to brand level
+style.man.101=1
+style.man.102=2
+style.man.103=3
+#the target of the woman style really means(brand|category)
+style.woman.target=category
+#the target ids with the fixed style
+style.woman.201=100000060,100000427,100000464,100000398,100000453
+style.woman.202=100000087
+style.woman.203=100000065
+style.woman.204=100000068
+#the value of the size filter attribute
+system.size.XS=-5762
+system.size.S=-5739
+system.size.M=-5748
+system.size.L=-5738
+system.size.XL=-5740
+system.size.XXL=-5764
+system.size.XXXL=-5765
+system.size.28=-5615
+system.size.29=-5617
+system.size.30=-5618
+system.size.31=-5619
+system.size.32=-5620
+system.size.33=-5625
+system.size.34=-5626
+system.size.35=-5645
+system.size.36=-5636
+system.size.37=-5665
+system.size.38=-5667
+system.size.39=-5672
+system.size.40=-5676
+system.size.41=-5687
+system.size.42=-5702
+system.size.43=-5705
+system.size.44=-5707
+system.size.45=-5710
+system.size.80=-5745
+system.size.85=
+system.size.90=-5735
+system.size.95=
+system.size.100=-5559
+system.size.105=
+system.size.110=-5578
+system.size.115=
+system.size.120=-5582
+

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/mobile/!svn/ver/23326/trunk_k/servers/mobile-server/mobile-brand/src/main/resources/mybatis-mapper
+END
+BrandDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/mobile/!svn/ver/16518/trunk_k/servers/mobile-server/mobile-brand/src/main/resources/mybatis-mapper/BrandDao.xml
+END
+SalesCatalogCondDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/resources/mybatis-mapper/SalesCatalogCondDao.xml
+END
+CatalogDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/mobile/!svn/ver/21864/trunk_k/servers/mobile-server/mobile-brand/src/main/resources/mybatis-mapper/CatalogDao.xml
+END
+DeliverDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/resources/mybatis-mapper/DeliverDao.xml
+END
+XDataAttrDescDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/mobile/!svn/ver/23326/trunk_k/servers/mobile-server/mobile-brand/src/main/resources/mybatis-mapper/XDataAttrDescDao.xml
+END

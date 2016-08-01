@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/mobile/!svn/ver/16265/trunk_k/servers/mobile-server/mobile-brand/profiles/development
+END
+exclusive.properties
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/mobile/!svn/ver/16265/trunk_k/servers/mobile-server/mobile-brand/profiles/development/exclusive.properties
+END
+application.properties
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/profiles/development/application.properties
+END
+log4j.xml
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/profiles/development/log4j.xml
+END

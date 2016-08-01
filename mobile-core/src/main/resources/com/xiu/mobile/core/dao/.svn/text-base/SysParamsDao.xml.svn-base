@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.core.dao.SysParamsDao">
+	<resultMap id="sysParamsMgtResult" type="com.xiu.mobile.core.model.SysParamsMgtVo">
+		<result property="id" column="id" />
+		<result property="paramKey" column="param_key" />
+		<result property="paramValue" column="param_value" />
+		<result property="paramDesc" column="param_desc" />
+		<result property="updateBy" column="update_by" />
+		<result property="createTime" column="create_time" />
+		<result property="updateTime" column="update_time" />
+		
+	</resultMap>
+	
+   <!-- 查询系统参数分页 -->
+   <select id="getSysParamsMgtVoList" resultMap="sysParamsMgtResult"  parameterType="java.util.Map">
+       select b.*
+       from (
+         select a.*, rownum rowno from(
+		          select sp.id,
+			          sp.PARAM_KEY,
+			          sp.PARAM_VALUE,
+			          sp.PARAM_desc,
+			          sp.CREATE_TIME,
+			          sp.update_time,
+			          sp.UPDATE_BY
+		          from X_SYS_PARAMS sp
+		         where  sp.IS_DELETE=0
+		           <if test="paramKey!=null and paramKey !=''">
+		               <![CDATA[ and sp.PARAM_KEY like  '%'||#{paramKey}||'%']]>
+		           </if>
+		           <if test="paramValue!=null and paramValue !=''">
+		           	<![CDATA[ and sp.PARAM_VALUE like  '%'||#{paramValue}||'%']]>
+		           </if>
+             )a where  rownum &lt; #{pageMax}
+        )b where b.rowno &gt;= #{pageMin}
+        
+	</select>
+	
+	<select id="getSysParamsMgtVoTotalCount" resultType="java.lang.Integer"  parameterType="java.util.Map">
+			select count(id) 
+		          from X_SYS_PARAMS sp
+		          where sp.IS_DELETE=0
+		           <if test="paramKey!=null and paramKey !=''">
+		               <![CDATA[ and sp.PARAM_KEY like  '%'||#{paramKey}||'%']]>
+		           </if>
+		           <if test="paramValue!=null and paramValue !=''">
+		           	<![CDATA[ and sp.PARAM_VALUE like  '%'||#{paramValue}||'%']]>
+		           </if>
+	</select>	
+	
+	<!-- 根据系统参数ID查询系统参数 -->
+	<select id="getSysParamsMgtVoById" resultMap="sysParamsMgtResult"  parameterType="java.lang.Long">
+	 <![CDATA[
+       select  sp.*
+       from X_SYS_PARAMS sp where sp.id=#{id}
+      ]]>                
+	</select>
+	
+	
+	<!-- 同一排期内是否存在系统参数-->
+	<select id="isExsit"   parameterType="com.xiu.mobile.core.model.SysParamsMgtVo" resultType="java.lang.Integer">
+		 	 select count(1) from  X_SYS_PARAMS  sp                                                                                                          
+		     where   sp.IS_DELETE=0 
+		     <if test="id!=null"> and sp.id!=#{id} </if>
+		     and sp.PARAM_KEY=#{paramKey}                                                                                              
+	</select>
+	
+
+    <!-- 添加系统参数 -->
+	<insert id="save" parameterType="com.xiu.mobile.core.model.SysParamsMgtVo">
+	insert into X_SYS_PARAMS(
+	  id,
+	  PARAM_KEY,
+      PARAM_VALUE,
+      PARAM_DESC,
+      STATUS,
+      CREATE_TIME,
+      UPDATE_TIME,
+      IS_DELETE,
+      UPDATE_BY
+	) 
+	values(
+	 SYS_PARAMS_SEQ.nextval,
+	 #{paramKey},
+	 #{paramValue},
+	 #{paramDesc},
+	 1,
+	 sysdate,
+	 sysdate,
+	 0,
+	 #{updateBy}
+	 )
+	</insert>
+    <!-- 修改系统参数 -->
+	<update id="update" parameterType="com.xiu.mobile.core.model.SysParamsMgtVo">
+		update X_SYS_PARAMS set
+		UPDATE_TIME=sysdate,
+	    <if test="paramKey!=null">PARAM_KEY=#{paramKey},</if>
+	    <if test="paramValue!=null">PARAM_VALUE=#{paramValue},</if>
+	    <if test="paramDesc!=null">PARAM_DESC=#{paramDesc},</if>
+		UPDATE_BY=#{updateBy}
+		where id=#{id} 
+	</update>
+	
+	<!-- 删除系统参数 -->
+	<delete id="delete" parameterType="com.xiu.mobile.core.model.SysParamsMgtVo">
+		update X_SYS_PARAMS 
+		 set  IS_DELETE=1,
+		 UPDATE_BY=#{updateBy}
+		 where id=#{id} 
+	</delete>
+
+	
+
+</mapper>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiu.mobile.brand.web.dao.BrandDao">
+  <resultMap id="brandMap" type="com.xiu.mobile.brand.web.dao.model.XBrandModel">
+    <result column="brand_id" jdbcType="DECIMAL" property="brandId" />
+    <result column="brand_name" jdbcType="VARCHAR" property="brandName" />
+    <result column="en_name" jdbcType="VARCHAR" property="enName" />
+    <result column="main_name" jdbcType="VARCHAR" property="mainName" />
+    <result column="story" jdbcType="VARCHAR" property="story" />
+    <result column="banner_pic" jdbcType="VARCHAR" property="bannerPic" />
+  </resultMap>
+  
+  <select id="getBrandIDs" resultMap="brandMap">
+      select b.BRAND_ID, b.BRAND_NAME ,b.EN_NAME, b.MAIN_NAME, b.story
+       from xiu_goods.X_DATA_BRAND b
+  </select>
+  <select id="getBrandInfoById" parameterType="java.lang.Long" resultMap="brandMap">
+		 select b.brand_id,
+		      b.brand_name,
+		      b.en_name,
+		      b.main_name,
+		      b.story,
+		      wb.banner_pic
+		 from xiu_goods.x_data_brand b
+		 left join xiu_wap.well_chosen_brand wb
+		   on b.brand_id = wb.brand_id
+		  and wb.deleted = 'N'
+		  and wb.replaced = 'N'
+		where b.brand_id = #{brandId}
+  </select>
+  
+  <select id="getAllBrandInfo" resultMap="brandMap">
+	     select b.brand_id,
+	       b.brand_name,
+	       b.en_name,
+	       b.main_name,
+	       b.story,
+	       wb.banner_pic
+	  from xiu_goods.x_data_brand b
+	  left join xiu_wap.well_chosen_brand wb
+	    on b.brand_id = wb.brand_id
+	   and wb.deleted = 'N'
+	   and wb.replaced = 'N'
+  </select>
+  
+  <select id="selectAllByShowFlag1AndHasGoods" resultMap="brandMap">
+	<![CDATA[
+	select bb.*, wb.banner_pic from 
+	  (select b.BRAND_ID, b.BRAND_NAME ,b.EN_NAME, b.MAIN_NAME, b.story
+       from xiu_goods.X_DATA_BRAND b where b.SHOW_FLAG = 1 
+       and exists (select 1 from xiu_goods.x_data_prd_info p where p.onsale=1 and p.brand_code = b.brand_code)
+       ) bb left join xiu_wap.well_chosen_brand wb 
+       on bb.brand_id = wb.brand_id and wb.deleted = 'N' and wb.replaced = 'N' 
+	]]>
+  </select>
+  
+</mapper>

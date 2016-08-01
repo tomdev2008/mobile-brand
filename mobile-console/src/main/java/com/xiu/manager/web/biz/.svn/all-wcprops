@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/mobile/!svn/ver/15484/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/biz
+END
+UserService.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/biz/UserService.java
+END
+UserRoleService.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/biz/UserRoleService.java
+END
+RoleService.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/biz/RoleService.java
+END
+DevelopmentService.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/biz/DevelopmentService.java
+END
+MenuService.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/15484/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/biz/MenuService.java
+END
+RoleMenuService.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/biz/RoleMenuService.java
+END
+UserUserGroupService.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/biz/UserUserGroupService.java
+END
+UserGroupService.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/biz/UserGroupService.java
+END

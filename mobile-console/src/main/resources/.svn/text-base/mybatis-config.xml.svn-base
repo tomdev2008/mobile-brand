@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <settings>
+        <!-- changes from the defaults -->
+        <setting name="lazyLoadingEnabled" value="false" />
+        <!-- JdbcType enumeration. Most common are: NULL, VARCHAR and OTHER -->
+        <setting name="jdbcTypeForNull" value="NULL" /> 
+    </settings>
+
+    <typeAliases>
+        <typeAlias alias="user" type="com.xiu.manager.web.model.User" />
+        <typeAlias alias="menu" type="com.xiu.manager.web.model.Menu" />
+        <typeAlias alias="role" type="com.xiu.manager.web.model.Role" />
+        <typeAlias alias="roleMenu" type="com.xiu.manager.web.model.RoleMenu" />
+        <typeAlias alias="userRole" type="com.xiu.manager.web.model.UserRole" />
+        <typeAlias alias="userGroup" type="com.xiu.manager.web.model.UserGroup" />
+        <typeAlias alias="userUserGroup" type="com.xiu.manager.web.model.UserUserGroup" />    
+    </typeAliases>
+
+</configuration>

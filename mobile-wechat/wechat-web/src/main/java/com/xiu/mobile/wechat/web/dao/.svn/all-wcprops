@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/web/dao
+END
+JumpMenuDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/web/dao/JumpMenuDao.java
+END
+FeedbackCfgDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/web/dao/FeedbackCfgDao.java
+END
+BindingCfgDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/web/dao/BindingCfgDao.java
+END

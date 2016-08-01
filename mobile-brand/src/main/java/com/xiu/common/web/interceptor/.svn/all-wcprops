@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/common/web/interceptor
+END
+AuthorizationInterceptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/common/web/interceptor/AuthorizationInterceptor.java
+END
+AnnotationBasedIgnoreableInterceptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/common/web/interceptor/AnnotationBasedIgnoreableInterceptor.java
+END
+SessionInterceptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/common/web/interceptor/SessionInterceptor.java
+END

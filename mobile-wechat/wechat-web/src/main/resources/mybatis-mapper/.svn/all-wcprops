@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/resources/mybatis-mapper
+END
+BindingCfgDaoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/resources/mybatis-mapper/BindingCfgDaoMapper.xml
+END
+MaterialCfgDaoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/resources/mybatis-mapper/MaterialCfgDaoMapper.xml
+END
+JumpMenuDaoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/resources/mybatis-mapper/JumpMenuDaoMapper.xml
+END
+ArticleCfgDaoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/resources/mybatis-mapper/ArticleCfgDaoMapper.xml
+END
+FeedbackCfgDaoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/resources/mybatis-mapper/FeedbackCfgDaoMapper.xml
+END
+MenuCfgDaoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/resources/mybatis-mapper/MenuCfgDaoMapper.xml
+END
+MessageCfgDaoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/resources/mybatis-mapper/MessageCfgDaoMapper.xml
+END

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <settings>
+        <!-- changes from the defaults -->
+        <setting name="lazyLoadingEnabled" value="false" />
+        <!-- JdbcType enumeration. Most common are: NULL, VARCHAR and OTHER -->
+        <setting name="jdbcTypeForNull" value="NULL" /> 
+    </settings>
+
+    <typeAliases>
+        <typeAlias alias="findGoodsBo" type="com.xiu.mobile.core.model.FindGoodsBo" />
+        <typeAlias alias="findGoodsVo" type="com.xiu.mobile.core.model.FindGoodsVo" />
+		<typeAlias alias="loveGoods" type="com.xiu.mobile.core.model.LoveGoodsBo" />
+        <typeAlias alias="findGoods" type="com.xiu.mobile.core.model.FindGoods" />
+        <typeAlias alias="wellChosenBrandBo" type="com.xiu.mobile.core.model.WellChosenBrandBo" />
+        <typeAlias alias="dataBrand" type="com.xiu.mobile.core.model.DataBrandBo" />
+        <typeAlias alias="wellChosenBrandVo" type="com.xiu.mobile.core.model.WellChosenBrandVo" />
+        <typeAlias alias="goods" type="com.xiu.mobile.core.model.Goods" />
+        
+        <typeAlias alias="advertisement" type="com.xiu.mobile.core.model.Advertisement" />
+        <typeAlias alias="advertisementPlace" type="com.xiu.mobile.core.model.AdvertisementPlace" />
+        <typeAlias alias="advertisementFrame" type="com.xiu.mobile.core.model.AdvertisementFrame" />
+         
+        <typeAlias alias="appVersion" type="com.xiu.mobile.core.model.AppVersionModel"/>
+    </typeAliases>
+
+</configuration>

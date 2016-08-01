@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.manager.web.dao.UserRoleDao">
+	<resultMap id="userRoleResult" type="userRole">
+		<result property="id" column="id" />
+		<result property="userId" column="user_id" />
+		<result property="roleId" column="role_id" />
+		<result property="createDt" column="create_dt" />
+		<result property="version" column="version" />
+	</resultMap>
+	
+	<!-- 根据用户ID查询 -->
+	<select id="getUserRolebyuserId" resultMap="userRoleResult" parameterType="java.lang.Long">
+		<![CDATA[select * from x_rmd_user_role where user_id=#{userId}]]>
+	</select>
+	
+	<!-- 根据用户Id删除 -->
+	<delete id="deleteUserRole" parameterType="java.lang.Long">
+	   <![CDATA[delete from x_rmd_user_role where user_id=#{userId}]]>
+	</delete>
+	
+	<!-- 添加用户对应的角色 -->
+	<insert id="addUserRole" parameterType="userRole">
+		<selectKey keyProperty="id" resultType="java.lang.Long"  order="BEFORE">
+			select X_RMD_USER_ROLE_SEQ.nextval from dual
+		</selectKey>
+		insert into
+		x_rmd_user_role (id, user_id, role_id, create_dt,version)
+		values(#{id},#{userId},#{roleId},#{createDt},1)
+	</insert>
+	
+</mapper>

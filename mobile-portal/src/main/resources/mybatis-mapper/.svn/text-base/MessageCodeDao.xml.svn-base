@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.portal.dao.MessageCodeDao">
+		
+	<resultMap id="messageCodeResult" type="messageCode">
+		<result property="msgId" column="msg_id" />
+		<result property="msgCode" column="msg_code" />
+		<result property="timestamp" column="msg_timestamp" />
+		<result property="msgPhone" column="msg_phone" />
+		<result property="timeFlag" column="msg_timeflag" />
+		<result property="contentFlag" column="msg_contentflag" />
+	</resultMap>
+	
+	<insert id="insertMessageCode" parameterType="messageCode">
+	 	insert into X_RMD_SMS (msg_id,msg_code,msg_timestamp,msg_phone,msg_timeflag,msg_contentflag) values(X_RMD_SMS_SEQ.NEXTVAL,#{msgCode},#{timestamp},#{msgPhone},#{timeFlag},#{contentFlag})
+  	</insert>
+  	
+  	<select id="getMessageCodeByPhone" resultMap="messageCodeResult" parameterType="java.lang.String">
+	 	<![CDATA[
+       		select * from X_RMD_SMS where msg_phone=#{msgPhone} 
+      	]]>
+	</select>
+  	
+	
+	<delete id="deleteMessageCode" parameterType="java.lang.String">
+		delete from X_RMD_SMS sms where sms.msg_phone=#{msgPhone}
+	</delete>
+	
+	<update id="updateMessageCode" parameterType="messageCode">
+		<![CDATA[
+		update X_RMD_SMS
+		   set msg_code          = #{msgCode},
+		       msg_timestamp     = #{timestamp},
+		       msg_timeflag      = #{timeFlag},
+		       msg_contentflag   = #{contentFlag}
+		 where msg_phone = #{msgPhone}
+	    ]]>
+    </update>
+	
+	<!-- 获取验证数量 -->
+	<select id="getValidateCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+		select count(1) count
+		  from mobile_user_validate
+		 where type = #{type} and device_id = #{deviceId} and email = '0'
+		 <if test="time != null and time != ''"> and start_time &lt; sysdate and stop_time &gt; sysdate</if>
+		 <if test="times != null and times != ''"> and times &gt;= limit_times</if>
+	</select>
+	
+	<!-- 新增一条验证记录 -->
+	<insert id="insertValidateRecord" parameterType="java.util.HashMap">
+		insert into mobile_user_validate(id, type,device_id,limit_times,times,start_time,stop_time,create_date, update_date, email)
+		values(mobile_user_validate_seq.nextval, #{type}, #{deviceId}, #{limitTimes}, 1, sysdate, sysdate + 1/24, sysdate, sysdate, '0')
+	</insert>
+	
+	<!-- 更新验证记录 -->
+	<update id="updateValidateRecord" parameterType="java.util.HashMap">
+		update mobile_user_validate set
+		 times = times + 1, update_date = sysdate
+		 where type = #{type} and device_id = #{deviceId}
+	</update>
+	
+	<!-- 重置验证记录 -->
+	<update id="resetValidateRecord" parameterType="java.util.HashMap">
+		update mobile_user_validate set
+		 start_time = sysdate,
+		 stop_Time = sysdate + 1/24,
+		 times = 1,
+		 update_date = sysdate
+		where type = #{type} and device_id = #{deviceId}
+	</update>
+	
+	<!-- 查询邮箱验证码数量 -->
+	<select id="getEmailVerifyCodeCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+		select count(1)
+		  from mobile_user_validate 
+		 where type = #{type} and email = #{email}
+		   <if test="time != null and time != ''"> and start_time &lt;= sysdate and stop_time &gt;= sysdate </if>
+		   <if test="code != null and code != ''"> and verify_code = #{code} </if>
+		   <if test="codeNotNull != null and codeNotNull != ''"> and verify_code is not null </if>
+	</select>
+	
+	<!-- 查询邮箱验证码 -->
+	<select id="getEmailVerifyCode" parameterType="java.util.HashMap" resultType="java.lang.String">
+		select verify_code
+		  from mobile_user_validate 
+		 where type = #{type} and email = #{email}
+		   and start_time &lt;= sysdate and stop_time &gt;= sysdate
+		   and verify_code is not null
+	</select>
+	
+	<!-- 修改邮箱验证码 -->
+	<update id="updateEmailVerifyCode" parameterType="java.util.HashMap">
+		update mobile_user_validate
+		   set times = times + 1, update_date = sysdate, verify_code = #{code}, 
+		   	   start_time = sysdate, stop_Time = sysdate + 1/24
+		 where type = #{type} and email = #{email} 
+	</update>
+	
+	<!-- 新增邮箱验证码 -->
+	<update id="addEmailVerifyCode" parameterType="java.util.HashMap">
+		insert into mobile_user_validate(id,type,device_id,limit_times,times,start_time,stop_time,create_date,update_date,email,verify_code)
+		values(mobile_user_validate_seq.nextval,#{type},#{deviceId},#{limitTimes},1,sysdate,sysdate+1/24,sysdate,sysdate,#{email},#{code})
+	</update>
+	
+	<!-- 查询验证信息 -->	
+	<select id="getMobileValidateInfo" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select limit_times,times,start_time,stop_time
+		  from mobile_user_validate
+		 where type = #{type} and device_id = #{deviceId} and email = '0'
+	</select>
+</mapper>

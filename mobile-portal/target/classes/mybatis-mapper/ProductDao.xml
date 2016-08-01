@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.portal.dao.ProductDao">
+	
+	<!-- 发货地Map -->
+	<resultMap id="deliverInfoMap" type="com.xiu.mobile.portal.common.constants.DeliverInfo">
+		<result column="spaceFlag" property="code"/>
+		<result column="sendAddress" property="city"/>
+		<result column="sendDate" property="deliveryTimeInfo"/>
+		<result column="country" property="country"/>
+		<result column="pictureUrl" property="flowImgURL"/>
+	</resultMap>
+	
+	<!-- 查询发货地信息 -->
+	<select id="getDeliverInfoByProduct" parameterType="java.util.HashMap" resultMap="deliverInfoMap">
+		select purch.attribute1 sendAddress,
+		       purch.attribute2 spaceFlag,
+		       purch.attribute7 pictureUrl,
+		       purch.attribute8 sendDate,
+		       case
+		         when t.space_method is null then ''
+		         when purch.attribute2 like '1%' and length(purch.attribute2) = 3 then 'China'
+		       else 'Other'
+		       end country
+		  from xiu_goods.x_data_prd_info t, xiu_goods.x_purch_base_business_model purch
+		 where t.product_id = #{productId} and t.space_method = purch.business_model_id
+	</select>
+	
+	<!-- 查询商品上传身份证状态 -->
+	<select id="getGoodsUploadIdCardByGoodsId" parameterType="java.lang.String" resultType="java.lang.Integer">
+		select nvl(purch.attribute9,'2') uploadIdCard
+		  from xiu_goods.x_data_prd_info t, xiu_goods.x_purch_base_business_model purch
+		 where t.product_id = #{goodsId} and t.space_method = purch.business_model_id
+	</select>
+	
+	<!-- 查询商品上传身份证状态 -->
+	<select id="getGoodsUploadIdCardByGoodsSn" parameterType="java.lang.String" resultType="java.lang.Integer">
+		select nvl(purch.attribute9,'2') uploadIdCard
+		  from xiu_goods.x_data_prd_info t, xiu_goods.x_purch_base_business_model purch
+		 where t.product_sn = #{goodsSn} and t.space_method = purch.business_model_id
+	</select>
+	<select id="gindGoodsSn" parameterType="java.lang.String" resultType="java.lang.String">
+    select p.product_sn goodsSn
+      from xiu_goods.x_data_prd_info p
+     where p.product_id = #{goodsId}
+  </select>
+</mapper>

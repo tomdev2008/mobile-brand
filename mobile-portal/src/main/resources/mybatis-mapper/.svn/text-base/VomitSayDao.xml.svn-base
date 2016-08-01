@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.portal.dao.VomitSayDao">
+		<insert id="insertVomitsay" parameterType="vomitSay">
+		 	insert into X_RMD_VOMITSAY (vomit_id,vomit_username,vomit_contact,vomit_remarks,vomit_timestamp,vomit_deviceinfo,app_ver_name,phone_brand,os,os_ver) 
+		 	values(X_RMD_VOMIT_SEQ.NEXTVAL,#{vomitUsername},#{vomitContact},#{vomitRmks},#{vomitTime},#{vomitDevInfo},#{appVerName},#{phoneBrand},#{os},#{osVer})
+	  	</insert>
+</mapper>

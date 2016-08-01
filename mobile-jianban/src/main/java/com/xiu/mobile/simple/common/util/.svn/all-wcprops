@@ -1,0 +1,167 @@
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/util
+END
+CPSCookieUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/util/CPSCookieUtils.java
+END
+HttpUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/util/HttpUtils.java
+END
+Tools.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/util/Tools.java
+END
+CouponUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/util/CouponUtil.java
+END
+ConfigUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/util/ConfigUtil.java
+END
+AESCipher.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/util/AESCipher.java
+END
+StringUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/util/StringUtil.java
+END
+UUIDUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/util/UUIDUtil.java
+END
+EncryptUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/util/EncryptUtils.java
+END
+ImageServiceConvertor.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/util/ImageServiceConvertor.java
+END
+CookieUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/util/CookieUtil.java
+END
+ComparatorDiscountAsc.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/util/ComparatorDiscountAsc.java
+END
+UnicodeUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/util/UnicodeUtils.java
+END
+HessianClientInterceptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/util/HessianClientInterceptor.java
+END
+HessianProxyFactoryBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/util/HessianProxyFactoryBean.java
+END
+EncryptionUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/util/EncryptionUtils.java
+END
+HttpClientUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/util/HttpClientUtil.java
+END
+GB2AlphaUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/util/GB2AlphaUtil.java
+END
+ComparatorDiscountDesc.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/util/ComparatorDiscountDesc.java
+END
+ComparatorPriceAsc.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/util/ComparatorPriceAsc.java
+END
+SessionUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/util/SessionUtil.java
+END
+JsonPackageWrapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/util/JsonPackageWrapper.java
+END
+ParseProperties.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/util/ParseProperties.java
+END
+ComparatorSizeAsc.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/util/ComparatorSizeAsc.java
+END
+ComparatorPriceDesc.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/util/ComparatorPriceDesc.java
+END
+LogicUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/util/LogicUtil.java
+END
+ResponseUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/util/ResponseUtil.java
+END

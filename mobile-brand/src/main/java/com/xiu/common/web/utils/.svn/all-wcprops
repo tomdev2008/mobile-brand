@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/mobile/!svn/ver/16265/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/common/web/utils
+END
+DateSbUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/common/web/utils/DateSbUtil.java
+END
+CouponUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/common/web/utils/CouponUtil.java
+END
+UploadPicUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/common/web/utils/UploadPicUtils.java
+END
+StringUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/common/web/utils/StringUtil.java
+END
+EncryptUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/common/web/utils/EncryptUtils.java
+END
+IPUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/common/web/utils/IPUtil.java
+END
+CookieUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/common/web/utils/CookieUtil.java
+END
+UserAuthInfoHolder.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/common/web/utils/UserAuthInfoHolder.java
+END
+EncryptionUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/common/web/utils/EncryptionUtils.java
+END
+DateUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/common/web/utils/DateUtil.java
+END
+UserSessionUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/common/web/utils/UserSessionUtil.java
+END
+JSONObjectUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/common/web/utils/JSONObjectUtils.java
+END
+SpringUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/mobile/!svn/ver/16265/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/common/web/utils/SpringUtils.java
+END
+MD5Util.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/common/web/utils/MD5Util.java
+END
+RequestUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/common/web/utils/RequestUtil.java
+END
+JsonPackageWrapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/common/web/utils/JsonPackageWrapper.java
+END
+CommonUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/common/web/utils/CommonUtil.java
+END
+DatabaseConfiguration.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/common/web/utils/DatabaseConfiguration.java
+END
+SpringResourceLocator.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/common/web/utils/SpringResourceLocator.java
+END

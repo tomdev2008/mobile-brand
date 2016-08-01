@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.core.dao.TopicTypeDao">
+
+	<!-- 查询分类列表 -->
+	<select id="getTopicTypeList" parameterType="java.util.HashMap" resultType="com.xiu.mobile.core.model.TopicType">
+		select b.* from (
+			select a.*,rownum rn from (
+				select t.id, t.name, t.order_seq as orderSeq, t.status, t.create_date as createDate, t.url_status as urlStatus, t.url
+				  from topic_type t
+				 where 1=1
+				 <if test="id != null and id != ''"> and t.id = #{id}</if> 
+				 <if test="name != null and name != ''"> and t.name like '%'||#{name}||'%'</if> 
+				 <if test="status != null"> and t.status = #{status}</if> 
+				 order by t.status desc, t.order_seq desc) a
+			where rownum &lt; #{lineMax} ) b
+		where rn &gt;= #{lineMin}
+	</select>
+	
+	<!-- 查询所有分类 -->
+	<select id="getAllTopicTypeList" parameterType="java.util.HashMap" resultType="com.xiu.mobile.core.model.TopicType">
+		select t.id, t.name, t.order_seq as orderSeq, t.status, t.create_date as createDate, t.url_status as urlStatus, t.url
+		  from topic_type t
+		 where 1=1
+		 <if test="status != null"> and t.status = #{status}</if> 
+		 order by t.status desc, t.order_seq desc
+	</select>
+	
+	<!-- 查询分类及卖场信息 -->
+	<select id="getTopicTypeAndActivityList" parameterType="java.util.HashMap" resultType="com.xiu.mobile.core.model.TopicType">
+		select t.id, t.name, t.order_seq as orderSeq, t.status, t.create_date as createDate,t.url_status as urlStatus, t.url,
+			   decode((select count(*)
+		                 from topic_type_relation tt
+		                where tt.activity_id = #{activity_id}
+		                  and tt.type_id = t.id),
+		               0, 0,
+		               1) existsActivity
+		  from topic_type t
+		 order by t.status desc, t.order_seq desc
+	</select>
+	
+	<!-- 查询分类数量 -->
+	<select id="getTopicTypeCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+		select count(1) counts
+		  from topic_type t
+		 where 1=1
+		 <if test="id != null and id != ''"> and t.id = #{id}</if> 
+		 <if test="name != null and name != ''"> and t.name like '%'||#{name}||'%'</if> 
+		 <if test="status != null"> and t.status = #{status}</if>  
+	</select>
+	
+	<!-- 查询分类 -->
+	<select id="getTopicType" parameterType="java.util.HashMap" resultType="com.xiu.mobile.core.model.TopicType">
+		select t.id, t.name, t.order_seq as orderSeq, t.status,
+		 t.create_date as createDate,
+		 t.begin_date as beginDate,
+		 t.end_date as endDate,
+		  t.url_status as urlStatus,
+		   t.url
+		  from topic_type t
+		 where t.id = #{id}
+	</select>
+	
+	<!-- 新增分类 -->
+	<insert id="insert" parameterType="com.xiu.mobile.core.model.TopicType">
+		insert into topic_type(id, name,order_seq,status,create_date,url_status,url
+		<if test="beginDate!=null and beginDate!=''">,begin_date</if>
+		<if test="endDate!=null and endDate!=''">,end_date</if>
+		)
+		values(topic_type_seq.nextval,#{name},#{orderSeq},#{status},sysdate,#{urlStatus},#{url}
+		<if test="beginDate!=null and beginDate!=''">,#{beginDate}</if>
+		<if test="endDate!=null and endDate!=''">,#{endDate}</if>
+		)
+	</insert>
+	
+	<!-- 修改分类 -->
+	<update id="update" parameterType="com.xiu.mobile.core.model.TopicType">
+		update topic_type
+		set name = #{name},
+			order_seq = #{orderSeq},
+			status = #{status},
+			url_status = #{urlStatus},
+			 begin_date=#{beginDate},
+		    end_date=#{endDate},
+			url = #{url}
+		where id = #{id}
+	</update>
+	
+	<!-- 删除分类 -->
+	<delete id="delete" parameterType="java.util.HashMap">
+		delete from topic_type where id = #{id}
+	</delete>
+	
+	<!-- 更新分类状态 -->
+	<update id="updateStatus" parameterType="java.util.HashMap">
+		update topic_type 
+		set status = #{status}
+		where id = #{id}
+	</update>
+	
+	<!-- 查询分类下是否有进行中的卖场 -->
+	<select id="queryActivityByTopicType" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+		select count(1) count
+		  from topic_type_relation tt, simple_topic_activity st
+		 where tt.type_id = #{id}
+		   and tt.activity_id = st.activity_id
+		   and st.start_time &lt;= sysdate
+		   and st.end_time &gt;= sysdate
+	</select>
+	
+	<!-- 查询分类下是否有进行中的卖场 -->
+	<select id="getTopicTypeIdByNames" parameterType="java.util.HashMap" resultType="java.lang.Long">
+		select t.id
+		  from  topic_type t
+		 where t.status=1 and t.name in
+		<foreach collection="names" item="name" open="(" close=")" separator=",">
+		    #{name}
+		</foreach>
+	</select>
+	
+		
+	<!-- 更新分类状态 -->
+	<update id="updateBatchTopicTypeStatusByTime" parameterType="java.util.HashMap" >
+		 update topic_type 
+			<![CDATA[
+			    set status =(case
+			                     when begin_date<=sysdate and end_date >=sysdate then 1 
+			                     else 0 end)
+			 ]]>
+	      where begin_date is not null and end_date is not null 
+	</update>
+	
+	
+</mapper>

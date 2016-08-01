@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/mobile/!svn/ver/27017/trunk_k/servers/mobile-server/mobile-core/src/main/java/com/xiu/mobile/core/utils
+END
+ImageUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/mobile/!svn/ver/25698/trunk_k/servers/mobile-server/mobile-core/src/main/java/com/xiu/mobile/core/utils/ImageUtil.java
+END
+XiuSearchStringUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-core/src/main/java/com/xiu/mobile/core/utils/XiuSearchStringUtils.java
+END
+XiuSynonymsUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/mobile/!svn/ver/27017/trunk_k/servers/mobile-server/mobile-core/src/main/java/com/xiu/mobile/core/utils/XiuSynonymsUtil.java
+END
+XiuUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/mobile/!svn/ver/25679/trunk_k/servers/mobile-server/mobile-core/src/main/java/com/xiu/mobile/core/utils/XiuUtil.java
+END
+ObjectUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/mobile/!svn/ver/24830/trunk_k/servers/mobile-server/mobile-core/src/main/java/com/xiu/mobile/core/utils/ObjectUtil.java
+END
+MD5SignUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/26259/trunk_k/servers/mobile-server/mobile-core/src/main/java/com/xiu/mobile/core/utils/MD5SignUtils.java
+END
+GoodsSolrConditionBuilder.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/25638/trunk_k/servers/mobile-server/mobile-core/src/main/java/com/xiu/mobile/core/utils/GoodsSolrConditionBuilder.java
+END
+DateUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/mobile/!svn/ver/16359/trunk_k/servers/mobile-server/mobile-core/src/main/java/com/xiu/mobile/core/utils/DateUtil.java
+END
+XiuSearchHisMapUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/20081/trunk_k/servers/mobile-server/mobile-core/src/main/java/com/xiu/mobile/core/utils/XiuSearchHisMapUtil.java
+END
+DESUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/mobile/!svn/ver/26259/trunk_k/servers/mobile-server/mobile-core/src/main/java/com/xiu/mobile/core/utils/DESUtils.java
+END
+DatabaseConfiguration.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-core/src/main/java/com/xiu/mobile/core/utils/DatabaseConfiguration.java
+END
+SpringResourceLocator.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/20422/trunk_k/servers/mobile-server/mobile-core/src/main/java/com/xiu/mobile/core/utils/SpringResourceLocator.java
+END

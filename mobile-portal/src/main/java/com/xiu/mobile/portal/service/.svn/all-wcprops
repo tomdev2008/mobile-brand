@@ -1,0 +1,299 @@
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/mobile/!svn/ver/27860/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service
+END
+IFindMenuService.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/24048/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IFindMenuService.java
+END
+IBookmarkService.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/23337/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IBookmarkService.java
+END
+ISimpleTopicActivityService.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/ISimpleTopicActivityService.java
+END
+IFindGoodsApiService.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/mobile/!svn/ver/23491/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IFindGoodsApiService.java
+END
+IOrderListService.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/21197/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IOrderListService.java
+END
+IIndexService.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/23495/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IIndexService.java
+END
+IAdvService.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/17859/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IAdvService.java
+END
+ICreditService.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/mobile/!svn/ver/25789/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/ICreditService.java
+END
+IWellChosenBrandService.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/mobile/!svn/ver/27310/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IWellChosenBrandService.java
+END
+IOrderService.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/24319/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IOrderService.java
+END
+IGoodsService.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/27296/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IGoodsService.java
+END
+IVomitSayService.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IVomitSayService.java
+END
+IAppService.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IAppService.java
+END
+ISupportVersionService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/mobile/!svn/ver/26140/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/ISupportVersionService.java
+END
+IAddressService.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/27597/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IAddressService.java
+END
+ICPSService.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/ICPSService.java
+END
+IEmailService.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IEmailService.java
+END
+ITopicActivityGoodsService.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/mobile/!svn/ver/24048/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/ITopicActivityGoodsService.java
+END
+ITopicActivityService.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/ITopicActivityService.java
+END
+IUserPayPlatformService.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IUserPayPlatformService.java
+END
+ICouponService.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/mobile/!svn/ver/21285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/ICouponService.java
+END
+ISensitiveWordService.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/mobile/!svn/ver/17358/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/ISensitiveWordService.java
+END
+IMemcachedService.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/27310/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IMemcachedService.java
+END
+ILoginService.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/24075/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/ILoginService.java
+END
+IActivityNoregularService.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IActivityNoregularService.java
+END
+IUserService.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/mobile/!svn/ver/19574/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IUserService.java
+END
+IMessageCodeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/25620/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IMessageCodeService.java
+END
+IGoodsRefundService.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IGoodsRefundService.java
+END
+IProductService.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IProductService.java
+END
+IReceiverIdService.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IReceiverIdService.java
+END
+ITopicsExtService.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/25308/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/ITopicsExtService.java
+END
+ISubjectCommentService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/mobile/!svn/ver/20903/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/ISubjectCommentService.java
+END
+IRegisterService.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/17647/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IRegisterService.java
+END
+IQuestionPlayerService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IQuestionPlayerService.java
+END
+IFavorBrandService.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/mobile/!svn/ver/18962/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IFavorBrandService.java
+END
+IPCSService.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IPCSService.java
+END
+ICpsCommissonManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/ICpsCommissonManager.java
+END
+ISubjectApiService.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/mobile/!svn/ver/26416/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/ISubjectApiService.java
+END
+IWithDrawService.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IWithDrawService.java
+END
+IShakeAndShakeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/mobile/!svn/ver/24515/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IShakeAndShakeService.java
+END
+IBegSerivce.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/15425/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IBegSerivce.java
+END
+IBrowseGoodsService.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IBrowseGoodsService.java
+END
+IOrderDetailService.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IOrderDetailService.java
+END
+IAskBuyService.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/mobile/!svn/ver/24043/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IAskBuyService.java
+END
+ISysParamService.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/27663/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/ISysParamService.java
+END
+IAppPatchService.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/26416/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IAppPatchService.java
+END
+IQuestionGameService.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IQuestionGameService.java
+END
+IShoppingCartService.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/mobile/!svn/ver/23337/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/IShoppingCartService.java
+END
+ISMSService.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/18782/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/service/ISMSService.java
+END

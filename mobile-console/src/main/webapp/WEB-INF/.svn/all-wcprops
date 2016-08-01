@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/mobile/!svn/ver/27859/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF
+END
+solr-service-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/mobile/!svn/ver/25493/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/solr-service-config.xml
+END
+dispatcher-servlet.xml
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/mobile/!svn/ver/15648/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/dispatcher-servlet.xml
+END
+web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/web.xml
+END

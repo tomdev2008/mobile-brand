@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/mobile/!svn/ver/26289/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/util
+END
+StaticClothSizeCache.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/26289/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/util/StaticClothSizeCache.java
+END
+ConfigUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/util/ConfigUtil.java
+END
+XiuSearchStringUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/util/XiuSearchStringUtils.java
+END
+CommonUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/mobile/!svn/ver/17502/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/util/CommonUtil.java
+END
+JsonWrapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/25168/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/util/JsonWrapper.java
+END
+Constants.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/util/Constants.java
+END
+Page.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/util/Page.java
+END

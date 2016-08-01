@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.core.dao.FindGoodsDao">
+
+	<resultMap id="findGoodsBoResult" type="findGoodsBo">
+		<result property="id" column="id" />
+		<result property="goodsSn" column="goods_sn" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="startDate" column="start_date" />
+		<result property="endDate" column="end_date" />
+		<result property="orderSequence" column="order_sequence" />
+		<result property="createDate" column="create_date" />
+		<result property="createBy" column="create_by" />
+		<result property="deleted" column="deleted" />
+		<result property="replaced" column="replaced" />
+	</resultMap>
+
+	<resultMap id="findGoodsResult" type="findGoods">
+		<result property="id" column="id" />
+		<result property="goodsSn" column="goods_sn" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="startDate" column="start_date" />
+		<result property="endDate" column="end_date" />
+		<result property="orderSequence" column="order_sequence" />
+		<result property="createDate" column="create_date" />
+		<result property="createBy" column="create_by" />
+		<result property="deleted" column="deleted" />
+		<result property="replaced" column="replaced" />
+		<result property="goodsName" column="product_name" />
+		<result property="goodsImage" column="product_image" />
+		<result property="loveGoodsCnt" column="love_goods_count" />
+		<result property="stock" column="find_goods_stock"/>
+		<result property="hotIncNum" column="hot_inc_num"/>
+	</resultMap>
+	
+	
+	<resultMap id="findGoodsVoResult" type="findGoodsVo">
+		<result property="goodsSn" column="goods_sn" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="loveGoodsCnt" column="love_goods_count" />
+	</resultMap>
+
+	<!-- 分页查询发现商品 -->
+	<select id="getFindGoodsList" resultMap="findGoodsVoResult"
+		parameterType="java.util.Map">
+		 	<![CDATA[
+	       		select * from (
+				    select rownum as rowno,fg.* from(
+				 		  select f.title,f.goods_sn,f.content,(f.hot_inc_num+count(l.id)) as love_goods_count 
+		                  from xiu_wap.find_goods f
+		                  left join xiu_wap.love_goods l
+		                  on f.goods_sn = l.goods_sn
+		                  where f.deleted = 'N'
+		                  and f.replaced = 'N'
+		                  and f.start_date<=sysdate 
+		                  and f.end_date>=sysdate 
+		                  group by f.order_sequence, f.title, f.goods_sn, f.content, f.hot_inc_num
+		                  order by f.order_sequence desc
+				      ) fg
+				      )cc where cc.rowno>=#{lineMin}
+				        	and cc.rowno < #{lineMax}
+	      	]]>
+	</select>
+	<!-- 查询发现商品总数 -->
+	<select id="getFindGoodsListCount" resultType="int">
+		 	<![CDATA[
+	       		select count(*) from  xiu_wap.find_goods f
+				    	 where f.deleted = 'N'
+			                and f.replaced = 'N'
+			                and f.start_date<=sysdate 
+			                and f.end_date>=sysdate
+	      	]]>
+	</select>
+	<select id="findGoodsId" resultType="java.lang.Long">
+		select FIND_GOODS_SEQ.nextval from dual
+	</select>
+	<insert id="addFindGoods" parameterType="findGoods">
+<!-- 		<selectKey keyProperty="id" resultType="java.lang.Long" -->
+<!-- 			order="BEFORE"> -->
+<!-- 			select FIND_GOODS_SEQ.nextval from dual -->
+<!-- 		</selectKey> -->
+		insert into xiu_wap.find_goods
+		(ID,GOODS_SN,TITLE,CONTENT,START_DATE,END_DATE,ORDER_SEQUENCE,CREATE_DATE,CREATE_BY,PRODUCT_NAME,PRODUCT_IMAGE, HOT_INC_NUM)
+		values
+		(
+		#{id},#{goodsSn},#{title},#{content},#{startDate},#{endDate},
+		#{orderSequence},#{createDate},#{createBy},#{goodsName},#{goodsImage},#{hotIncNum}
+		)
+	</insert>
+
+	<update id="updateFindGoods" parameterType="findGoods">
+		update xiu_wap.find_goods set
+		TITLE = #{title},
+		CONTENT = #{content},
+		START_DATE = #{startDate},
+		END_DATE = #{endDate},
+		<if test="orderSequence != null">
+			ORDER_SEQUENCE = #{orderSequence},
+		</if>
+		DELETED = #{deleted},
+		REPLACED = #{replaced},
+		HOT_INC_NUM = #{hotIncNum}
+		where ID = #{id}
+	</update>
+
+	<delete id="deleteFindGoods">
+		delete from xiu_wap.find_goods where id = #{id}
+	</delete>
+
+	<delete id="batchDelete">
+		delete from xiu_wap.find_goods where id in
+		<foreach collection="ids" item="id" open="(" close=")"
+			separator=",">
+			#{id}
+		</foreach>
+	</delete>
+
+	<select id="getFindGoods" resultMap="findGoodsResult">
+		select * from
+		xiu_wap.find_goods where id = #{id}
+	</select>
+
+	<select id="getFindGoodsBySn" resultMap="findGoodsResult">
+		select * from
+		xiu_wap.find_goods
+		where
+		GOODS_SN = #{goodsSn}
+		and deleted = 'N'
+		and replaced = 'N'
+	</select>
+	
+	<select id="isFindGoodsExist" resultType="int">
+	    select count(id) from xiu_wap.find_goods where GOODS_SN = #{goodsSn} and deleted = 'N' and replaced = 'N'
+	</select>
+
+	<select id="findAll" resultMap="findGoodsResult">
+		select * from xiu_wap.find_goods
+		order by order_sequence asc
+	</select>
+
+	<!-- 分页查询发现商品 -->
+	<select id="searchFindGoodsList" resultMap="findGoodsResult" parameterType="findGoods">
+		select * from (
+		select rownum as rowno, t2.* from(
+		select t.id,t.goods_sn,t.TITLE,t.CONTENT,t.START_DATE,t.END_DATE,t.ORDER_SEQUENCE,t.PRODUCT_NAME,t.PRODUCT_IMAGE,t.HOT_INC_NUM, 
+		t.count as love_goods_count, sum(sq.qty) as find_goods_stock from 
+		(
+		select f.id,f.goods_sn,f.TITLE,f.CONTENT,f.START_DATE,f.END_DATE,f.ORDER_SEQUENCE,f.PRODUCT_NAME,f.PRODUCT_IMAGE,f.HOT_INC_NUM, 
+		count(lg.goods_sn) as count
+		from 
+		<if test="labelId!=null and labelId!=''">
+			(select gs.* from xiu_wap.find_goods gs,x_label_centre l where gs.id=l.subject_id and l.label_id=#{labelId})f
+		</if>
+		<if test="labelId==null or labelId==''">
+			xiu_wap.find_goods f
+		</if>
+		left join xiu_wap.love_goods lg on f.goods_sn = lg.goods_sn
+		<!-- 条件开始 -->
+		where 1 = 1
+		and f.deleted = 'N'
+		and f.replaced = 'N'
+		<if test="status == 0">
+		<![CDATA[and f.start_date > sysdate]]>
+		</if>
+		<if test="status == 1">
+		<![CDATA[and f.start_date <= sysdate and f.end_date >= sysdate]]>
+		</if>
+		<if test="status == 2">
+		<![CDATA[and f.end_date < sysdate]]>
+		</if>
+		<if test="startDate != null and endDate == null">
+			and f.start_date >= #{startDate}
+		</if>
+		<if test="startDate == null and endDate != null">
+		<![CDATA[and f.end_date <= #{endDate}]]>
+		</if>
+		<if test="startDate != null and endDate != null">
+		<![CDATA[and f.start_date >= #{startDate} and f.end_date <= #{endDate}]]>
+		</if>
+		<if test="goodsSn != null">
+			and f.goods_sn like '%'||#{goodsSn}||'%'
+		</if>
+		<if test="title != null">
+			and f.title like '%'||#{title}||'%'
+		</if>
+		<!-- 条件结束 -->
+		group by f.id,f.goods_sn,f.TITLE,f.CONTENT,f.START_DATE,f.END_DATE,f.ORDER_SEQUENCE,f.PRODUCT_NAME,f.PRODUCT_IMAGE,f.HOT_INC_NUM
+		) t left join xiu_channel.skucode_qty sq on t.goods_sn = sq.product_code
+		group by t.id,t.goods_sn,t.TITLE,t.CONTENT,t.START_DATE,t.END_DATE,t.ORDER_SEQUENCE,t.PRODUCT_NAME,t.PRODUCT_IMAGE,t.HOT_INC_NUM,t.count
+		order by t.order_sequence desc
+		) t2 
+		) cc 
+		<![CDATA[where cc.rowno>=#{pageMin} and cc.rowno <= #{pageMax}]]>
+	</select>
+
+	<!-- 查询发现商品总数 -->
+	<select id="searchFindGoodsCount" resultType="int"
+	parameterType="findGoods">
+	select count(f.id) from xiu_wap.find_goods f
+	 <if test="labelId!=null and labelId!=''">,x_label_centre l</if>
+	where 1 = 1
+	<if test="labelId!=null and labelId!=''">and l.subject_id=f.id and l.label_id=#{labelId}</if>
+	and f.deleted = 'N'
+	and f.replaced = 'N'
+	<if test="status == 0">
+       <![CDATA[and f.start_date > sysdate]]>
+	</if>
+	<if test="status == 1">
+       <![CDATA[and f.start_date <= sysdate and f.end_date >= sysdate]]>
+	</if>
+	<if test="status == 2">
+       <![CDATA[and f.end_date < sysdate]]>
+	</if>
+	<if test="startDate != null and endDate == null">
+		and f.start_date = #{startDate}
+	</if>
+	<if test="startDate == null and endDate != null">
+		and f.end_date = #{endDate}
+	</if>
+	<if test="startDate != null and endDate != null">
+       <![CDATA[
+        and f.start_date >= #{startDate}
+        and f.end_date <= #{endDate}
+       ]]>
+	</if>
+	<if test="goodsSn != null">
+		and f.goods_sn like '%'||#{goodsSn}||'%'
+	</if>
+	<if test="title != null">
+		and f.title like '%'||#{title}||'%'
+	</if>
+    </select>
+
+	<update id="upateReplace">
+		update xiu_wap.find_goods set REPLACED = 'Y'
+		where
+		DELETED = 'N' and
+		REPLACED = 'N' and END_DATE >= trunc(sysdate)
+		and GOODS_SN in
+		<foreach collection="goodsSn" item="sn" open="(" close=")"
+			separator=",">
+			#{sn}
+		</foreach>
+	</update>
+
+</mapper>

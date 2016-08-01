@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.portal.dao.AskBuyDao">
+
+	<!-- 查询产品分类和品牌信息 -->
+	<select id="getProductTypeAndBrand" resultType="java.util.HashMap">
+		select type_name, listagg(brand_name,',') within group (order by order_seq) brand
+		  from producttype_brand
+		 where status = 1
+		 group by type_name
+		 order by type_name
+	</select>
+	
+</mapper>

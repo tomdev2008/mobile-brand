@@ -1,0 +1,549 @@
+<!DOCTYPE html >
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript"  src="${rc.getContextPath()}/resources/common/js/jquery-1.6.2.min.js" ></script>
+<script type="text/javascript"  src="${rc.getContextPath()}/resources/common/js/jquery_form.js"></script>
+<link   type="text/css" rel="stylesheet" href="${rc.getContextPath()}/resources/manager/css/base.css">
+<link   type="text/css" rel="stylesheet" href="${rc.getContextPath()}/resources/manager/css/common.css" /></head>
+<link   type="text/css" rel="stylesheet" href="${rc.getContextPath()}/resources/manager/css/page_admin_main.css">
+<link   type="text/css" rel="stylesheet" href="${rc.getContextPath()}/resources/show/css/show.css">
+<script type="text/javascript" src="${rc.getContextPath()}/resources/common/js/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript"  src="${rc.getContextPath()}/resources/common/js/xiu-common-util.js"></script>
+<script type="text/javascript"  src="${rc.getContextPath()}/resources/common/js/xiu-validate.js"></script>
+
+
+</head>
+<body>
+<div class="adminMain_main">
+<table class="adminMain_top">
+	<tbody>
+		<tr>
+			<td class="td01"></td>
+			<td class="td02">
+			<h3 class="topTitle fb f14">广告添加</h3>
+			</td>
+			<td class="td03"></td>
+		</tr>
+	</tbody>
+</table>
+
+<div class="adminMain_wrap">
+	<div class="adminUp_wrap">
+	    <!-- 导航 -->
+		<dl class="adminPath clearfix">
+			<dt>您现在的位置：</dt>
+			<dd><a href="${rc.getContextPath()}/menu/menu_main">走秀后台管理</a></dd>
+			<dd>广告管理</dd>
+			<dd class="last"><h3>广告添加</h3>
+			</dd>
+		</dl>
+	</div>
+	<!--导航end-->
+<form id="addFocusForm" name="addFocusForm" enctype="multipart/form-data" method="post" action="${rc.getContextPath()}/adv/save">
+	<!--菜单内容-->
+	<div class="adminContent clearfix">
+		<table width="100%" class="table_bg05">
+			<tr>
+				<th colspan="3" class="thTitle" scope="row"><span class="cBlue f14 fb pl20"></span></th>
+			</tr>
+			<tr>
+				<th class="thList" scope="row" >广告位：</th>
+				<td class="tdBox">
+					 	<select name="advPlacesId" id="advPlacesId" >
+				                 <option value="" >-请选择-</option>
+					 			<#if (advPlaces?? && advPlaces?size > 0)>
+			                     <#list advPlaces as advPlace>
+				                 <option value="#{advPlace.id!''}" > ${advPlace.name!''} </option>
+				                </#list>
+				                </#if>
+				          </select> 
+				</td>
+			</tr>
+			<tr>
+				<th class="thList" scope="row" ><font class="red">*</font>广告帧：</th>
+				<td class="tdBox">
+					 	<select name="advFrameId" id="advFrameId" >
+				                 <option value="" >-请选择-</option>
+					 			<#if (advFrames?? && advFrames?size > 0)>
+			                     <#list advFrames as advFrame>
+				                 <option value="#{advFrame.id!''}"  advPlaceId="#{advFrame.advPlaceId!''}"> ${advFrame.name!''} </option>
+				                </#list>
+				                </#if>
+				          </select> 
+				          
+				          <ul id="advFramesValue">
+				          		 <#if (advFrames?? && advFrames?size > 0)>
+			                     <#list advFrames as advFrame>
+				           				 <li advFrameId="#{advFrame.id!''}" advPlaceId="#{advFrame.advPlaceId!''}" advFrameName="${advFrame.name!''}"></li>
+					           </#list>
+					           </#if>
+				          </ul>
+				          
+				          <div id="frameTimes">
+				      </div>
+				</td>
+			</tr>
+			<tr>
+				<th class="thList" scope="row">标题：</th>
+				<td class="tdBox">
+					  <input  name="title" id="title"/> 
+				</td>
+			</tr>
+			<tr>
+				<th class="thList" scope="row"><font class="red">*</font>广告图片：</th>
+				<td class="tdBox">
+					  <input type="file" name="adv_pic_f" id="adv_pic_f"/> 最佳尺寸：750*330的jpg类型图片
+				</td>
+			</tr>
+			<tr>
+				<th class="thList" scope="row"><font class="red">*</font>开始时间：</th>
+				<td class="tdBox">
+				<input name="beginTime" type="text" id="beginTime" value=""  maxlength="11" style="width:120px;"  onfocus="WdatePicker({skin:'default',dateFmt:'yyyy-MM-dd 00:00:00',minDate:'%y-%M-%d  00:00:00'})"  />
+				</td>
+			</tr>
+			<tr>
+				<th class="thList" scope="row"><font class="red">*</font>结束时间：</th>
+				<td class="tdBox">
+					<input name="endTime" type="text" id="endTime" value=""  maxlength="11" style="width:120px;"  onfocus="WdatePicker({skin:'default',dateFmt:'yyyy-MM-dd 23:59:59',minDate:'%y-%M-%d  00:00:00'})"  />
+				</td>
+			</tr>
+			<tr>
+				<th class="thList" scope="row"><font class="red">*</font>绑定链接：</th>
+				<td class="tdBox">
+				 <table>
+					 <tr  style="  height: 30px">
+					   <td width="60px">
+					   <input type="hidden" value="" name="linkObject" id="linkObject" />
+					   <input type="radio" name="linkType" class="linkType" value="1"    checked="checked" />URL</td> 
+					   <td>url:</td>
+					   <td><input id="linkObject1" class="dvalue" value="" dvalue="例如:http://www.xiu.com" maxlength="500"/> </td>
+					   <td style="  width: 90px;text-align: right;">xiuapp:</td>
+					   <td><input id="xiuAppUrl" name="xiuAppUrl"  style="width:300px;"  class="dvalue" value="" dvalue="例如:xiuApp://xiu.app.index/openwith?page=test" maxlength="500"/> </td>
+					   <td><span id="linkObjectMsg1" class="red errormsg"></span></tr>
+					 <tr style="  height: 30px">
+					   <td width="60px"><input type="radio" name="linkType"  class="linkType"  value="2" />话题</td> 
+					   <td> 话题ID:</td>
+					   <td><input id="linkObject2"  value="" maxlength="12"/> 
+					   <td colspan="2"><span id="linkObjectMsg2" class="red " ></span></tr>
+					 </tr>
+					 <tr style="  height: 30px">
+					   <td width="60px"><input type="radio" name="linkType"  class="linkType"  value="3" />秀</td> 
+					   <td> 秀ID:</td>
+					   <td><input id="linkObject3"  value="" maxlength="12"/> 
+					   <td  colspan="2"><span id="linkObjectMsg3" class="red errormsg"  ></span></tr>
+					 </tr>
+					 <tr style="  height: 30px">
+					   <td width="60px"><input type="radio" name="linkType"  class="linkType"  value="4" />卖场</td> 
+					   <td> 卖场ID:</td>
+					   <td><input id="linkObject4"  value="" maxlength="12"/> 
+					   <td  colspan="2"><span id="linkObjectMsg4" class="red errormsg"  ></span></tr>
+					 </tr>
+					 <tr style="  height: 30px">
+					   <td width="60px"><input type="radio" name="linkType"  class="linkType"  value="5" />卖场集</td> 
+					   <td> 卖场集ID:</td>
+					   <td><input id="linkObject5"  value="" maxlength="12"/> 
+					   <td  colspan="2"><span id="linkObjectMsg5" class="red errormsg"  ></span></tr>
+					 </tr>
+					 <tr style="  height: 30px">
+					   <td width="60px"><input type="radio" name="linkType"  class="linkType"  value="6" />商品</td> 
+					   <td> 商品ID:</td>
+					   <td><input id="linkObject6"  value="" maxlength="12"/> 
+					   <td  colspan="2"><span id="linkObjectMsg6" class="red errormsg"  ></span></tr>
+					 </tr>
+					 <tr style="  height: 30px">
+					   <td width="80px"><input type="radio" name="linkType"  class="linkType"  value="7" />商品分类</td> 
+					   <td> 商品分类ID:</td>
+					   <td><input id="linkObject7"  value="" maxlength="12"/>
+					   <td  colspan="2"><span id="linkObjectMsg7" class="red errormsg"  ></span> <font class="gray">(该值系统不作真实存在校验,请确认该值是正确的)</font></tr>
+					 </tr>
+					 <tr style="  height: 30px">
+					   <td width="60px"><input type="radio" name="linkType"  class="linkType"  value="8" />专题</td> 
+					   <td> 专题ID:</td>
+					   <td><input id="linkObject8"  value="" maxlength="12"/> 
+					   <td  colspan="2"><span id="linkObjectMsg8" class="red errormsg"  ></span></tr>
+					 </tr>
+					 <tr style="  height: 30px">
+					   <td width="60px"><input type="radio" name="linkType"  class="linkType"  value="10" />标签</td> 
+					   <td>标签ID:</td>
+					   <td><input id="linkObject10"  value="" maxlength="12"/> 
+					   <td  colspan="2"><span id="linkObjectMsg10" class="red errormsg"  ></span></tr>
+					 </tr>
+					 <tr style="  height: 30px">
+					   <td width="60px"><input type="radio" name="linkType"  class="linkType"  value="11" />秀集合</td> 
+					   <td>秀集合ID:</td>
+					   <td><input id="linkObject11"  value="" maxlength="12"/> 
+					   <td  colspan="2"><span id="linkObjectMsg11" class="red errormsg"  ></span></tr>
+					 </tr>
+			    </table>
+				</td>
+			</tr>
+			<tr>
+				<th class="thList" scope="row"></th>
+				<td class="tdBox">
+                    <p class="fl">
+						<input type="button" onclick="add();" class="userOperBtn" value="确认提交"></input> 
+					</p>
+				</td>
+			</tr>
+		</table>
+				
+	</div>
+</form>
+</div>
+</div>
+<input type="hidden" value="${status!''}" id="updateStatus"/>
+<input type="hidden" value="${msg!''}" id="msg"/>
+
+</body>
+<script type="text/javascript">
+
+$(function(){
+	 var status=$("#updateStatus").val();
+	   var msg=$("#msg").val();
+	 if(status==1){
+	   alert("添加成功");
+	   location.href="${rc.getContextPath()}/adv/list";
+	 }else if(msg!=""){
+	   alert(msg);
+	 }
+	 
+	$(".linkType").change(function() { 
+	   $("#linkObjectTopicMsg").html("");
+	   $("#linkObjectShowMsg").html("");
+	}); 
+	 
+	 $("#linkObject1").blur(function(){
+	    checkUrl();
+	 });
+	 $("#xiuAppUrl").blur(function(){
+	    checkUrl();
+	 });
+	 $("#linkObject2").blur(function(){
+	 	checkShowTopic();
+	 });
+	 $("#linkObject3").blur(function(){
+	    checkShow();
+	 });
+	 $("#linkObject4").blur(function(){
+	    checkTopic();
+	 });
+	 $("#linkObject5").blur(function(){
+	    checkTopicSet();
+	 });
+	 $("#linkObject6").blur(function(){
+	    checkGoods();
+	 });
+	 $("#linkObject7").blur(function(){
+	    checkGoodType();
+	 });
+	 $("#linkObject8").blur(function(){
+	    checkSubject();
+	 });
+	 $("#linkObject10").blur(function(){
+	    checkLable();
+	 });
+	 $("#linkObject11").blur(function(){
+	    checkShowCollection();
+	 });
+	 
+	 $("#advPlacesId").change(function(){
+	   var id=$(this).children('option:selected').val();//这就是selected的值 
+	   var advFramesValueUlLis=$("#advFramesValue li");
+	   $("#advFrameId").empty();
+	   $("#advFrameId").append("<option value=''>-请选择-</option>");
+	   for(var i=0;i<advFramesValueUlLis.length;i++){
+	     var advFrameId=$(advFramesValueUlLis[i]).attr("advFrameId");
+	     var advPlaceId=$(advFramesValueUlLis[i]).attr("advPlaceId");
+	     var advFrameName=$(advFramesValueUlLis[i]).attr("advFrameName");
+	     
+	     if(advPlaceId==id){
+	       	   $("#advFrameId").append("<option value='"+advFrameId+"'>"+advFrameName+"</option>");
+	     }
+	   }
+	 });
+	 
+	 
+	 $("#advFrameId").change(function(){
+	   var id=$(this).children('option:selected').val();//这就是selected的值 
+	   if(id!=""){
+	    findTimesByAdvFrameId(id);
+	   }else{
+	    $("#frameTimes").html("");
+	   }
+	 });
+	 
+	setInputDefaultValue();//设置默认值
+	 
+});
+
+
+
+function checkShowTopic(){
+   	   var params={
+		    url:"showTopic/checkShowTopic?topicId=",
+		    linkType:2,
+		    notExistStr:"话题不存在",
+		    notNulStr:"请输入话题ID",
+	    }
+   return checklinkTypeData(params);
+}
+
+
+function checkUrl(){
+  var isSuccess=true;
+ $(".errormsg").html("");
+  var linkType = $('input[name="linkType"]:checked ').val();
+  if(linkType==1){
+    var linkObject1=$("#linkObject1").val();
+    var linkObjectDvalue=$("#linkObject1").attr("dvalue");
+    var xiuAppUrl=$("#xiuAppUrl").val();
+    var xiuAppUrlDvalue=$("#xiuAppUrl").attr("dvalue");
+    if((linkObject1==''||linkObject1==linkObjectDvalue)&&(xiuAppUrl==""||xiuAppUrl==xiuAppUrlDvalue)){
+       $("#linkObjectMsg1").html("url和xiuapp至少输入一个");
+       isSuccess=false;
+    }else if(linkObject1.lenght>500||xiuAppUrl.length>500){
+       $("#linkObjectMsg1").html("长度不能大于500");
+       isSuccess=false;
+    }
+  }
+  return isSuccess;
+}
+
+function checkShow(){
+	   var params={
+		    url:"show/checkShow?showId=",
+		    linkType:3,
+		    notExistStr:"秀不存在",
+		    notNulStr:"请输入秀ID",
+	    }
+   return checklinkTypeData(params);
+}
+
+//检查卖场
+function checkTopic(){
+      	    var params={
+		    url:"topic/checkTopic?activityId=",
+		    linkType:4,
+		    notExistStr:"卖场不存在",
+		    notNulStr:"请输入卖场ID",
+	    }
+   return checklinkTypeData(params);
+}
+//检查卖场集
+function checkTopicSet(){
+   	    var params={
+		    url:"topic/checkTopicSet?activityId=",
+		    linkType:5,
+		    notExistStr:"卖场集不存在",
+		    notNulStr:"请输入卖场集ID",
+	    }
+   return checklinkTypeData(params);
+}
+
+//检查商品
+function checkGoods(){
+	    var params={
+		    url:"goods/checkGoodsId?goodsId=",
+		    linkType:6,
+		    notExistStr:"商品不存在",
+		    notNulStr:"请输入商品ID",
+	    }
+   return checklinkTypeData(params);
+}
+
+//检查商品分离
+function checkGoodType(){
+  var isSuccess=false;
+   $("#linkObjectMsg"+7).html("");
+    var linkType = $('input[name="linkType"]:checked ').val();
+    if(linkType==7){
+    		    var val=$("#linkObject"+linkType).val();
+		    if(val==''){
+		        $("#linkObjectMsg"+7).html("商品分类ID不能为空");
+		    }else{
+		      isSuccess=true;
+		    }
+    }
+    return isSuccess;
+}
+
+//检查专题
+function checkSubject(){
+	    var params={
+		    url:"subject/checkSubjectId?subjectId=",
+		    linkType:8,
+		    notExistStr:"专题不存在",
+		    notNulStr:"请输入专题ID",
+	    }
+   return checklinkTypeData(params);
+}
+//检查标签
+function checkLable(){
+	    var params={
+		    url:"label/checkLabelId?labelId=",
+		    linkType:10,
+		    notExistStr:"标签不存在",
+		    notNulStr:"请输入标签ID",
+	    }
+   return checklinkTypeData(params);
+}
+//检查秀集合
+function checkShowCollection(){
+	    var params={
+		    url:"show/checkShowCollectionId?showCollectionId=",
+		    linkType:11,
+		    notExistStr:"秀集合不存在",
+		    notNulStr:"请输入秀集合ID",
+	    }
+   return checklinkTypeData(params);
+}
+
+
+/**
+params.url 例如 goods/checkGoodsId?goodsId=
+params.linkType
+params.notExistStr
+params.notNulStr
+*/
+function checklinkTypeData(params){
+  var linkType=params.linkType;
+  $(".errormsg").html("");
+  var isSuccess=false;
+  var chooselinkType = $('input[name="linkType"]:checked ').val();
+		if(linkType==chooselinkType){
+		    var val=$("#linkObject"+linkType).val();
+		    if(val!=''){
+		       $.ajax({
+				type : "GET",
+				async: false,
+				url : "${rc.getContextPath()}/"+params.url + val +"&format=json",
+	            dataType: "text",
+				success : function(data, textStatus) {
+				   if (isNaN(data)) {
+						var objs =  $.parseJSON(data);
+						if (objs != null) {
+							if(objs.scode == "2")
+							{
+						       $("#linkObjectMsg"+linkType).html(params.notExistStr);
+			            	}else{
+			            		isSuccess=true;
+			            	   $("#linkObjectMsg"+linkType).html("");
+			            	}
+						}
+					}
+				},
+				error : function(data) {
+				}
+			}); 
+		    }else{
+		       $("#linkObjectMsg"+linkType).html(params.notNulStr);
+		    }
+	    }
+   return isSuccess;
+}
+
+
+
+	function add(){
+	    var advFrameId =$("#advFrameId").val();
+	    var linkType = $('input[name="linkType"]:checked ').val();
+	    var linkObject =$("#linkObject"+linkType).val();
+	    var beginTime=$("#beginTime").val();
+	    var endTime=$("#endTime").val();
+	    var pic=$("#adv_pic_f").val();
+	    if(advFrameId==""||beginTime==""||endTime==""||pic==""){
+	      alert("请输入完整数据");
+	      return ;
+	    }
+	    
+	    var title=$("#title").val();
+	    
+	   	if(title.length>50){
+	   		alert("标题不能大于50个字符");
+	   		return false;
+	    }
+	    	   
+	   	if(pic.toLowerCase().indexOf(".jpg")<0){
+	   		alert("请上传.jpg类型的图片！");
+	   		return false;
+	    }
+	     if(!compareDate(beginTime,endTime)){
+	       alert("开始时间不能大于结束时间");
+	      return ;
+	   }
+	    if(linkType==1){
+           if(!checkUrl()){
+	        return false;
+	      }
+	       linkObject=$("#linkObject1").val();
+        }
+	    if(linkType==2){
+	      if(!checkShowTopic()){
+	        return false;
+	      }
+	    }
+	    if(linkType==3){
+	      if(!checkShow()){
+	        return false;
+	      }
+	    }
+	    if(linkType==4){
+	      if(!checkTopic()){
+	        return false;
+	      }
+	    }
+	    if(linkType==5){
+	      if(!checkTopicSet()){
+	        return false;
+	      }
+	    }
+	    if(linkType==6){
+	      if(!checkGoods()){
+	        return false;
+	      }
+	    }
+	    if(linkType==7){
+	      if(!checkGoodType()){
+	        return false;
+	      }
+	    }
+	    if(linkType==8){
+	      if(!checkSubject()){
+	        return false;
+	      }
+	    }
+	    
+	    var xiuAppUrl=$("#xiuAppUrl").val();
+	    var xiuAppUrlDvalue=$("#xiuAppUrl").attr("dvalue");
+	    if(xiuAppUrl==xiuAppUrlDvalue){
+	      $("#xiuAppUrl").val("");
+	    }
+	    
+	    $("#linkObject").val(linkObject);
+	   $("#addFocusForm").submit();
+	}
+	
+	function findTimesByAdvFrameId(advFrameId){
+	  $(".errormsg").html("");
+			       $.ajax({
+					type : "GET",
+					async: false,
+					url : "${rc.getContextPath()}/adv/getTimesByAdvFrameId?advFrameId=" + advFrameId +"&format=json",
+		            dataType: "text",
+					success : function(data, textStatus) {
+					        data=data.replace(/"/gm,'');
+					       if(data!=""){
+					             data="以下为该广告帧已经分配的日期:<br/>"+data;
+				            	$("#frameTimes").html(data);
+					       }else{
+					            $("#frameTimes").html("该广告帧还没分配广告");
+					       }
+					},
+					error : function(data) {
+					}
+				}); 
+   }
+	
+</script>
+</html>

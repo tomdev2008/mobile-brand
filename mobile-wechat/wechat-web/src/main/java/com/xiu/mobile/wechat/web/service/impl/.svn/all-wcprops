@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/web/service/impl
+END
+JumpMenuServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/web/service/impl/JumpMenuServiceImpl.java
+END
+FeedbackCfgServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/web/service/impl/FeedbackCfgServiceImpl.java
+END
+LoginServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/web/service/impl/LoginServiceImpl.java
+END
+BindingCfgServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/web/service/impl/BindingCfgServiceImpl.java
+END
+WechatServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/web/service/impl/WechatServiceImpl.java
+END

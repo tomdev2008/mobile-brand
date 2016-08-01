@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/mobile/!svn/ver/23751/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/cache
+END
+XiuAttrGroupCache.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/cache/XiuAttrGroupCache.java
+END
+DeliverInfoCache.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/cache/DeliverInfoCache.java
+END
+XiuBrandInfoCache.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/16509/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/cache/XiuBrandInfoCache.java
+END
+ExclusiveConfigureCache.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/cache/ExclusiveConfigureCache.java
+END
+XiuAttrGroupInfoCache.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/mobile/!svn/ver/23321/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/cache/XiuAttrGroupInfoCache.java
+END
+CatalogTreeCache.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/23418/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/cache/CatalogTreeCache.java
+END

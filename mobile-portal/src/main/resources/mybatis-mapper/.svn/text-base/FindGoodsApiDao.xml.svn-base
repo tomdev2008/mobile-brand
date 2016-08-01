@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.portal.dao.FindGoodsApiDao">
+
+
+
+	<resultMap id="findGoodsResult" type="findGoods">
+		<result property="id" column="id" />
+		<result property="goodsSn" column="goods_sn" />
+		<result property="goodsId" column="goods_id" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="startDate" column="start_date" />
+		<result property="endDate" column="end_date" />
+		<result property="orderSequence" column="order_sequence" />
+		<result property="createDate" column="create_date" />
+		<result property="createBy" column="create_by" />
+		<result property="deleted" column="deleted" />
+		<result property="replaced" column="replaced" />
+		<result property="goodsName" column="product_name" />
+		<result property="goodsImage" column="product_image" />
+		<result property="loveGoodsCnt" column="love_goods_count" />
+		<result property="stock" column="find_goods_stock"/>
+		<result property="hotIncNum" column="hot_inc_num"/>
+	</resultMap>
+	
+
+	<!-- 分页查询发现商品 -->
+	<select id="getFindGoodsList" resultMap="findGoodsResult"
+		parameterType="java.util.Map">
+			select * from (
+				select rownum as rowno,fg.* from(
+					  select f.title,f.goods_sn,f.content,
+							 (select p.product_id from xiu_goods.x_data_prd_info p where f.goods_sn = p.product_sn) goods_id
+					  from xiu_wap.find_goods f
+					  <if test="tagId !=null">
+					      left join xiu_wap.x_label_centre l on f.id=l.subject_id
+					  </if>
+					  where f.deleted = 'N'
+					  and f.replaced = 'N'
+					  and f.start_date &lt;=sysdate
+					  and f.end_date >sysdate
+					  <if test="tagId != null">
+						and l.label_id=#{tagId} and l.category=2
+					  </if>
+					  group by f.order_sequence, f.title, f.goods_sn, f.content, f.hot_inc_num
+					  order by f.order_sequence desc
+				  ) fg
+				  )cc where cc.rowno>=#{lineMin}
+						and cc.rowno &lt; #{lineMax}
+	</select>
+	
+
+	<!-- 查询发现商品总数 -->
+	<select id="getFindGoodsListCount" resultType="int" parameterType="java.util.Map">
+	    select count(1) from  xiu_wap.find_goods f
+	    <if test="tagId !=null">
+	    	left join xiu_wap.x_label_centre l on f.id=l.subject_id
+	    </if>
+		     where f.deleted = 'N'
+		      and f.replaced = 'N'
+		      and f.start_date &lt;=sysdate
+		      and f.end_date>=sysdate
+		      <if test="tagId !=null">
+				and l.label_id=#{tagId} and l.category=2
+			 </if>
+	</select>
+
+
+</mapper>

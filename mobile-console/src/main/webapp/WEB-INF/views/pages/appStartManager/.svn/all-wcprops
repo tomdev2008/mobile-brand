@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/appStartManager
+END
+list.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/appStartManager/list.ftl
+END
+createAppChannel.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/appStartManager/createAppChannel.ftl
+END
+editAppChannel.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/appStartManager/editAppChannel.ftl
+END
+create.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/appStartManager/create.ftl
+END
+appChannelList.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/appStartManager/appChannelList.ftl
+END
+edit.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/appStartManager/edit.ftl
+END

@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/mobile/!svn/ver/27853/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/service
+END
+ISearchService.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/service/ISearchService.java
+END
+IBrandService.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/16456/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/service/IBrandService.java
+END
+ISeoService.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/service/ISeoService.java
+END
+IAttrGroupService.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/service/IAttrGroupService.java
+END
+IExclusiveService.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/service/IExclusiveService.java
+END
+IFacetFilterService.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/service/IFacetFilterService.java
+END
+IPriceQueryService.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/mobile/!svn/ver/20722/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/service/IPriceQueryService.java
+END
+ICatalogService.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/25860/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/service/ICatalogService.java
+END
+ILianXiangService.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/26947/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/service/ILianXiangService.java
+END
+ImutilProductService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/mobile/!svn/ver/23923/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/service/ImutilProductService.java
+END
+ISuggestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/26947/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/service/ISuggestService.java
+END
+ICatSizeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/16265/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/service/ICatSizeService.java
+END

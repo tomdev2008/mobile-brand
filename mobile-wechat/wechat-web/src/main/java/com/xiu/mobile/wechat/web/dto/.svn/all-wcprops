@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/web/dto
+END
+BaseMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/web/dto/BaseMessage.java
+END
+NewsMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/web/dto/NewsMessage.java
+END
+Article.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/web/dto/Article.java
+END
+LoginResVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/web/dto/LoginResVo.java
+END
+TextMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/web/dto/TextMessage.java
+END

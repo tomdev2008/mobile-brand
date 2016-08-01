@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.core.dao.WapH5ModuleDao">
+   <select id="getTargetModuleList" resultType="com.xiu.mobile.core.model.WapH5Module"  parameterType="java.util.Map">
+    select
+      a.id,
+      a.page_id pageId,
+      a.template_Id templateId,
+      b.thumbnail_url thumbnailUrl,
+      a.row_index rowIndex,
+      a.content,
+      a.is_lazy_load isLazyLoad
+    from 
+      x_wap_h5_module a,
+      x_wap_h5_template b
+    where
+      a.template_id = b.id  and  a.page_id =  #{pageId}    
+      order by a.row_index asc
+   </select>
+   
+   <select id="getTargetModuleByRowIndex" resultType="com.xiu.mobile.core.model.WapH5Module"  parameterType="java.util.Map">
+    select
+      a.id,
+      a.page_id pageId,
+      a.template_Id templateId,
+      b.thumbnail_url thumbnailUrl,
+      a.row_index rowIndex,
+      a.content,
+      a.is_lazy_load isLazyLoad
+    from 
+      x_wap_h5_module a,
+      x_wap_h5_template b
+    where
+      a.template_id = b.id  and  a.page_id =  #{pageId} and a.row_index = #{rowIndex}    
+      order by a.row_index asc
+   </select>
+   
+    <select id="getModuleListIds" resultType="java.lang.Long"  parameterType="java.lang.Long">
+	    select
+	      a.id
+	    from 
+	      x_wap_h5_module a
+	    where
+	       a.page_id in
+	       <foreach collection="pageIds" item="id" open="(" close=")"
+				separator=",">
+				#{id}
+			</foreach>   
+   </select>
+   
+   <delete id="deleteModuleList" parameterType="java.lang.Long">
+       delete from x_wap_h5_module where page_id in
+       	<foreach collection="pageIds" item="id" open="(" close=")"
+				separator=",">
+				#{id}
+		</foreach>   
+   </delete>
+   
+   
+      <insert id="addModule"  parameterType="com.xiu.mobile.core.model.WapH5Module">
+       insert into x_wap_h5_module(
+       		id,
+       		PAGE_ID,
+       		TEMPLATE_ID,
+       		ROW_INDEX,
+       		CONTENT,
+       		CREATE_TIME,
+       		LASTUPDATE_TIME,
+       		LAST_EDITER,
+       		is_lazy_load
+       )values(
+       		SEQ_H5_MODULE_ID.nextval,
+       		#{pageId},
+       		#{templateId},
+       		#{rowIndex},
+       		'',
+       		sysdate,
+       		sysdate,
+       		#{lastEditer},
+       		#{isLazyLoad}
+       )
+   </insert>
+   
+   <update id="moveRowIndex" parameterType="java.util.HashMap">
+       update 
+       	 x_wap_h5_module
+       set
+       	 <if test="direct == 1"> <!-- 后面的向上移动 -->
+	         ROW_INDEX = ROW_INDEX - 1 ,
+       	 </if>
+       	 <if test="direct == 2"> <!-- 后面的向下移动 -->
+	         ROW_INDEX = ROW_INDEX + 1 ,
+       	 </if>
+       	 lastupdate_time = sysdate
+       where
+         page_id = #{pageId}
+         and row_index >= #{currentIndex}
+   </update>
+   
+   
+   <update id="updateRowIndex" parameterType="com.xiu.mobile.core.model.WapH5Module">
+       update 
+       	 x_wap_h5_module
+       set
+	     ROW_INDEX = #{rowIndex} ,lastupdate_time = sysdate
+       where
+        id = #{id}
+   </update>
+   
+   
+   
+   <select id="queryModuleDataByModuleId" parameterType="java.lang.Long" resultType="com.xiu.mobile.core.model.WapH5ModuleData">
+       select
+       	 d.id,
+       	 d.module_id moduleId,
+       	 d.data_type dataType,
+       	 d.data_id dataId,
+       	 d.title,
+       	 d.vice_title viceTitle,
+       	 d.img,
+       	 d.link,
+       	 d.final_price finalPrice,
+       	 d.original_price originalPrice,
+       	 d.brand_name brandName,
+       	 d.is_font_float isFontFloat,
+       	 d.excel_row excelRow,
+       	 d.attr1,
+       	 d.attr2,
+       	 d.attr3,
+       	 d.create_time createTime,
+       	 d.position position
+       from
+       	 x_wap_h5_module m,
+       	 x_wap_h5_module_data d
+       where
+       	 m.id = d.module_id
+         and m.id = #{moduleId}
+         order by d.position, d.id
+   </select>
+   
+   <delete id="deleteModuleData" parameterType="java.lang.Long">
+       delete from x_wap_h5_module_data where module_id = #{moduleId}
+   </delete>
+
+ 	<delete id="deleteModuleDataList" parameterType="java.lang.Long">
+       delete from x_wap_h5_module_data where module_id in
+       	<foreach collection="moduleIds" item="id" open="(" close=")"
+				separator=",">
+				#{id}
+		</foreach>   
+   </delete>
+   
+   
+   
+   <insert id="saveModuleData" parameterType="com.xiu.mobile.core.model.WapH5ModuleData">
+       insert into x_wap_h5_module_data(
+          id,
+          module_id,
+		  data_type,
+		  data_id,
+		  title,
+		  vice_title,
+		  img,
+		  link,
+		  final_price,
+		  original_price,
+		  brand_name,
+		  is_font_float,
+		  excel_row,
+		  attr1,
+		  attr2,
+		  attr3,
+		  create_time,
+		  lastupdate_time,
+		  last_editer,
+		  position
+       )values(
+       	  SEQ_H5_MODULE_DATA_ID.nextval,
+       	  #{moduleId},
+       	  #{dataType},
+       	  #{dataId},
+       	  #{title},
+       	  #{viceTitle},
+       	  #{img},
+       	  #{link},
+       	  #{finalPrice},
+       	  #{originalPrice},
+       	  #{brandName},
+       	  #{isFontFloat},
+       	  #{excelRow},
+       	  #{attr1},
+       	  #{attr2},
+       	  #{attr3},
+       	  sysdate,
+       	  sysdate,
+       	  #{lastEditer},
+       	  #{position}
+       )
+   </insert>
+       
+       
+    <!-- 删除主件 -->
+	<delete id="deleteById" parameterType="java.lang.Long">
+		delete from x_wap_h5_module 	
+		 where id = #{id}
+	</delete>
+	
+	<delete id="deleteBypageId" parameterType="java.lang.Long">
+		delete from x_wap_h5_module 	
+		 where page_id = #{pageId}
+	</delete>
+	
+	<select id="getModuleDataCount" parameterType="java.lang.Long" resultType="com.xiu.mobile.core.model.WapH5Module">
+		select a.id, count(a.id) dataCount from xiu_wap.x_wap_h5_module a,x_wap_h5_module_data b where a.page_id =#{pageId} and  b.module_id =a.id group by a.id
+	</select>
+	
+	<!-- 查询商品走秀码列表 -->
+	<select id="queryStoreGoodsByStoreId" parameterType="java.util.HashMap" resultType="java.lang.String">
+		select * from(	
+	    	select g.goods_id
+			  from xiu_cms.cms_goods g
+		    where 
+		      g.deleted = 'N'
+		      and g.activity_id= #{activityId}
+		      order by g.goodscatagorder desc,g.order_seq desc
+		  )a where rownum &lt;=15
+	</select>
+	
+	<select id="queryPageInfoByModuleId" parameterType="java.lang.Long" resultType="com.xiu.mobile.core.model.WapH5List">
+	    select 
+			l.id,
+			l.title,
+			l.photo,
+			l.share_content shareContent,
+			is_share isShare
+		from 
+			x_wap_h5_list l,
+			x_wap_h5_module m
+	    where
+	    	l.id = m.page_id
+	    	and m.id = #{id}
+	</select>
+	
+	<select id="queryModuleInfoById" parameterType="java.lang.Long" resultType="com.xiu.mobile.core.model.WapH5Module">
+	    select
+	    	id,
+	    	page_id pageId,
+	    	template_id templateId,
+	    	row_index rowIndex,
+	    	content,
+	    	is_lazy_load isLazyLoad,
+	    	create_time createTime
+	    from
+	    	x_wap_h5_module m
+	    where
+	    	m.id = #{id}
+	</select>
+	
+	<select id="queryModuleDataById" parameterType="java.lang.Long" resultType="com.xiu.mobile.core.model.WapH5ModuleData">
+		select
+       	 d.id,
+       	 d.module_id moduleId,
+       	 d.data_type dataType,
+       	 d.data_id dataId,
+       	 d.title,
+       	 d.vice_title viceTitle,
+       	 d.img,
+       	 d.link,
+       	 d.final_price finalPrice,
+       	 d.original_price originalPrice,
+       	 d.brand_name brandName,
+       	 d.is_font_float isFontFloat,
+       	 d.excel_row excelRow,
+       	 d.attr1,
+       	 d.attr2,
+       	 d.attr3,
+       	 d.create_time createTime,
+       	 d.position position
+       from
+       	 x_wap_h5_module_data d
+       where
+         and d.id = #{moduleDataId}
+	</select>
+	
+	<update id="updateModuleLazyLoad" parameterType="java.util.HashMap">
+	    update 
+	    	x_wap_h5_module
+	    set
+	    	is_lazy_load = #{isLazyLoad}
+	    where
+	    	id = #{moduleId}
+	</update>
+</mapper>

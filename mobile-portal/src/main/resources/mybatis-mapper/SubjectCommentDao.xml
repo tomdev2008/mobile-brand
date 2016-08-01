@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.portal.dao.SubjectCommentDao">
+	
+	<select id="getSubjectCommentCountById" resultType="int" parameterType="java.util.Map">
+	 <![CDATA[
+        select count(id) from subject_comment where ID=#{id}  AND USER_ID=#{userId} and delete_flag=0
+      ]]>
+	</select>
+	<select id="getSubjectsCommentCount" resultType="int" parameterType="java.util.Map">
+	 <![CDATA[
+        select count(id) from subject_comment where delete_flag=0
+      ]]>
+	</select>
+	<select id="getCountBySubjectIDAndUserId" resultType="int" parameterType="java.util.Map">
+	 <![CDATA[
+        select count(id) from subject_comment where subject_id=#{subjectId}  AND user_id=#{userId} and delete_flag=0
+      ]]>
+	</select>
+	<select id="getSubjectIdByIdAndUserId" resultType="java.lang.Long" parameterType="java.util.Map">
+	 <![CDATA[
+        select subject_id from subject_comment where ID=#{id}  and user_id=#{userId}
+      ]]>
+        <if test="!managerOperFlag">
+        and user_id= #{userId}
+        </if>
+	 <![CDATA[
+        and delete_flag=0
+      ]]>
+	</select>
+	<!-- 根据评论ID查询评论的用户ID -->
+	<select id="getCommentUserIdById" parameterType="java.util.HashMap" resultType="java.lang.Long">
+		select user_id from subject_comment where id = #{id} and delete_flag = 0
+	</select>
+	<insert id="addSubjectComment" parameterType="java.util.Map" >
+		 	INSERT INTO subject_comment 
+		 	(ID,USER_ID,SUBJECT_ID,CONTENT,COMMENTED_USER_ID,DELETE_FLAG,CREATE_DATE,UPDATE_DATE) 
+		 	VALUES(#{id},#{userId},#{subjectId},
+		 	 <![CDATA[#{content},  ]]>
+		 	#{commentedUserId},#{deleteFlag},SYSDATE,SYSDATE)
+	</insert>
+
+	<!-- 删除评论 -->
+	<update id="delSubjectComment" parameterType="java.util.Map">
+		update subject_comment 
+		   set delete_flag = 1, update_date = sysdate 
+		 where id = #{id} and user_id=#{userId}
+	</update>
+	
+	<resultMap id="commentMap" type="com.xiu.mobile.portal.model.SubjectCommentVO">
+		<result column="ID" property="id" />
+		<result column="USER_ID" property="userId" />
+		<result column="SUBJECT_ID" property="subjectId" />
+		<result column="CONTENT" property="content"  />
+		<result column="PET_NAME" property="petName" />
+		<result column="HEAD_PORTRAIT" property="headPortrait" />
+		<result column="COMMENT_DATE" property="commentDate" />
+		<result column="COMMENTED_USER_ID" property="commentedUserId" />
+		<result column="COMMENTED_PET_NAME" property="commentedPetName" />
+		<result column="TALENT_FLAG" property="talentFlag" />
+	</resultMap>
+	
+		
+	<!-- 获取标签ID序列 -->
+	<select id="getSubjectCommentSqeuence" resultType="java.lang.Long">
+		select subject_comment_seq.nextval from dual
+	</select>
+	
+	
+	<!-- 查询评论列表 -->
+	<select id="getSubjectCommentList" parameterType="java.util.HashMap" resultMap="commentMap">
+		select b.*,
+			   (select x.pet_name from xiu_uc.v_uuc_user_sq_info x where x.user_id = b.user_id) pet_name,
+			   (select x.head_portrait from xiu_uc.v_uuc_user_sq_info x where x.user_id = b.user_id) head_portrait,
+		       decode(floor(trunc(sysdate) - trunc(b.create_date)), 
+		              0, '今天 ' || to_char(b.create_date, 'hh24:mi'), 
+		              1, '昨天 ' || to_char(b.create_date, 'hh24:mi'), 
+		              2, '前天 ' || to_char(b.create_date, 'hh24:mi'),
+		              to_char(b.create_date, 'mm')||'-'||to_char(b.create_date,'dd')||' '||to_char(b.create_date,'hh24:mi')) comment_date,
+		       (select x.pet_name from xiu_uc.v_uuc_user_sq_info x where x.user_id = b.commented_user_id) commented_pet_name
+		  from (
+			select a.*,rownum rowno from (
+				select sc.id,sc.user_id,sc.subject_id,sc.content,sc.commented_user_id,sc.create_date
+				  from subject_comment sc
+				 where sc.subject_id = #{subjectId} and sc.delete_flag = 0
+				 order by sc.create_date desc, sc.id desc) a
+			 where rownum &lt; #{lineMax}) b
+		 where b.rowno &gt;= #{lineMin}
+		 order by b.create_date desc, b.id desc
+	</select>
+	
+	<!-- 查询所有专题评论列表 -->
+	<select id="getSubjectsCommentList" parameterType="java.util.HashMap" resultMap="commentMap">
+		select b.*,
+			   (select x.pet_name from xiu_uc.v_uuc_user_sq_info x where x.user_id = b.user_id) pet_name,
+			   (select x.head_portrait from xiu_uc.v_uuc_user_sq_info x where x.user_id = b.user_id) head_portrait,
+		       decode(floor(trunc(sysdate) - trunc(b.create_date)), 
+		              0, '今天 ' || to_char(b.create_date, 'hh24:mi'), 
+		              1, '昨天 ' || to_char(b.create_date, 'hh24:mi'), 
+		              2, '前天 ' || to_char(b.create_date, 'hh24:mi'),
+		              to_char(b.create_date, 'mm')||'-'||to_char(b.create_date,'dd')||' '||to_char(b.create_date,'hh24:mi')) comment_date,
+		       (select x.pet_name from xiu_uc.v_uuc_user_sq_info x where x.user_id = b.commented_user_id) commented_pet_name
+		  from (
+			select a.*,rownum rowno from (
+				select sc.id,sc.user_id,sc.subject_id,sc.content,sc.commented_user_id,sc.create_date
+				  from subject_comment sc
+				 where  sc.delete_flag = 0
+				 order by sc.create_date desc, sc.id desc) a
+			 where rownum &lt; #{lineMax}) b
+		 where b.rowno &gt;= #{lineMin}
+		 order by b.create_date desc, b.id desc
+	</select>
+	
+	<!-- 查询秀评论数量 -->
+	<select id="getSubjectCommentCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+		select count(1)
+		  from subject_comment sc
+		 where sc.subject_id = #{subjectId} and sc.delete_flag = 0
+	</select>
+	
+	<!-- 查询评论信息 -->
+	<select id="getCommentInfo" parameterType="java.util.HashMap" resultMap="commentMap">
+		select sc.id,sc.user_id,sc.Subject_id,sc.content,sc.commented_user_id,sc.create_date,
+			   (select x.pet_name from xiu_uc.v_uuc_user_sq_info x where x.user_id = sc.user_id) pet_name,
+			   (select x.head_portrait from xiu_uc.v_uuc_user_sq_info x where x.user_id = sc.user_id) head_portrait,
+		       decode(floor(trunc(sysdate) - trunc(sc.create_date)), 
+		              0, '今天 ' || to_char(sc.create_date, 'hh24:mi'), 
+		              1, '昨天 ' || to_char(sc.create_date, 'hh24:mi'), 
+		              2, '前天 ' || to_char(sc.create_date, 'hh24:mi'),
+		              to_char(sc.create_date, 'mm')||'-'||to_char(sc.create_date,'dd')||' '||to_char(sc.create_date,'hh24:mi')) comment_date,
+		       (select x.pet_name from xiu_uc.v_uuc_user_sq_info x where x.user_id = sc.commented_user_id) commented_pet_name,
+		       (select u.talent_flag from sq_user_info u where u.user_id = sc.user_id) talent_flag
+		  from subject_comment sc
+		 where sc.id = #{commentId} and sc.delete_flag = 0
+	</select>
+	
+		<!-- 删除用户所有评论 -->
+	<update id="delSubjectCommentByUserId" parameterType="java.util.Map">
+		update subject_comment 
+		   set delete_flag = 1, update_date = sysdate 
+		 where  user_id=#{userId}
+	</update>
+	
+		<!-- 删除用户所有评论 -->
+	<update id="delBatchSubjectComment" parameterType="java.util.Map">
+		update subject_comment 
+		   set delete_flag = 1, update_date = sysdate 
+		 where  ID	in
+		<foreach collection="ids" item="id" open="(" close=")" separator=",">
+			#{id}
+		</foreach>
+	</update>
+	
+</mapper>

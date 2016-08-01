@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/mobile/!svn/ver/15484/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/biz/impl
+END
+UserServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/biz/impl/UserServiceImpl.java
+END
+UserRoleServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/biz/impl/UserRoleServiceImpl.java
+END
+RoleServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/biz/impl/RoleServiceImpl.java
+END
+DevelopmentServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/biz/impl/DevelopmentServiceImpl.java
+END
+MenuServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/15484/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/biz/impl/MenuServiceImpl.java
+END
+RoleMenuServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/biz/impl/RoleMenuServiceImpl.java
+END
+UserUserGroupServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/biz/impl/UserUserGroupServiceImpl.java
+END
+UserGroupServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/biz/impl/UserGroupServiceImpl.java
+END

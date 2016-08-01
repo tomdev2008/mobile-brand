@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/constants
+END
+XiuConstant.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/constants/XiuConstant.java
+END
+LoginRegConstant.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/constants/LoginRegConstant.java
+END
+ErrorCode.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/constants/ErrorCode.java
+END
+GoodsConstant.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/constants/GoodsConstant.java
+END
+SendingPlaceMsgs.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/constants/SendingPlaceMsgs.java
+END
+ArrivalTimeMsgs.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/constants/ArrivalTimeMsgs.java
+END
+LpStatusConstant.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/constants/LpStatusConstant.java
+END
+OrderRuleConstant.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/common/constants/OrderRuleConstant.java
+END

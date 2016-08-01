@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/service
+END
+IBookmarkService.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/service/IBookmarkService.java
+END
+ITopicActivityGoodsService.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/service/ITopicActivityGoodsService.java
+END
+ILoginService.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/service/ILoginService.java
+END
+IWellChosenBrandService.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/service/IWellChosenBrandService.java
+END
+IActivityNoregularService.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/service/IActivityNoregularService.java
+END
+IGoodsService.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/service/IGoodsService.java
+END
+IUserService.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/service/IUserService.java
+END
+ISysParamService.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/service/ISysParamService.java
+END
+IProductService.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/service/IProductService.java
+END

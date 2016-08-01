@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.portal.dao.UserPayPlatformDao">
+	<resultMap id="userPayPlatform" type="com.xiu.mobile.portal.model.UserPayPlatform">
+		<result property="userId" column="user_id" />
+		<result property="createDate" column="create_date" />
+		<result property="updateDate" column="update_date" />
+		<result property="payPlatform" column="pay_platform" />
+	</resultMap>
+
+	<insert id="insert" parameterType="userPayPlatform">
+		 	insert into USER_PAY_PLATFORM(user_id,create_date,pay_platform) 
+		 	values(#{userId},#{createDate},#{payPlatform})
+	</insert>
+	
+	<update id="update" parameterType="userPayPlatform">
+	   update USER_PAY_PLATFORM set create_date = #{createDate},update_date=#{updateDate},pay_platform = #{payPlatform} where user_id = #{userId}
+	</update>
+	
+	<select id="get" resultMap="userPayPlatform" parameterType="java.lang.String">
+		select user_id,create_date,update_date,pay_platform from USER_PAY_PLATFORM where user_id = #{userId}
+	</select>
+	
+</mapper>

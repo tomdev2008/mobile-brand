@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/mobile/!svn/ver/23324/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/dao/model
+END
+XBrandModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/dao/model/XBrandModel.java
+END
+XiuCatalogDBModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/dao/model/XiuCatalogDBModel.java
+END
+DeliverModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/dao/model/DeliverModel.java
+END
+XDataAttrDesc.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/23324/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/dao/model/XDataAttrDesc.java
+END
+XSalesCatalogCond.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/dao/model/XSalesCatalogCond.java
+END

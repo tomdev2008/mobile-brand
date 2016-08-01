@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/mobile/!svn/ver/25737/trunk_k/servers/mobile-server/mobile-portal/src/main/webapp/WEB-INF
+END
+solr-service-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/webapp/WEB-INF/solr-service-config.xml
+END
+web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/webapp/WEB-INF/web.xml
+END

@@ -1,0 +1,173 @@
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/mobile/!svn/ver/27860/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/dao
+END
+ActivityNoregularDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/dao/ActivityNoregularDao.java
+END
+VomitSayDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/dao/VomitSayDao.java
+END
+MessageCodeDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/25496/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/dao/MessageCodeDao.java
+END
+ShowUserDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/mobile/!svn/ver/18895/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/dao/ShowUserDao.java
+END
+ProductDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/27003/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/dao/ProductDao.java
+END
+AppDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/dao/AppDao.java
+END
+SubjectCommentDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/18950/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/dao/SubjectCommentDao.java
+END
+SysParamsDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/27663/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/dao/SysParamsDao.java
+END
+BusinessStatisticDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/26416/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/dao/BusinessStatisticDao.java
+END
+FavorBrandDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/mobile/!svn/ver/27860/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/dao/FavorBrandDao.java
+END
+QuestionPlayerDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/dao/QuestionPlayerDao.java
+END
+TopicActivityGoodsDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/dao/TopicActivityGoodsDao.java
+END
+BookmarkIitemListDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/dao/BookmarkIitemListDao.java
+END
+PayForTempletDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/dao/PayForTempletDao.java
+END
+TopicActivityDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/mobile/!svn/ver/24048/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/dao/TopicActivityDao.java
+END
+BrowseGoodsDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/dao/BrowseGoodsDao.java
+END
+BookmarkIitemDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/mobile/!svn/ver/23345/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/dao/BookmarkIitemDao.java
+END
+UserPayPlatformDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/dao/UserPayPlatformDao.java
+END
+AskBuyDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/mobile/!svn/ver/24043/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/dao/AskBuyDao.java
+END
+SubjectDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/26416/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/dao/SubjectDao.java
+END
+QuestionGameDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/dao/QuestionGameDao.java
+END
+ShoppingCartDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/18058/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/dao/ShoppingCartDao.java
+END
+FindMenuDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/mobile/!svn/ver/25267/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/dao/FindMenuDao.java
+END
+SimpleTopicActivityDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/dao/SimpleTopicActivityDao.java
+END
+FindGoodsApiDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/17150/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/dao/FindGoodsApiDao.java
+END
+AdvViewLogDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/mobile/!svn/ver/16415/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/dao/AdvViewLogDao.java
+END
+LoginDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/mobile/!svn/ver/18782/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/dao/LoginDao.java
+END
+AdvDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/mobile/!svn/ver/17859/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/dao/AdvDao.java
+END

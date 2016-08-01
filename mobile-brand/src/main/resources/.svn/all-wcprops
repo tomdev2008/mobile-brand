@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/mobile/!svn/ver/27854/trunk_k/servers/mobile-server/mobile-brand/src/main/resources
+END
+applicationContext-web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/resources/applicationContext-web.xml
+END
+searchhistory.properties
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/mobile/!svn/ver/20081/trunk_k/servers/mobile-server/mobile-brand/src/main/resources/searchhistory.properties
+END
+applicationContext-service.xml
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/mobile/!svn/ver/27854/trunk_k/servers/mobile-server/mobile-brand/src/main/resources/applicationContext-service.xml
+END
+applicationContext-dao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/resources/applicationContext-dao.xml
+END
+mybatis-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/mobile/!svn/ver/23325/trunk_k/servers/mobile-server/mobile-brand/src/main/resources/mybatis-config.xml
+END
+synonyms.properties
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/mobile/!svn/ver/20081/trunk_k/servers/mobile-server/mobile-brand/src/main/resources/synonyms.properties
+END

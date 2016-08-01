@@ -1,0 +1,44 @@
+/*CSS Reset*/
+.succ {
+	padding: 30px 0 50px 30px;
+	font-size: 16px;
+}
+
+.succ h1 {
+	font-size: 20px;
+}
+
+.white-btn {
+	border: 1px solid #dbdbdb;
+	background: #fff;
+	color: #464646;
+}
+
+.innerContent {
+	padding: 45px 10px 0;
+}
+
+.innerContent .ui-btn:last-child {
+	margin-top: 35px;
+}
+
+.orange-btn {
+	background: #ea7514;
+	border: 1px solid #EA7514;
+}
+
+.ui-btn {
+	display: block;
+	height: 40px;
+	width: 100%;
+	line-height: 40px;
+	text-align: center;
+	font-size: 1.3em;
+	font-weight: bold;
+	color: #fff;
+	cursor: pointer;
+	font-family: '微软雅黑', Arial, Helvetica, sans-serif;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+}

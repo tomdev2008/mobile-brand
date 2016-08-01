@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.core.dao.LabelDao">
+<!-- 	查询所有标签信息，不分页 -->
+	<select id="getSubjectLabel" resultType="com.xiu.mobile.core.model.Label" parameterType="java.lang.Integer">
+		select s.label_id labelId,s.title,s.display,s.create_date createDate,s.operator,
+		       s.order_seq orderSeq from x_subject_label s where 1=1 and s.display=1
+		       and category=#{category}
+	</select>
+	<select id="getSubjectLabelSecond" resultType="com.xiu.mobile.core.model.Label" parameterType="java.lang.Integer">
+		select f.* from (select s.label_id    labelId,
+	       s.title,
+	       s.display,
+	       s.create_date createDate,
+	       s.operator,
+	       s.order_seq   orderSeq
+	  from x_subject_label s
+	 where 1 = 1
+	   and s.display = 1
+	   and category = #{category}
+	   order by order_seq desc)f
+	   where rownum &lt; 3
+	</select>
+   <!-- 查询标签分页 -->
+   <select id="getLabelList" resultType="com.xiu.mobile.core.model.Label"  parameterType="java.util.Map">
+	  select b.* from    
+	       (select a.*,rownum rowno from(
+			select s.label_id    labelId,
+			       s.name        title,
+			       s.create_date createDate,
+			       s.operator,
+			       s.label_group labelGroup,
+			       s.status,
+			       s.order_seq   orderSeq,
+			       (select count(1) from xiu_goods.x_LABEL_CONCERN l where l.LABEL_ID=s.label_id) labelFans,
+			       (select count(1) from xiu_goods.X_LABEL_RELATION l where l.MAIN_LABEL_ID=s.label_id and l.CATEGORY=6) relationLabelNum,
+			        (select count(1) from xiu_goods.x_label_object l where l.label_id=s.label_id and l.CATEGORY=6) relationServiceNum,
+			       s.img_url     imgUrl
+			  from xiu_goods.x_label s
+			 where s.DELETE_FLAG = 0
+			 <if test="labelId!=null and labelId!=''">
+			  and s.label_id=#{labelId}
+			 </if>
+			 <if test="labelName!=null and labelName!=''">
+              and s.name like '%'||#{labelName}||'%'
+			 </if>
+			 <if test="labelGroup!=null ">
+              and s.label_group=#{labelGroup}
+			 </if>
+			 <if test="opUser!=null and opUser!=''">
+              and s.operator=#{opUser}
+			 </if>
+			 order by order_seq desc, create_date desc
+	       )a where rownum &lt; #{pageMax}
+       )b where b.rowno &gt;= #{pageMin}
+	</select>
+<!-- 	标签总数 -->
+	<select id="getLabelCount" parameterType="java.util.Map" resultType="java.lang.Integer">
+		select count(1) from xiu_goods.x_label s where s.DELETE_FLAG = 0
+			 <if test="labelId!=null and labelId!=''">
+			  and s.label_id=#{labelId}
+			 </if>
+			 <if test="labelName!=null and labelName!=''">
+              and s.name like '%'||#{labelName}||'%'
+			 </if>
+			  <if test="labelGroup!=null ">
+              and s.label_group=#{labelGroup}
+			 </if>
+	</select>
+<!-- 	添加标签 -->
+	<insert id="addSubjectLabel" parameterType="com.xiu.mobile.core.model.Label">
+		insert into xiu_goods.x_label(label_id,name,create_date,operator,order_seq,label_group,img_url,status) 
+		values(xiu_goods.seq_x_label.nextval,#{title},sysdate,#{operator},#{orderSeq},#{labelGroup},#{imgUrl},#{status})
+	</insert>
+<!-- 	根据ID查询标签信息 -->
+	<select id="getLabelInfo" parameterType="java.lang.Long" resultType="com.xiu.mobile.core.model.Label">
+		select s.label_id labelId,s.name title,s.create_date createDate,s.status,s.img_url imgUrl,
+		 s.operator,s.order_seq orderSeq,s.label_group labelGroup from xiu_goods.x_label s where s.label_id=#{labelId}
+	</select>
+<!-- 	修改标签信息 -->
+	<update id="updaetLabel" parameterType="com.xiu.mobile.core.model.Label">
+		update xiu_goods.x_label set name=#{title},update_date=sysdate,
+		operator=#{operator},
+		status=#{status},
+		label_group=#{labelGroup},
+		<if test="imgUrl!=null and imgUrl!=''">
+	  		img_url=#{imgUrl},
+		</if>
+		order_seq=#{orderSeq}
+		where label_id=#{labelId}
+	</update>
+<!-- 	根据ID删除标签 -->
+	<delete id="deleteLabel" parameterType="java.lang.Long">
+		UPDATE xiu_goods.x_label set DELETE_FLAG=1,OPERATOR=#{operator} where label_id=#{labelId}
+	</delete>
+<!-- 	批量查询专题/单品对应的标签 -->
+	<select id="findLabelCentreList" resultType="com.xiu.mobile.core.model.LabelCentre" parameterType="java.util.Map">
+		select l.subject_id subjectId, l.label_id labelId, s.title
+		  from x_label_centre l, xiu_goods.x_label s
+		 where s.object_id = l.label_id
+		   and l.subject_id in
+	     <foreach collection="subjectId" item="subjectId" open="(" close=")"
+			separator=",">
+			#{subjectId}
+		</foreach>
+		   and s.category = #{category}
+		   and s.display = 1
+		   order by l.order_sql
+	</select>
+	<select id="findLabelBySubjectId" resultType="com.xiu.mobile.core.model.LabelCentre" parameterType="java.util.Map">
+		select l.subject_id subjectId, l.label_id labelId, s.title
+		  from x_label_centre l, x_subject_label s
+		 where s.label_id = l.label_id
+		   and l.subject_id =#{subjectId}
+		   and s.category = #{category}
+		   and s.display = 1
+		   order by l.order_sql
+	</select>
+	<insert id="addLabelCentreList" parameterType="java.util.HashMap">
+		insert into x_label_centre (id, label_id, subject_id, create_time,category,order_sql)
+		  select seq_x_label_centre.nextval id,t.* from (
+		  	<foreach collection="list" item="item" index="index" separator="union all">
+		  	select #{item.labelId} label_id,
+		  	#{item.subjectId} subject_id,
+		  	sysdate,
+		  	#{item.category} category,
+		  	#{item.orderSql} orderSql
+		  	from dual
+		  	</foreach>
+		  )t
+	</insert>
+	<delete id="deleteLabelCentreList" parameterType="java.util.Map">
+		delete x_label_centre c where c.subject_id=#{subjectId} and c.category=#{category}
+	</delete>
+	<select id="findLabelIdByTitle" parameterType="java.util.Map" resultType="com.xiu.mobile.core.model.Label">
+		select c.label_id labelId from x_subject_label c where c.title=#{title} and c.category=#{category}
+	</select>
+	
+	<insert id="addLabelObjectList" parameterType="com.xiu.mobile.core.model.LabelCentre">
+		insert into xiu_goods.X_LABEL_OBJECT (id, label_id,object_id, CREATE_DATE,category,LABEL_ORDER_SEQ,OBJECT_ORDER_SEQ)
+		  select xiu_goods.SEQ_X_LABEL_OBJECT.nextval id,t.* from (
+		  	<foreach collection="list" item="item" index="index" separator="union all">
+		  	select #{item.labelId} label_id,
+		  	#{item.objectId} object_id,
+		  	sysdate,
+		  	#{item.category} category,
+		  	#{item.lableOrderSeq} LABEL_ORDER_SEQ,
+		  	#{item.objectOrderSeq} OBJECT_ORDER_SEQ
+		  	from dual
+		  	</foreach>
+		  )t
+	</insert>
+
+
+	<select id="findNewAddLabel" resultType="com.xiu.mobile.core.model.Label">
+		select s.name title,s.label_id labelId
+		          from xiu_goods.x_label s
+		         where s.DELETE_FLAG = 0 and s.status=1
+		         order by s.create_date desc
+	</select>
+	<select id="findHistoryLabel" resultType="com.xiu.mobile.core.model.Label">
+		 select s.name title,s.label_id labelId
+			  from (select DISTINCT c.label_id
+			          from (select l.label_id
+			                  from xiu_goods.x_label_object l
+                       order by l.create_date) c) a,
+              xiu_goods.x_label s
+       where a.label_id = s.label_id
+             and s.DELETE_FLAG = 0 and s.status=1
+			 and rownum &lt;= 15
+	</select>
+	
+	<select id="getLabelIdByName" resultType="java.lang.Long" parameterType="java.lang.String">
+		select s.label_id from  xiu_goods.x_label s 
+		      where upper(s.name)=upper(#{labelName}) and s.DELETE_FLAG=0 and s.STATUS=1
+	</select>
+	
+	<select id="findLabelListByObjectIdAndType" resultType="com.xiu.mobile.core.model.Label" parameterType="java.util.Map">
+	    select s.label_id labelId, s.name title
+	      from xiu_goods.x_label s, xiu_goods.x_label_object lo
+	     where s.label_id = lo.label_id
+	       and s.DELETE_FLAG=0 and s.status=1
+	       and lo.object_id =#{objectId}
+	       and lo.category=#{type}
+	</select>
+	
+
+    <delete id="deleteBatchLabelObject" parameterType="java.util.Map">
+       delete xiu_goods.x_label_object lo
+        where lo.object_id=#{objectId}
+         and lo.CATEGORY=#{type}
+    </delete>
+
+	
+	<select id="findLabelsByObjectIds" resultType="com.xiu.mobile.core.model.LabelCentre" parameterType="java.util.Map">
+	    select lo.label_id labelId, lo.object_id objectId, l.name title
+	      from xiu_goods.X_LABEL_OBJECT lo, xiu_goods.X_LABEL l
+	     where lo.label_id = l.label_id
+	       and lo.category =#{type}
+	       and l.DELETE_FLAG=0  and l.status=1
+	       and lo.object_id in	     
+	       <foreach collection="objectIds" item="objectId" open="(" close=")"
+			separator=",">
+			#{objectId}
+		   </foreach>
+	</select>
+	
+	
+	<select id="getLabelIdByNames" resultType="java.lang.Long" parameterType="java.util.Map">
+       select l.label_id 
+	      from xiu_goods.X_LABEL l
+	     where
+	        l.name in	     
+	       <foreach collection="labelNames" item="labelName" open="(" close=")"
+			separator=",">
+			#{labelName}
+		</foreach>
+		  and l.DELETE_FLAG=0
+	</select>
+
+	
+	<select id="getLabelServiceDateList" resultType="com.xiu.mobile.core.model.LabelCentre" parameterType="java.util.Map">
+		select b.*
+		  from (select a.*, rownum rowno
+		          from (select lo.label_id         labelId,
+		                       lo.object_id        objectId,
+		                       lo.OBJECT_ORDER_SEQ objectOrderSeq,
+		                       lo.create_date createTime
+		                  from xiu_goods.X_LABEL_OBJECT lo
+		                 where lo.label_id = #{labelId}
+		                   and lo.category = #{type}
+		                   <if test="serviceId!=null and serviceId!=''">
+		                   	 and lo.object_id = #{serviceId}
+		                   </if>
+		                 order by lo.OBJECT_ORDER_SEQ desc,lo.create_date desc) a
+		         where rownum   &lt; #{pageMax}) b
+		 where b.rowno &gt;= #{pageMin} 
+	</select>
+	
+	
+	<select id="getLabelServiceDateCount" resultType="java.lang.Integer" parameterType="java.util.Map">
+		 select count(1)
+	      from xiu_goods.X_LABEL_OBJECT l
+              where l.label_id = #{labelId}
+             and l.category = #{type}
+	</select>
+	
+	<update id="updateLabelServiceOrder" parameterType="java.util.Map" >
+	   update xiu_goods.X_LABEL_OBJECT lo
+	      set lo.object_order_seq = #{serviceOrder}
+	    where lo.category = #{type}
+	      and lo.object_id = #{labelObjectId}
+	</update>
+	
+	<select id="getLabelRelationDateList" resultType="com.xiu.mobile.core.model.LabelRelation" parameterType="java.util.Map">
+		select b.*
+		  from (select a.*, rownum rowno
+		          from (select lo.main_label_id mainLabelId,
+					       lo.relation_label_id relationLabelId,
+					       lo.order_seq orderSeq,
+					       lo.relation_object_num relationObjectNum,
+					       (select l.name from xiu_goods.X_LABEL l where l.label_id = lo.relation_label_id) relationLabelName,
+					       lo.category category
+					 	 from xiu_goods.X_LABEL_RELATION lo
+		                 where 
+		                   lo.main_label_id = #{labelId}
+		                   and lo.category = #{type}
+		                 order by lo.order_seq desc) a
+		         where rownum   &lt; #{pageMax}) b
+		 where b.rowno &gt;= #{pageMin} 
+	</select>
+	
+	<select id="getLabelRelationDateCount" resultType="java.lang.Integer" parameterType="java.util.Map">
+		 select count(1)
+	      from xiu_goods.X_LABEL_RELATION l
+              where l.main_label_id = #{labelId}
+             and l.category = #{type}
+             <if test="raletionLabelName!=null and raletionLabelName!=''">
+               and l.relation_label_id in(
+                 select la.label_id from xiu_goods.X_LABEL la where la.name like  '%'||#{raletionLabelName}||'%'  and la.DELETE_FLAG=0
+               )
+             </if>
+	</select>
+		
+	<update id="updateLabelRelationOrder" parameterType="java.util.Map" >
+	   update xiu_goods.X_LABEL_RELATION lo
+	      set lo.order_seq = #{orderSeq}
+	    where lo.category = #{type}
+	      and lo.main_label_id = #{mainLabelId}
+	      and lo.relation_label_id = #{relationLabelId}
+	        <if test="raletionLabelName!=null and raletionLabelName!=''">
+               and l.relation_label_id in(
+                 select la.label_id from xiu_goods.X_LABEL la where la.name like  '%'||#{raletionLabelName}||'%' and la.DELETE_FLAG=0
+               )
+             </if>
+	</update>
+	
+	
+    <delete id="deleteLabelRelationDate" >
+		delete xiu_goods.x_label_relation lr
+		  where lr.order_seq &lt; =100
+    </delete>
+	
+	<select id="findLabelRelationDateContByType" parameterType="java.util.Map" resultType="java.lang.Integer">
+	    select count(1) from xiu_goods.x_label_relation where category=#{type}
+	</select>
+	
+    <insert id="addLabelRelationDateByType" parameterType="java.util.Map" >
+		insert into xiu_goods.x_label_relation
+		  (id,
+		   main_label_id,
+		   relation_label_id,
+		   order_seq,
+		   category,
+		   relation_object_num)
+		select xiu_goods.seq_x_label_relation.nextval,
+		       b.main_label_id,
+		       b.relation_label_id,
+		       100,
+		       b.category,
+		       b.relation_object_num
+		  FROM (select lo1.label_id main_label_id,
+		               lo2.label_id relation_label_id,
+		               lo1.category,
+		               row_number() over(partition by lo1.label_id order by lo1.label_id DESC) row_number,
+		               count(1) relation_object_num
+		          from xiu_goods.x_label_object lo1, xiu_goods.x_label_object lo2
+		         where lo1.category =  #{type}
+		           and lo1.category = lo2.category
+		           and lo1.id != lo2.id
+		           and lo1.object_id = lo2.object_id
+		         group by lo1.label_id, lo2.label_id, lo1.category
+		         order by lo1.label_id, relation_object_num desc) b
+		 where b.row_number &lt;=(#{maxNum}-(select count(1) from  xiu_goods.x_label_relation where main_label_id=b.main_label_id))
+    </insert>
+	
+	
+    <delete id="deleteLabelObjectByLabelId" parameterType="java.lang.Long">
+       delete xiu_goods.x_label_object lo
+        where lo.label_id=#{labelId}
+    </delete>
+	
+    <delete id="deleteBatchRepeatedLabelObject" parameterType="java.util.Map">
+		delete xiu_goods.X_LABEL_RELATION
+		 where id in (select l.id
+		                from xiu_goods.X_LABEL_RELATION l,
+		                     (select main_label_id, relation_label_id
+		                        from xiu_goods.X_LABEL_RELATION lo
+		                       group by lo.main_label_id, lo.relation_label_id
+		                      having count(1) > 1) ls
+		               where l.order_seq = 100
+		                 and l.main_label_id = ls.main_label_id
+		                 and l.relation_label_id = ls.relation_label_id)
+    </delete>
+</mapper>

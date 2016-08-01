@@ -1,0 +1,17 @@
+package com.xiu.mobile.simple.common.util;
+
+import com.xiu.mobile.simple.model.GoodsVo;
+
+
+public class ComparatorPriceDesc<T> implements java.util.Comparator<T> {
+
+	@Override
+	public int compare(Object arg0, Object arg1) {
+		GoodsVo goodsVo1 = (GoodsVo) arg0;
+		GoodsVo goodsVo2 = (GoodsVo) arg1;
+		Double d1 = Double.parseDouble(goodsVo1.getZsPrice());
+		Double d2 = Double.parseDouble(goodsVo2.getZsPrice());
+		return d2.compareTo(d1);
+	}
+
+}

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/mobile/!svn/ver/15484/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/controller
+END
+UserGroupController.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/controller/UserGroupController.java
+END
+UserController.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/controller/UserController.java
+END
+RoleController.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/controller/RoleController.java
+END
+DevelopmentController.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/controller/DevelopmentController.java
+END
+MenuController.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/15484/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/controller/MenuController.java
+END
+LoginController.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/controller/LoginController.java
+END

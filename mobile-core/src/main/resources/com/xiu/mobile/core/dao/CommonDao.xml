@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.core.dao.CommonDao">
+
+	<!-- 更新发现频道版本号 -->
+	<update id="updateFindChannelVersion" parameterType="java.util.HashMap">
+		update mobile_common_data
+		set value_num = value_num + 1,
+			version_time = sysdate
+		where key = #{key}
+	</update>
+</mapper>

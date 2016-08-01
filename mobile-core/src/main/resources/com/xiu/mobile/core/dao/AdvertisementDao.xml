@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.core.dao.AdvertisementDao">
+	<resultMap id="advertisementResult" type="advertisement">
+		<result property="id" column="id" />
+		<result property="advFrameId" column="adv_frame_id" />
+		<result property="advPlaceId" column="adv_place_id" />
+		<result property="advFrameName" column="adv_frame_name" />
+		<result property="advPlaceName" column="adv_place_name" />
+		<result property="title" column="title" />
+		<result property="picPath" column="pic_path" />
+		<result property="startTime" column="start_time" />
+		<result property="endTime" column="end_time" />
+		<result property="xiuAppUrl" column="xiu_app_url" />
+		<result property="linkType" column="link_type" />
+		<result property="linkObject" column="link_object" />
+		<result property="createDt" column="create_dt" />
+		<result property="createBy" column="create_by" />
+		<result property="lastUpdateDt" column="last_update_dt" />
+		<result property="lastUpdateBy" column="last_update_by" />
+		
+	</resultMap>
+	
+   <!-- 查询广告分页 -->
+   <select id="getAdvertisementList" resultMap="advertisementResult"  parameterType="java.util.Map">
+       select b.*,
+       (select name from adv_frame where id=b.adv_frame_id) adv_frame_name,
+       (select p.name from adv_frame f,adv_place p where f.adv_place_id=p.id and f.id=b.adv_frame_id) adv_place_name
+       from (
+         select a.*, rownum rowno from(
+		          select advs.id,
+			          advs.title,
+			          advs.pic_path,
+			          advs.start_time,
+			          advs.end_time,
+			          advs.xiu_app_url,
+			          advs.link_type,
+			          advs.link_object,
+			          advs.create_dt,
+			          advs.last_update_dt,
+			          advs.adv_frame_id
+		          from adv_schedule advs
+		         where  1=1
+		            <if test="id!=null and id !=''">
+		            <![CDATA[ and advs.id=#{id}  ]]>
+		           </if>
+		            <if test="startDate!=null and startDate !=''">
+		             <![CDATA[ and  advs.start_time >=  #{startDate}]]>
+		           </if>
+		           <if test="endDate!=null and endDate !=''">
+		                <![CDATA[ and advs.end_time <=  #{endDate}]]>
+		           </if> 
+		           <if test="linkType!=null and linkType !=''">
+		               <![CDATA[ and advs.link_type =#{linkType}]]>
+		           </if> 
+		           <if test="creatorName!=null and creatorName !=''">
+		               <![CDATA[ and advs.create_by like  '%'||#{creatorName}||'%']]>
+		           </if>
+		           <if test="advPlaceId!=null and advPlaceId !=''">
+		               <![CDATA[ and advs.adv_frame_id in(select id from adv_frame where adv_place_id=#{advPlaceId})]]>
+		           </if>
+		           	<if test="status!=null and status ==0">
+				        <![CDATA[and advs.start_time >  sysdate]]>
+					 </if>
+					  <if test="status!=null and status ==1">
+					        <![CDATA[and advs.start_time <=  sysdate and  advs.end_time>=sysdate]]>
+					 </if>
+					  <if test="status!=null and status ==2">
+					        <![CDATA[and  advs.end_time<sysdate]]>
+		              </if>
+		           
+		          order by advs.start_time desc 
+             )a where  rownum &lt; #{pageMax}
+        )b where b.rowno &gt;= #{pageMin}
+        
+	</select>
+	
+	<select id="getAdvertisementTotalCount" resultType="java.lang.Integer"  parameterType="java.util.Map">
+			select count(id) 
+		          from adv_schedule advs
+		          where  1=1
+		            <if test="id!=null and id !=''">
+		            <![CDATA[ and advs.id=#{id}  ]]>
+		           </if>
+		            <if test="startDate!=null and startDate !=''">
+		             <![CDATA[ and  advs.start_time >=  #{startDate}]]>
+		           </if>
+		           <if test="endDate!=null and endDate !=''">
+		                <![CDATA[ and advs.end_time <=  #{endDate}]]>
+		           </if> 
+		           <if test="linkType!=null and linkType !=''">
+		               <![CDATA[ and advs.link_type =#{linkType}]]>
+		           </if> 
+		           <if test="creatorName!=null and creatorName !=''">
+		               <![CDATA[ and advs.create_by like  '%'||#{creatorName}||'%']]>
+		           </if>
+		           <if test="advPlaceId!=null and advPlaceId !=''">
+		               <![CDATA[ and advs.adv_frame_id in(select id from adv_frame where adv_place_id=#{advPlaceId})]]>
+		           </if>
+		           	<if test="status!=null and status ==0">
+				        <![CDATA[and advs.start_time >  sysdate]]>
+					 </if>
+					  <if test="status!=null and status ==1">
+					        <![CDATA[and advs.start_time <=  sysdate and  advs.end_time>=sysdate]]>
+					 </if>
+					  <if test="status!=null and status ==2">
+					        <![CDATA[and  advs.end_time<sysdate]]>
+		              </if>
+	</select>	
+	
+	<!-- 根据广告ID查询广告 -->
+	<select id="getAdvertisementById" resultMap="advertisementResult"  parameterType="java.lang.Long">
+	 <![CDATA[
+       select  adv.*,
+       (select name from adv_frame where id=adv.adv_frame_id) adv_frame_name,
+       (select p.name from adv_frame f,adv_place p where f.adv_place_id=p.id and f.id=adv.adv_frame_id) adv_place_name 
+       from adv_schedule adv where adv.id=#{id}
+      ]]>                
+	</select>
+	
+	
+	<!-- 同一排期内是否存在广告-->
+	<select id="isExsitAdv"   parameterType="advertisement" resultType="java.lang.Integer">
+		<![CDATA[
+		 	 select count(1) from  adv_schedule  advs                                                                                                          
+		     where  advs.adv_place_id=#{adv_place_id} and advs.deleted=0 ]]>
+		     <if test="id!=null"> and id!=#{id} </if>
+		     <![CDATA[                                                                                           
+		     and (advs.start_time between #{start_time} and #{end_time}                                                                                                 
+		     or advs.end_time between #{start_time}  and #{end_time}                                                                                                    
+		     or (advs.start_time < #{start_time} and advs.end_time>#{end_time}))  
+          ]]>            
+	</select>
+	
+
+    <!-- 添加广告 -->
+	<insert id="save" parameterType="advertisement">
+	insert into adv_schedule(
+	id,
+	adv_frame_id,
+	title,
+	pic_path,
+	start_time,
+	end_time,
+	<if test="xiuAppUrl!=null and xiuAppUrl!=''">
+	 xiu_app_url,
+	</if>
+	link_type,
+	link_object,
+	create_by,
+	create_dt,
+	last_update_by,
+	last_update_dt
+	) 
+	values(
+	 adv_schedule_seq.nextval,
+	 #{advFrameId},
+	 #{title},
+	 #{picPath},
+	 #{startTime},
+	 #{endTime},
+	 <if test="xiuAppUrl!=null and xiuAppUrl!=''">
+	 #{xiuAppUrl},
+	 </if>
+	 #{linkType},
+	 #{linkObject},
+	 #{createBy},
+	 sysdate,
+	 #{createBy},
+	 sysdate
+	 )
+	</insert>
+    <!-- 修改广告 -->
+	<update id="update" parameterType="advertisement">
+		update adv_schedule set
+		last_update_dt=sysdate,
+	    <if test="title!=null">title=#{title},</if>
+	    <if test="picPath!=null">pic_path=#{picPath},</if>
+	    <if test="linkType!=null">link_type=#{linkType},</if>
+	    <if test="linkObject!=null">link_object=#{linkObject},</if>
+	    <if test="xiuAppUrl!=null">xiu_app_url=#{xiuAppUrl},</if>
+	    <if test="startTime!=null">start_time=#{startTime},</if>
+	    <if test="endTime!=null">end_time=#{endTime},</if>
+	    <if test="advFrameId!=null">adv_frame_id=#{advFrameId},</if>
+		last_update_by=#{lastUpdateBy}
+		where id=#{id} 
+	</update>
+	
+	<!-- 删除广告 -->
+	<delete id="delete" parameterType="advertisement">
+		delete adv_schedule 
+		 where id=#{id} 
+	</delete>
+
+	<select id="checkTimeByAdvPlace" resultType="java.lang.Integer"  parameterType="java.util.Map">
+		select count(1)
+		  from adv_schedule t
+		 where adv_frame_id=#{advFrameId} and ((start_time &gt;= #{begintime} and
+		       end_time &lt;= #{endtime})
+		    or (start_time &lt;= #{begintime} and
+		       end_time &gt;=#{begintime})
+		    or (start_time &lt;=#{endtime} and
+		       end_time &gt;= #{endtime}))
+		       <if test="id!=null and id !=''">
+		       and id!=#{id}
+	           </if>
+	</select>
+
+	<select id="getTimesByAdvFrameId"  resultMap="advertisementResult"  parameterType="java.util.Map">
+            select advs.id,advs.start_time,advs.end_time 
+		          from adv_schedule advs 
+		        where adv_frame_id=#{advFrameId}  and end_time &gt;=sysdate
+		        <if test="advId!=null and advId!=''">
+		           and advs.id!=#{advId}
+		        </if>
+		        order by start_time 
+	</select>
+	
+		
+	<!-- 按广告位id删除广告 -->
+	<delete id="deleteByAdvPlaceId" parameterType="java.util.Map">
+		delete adv_schedule 	
+		 where adv_frame_id in(select id from adv_frame where adv_place_id =#{advPlaceId})
+	</delete>
+		
+	<!-- 按广告帧id删除广告 -->
+	<update id="deleteByAdvFrameId" parameterType="java.util.Map">
+		delete adv_schedule 		
+		 where adv_frame_id =#{advFrameId} 
+	</update>
+	
+
+</mapper>

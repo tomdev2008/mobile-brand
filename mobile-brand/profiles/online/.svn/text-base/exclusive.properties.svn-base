@@ -1,0 +1,63 @@
+#\u4E13\u4EAB\u76F8\u5173\u914D\u7F6E\u6587\u4EF6
+#the category refer to the sex
+category.sex.man=100004450,100004488,100004611,100004606,100004620,100004617,100004609,100004605,100004607,100004619,100004615,100004621,100004608,100004618,100004604,100004612
+category.sex.woman=100004324,100004321,100004573,100004487,100004449
+category.sex.normal=100000089,100000072,100000082,100000085,100000086,100000545,100000715
+#the relationship between category and size attribute
+category.size.man.1001=100004374,100004413,100004409
+category.size.man.1002=100004375,100004404,100004410
+category.size.man.1003=100004420
+category.size.man.1004=100004601
+category.size.woman.2001=100004301,100004325,100004330,100004319,100004318
+category.size.woman.2002=100004302,100004329,100004327,100004328,100004323
+category.size.woman.2003=100004421
+#the target of the man style really means(brand|category)
+style.man.target=brand
+#the target ids with the fixed style
+style.man.101=1
+style.man.102=2
+style.man.103=3
+#the target of the woman style really means(brand|category)
+style.woman.target=category
+#the target ids with the fixed style
+style.woman.201=100004301,100004325,100004330,100004319,100004318,100004302,100004329,100004327,100004328,100004323
+style.woman.202=100004421
+style.woman.203=100004449
+style.woman.204=100004487,100004573
+#the value of the size filter attribute
+system.size.XXS=-9500
+system.size.XS=-9496
+system.size.S=-9491
+system.size.M=-9489
+system.size.L=-9487
+system.size.XL=-9494
+system.size.XXL=-9498
+system.size.XXXL=-9521
+system.size.28=-9185
+system.size.29=-9174
+system.size.30=-9176
+system.size.31=-9193
+system.size.32=-9178
+system.size.33=-9224
+system.size.34=-9211
+system.size.35=-9253
+system.size.36=-9235
+system.size.37=-9279
+system.size.38=-9308
+system.size.39=-9327
+system.size.40=-9331
+system.size.41=-9367
+system.size.42=-9372
+system.size.43=-9375
+system.size.44=-9377
+system.size.45=-9359
+system.size.80=-9491
+system.size.85=-9489
+system.size.90=-9487
+system.size.95=-9494
+system.size.100=-9498
+system.size.105=-9521
+system.size.110=-9521
+system.size.115=-9521
+system.size.120=-9521
+

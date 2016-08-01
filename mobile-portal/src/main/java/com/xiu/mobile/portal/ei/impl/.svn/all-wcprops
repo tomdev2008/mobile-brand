@@ -1,0 +1,185 @@
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/mobile/!svn/ver/27296/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/ei/impl
+END
+EISSOManagerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/19223/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/ei/impl/EISSOManagerImpl.java
+END
+EIShowerManagerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/19233/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/ei/impl/EIShowerManagerImpl.java
+END
+EICSCManagerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/20879/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/ei/impl/EICSCManagerImpl.java
+END
+EIRaiderNewIndexManagerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/mobile/!svn/ver/24825/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/ei/impl/EIRaiderNewIndexManagerImpl.java
+END
+EImageManagerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/20343/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/ei/impl/EImageManagerImpl.java
+END
+EIOrderManagerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/mobile/!svn/ver/27294/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/ei/impl/EIOrderManagerImpl.java
+END
+EIXiuMakerServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/mobile/!svn/ver/25796/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/ei/impl/EIXiuMakerServiceImpl.java
+END
+EIMobileCpsManagerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/mobile/!svn/ver/15623/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/ei/impl/EIMobileCpsManagerImpl.java
+END
+EICpsCommissonManagerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/ei/impl/EICpsCommissonManagerImpl.java
+END
+EIGoodsRefundManagerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/mobile/!svn/ver/24048/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/ei/impl/EIGoodsRefundManagerImpl.java
+END
+EIRaiderGoodManagerimpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/mobile/!svn/ver/24897/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/ei/impl/EIRaiderGoodManagerimpl.java
+END
+EIProductManagerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/mobile/!svn/ver/27296/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/ei/impl/EIProductManagerImpl.java
+END
+EIReceiverIdManagerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/mobile/!svn/ver/20150/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/ei/impl/EIReceiverIdManagerImpl.java
+END
+EIShortUrlManagerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/mobile/!svn/ver/24149/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/ei/impl/EIShortUrlManagerImpl.java
+END
+EIPcsOpmsManagerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/mobile/!svn/ver/23144/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/ei/impl/EIPcsOpmsManagerImpl.java
+END
+EIPCSManagerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/ei/impl/EIPCSManagerImpl.java
+END
+EIMessageCenterManagerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/mobile/!svn/ver/25790/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/ei/impl/EIMessageCenterManagerImpl.java
+END
+EICPSManagerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/ei/impl/EICPSManagerImpl.java
+END
+EIAddressManagerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/ei/impl/EIAddressManagerImpl.java
+END
+EIChannelInventoryManagerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/ei/impl/EIChannelInventoryManagerImpl.java
+END
+EIPromotionManagerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/mobile/!svn/ver/15621/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/ei/impl/EIPromotionManagerImpl.java
+END
+EIPUCManagerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/ei/impl/EIPUCManagerImpl.java
+END
+EIEmailManagerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/ei/impl/EIEmailManagerImpl.java
+END
+EIRaidersManagerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/mobile/!svn/ver/25022/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/ei/impl/EIRaidersManagerImpl.java
+END
+EIShakeAndShakeManagerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/mobile/!svn/ver/25043/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/ei/impl/EIShakeAndShakeManagerImpl.java
+END
+EIUUCManagerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/27152/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/ei/impl/EIUUCManagerImpl.java
+END
+EIMobileSalesManagerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/mobile/!svn/ver/27117/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/ei/impl/EIMobileSalesManagerImpl.java
+END
+EISysParamManagerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/ei/impl/EISysParamManagerImpl.java
+END
+EISmsManagerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/ei/impl/EISmsManagerImpl.java
+END
+EIMbrandManagerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/25318/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/ei/impl/EIMbrandManagerImpl.java
+END

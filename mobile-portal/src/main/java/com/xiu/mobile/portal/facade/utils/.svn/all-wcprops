@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/mobile/!svn/ver/27860/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/facade/utils
+END
+SQLDateDeserializer.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/facade/utils/SQLDateDeserializer.java
+END
+MD5Util.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/facade/utils/MD5Util.java
+END
+UtilDateSerializer.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/facade/utils/UtilDateSerializer.java
+END
+SQLDateSerializer.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/facade/utils/SQLDateSerializer.java
+END
+JsonUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/facade/utils/JsonUtils.java
+END
+DateUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/facade/utils/DateUtil.java
+END
+HttpUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/27860/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/facade/utils/HttpUtil.java
+END
+UtilDateDeserializer.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/facade/utils/UtilDateDeserializer.java
+END

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/console/service
+END
+IMaterialCfgService.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/console/service/IMaterialCfgService.java
+END
+IArticleCfgService.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/console/service/IArticleCfgService.java
+END
+IMenuCfgService.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/console/service/IMenuCfgService.java
+END
+IMessageCfgService.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/console/service/IMessageCfgService.java
+END

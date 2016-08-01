@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/role
+END
+list.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/role/list.ftl
+END
+create.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/role/create.ftl
+END
+edit.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/role/edit.ftl
+END

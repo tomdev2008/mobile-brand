@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.portal.dao.QuestionGameDao">
+		
+		<resultMap id="questionResult" type="com.xiu.mobile.portal.model.QuestionGame">
+			<result property="id" column="id"/>
+			<result property="name" column="name"/>
+			<result property="imgURL" column="imgURL"/>
+			<result property="score" column="score"/>
+			<result property="sex" column="sex"/>
+			<result property="questionNo" column="questionNo"/>
+		</resultMap>
+		
+		<!-- 通过Id查询某个问题信息 -->
+	  	<select id="getById" resultMap="questionResult" parameterType="java.lang.Long">
+		    select id,name,imgurl,sex,score,questionNo from  xiu_wap.x_temp_question_game where id = #{id}
+		</select>
+	  	 
+		<!-- 通过相应参数查询相关问题 -->
+	  	<select id="getListByParams" resultMap="questionResult" parameterType="java.util.Map">
+		    select id,name,imgurl,sex,score,questionNo from  xiu_wap.x_temp_question_game
+		    where sex = #{sex}
+       		<if test="questionNo != null">
+				<![CDATA[ and questionNo = #{questionNo} ]]>
+			</if>
+		</select>
+		
+</mapper>

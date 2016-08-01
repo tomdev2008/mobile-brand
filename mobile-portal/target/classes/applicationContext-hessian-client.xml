@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<!-- 物流信息查询接口 -->
+	<bean id="purchCarryInfoService" class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+		<property name="serviceUrl" value="${remote.url.tms.carry.create}" />
+		<property name="serviceInterface" value="com.xiu.tms.carry.service.PurchCarryInfoService" />
+		<property name="overloadEnabled" value="true" />
+		<property name="readTimeout" value="10000" />
+	</bean>
+	<!-- 短信接口 -->
+	<bean id="iSMSHessianService" class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+		<property name="serviceUrl" value="${remote.url.sms}" />
+		<property name="serviceInterface" value="com.xiu.sms.hessian.ISMSHessianService" />
+		<property name="overloadEnabled" value="true" />
+		<property name="readTimeout" value="10000" />
+	</bean>
+	<!-- 邮箱接口 -->
+	<bean id="iEmailHessianService" class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+		<property name="serviceUrl" value="${remote.url.email}" />
+		<property name="serviceInterface" value="com.xiu.email.hessian.IEmailHessianService" />
+	</bean>
+	<!-- 单点登录 -->
+	<bean id="ssoServer" class="com.xiu.sso.server.impl.SsoServerImpl">
+		<constructor-arg value="${remote.url.sso}" />
+		<constructor-arg value="" />
+	</bean>
+	<!--  -->
+	<bean id="addressManageFacade"
+		class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+		<property name="serviceUrl"	value="${remote.url.uuc.addr}" />
+		<property name="serviceInterface" value="com.xiu.uuc.facade.AddressManageFacade" />
+	</bean>
+	<!--  -->
+	<bean id="cardService"
+		class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+		<property name="serviceUrl"	value="${remote.url.sale.card}" />
+		<property name="serviceInterface" value="com.xiu.sales.common.card.dointerface.CardService" />
+	</bean>
+	<!--  -->
+	<bean id="sendCardIntegService" class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+	    <property name="serviceUrl"	value="${remote.url.disptach.card}" />
+		<property name="serviceInterface" value="com.xiu.dispatch.integ.send.SendCardInteg" />
+	</bean>
+	
+	<!--  -->
+	<bean id="userManageFacade" class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+		<!-- 重载方法支持 不然会抛出异常  :Caused by: com.caucho.hessian.io.HessianProtocolException:  is an unknown code -->  
+        <property name="overloadEnabled" value="true" />  
+		<property name="serviceUrl"	value="${remote.url.uuc.user}" />
+		<property name="serviceInterface" value="com.xiu.uuc.facade.UserManageFacade" />
+	</bean>
+	
+	<bean id="oriImageCheckHessianService" class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+	    <property name="serviceUrl"	value="${remote.url.images.check}" />
+		<property name="serviceInterface" value="com.xiu.image.biz.hessian.interfaces.OriImageCheckHessianService" />
+	</bean>
+	
+	<bean id="inventoryService"
+		class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+		<property name="serviceUrl"	value="${remote.url.channel}" />
+		<property name="serviceInterface" value="com.xiu.channel.inventory.api.InventoryService" />
+	</bean>
+	
+	<bean id="itemSettleService"
+		class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+		<property name="serviceUrl"	value="${remote.url.sale.item}" />
+		<property name="serviceInterface" value="com.xiu.sales.common.settle.ItemSettleService" />
+	</bean>
+	
+	<bean id="goodsCenterService"
+		class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+		<property name="serviceUrl"	value="${remote.url.goods}" />
+		<property name="serviceInterface" value="com.xiu.commerce.hessian.server.GoodsCenterService" />
+	</bean>
+	
+	<bean id="itemListSettleService"
+		class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+		<property name="serviceUrl"	value="${remote.url.sale.itemlist}" />
+		<property name="serviceInterface" value="com.xiu.sales.common.settle.ItemListSettleService" />
+	</bean>
+	
+	<!-- 系统参数 -->
+	<bean id="sysParamFacade"
+		class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+		<property name="serviceUrl"	value="${remote.url.csp}" />
+		<property name="serviceInterface" value="com.xiu.csp.facade.SysParamFacade" />
+	</bean>
+	
+	<!-- 订单查询 -->
+	<bean id="bizOrderQueryServive"
+		class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+		<property name="serviceUrl"	value="${remote.url.tc.order.find}" />
+		<property name="serviceInterface" value="com.xiu.tc.orders.dointerface.BizOrderQueryServive" />
+	</bean>
+	
+	<!-- 创建订单 -->
+	<bean id="bizOrderWriterService"
+		class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+		<property name="serviceUrl"	value="${remote.url.tc.order.create}" />
+		<property name="serviceInterface" value="com.xiu.tc.orders.dointerface.BizOrderWriterService" />
+	</bean>
+	
+	<bean id="orderSettleService" class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+		<property name="serviceUrl" value="${remote.url.sale.calc}" />
+		<property name="serviceInterface" value="com.xiu.sales.common.settle.OrderSettleService" />
+	</bean>
+	
+	<!-- 活动平台 -->
+	<bean id="activityPlatformManager"
+		class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+		<property name="serviceUrl"	value="${remote.url.sale.activity}" />
+		<property name="serviceInterface" value="com.xiu.sales.common.activityplatform.ActivityPlatformManager" />
+	</bean>
+	
+	<!-- cps返佣 -->
+	<bean id="cpsManageFacade" class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+		<property name="serviceUrl"	value="${remote.url.mobile.cps}" />
+		<property name="serviceInterface" value="com.xiu.mobile.cps.dointerface.service.CpsManageFacade" />
+	</bean>
+		<!-- 移动营销msales接口 -->
+	<bean id="mSalesServiceFacade" class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+		<property name="serviceUrl"	value="${remote.url.mmkt}" />
+		<property name="serviceInterface" value="com.xiu.mobile.sales.dointerface.serivce.MobileSalesServiceFacade" />
+	</bean>
+	
+	<!-- 促销系统黑名单 -->
+	<bean id="itemBlackScopeService" class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+		<property name="serviceUrl" value="${remote.url.sale.black}"></property>
+		<property name="serviceInterface" value="com.xiu.sales.common.settle.ItemBlackScopeService"></property>
+	</bean>
+	
+	<!-- 虚拟用户提现-->
+	<bean id="bankAcctFacade" class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+	<property name="serviceUrl" value="${remote.url.uuc.bank}"></property>
+	<property name="serviceInterface" value="com.xiu.uuc.facade.BankAcctFacade"></property>
+	</bean>
+	<bean id="drawApplyFacade" class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+	<property name="serviceUrl" value="${remote.url.puc.withdraw}"></property>
+	<property name="serviceInterface" value="com.xiu.puc.biz.facade.DrawApplyFacade"></property>
+	</bean>
+	<!-- 虚拟账户 -->
+	<bean id="acctItemFacade" class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+	<property name="serviceUrl" value="${remote.url.uuc.acctItem}"></property>
+	<property name="serviceInterface" value="com.xiu.uuc.facade.AcctItemFacade"></property>
+	</bean>
+	<bean id="acctChangeFacade" class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+	<property name="serviceUrl" value="${remote.url.uuc.acctChange}"></property>
+	<property name="serviceInterface" value="com.xiu.uuc.facade.AcctChangeFacade"></property>
+	</bean>
+	
+	<!-- 退换货信息调用 -->
+	<bean id="refundItemFlowService" class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+		<property name="serviceUrl" value="${remote.url.refund}"></property>
+		<property name="serviceInterface" value="com.xiu.tc.orders.dointerface.RefundItemFlowService"></property>
+	</bean>
+	
+	<!-- 收货人身份认证信息调用 -->
+	<bean id="receiverIdentityFacade" class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+		<property name="serviceUrl" value="${remote.url.uuc.identity}"></property>
+		<property name="serviceInterface" value="com.xiu.uuc.facade.UserIdentityFacade"></property>
+	</bean>
+	<bean id="identityInfoFacade" class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+		<property name="serviceUrl" value="${remote.url.uuc.identityInfo}"></property>
+		<property name="serviceInterface" value="com.xiu.uuc.facade.IdentityInfoFacade"></property>
+	</bean>
+	<!-- 结算系统 -->
+	<!-- 商品信息 -->
+	<bean id="prodSettlementService" class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+		<property name="serviceUrl" value="${remote.url.settle.prodSettlement}"></property>
+		<property name="serviceInterface" value="com.xiu.settlement.common.ProdSettlementHessianService"></property>
+	</bean>
+	<!-- 计算订单 -->
+	<bean id="orderSettlementService" class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+		<property name="serviceUrl" value="${remote.url.settle.orderSettlement}"></property>
+		<property name="serviceInterface" value="com.xiu.settlement.common.OrderSettlementHessianService"></property>
+	</bean>
+	<!-- CSC 无线吐槽接口 -->
+	<bean name="complaintHessianService" class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+		<property name="serviceUrl" value="${remote.url.csc.complaint}"></property>
+		<property name="serviceInterface" value="com.xiu.feedback.hessianService.IComplaintHessianService"></property>
+	</bean>
+	<!-- 海外商品比价接口 -->
+	<bean name="overseasProductHessianService" class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+		<property name="serviceUrl" value="${remote.url.pcs.overseasProduct}"></property>
+		<property name="serviceInterface" value="com.xiu.pcs.facade.OverseasProductHessianService"></property>
+	</bean>
+	
+	<!-- 创客接口 -->	
+	<bean name="xiuMakerHessianService" class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+		<property name="serviceUrl" value="${remote.url.maker}"></property>
+		<property name="serviceInterface" value="com.xiu.maker.dointerface.service.XiuMakerFacade"></property>
+	</bean>
+	
+	<!-- CPS cookie解密用 -->
+	<bean id="cookiesInfoFacade"   class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+		<property name="serviceUrl"    value="${remote.url.cps.cookieService}"/>
+		<property name="serviceInterface" value="com.xiu.cps.CookiesInfoFacade"/>
+	</bean>
+	
+	<!-- 个人礼包CPS -->
+	<bean id="mobileCpsFacade" class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean">
+		<property name="serviceUrl"	value="${remote.url.gift.cps}" />
+		<property name="serviceInterface" value="com.xiu.mobile.sales.dointerface.serivce.MobileCpsServiceFacade" />
+	</bean>
+	
+	<!-- 求购CSC -->
+	<bean name="productServiceFacade" class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean"> 
+	    <property name="serviceUrl" value="${remote.url.csc.product}"/> 
+        <property name="serviceInterface" value="com.xiu.csc.facade.ProductServiceFacade"/>
+	</bean> 
+	
+	<!-- 获取商品是否可以选择礼品包装查询服务接口 -->
+	<bean name="productInfoServiceFacade" class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean"> 
+	    <property name="serviceUrl" value="${remote.url.productweb}"/> 
+        <property name="serviceInterface" value="com.xiu.facade.hession.ProductHessionService"/>
+	</bean> 
+	
+	<!-- 调用秀客系统进行前端管理员曹组-->
+	<bean name="showerManagerApiFacade" class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean"> 
+	    <property name="serviceUrl" value="${remote.url.showerweb}"/> 
+        <property name="serviceInterface" value="com.xiu.show.remote.service.ShowerManagerApiServive"/>
+	</bean> 
+	
+	<!-- 语音验证码服务接口 -->
+	 <bean name="voiceVerifyService" class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean"> 
+	    <property name="serviceUrl" value="${remote.url.msc.voiceverify}"/> 
+        <property name="serviceInterface" value="com.xiu.msc.facade.voiceverify.service.IVoiceVerifyHessianService"/>
+	</bean> 
+	
+	<!-- 调用消息中心-->
+	<bean name="xiuMessageServiceFacade" class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean"> 
+	    <property name="serviceUrl" value="${remote.url.MessagePortal}"/> 
+        <property name="serviceInterface" value="com.xiu.message.common.dointerface.XiuMessageFacade"/>
+	</bean> 
+	
+	<!-- 调用一品多商-->
+	<bean name="mutilPartnerService" class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean"> 
+	    <property name="serviceUrl" value="${remote.url.mutilPartner}"/> 
+        <property name="serviceInterface" value="com.xiu.pcs.opms.facade.MutilPartnerService"/>
+	</bean> 
+	
+	
+			
+	<!-- 领取夺宝接口 -->
+	<bean name="xiuRaidersFacade" class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean"> 
+		<property name="serviceUrl" value="${remote.url.raiders}"/> 
+        <property name="serviceInterface" value="com.xiu.raiders.dointerface.service.XiuRaidersFacade"/>
+	</bean>
+	
+	<!-- 登记用户信息接口 -->
+	<bean name="appDeviceFacade" class="com.xiu.mobile.portal.common.util.HessianProxyFactoryBean"> 
+		<property name="serviceUrl" value="${remote.url.appDevice}"/> 
+        <property name="serviceInterface" value="com.xiu.uuc.facade.AppDeviceFacade"/>
+	</bean>
+	
+</beans>

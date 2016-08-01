@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.core.dao.SearchDao">
+
+<!-- 	添加标签 -->
+<insert id="addSearchDate" parameterType="com.xiu.mobile.core.model.ServiceSearchDateBo">
+		insert into xiu_goods.X_SEARCH_SERVICE_TEMP
+		  (id,
+		   SERVICE_ID,
+		   service_name,
+		   service_create_date,
+		   type,
+		   label_ids,
+		   label_names,
+		   pin_yin,
+		   first_pin_yin,
+		   service_sort,
+		   start_time,
+		   end_time,
+		   service_content)
+		values
+		  (xiu_goods.SEQ_X_SEARCH_SERVICE_TEMP.nextval,
+		  #{serviceId},
+		  #{serviceName},
+		  #{serviceCreateDate},
+		  #{type},
+		  (select  labelId from (select wm_concat(lc.label_id) labelId from xiu_goods.x_label_object lc
+           where  lc.object_id=#{serviceId} and lc.category=#{type} )),
+		  (select  name from (select wm_concat(l.name) name from xiu_goods.x_label l,xiu_goods.x_label_object lc
+           where l.label_id=lc.label_id and lc.object_id=#{serviceId} and lc.category=#{type})),
+		  #{pinYin},
+		  #{firstPinYin},
+		  #{serviceSort},
+		  #{startTime},
+		  #{endTime},
+		  #{serviceContent}
+		  )
+	</insert>
+<!-- 	添加标签 -->
+    <insert id="addBatchSearchDate" parameterType="com.xiu.mobile.core.model.ServiceSearchDateBo">
+		insert into xiu_goods.X_SEARCH_SERVICE_TEMP
+		  (id,
+		   SERVICE_ID,
+		   service_name,
+		   service_create_date,
+		   type,
+		   label_ids,
+		   label_names,
+		   pin_yin,
+		   first_pin_yin,
+		   service_sort,
+		   start_time,
+		   end_time,
+		   service_content)
+		values
+		  (xiu_goods.SEQ_X_SEARCH_SERVICE_TEMP.nextval,
+		  #{serviceId},
+		  #{serviceName},
+		  #{serviceCreateDate},
+		  #{type},
+		  (select  labelId from (select wm_concat(lc.label_id) labelId from xiu_goods.x_label_object lc
+           where  lc.object_id=#{serviceId} and lc.category=#{type} )),
+		  (select  name from (select wm_concat(l.name) name from xiu_goods.x_label l,xiu_goods.x_label_object lc
+           where l.label_id=lc.label_id and lc.object_id=#{serviceId} and lc.category=#{type})),
+		  #{pinYin},
+		  #{firstPinYin},
+		  #{serviceSort},
+		  #{startTime},
+		  #{endTime},
+		  #{serviceContent}
+		  )
+	</insert>
+	
+	<select id="getSearchDate" resultType="com.xiu.mobile.core.model.ServiceSearchDateBo" parameterType="java.util.Map">
+		select lst.id, lst.service_id serviceId, lst.type
+		  from xiu_goods.X_SEARCH_SERVICE_TEMP lst
+		 where lst.service_id =#{serviceId}
+             and lst.type =#{type}
+	</select>
+
+	
+	<update id="updateSearchDate" parameterType="com.xiu.mobile.core.model.ServiceSearchDateBo">
+		update  xiu_goods.X_SEARCH_SERVICE_TEMP
+		 set 
+		   service_name= #{serviceName},
+		   service_create_date=#{serviceCreateDate},
+		   type=#{type},
+		   label_ids= (select  labelId from (select wm_concat(lc.label_id) labelId from xiu_goods.x_label_object lc
+           where  lc.object_id=#{serviceId} and lc.category=#{type} )),
+		   label_names=(select  name from (select wm_concat(l.name) name from xiu_goods.x_label l,xiu_goods.x_label_object lc
+           where l.label_id=lc.label_id and lc.object_id=#{serviceId} and lc.category=#{type})),
+		   pin_yin=#{pinYin},
+		   first_pin_yin=#{firstPinYin},
+		   service_sort=#{serviceSort},
+		   start_time=#{startTime},
+		   end_time= #{endTime},
+		   service_content=#{serviceContent}
+        where  SERVICE_ID= #{serviceId} AND TYPE=#{type}
+	</update>
+	
+	
+	<update id="updateBacthSearchDate" parameterType="com.xiu.mobile.core.model.ServiceSearchDateBo">
+		update  xiu_goods.X_SEARCH_SERVICE_TEMP
+		 set 
+		   service_name= #{serviceName},
+		   service_create_date=#{serviceCreateDate},
+		   type=#{type},
+		   label_ids= (select  labelId from (select wm_concat(lc.label_id) labelId from xiu_goods.x_label_object lc
+           where  lc.object_id=#{serviceId} and lc.category=#{type} )),
+		   label_names=(select  name from (select wm_concat(l.name) name from xiu_goods.x_label l,xiu_goods.x_label_object lc
+           where l.label_id=lc.label_id and lc.object_id=#{serviceId} and lc.category=#{type})),
+		   pin_yin=#{pinYin},
+		   first_pin_yin=#{firstPinYin},
+		   service_sort=#{serviceSort},
+		   start_time=#{startTime},
+		   end_time= #{endTime},
+		   service_content=#{serviceContent}
+        where  SERVICE_ID= #{serviceId} AND TYPE=#{type}
+	</update>
+	
+	<delete id="deleteOverTimeSearchDate" parameterType="java.util.Map">
+	     delete xiu_goods.X_SEARCH_SERVICE_TEMP p
+	     where p.end_time &lt; #{endDate}
+	</delete>
+	
+
+
+</mapper>

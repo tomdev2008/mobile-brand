@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.wechat.web.dao.JumpMenuDao">
+	
+	<resultMap id="jumpMenuResult" type="jumpMenuVo">
+		<result property="menuId" column="id" />
+		<result property="key" column="key" />
+		<result property="url" column="url" />
+		<result property="description" column="description" />
+		<result property="updateTime" column="time" />
+	</resultMap>
+	
+	<insert id="insertJumpMenu" parameterType="jumpMenuVo">
+			insert into X_Wechat_Jump_Menu(id,key,url,description,time)
+			values(X_Wechat_Jump_Menu_SEQ.nextval,#{key},#{url},#{description},#{updateTime})
+	</insert>
+	
+	<select id="getJumpMenuByKey" parameterType="int" resultMap="jumpMenuResult">
+			select id,key,url,description,time from X_Wechat_Jump_Menu
+			where key=#{key}
+	</select>
+	
+	<select id="getAllJumpMenus" parameterType="int" resultMap="jumpMenuResult">
+			select id,key,url,description,time from X_Wechat_Jump_Menu
+	</select>
+	
+	<update id="updateJumpMenu" parameterType="jumpMenuVo">
+			update X_Wechat_Jump_Menu menu
+			set menu.url=#{url}
+				menu.description=#{description}
+				menu.time=#{updateTime}
+		    where menu.key=#{key}
+	</update>
+
+</mapper>

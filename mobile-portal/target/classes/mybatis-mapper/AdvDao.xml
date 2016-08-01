@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.portal.dao.AdvDao">
+	<resultMap id="advertisementUpdateResult" type="advertisementVo">
+		<result property="advId" column="id" />
+		<result property="title" column="title" />
+		<result property="picPath" column="pic_path" />
+		<result property="startTime" column="start_time" />
+		<result property="endTime" column="end_time" />
+		<result property="xiuAppUrl" column="xiu_app_url" />
+		<result property="linkType" column="link_type" />
+		<result property="linkObject" column="link_object" />
+		<result property="orderSeq" column="order_seq" />
+		<result property="advPlaceCode" column="code" />
+	</resultMap>
+	
+   <select id="getAdvListByType" resultMap="advertisementUpdateResult" parameterType="java.util.HashMap">
+      select
+         advs.pic_path,
+         advs.xiu_app_url,
+         advs.link_type,
+         advs.title,
+         advf.order_seq ,
+         advs.link_object
+       from adv_schedule advs,adv_frame advf,adv_place advp
+        where  advs.adv_frame_id=advf.id 
+          and advf.adv_place_id=advp.id 
+          and advp.code=#{code}
+          and advs.delete_flag=0 
+          and advs.start_time &lt;=sysdate
+          and advs.end_time &gt;=sysdate
+          order by  advf.order_seq 
+   </select>
+	
+   <select id="getAdvListByTypes" resultMap="advertisementUpdateResult" parameterType="java.util.HashMap">
+      select
+         advs.pic_path,
+         advs.xiu_app_url,
+         advs.link_type,
+         advs.title,
+         advf.order_seq ,
+         advp.code ,
+         advs.link_object
+       from adv_schedule advs,adv_frame advf,adv_place advp
+        where  advs.adv_frame_id=advf.id 
+          and advf.adv_place_id=advp.id 
+          and advp.code in		
+          <foreach collection="codes" item="code" open="(" close=")"
+			separator=",">
+			#{code}
+		</foreach>
+          and advs.delete_flag=0 
+          and advs.start_time &lt;=sysdate
+          and advs.end_time &gt;=sysdate
+          order by advp.code, advf.order_seq 
+   </select>
+   
+   <!-- 按类型查询广告 -->
+   <select id="getAdvByType" parameterType="java.util.HashMap" resultMap="advertisementUpdateResult">
+   		select ae.title,ae.link_type,ae.link_object,ae.pic_path, ae.xiu_app_url
+   		  from adv_place ap, adv_frame af, adv_schedule ae 
+   		 where ap.code = #{code} and ap.id = af.adv_place_id and af.id = ae.adv_frame_id 
+   		   and ae.delete_flag = 0 and ae.start_time &lt;= sysdate and ae.end_time &gt;= sysdate
+   		   and af.order_seq = 1
+   </select>
+</mapper>

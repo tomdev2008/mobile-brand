@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<core-beans>
+	 <service url="http://solr.xiu.com:3736/solr2/">
+		<core name="xiu" class="com.xiu.mobile.core.model.GoodsSolrModel" >
+			<connectionTimeout>5000</connectionTimeout>
+			<maxRetries>3</maxRetries>
+			<maxTotalConnections>30</maxTotalConnections>
+			<defaultMaxConnectionsPerHost>15</defaultMaxConnectionsPerHost>
+		</core>
+	</service>
+</core-beans>

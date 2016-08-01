@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/mobile/!svn/ver/27859/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/show
+END
+showInfoCommentList.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/show/showInfoCommentList.ftl
+END
+showInfo.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/27115/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/show/showInfo.ftl
+END
+showInfoPraiseList.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/show/showInfoPraiseList.ftl
+END
+showList.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/27518/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/show/showList.ftl
+END
+showInfoLogsList.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/show/showInfoLogsList.ftl
+END
+showCollectionUpdate.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/mobile/!svn/ver/26719/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/show/showCollectionUpdate.ftl
+END
+showInfoNav.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/show/showInfoNav.ftl
+END
+update.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/27602/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/show/update.ftl
+END
+create.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/27859/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/show/create.ftl
+END
+showInfoReportList.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/show/showInfoReportList.ftl
+END
+recommendList.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/26731/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/show/recommendList.ftl
+END
+showCollectionAdd.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/26719/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/show/showCollectionAdd.ftl
+END
+showCollectionAddShow.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/mobile/!svn/ver/27518/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/show/showCollectionAddShow.ftl
+END
+showCollectionList.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/mobile/!svn/ver/26613/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/show/showCollectionList.ftl
+END

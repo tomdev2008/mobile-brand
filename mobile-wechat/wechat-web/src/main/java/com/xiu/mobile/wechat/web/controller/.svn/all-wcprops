@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/mobile/!svn/ver/27636/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/web/controller
+END
+WechatController.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/web/controller/WechatController.java
+END
+WeixinLoginController.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/web/controller/WeixinLoginController.java
+END
+PaymentController.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/web/controller/PaymentController.java
+END
+GetOpenIdController.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/web/controller/GetOpenIdController.java
+END
+WeixinInfoController.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/web/controller/WeixinInfoController.java
+END
+WeixinTemplateController.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/web/controller/WeixinTemplateController.java
+END
+JumpMenuController.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/web/controller/JumpMenuController.java
+END
+FeedbackController.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/web/controller/FeedbackController.java
+END
+PCUnionLoginController.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/web/controller/PCUnionLoginController.java
+END
+WeixinSignController.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/web/controller/WeixinSignController.java
+END
+LoginController.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/web/controller/LoginController.java
+END
+WapUnionLoginController.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/mobile/!svn/ver/27636/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/web/controller/WapUnionLoginController.java
+END
+BindingController.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/java/com/xiu/mobile/wechat/web/controller/BindingController.java
+END

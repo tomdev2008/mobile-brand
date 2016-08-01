@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/resources/mybatis-mapper
+END
+BookmarkIitemDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/resources/mybatis-mapper/BookmarkIitemDao.xml
+END
+SimpleTopicActivityDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/resources/mybatis-mapper/SimpleTopicActivityDao.xml
+END
+TopicActivityGoodsDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/resources/mybatis-mapper/TopicActivityGoodsDao.xml
+END
+LoginDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/resources/mybatis-mapper/LoginDao.xml
+END
+BookmarkIitemListDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/resources/mybatis-mapper/BookmarkIitemListDao.xml
+END
+ActivityNoregularDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/resources/mybatis-mapper/ActivityNoregularDao.xml
+END
+TopicActivityDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/resources/mybatis-mapper/TopicActivityDao.xml
+END

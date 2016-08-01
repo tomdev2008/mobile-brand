@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.core.dao.AdvertisementFrameDao">
+
+	<resultMap id="advertisementFrameResult" type="advertisementFrame">
+		<result property="id" column="id" />
+		<result property="advPlaceId" column="adv_place_id" />
+		<result property="name" column="name" />
+		<result property="orderSeq" column="order_seq" />
+		<result property="create_by" column="create_by" />
+	</resultMap>
+	
+   <!-- 查询广告帧分页 -->
+   <select id="getAdvertisementFrameListAll" resultMap="advertisementFrameResult"  >
+		<![CDATA[
+	         select advp.id,advp.name,advp.adv_place_id from adv_frame advp
+	         order by advp.adv_place_id,order_seq
+          ]]>            
+	</select>
+   <!-- 查询广告帧分页 -->
+   <select id="getAdvertisementFrameList" resultMap="advertisementFrameResult"  parameterType="java.util.Map">
+		<![CDATA[
+	         select advp.*  from adv_frame advp
+	         where advp.adv_place_id=#{advPlaceId}
+	         order by advp.order_seq 
+          ]]>            
+	</select>
+	
+	<select id="getAdvertisementFrameTotalCount" resultType="java.lang.Integer"  parameterType="java.util.Map">
+		<![CDATA[select count(id) from adv_frame advp where advp.adv_place_id=#{advPlaceId} ]]>
+	</select>
+	
+	 <!--根据广告帧ID查询广告帧-->
+	 <select id="getAdvertisementFrameById" resultMap="advertisementFrameResult"  parameterType="java.lang.Long">
+		<![CDATA[
+          	select * from adv_frame  where id=#{id}
+          ]]>            
+       
+	</select>
+	
+	<!--查询是否存在该广告帧-->
+	<select id="isExistAdvFrame"   parameterType="advertisementFrame" resultType="java.lang.Integer">
+		<![CDATA[
+		   select count(1) from adv_frame advp where adv_place_id=#{advPlaceId}
+		   ]]>
+		   <if test="id!=null"> and advp.id!=#{id}</if>
+		   <![CDATA[
+		    and advp.name=#{name} 
+          ]]>  
+	</select>
+	
+
+    <!-- 添加广告帧 -->
+	<insert id="save" parameterType="advertisementFrame">
+	  <![CDATA[ 
+	  insert into adv_frame(id,name,adv_place_id,order_seq,create_by,create_dt) 
+	  values(adv_frame_SEQ.NEXTVAL,#{name},#{advPlaceId},#{orderSeq},#{create_by},sysdate)
+	 ]]>
+	</insert>
+
+    <!-- 修改广告帧-->
+	<update id="update" parameterType="advertisementFrame">
+	 update adv_frame set
+	 <if test="name!=null and name!=''"> 
+     name=#{name},
+     </if>
+     <if test="orderSeq!=null and orderSeq!=''"> 
+     order_seq=#{orderSeq},
+     </if>
+     last_update_by=#{last_update_by},
+     last_update_dt=sysdate
+     where id=#{id}
+	</update>
+	
+   <!-- 删除广告帧-->
+   <delete id="delete" parameterType="advertisementFrame">
+	 <![CDATA[ 
+	 	delete adv_frame where id=#{id}
+     ]]>
+	</delete>
+	
+   <!-- 按广告位ID删除广告帧 -->
+   <delete id="deleteByAdvPlaceId" parameterType="java.util.Map">
+	 <![CDATA[ 
+	 	delete adv_frame where adv_place_id=#{advPlaceId}
+     ]]>
+	</delete>
+</mapper>

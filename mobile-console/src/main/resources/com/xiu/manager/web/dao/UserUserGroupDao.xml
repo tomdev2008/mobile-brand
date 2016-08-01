@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.manager.web.dao.UserUserGroupDao">
+	<resultMap id="userUserGroupResult" type="userUserGroup">
+		<result property="id" column="id" />
+		<result property="userId" column="user_id" />
+		<result property="userGroupId" column="usergroup_id" />
+		<result property="createDt" column="create_dt" />
+		<result property="version" column="version" />
+	</resultMap>
+	
+	<!-- 添加用户-用户组对应的角色 -->
+	<insert id="addUserUserGroup" parameterType="userUserGroup">
+		<selectKey keyProperty="id" resultType="java.lang.Long"  order="BEFORE">
+			select X_RMD_USER_USERGROUP_SEQ.nextval from dual
+		</selectKey>
+		insert into
+		x_rmd_user_usergroup (id, user_id, usergroup_id, create_dt,version)
+		values(#{id},#{userId},#{userGroupId},#{createDt},1)
+	</insert>
+	
+	<!-- 根据用户组ID查询 -->
+	<select id="getUserUserGroupByusergroupId" resultMap="userUserGroupResult" parameterType="java.lang.Long">
+		<![CDATA[select * from x_rmd_user_usergroup where usergroup_id=#{userGroupId}]]>
+	</select>
+	
+	<!-- 根据用户组Id删除 -->
+	<delete id="deleteUserUserGroup" parameterType="java.lang.Long">
+	   <![CDATA[delete from x_rmd_user_usergroup where usergroup_id=#{userGroupId}]]>
+	</delete>
+	
+</mapper>

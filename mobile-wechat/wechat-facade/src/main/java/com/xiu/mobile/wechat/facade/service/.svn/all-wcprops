@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-facade/src/main/java/com/xiu/mobile/wechat/facade/service
+END
+IOrderStatusNotifyService.java
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-facade/src/main/java/com/xiu/mobile/wechat/facade/service/IOrderStatusNotifyService.java
+END
+ICustomService.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-facade/src/main/java/com/xiu/mobile/wechat/facade/service/ICustomService.java
+END
+IPaySuccessNotifyService.java
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-facade/src/main/java/com/xiu/mobile/wechat/facade/service/IPaySuccessNotifyService.java
+END
+IDeliverNotifyService.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-facade/src/main/java/com/xiu/mobile/wechat/facade/service/IDeliverNotifyService.java
+END
+IFeedbackService.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-facade/src/main/java/com/xiu/mobile/wechat/facade/service/IFeedbackService.java
+END
+IWechatCommonService.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-facade/src/main/java/com/xiu/mobile/wechat/facade/service/IWechatCommonService.java
+END

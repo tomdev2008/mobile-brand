@@ -1,0 +1,134 @@
+.mt15 { margin-top: 15px; }
+.mt5 { margin-top: 5px; }
+.mt7 { margin-top: 7px; }
+.submit-order { color:#464646; }
+/*order*/
+.area-box { padding:10px;  border: 1px solid #efefef; border-width:1px 0;background-color:#fff;  }
+.product-area .p-left { width: 66px;height: 88px;padding: 3px;border: 1px solid #e6e6e6;background-color: #fff;float: left;font-size: 0;border-radius: 2px;-webkit-border-radius: 2px;overflow: hidden; }
+.product-area .p-info { padding-left:10px; overflow: hidden; }
+.product-area .p-info .num { border:1px solid #eee; height:24px; width:40px; }
+.product-area .p-info .itm1 { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.product-area .p-info .itm2 { margin-top: 5px; color:#888; font-size: 12px; }
+.product-area .p-info .size { margin-left: 15px;}
+.product-area .p-info .total { display: inline-block;}
+#fee { margin-left: 3px; color:#999; }
+#total{ font-size: 16px; color:#cf1700; font-weight:bold; }
+.product-area .p-left  img { width:100%; height:100%; }
+.acount-area { margin-top:15px; padding-top:15px; border-top: 1px solid #eee; }
+.address-area { position: relative; margin-top:15px; }
+.address-area .icons { position:absolute; top:37%; right:10px; background-position: -34px 0;width: 13px;height: 18px; background-size:150px;}
+.no-address .icons{top:30%;}
+.address-area .addr-list .mobile { margin-left:50px }
+.delivery-area { margin-top: 15px; padding-top: 10px; border-top: 1px solid #efefef; }
+.pay-area { margin-top:15px; }
+.address-area .addr-list .dt-addr { margin-top: 8px; color:#888; }
+.pay-area .pay-tit { padding: 15px 0 15px 10px; background:#f0f0f0; }
+.pay-area .tit { font-weight: normal; color:#999; }
+.pay-area  .pay-list{ margin-top: 15px; border-top: 1px solid #efefef;}
+.pay-list li { position:relative; padding:10px  0 10px 10px; height: 36px; line-height: 36px; border-bottom:1px solid #efefef;  cursor: pointer; }
+.pay-list .radio { position:absolute; width:13px; height: 13px; right: 10px; top:10px; display: block; padding: 9px; border:1px solid #cfcfcf; -webkit-border-radius: 22px; border-radius: 22px;}
+.pay-list .radio em { display: block; width:13px; height:13px; background:#dadada; -webkit-border-radius: 13px; border-radius:13px; }
+.pay-list .checked .radio { border-color :#ea7515;}
+.pay-list .checked .radio em { background-color :#ea7515;}
+.pay-list .icons { height: 36px; line-height: 36px; }
+.pay-list .wx { width: 117px; background-position:-54px -27px;}
+.pay-list .zfb { width: 107px; background-position:-52px -130px;}
+.pay-list .cft { width: 90px; background-position:-52px -63px;}
+.pay-list .card { padding-left: 104px; background-position:-52px -95px;}
+.btn-area { padding: 15px 10px 0;  }
+/*add address page*/
+.add-addr { padding:0 1.2em; }
+.add-addr .add-itm { padding-bottom: 15px; }
+.add-addr .add-itm:after {
+	clear: both;
+	content: '.';
+	display: block;
+	height: 0;
+	visibility: hidden;
+	overflow: hidden;	
+}
+.add-addr  label { float: left; }
+.add-addr .add-itm .input , .add-addr .add-itm .select { width: 213px; float: right; position: relative;  background:#fff; } 
+.add-addr .add-itm input::-webkit-input-placeholder { font-size: 14px;  color: #979797;}
+.add-addr .add-itm .input input{
+	width: 203px;
+	border: 1px solid #dbdbdb;	
+	font-size: 1.07142em;
+	color: #444;
+	padding: 8px 0 8px 8px;
+	line-height: normal;
+	margin: 0;
+	-webkit-appearance: none;
+	color: #444;
+}
+.select select{
+	width: 100%;
+	width: 110%\9;
+	height: 35px;
+	padding-right: 40px;	
+	color: #444;
+	line-height: 31px;
+	border: 1px solid #dbdbdb;
+	-webkit-appearance: none;
+	text-indent: 6px;
+	font-size: .928571em;
+	position: relative;
+	z-index: 2;
+	background: none;
+}
+.select:before{
+	content: '';
+	width: 35px;
+	height: 33px;
+	position: absolute;
+	border: 1px solid #dbdbdb;
+	right: 0;
+	top: 0;
+	/*-webkit-box-shadow: 0 0 1px 1px #fff inset;
+	border-radius: 0 4px 4px 0;
+	background: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#ededed));
+	background: -moz-linear-gradient(top,#fff,#ededed);
+	background: -ms-linear-gradient(top,#fff,#ededed);
+	background: -o-linear-gradient(top,#fff,#ededed);*/
+}
+.select:after {
+	content: '';
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	right: 13px;
+	top: 50%;
+	border-color: #c4c4c4;
+	border-style: solid;
+	border-width: 0 1px 1px 0;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	margin-top: -8px;	
+}
+.add-addr .add-itm .input textArea { border: 1px solid #dbdbdb; padding: 5px; width: 203px; }
+.add-addr .btn-area { background: #fff; }
+/*order select*/
+.select-area { position: relative; float:left; height: 24px; width:60px; }
+.select-area select{ padding-right: 24px; width: 60px; height:25px; line-height: 22px; border-color: #e6e6e6;border-radius:0; -moz-border-radius: 0; -webkit-border-radius: 0; }
+.select-area:before { background:0; width:24px; height:23px; border-radius:0; -webkit-border-radius: 0;-moz-border-radius: 0;border-radius:0;  }
+.select-area:after { right: 8px; margin-top: -6px;; height: 8px; width:8px; } 
+.price_ld { display:none; margin-left: 3px; }
+/*获取地址列表*/
+#address .address-area{ margin-top: 15px; }
+#address .address-area:first-child{ margin-top: 0; }
+/*bank-list*/
+.bank-area { display:none;  position:absolute; top:0;left:0;width:100%;  background:#fff; z-index:100; }
+.bank-area  .header { position: static;}
+.bank-list-area {padding-top:13px; background:#f0f0f0; overflow:hidden; }
+.bank-list-inner{ border-top:1px solid #dadada;}
+.bank-list-area .bank-list:last-child { display: none; }
+.bank-tab { height: 42px; padding:13px; background:#fff; border-bottom:1px solid #dadada; }
+.bank-tab ul { border: 1px solid #ea7515; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px;overflow: hidden;}
+.bank-tab li{ float:left; width:50%;height:40px; line-height:40px; text-align: center;font-size: 16px; }
+.bank-tab li:first-child { margin-left:-1px; border-right: 1px solid #ea7515; }
+.bank-tab li.curr { background: #ea7515;  color:#fff;  }
+.bank-list li{ padding: 15px 0 15px 15px; border-bottom: 1px solid #e1e1e1;  background:#fff;}
+.bank-list li.sel { background:#ea7515; color:#fff; border-bottom-color:#ea7515; }
+.bank .more-bank{ padding: 11px 0;border-bottom: 1px solid #e6e6e6; }

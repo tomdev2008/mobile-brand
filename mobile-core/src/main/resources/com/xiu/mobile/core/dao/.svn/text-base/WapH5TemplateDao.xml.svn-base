@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.core.dao.WapH5TemplateDao">
+    
+   <insert id="saveH5Template" parameterType="com.xiu.mobile.core.model.WapH5Template">
+       insert into x_wap_h5_template(
+       		id,
+       		name,
+       		template,
+       		data_template,
+       		thumbnail_url,
+       		js_url,
+       		css_url,
+       		create_time,
+       		lastupdate_time,
+       		last_editer,
+       		state,
+       		template_handler,
+       		template_weight
+       )values(
+       		SEQ_H5_TEMPLATE_ID.nextval,
+       		#{name},
+       		#{template},
+       		#{dataTemplate},
+       		#{thumbnailUrl},
+       		#{jsUrl},
+       		#{cssUrl},
+       		sysdate,
+       		sysdate,
+       		#{lastEditer},
+       		#{state},
+       		#{templateHandler},
+       		#{templateWeight}
+       )
+   </insert>
+   
+   <update id="updateH5Template" parameterType="com.xiu.mobile.core.model.WapH5Template">
+       update x_wap_h5_template set
+       <if test="name!=null and name!=''"> 
+	     name = #{name},
+	   </if>
+	   <if test="template != null and template != ''"> 
+	     template = #{template},
+	   </if>
+	   <if test="dataTemplate != null and dataTemplate != ''"> 
+	     data_template = #{dataTemplate},
+	   </if>
+	   <if test="thumbnailUrl != null and thumbnailUrl != ''"> 
+	     thumbnail_url = #{thumbnailUrl},
+	   </if>
+	   <if test="jsUrl != null and jsUrl != ''"> 
+	     js_url = #{jsUrl},
+	   </if>
+	   <if test="cssUrl != null and cssUrl != ''"> 
+	     css_url = #{cssUrl},
+	   </if>
+	   <if test="lastEditer != null and lastEditer != ''"> 
+	     last_editer = #{lastEditer},
+	   </if>
+	   <if test="state != null and state != ''"> 
+	     state = #{state},
+	   </if>
+	   <if test="templateHandler != null and templateHandler != ''"> 
+	     template_handler = #{templateHandler},
+	   </if>
+	   <if test="templateWeight != null and templateWeight != ''">
+	   	template_weight = #{templateWeight},
+	   </if>
+	   lastupdate_time = sysdate
+       where 
+       	 id = #{id}
+   </update>
+   
+   <select id="queryWapH5TemplateById" parameterType="java.lang.Long" resultType="com.xiu.mobile.core.model.WapH5Template">
+       select
+		id,
+  		name,
+  		template,
+  		data_template dataTemplate,
+  		thumbnail_url thumbnailUrl,
+  		js_url jsUrl,
+  		css_url cssUrl,
+  		create_time createTime,
+  		lastupdate_time lastupdateTime,
+  		last_editer lastEditer,
+  		state,
+  		template_handler templateHandler,
+  		template_weight templateWeight
+       from
+         x_wap_h5_template
+       where
+         id = #{id}
+   </select>
+   
+      <select id="queryWapH5TemplateListDesc" resultType="com.xiu.mobile.core.model.WapH5Template" parameterType="java.util.Map">
+      select b.*
+       from (
+         select a.*, rownum rowno from(
+                    select 
+    	s.id,
+      s.name,
+      s.template,
+      s.data_template dataTemplate,
+      s.thumbnail_url thumbnailUrl,
+      s.js_url jsUrl,
+      s.css_url cssUrl,
+      s.create_time createTime,
+      s.lastupdate_time lastupdateTime,
+      s.last_editer lastEditer,
+      state,
+      template_handler templateHandler
+       from x_wap_h5_template s
+			         where 1=1
+			         order by s.state, s.lastupdate_time desc 
+             )a where  rownum &lt; #{pageMax}
+        )b where b.rowno &gt;= #{pageMin}
+   </select>
+    
+    <select id="getWapH5TemplateListCount" resultType="java.lang.Integer"  >
+      	select count(1)
+          from x_wap_h5_template s
+         where 1=1  
+	</select>
+	
+    <select id="queryWapH5TemplateByModuleId" parameterType="java.lang.Long" resultType="com.xiu.mobile.core.model.WapH5Template">
+       select
+         t.id id,
+         t.name name,
+       	 t.template template,
+       	 t.data_template dataTemplate,
+       	 t.thumbnail_url thumbnailUrl,
+  		 t.js_url jsUrl,
+  		 t.css_url cssUrl,
+  		 t.template_handler templateHandler
+       from
+       	 x_wap_h5_module m
+       	 inner join 
+       	 x_wap_h5_template t
+       	 on m.template_id = t.id
+       where
+       	 m.id = #{moduleId}
+   </select>
+   
+   <select id="queryWapH5TemplateByPageId" parameterType="java.lang.Long" resultType="com.xiu.mobile.core.model.WapH5Template">
+       select
+       	 m.id id, <!-- 注意，这里查的是组件ID -->
+         t.name name,
+         t.template template,
+       	 t.data_template dataTemplate,
+       	 t.thumbnail_url thumbnailUrl,
+  		 t.js_url jsUrl,
+  		 t.css_url cssUrl,
+  		 t.template_handler templateHandler
+       from
+         x_wap_h5_list p
+         inner join
+       	 x_wap_h5_module m
+       	 on p.id = m.page_id
+       	 inner join 
+       	 x_wap_h5_template t
+       	 on m.template_id = t.id
+       where
+       	 p.id = #{pageId}
+       	 order by m.row_index
+   </select>
+    
+	 <select id="queryActveTemplateList" resultType="com.xiu.mobile.core.model.WapH5Template">
+	      select
+		    id,
+	 		name,
+	 		template,
+	 		data_template dataTemplate,
+	 		thumbnail_url thumbnailUrl,
+	 		js_url jsUrl,
+	 		css_url cssUrl,
+	 		create_time createTime,
+	 		lastupdate_time lastupdateTime,
+	 		last_editer lastEditer,
+	 		state,
+	 		template_handler templateHandler
+	      from
+	        x_wap_h5_template
+	      where
+	        state =0
+	      order by
+	      	template_weight desc
+   </select>
+   
+   
+   
+      <insert id="insertPageTemplate" parameterType="com.xiu.mobile.core.model.WapH5PageTemplate">
+       insert into x_wap_h5_page_template(
+       		id,
+       		name,
+       		TEMPLATE_IDS
+       )values(
+       		SEQ_H5_PAGE_TEMPLATE_ID.nextval,
+       		#{name},
+       		#{templateIds}
+       )
+   </insert>
+   
+   
+   <insert id="updatePageTemplate" parameterType="com.xiu.mobile.core.model.WapH5PageTemplate">
+       update  x_wap_h5_page_template  set
+       <if test="templateIds!=null and templateIds!=''"> 
+	    TEMPLATE_IDS = #{templateIds},
+	   </if>
+	     name = #{name}  where id = #{id}
+   </insert>
+	
+	
+	<select id="queryPageTemplateList" resultType="com.xiu.mobile.core.model.WapH5PageTemplate">
+       select id, name, TEMPLATE_IDS  templateIds from   x_wap_h5_page_template where 1=1
+   </select>
+   
+   <select id="queryPageTemplateNameExist" resultType="java.lang.Long"  parameterType="java.lang.String" >
+       select count(1)   from   x_wap_h5_page_template where name = #{name}
+   </select>
+	
+</mapper>

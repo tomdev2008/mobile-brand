@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/common/web/interceptor/validator
+END
+CookieValidator.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/common/web/interceptor/validator/CookieValidator.java
+END
+AuthorizationValidator.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/common/web/interceptor/validator/AuthorizationValidator.java
+END
+AdminCookieValidator.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/common/web/interceptor/validator/AdminCookieValidator.java
+END

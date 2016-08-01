@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/mobile/!svn/ver/26864/trunk_k/servers/mobile-server/mobile-console/src/main/resources
+END
+applicationContext-resources.xml
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/mobile/!svn/ver/25701/trunk_k/servers/mobile-server/mobile-console/src/main/resources/applicationContext-resources.xml
+END
+applicationContext-web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/mobile/!svn/ver/25701/trunk_k/servers/mobile-server/mobile-console/src/main/resources/applicationContext-web.xml
+END
+PRIVATEKEY
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/mobile/!svn/ver/26423/trunk_k/servers/mobile-server/mobile-console/src/main/resources/PRIVATEKEY
+END
+sensitivewords.properties
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/mobile/!svn/ver/25335/trunk_k/servers/mobile-server/mobile-console/src/main/resources/sensitivewords.properties
+END
+applicationContext-service.xml
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/mobile/!svn/ver/26864/trunk_k/servers/mobile-server/mobile-console/src/main/resources/applicationContext-service.xml
+END
+PUBLICKEY
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/mobile/!svn/ver/26423/trunk_k/servers/mobile-server/mobile-console/src/main/resources/PUBLICKEY
+END
+applicationContext-memcache.xml
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/mobile/!svn/ver/25701/trunk_k/servers/mobile-server/mobile-console/src/main/resources/applicationContext-memcache.xml
+END
+applicationContext-dao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/resources/applicationContext-dao.xml
+END
+mybatis-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/resources/mybatis-config.xml
+END
+applicationContext-hessian-client.xml
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/26579/trunk_k/servers/mobile-server/mobile-console/src/main/resources/applicationContext-hessian-client.xml
+END
+RSAKey.txt
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/resources/RSAKey.txt
+END

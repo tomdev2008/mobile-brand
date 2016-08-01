@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.portal.dao.SubjectDao">
+	
+	
+		
+	<select id="getIndexSubjectList" parameterType="java.util.HashMap" resultType="com.xiu.mobile.portal.model.SubjectVo">
+	  <![CDATA[
+		select s.id subjectId,s.name,s.title,s.display_stytle displayStytle,s.out_pic outPic
+          from subject s
+         where s.start_time <=sysdate and s.end_time >=sysdate  
+         order by s.display_stytle, s.order_seq 
+         ]]>
+	</select>	
+<!-- 	大小专题列表 -->
+	<select id="getBigOrSmallSubjectListIndex" parameterType="java.util.HashMap" resultType="com.xiu.mobile.portal.model.SubjectVo">
+        select b.* from
+			(select a.*,rownum rowno from 
+	         (select s.id subjectId,s.name,s.title,s.display_stytle displayStytle,s.out_pic outPic 
+		        from subject s 
+		        <if test="tagId !=null">
+					left join xiu_goods.x_label_object l on s.id=l.object_id
+				</if>
+		        where s.display_stytle=#{diaplayStytle}
+		        <if test="tagId !=null">
+					and l.label_id=#{tagId} and l.category=#{type}
+				</if>
+		         and s.start_time &lt;=sysdate and s.end_time &gt;=sysdate 
+		         order by s.order_seq desc,s.start_time desc,s.create_time desc
+	         )a where  rownum &lt; #{pageMax}
+         )b where b.rowno &gt;= #{pageMin}
+	</select>
+	<select id="getSubjectListCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+		select count(1) from subject s 
+		<if test="tagId !=null">
+			left join xiu_goods.x_label_object l on s.id=l.object_id
+		</if>
+		where s.display_stytle=#{diaplayStytle}
+		<if test="tagId !=null">
+			and l.label_id=#{tagId} and l.category=#{type}
+		</if>
+		and s.start_time &lt;=sysdate and s.end_time &gt;=sysdate
+		and s.status=1
+	</select>
+	<resultMap type="com.xiu.mobile.portal.model.SubjectVo" id="subjectResultVo">
+	   <id column="id" property="subjectId"/>
+	   <result column="name" property="name"/>
+	   <result column="title" property="title"/>
+	   <result column="display_stytle" property="displayStytle"/>
+	   <result column="out_pic" property="outPic"/>
+	   <result column="start_time" property="startTime"/>
+	   <association property="contentItemList" resultMap="subjectItemResultVo"></association>
+	</resultMap>
+	
+	<resultMap type="com.xiu.mobile.portal.model.SubjectItemVo" id="subjectItemResultVo">
+	  <result column="stuff_type" property="contentItemType"/>
+	  <result column="stuff_data" property="contentItemData"/>
+	  <result column="stuff_param1" property="param1"/>
+	  <result column="stuff_param2" property="param2"/>
+	  <result column="type" property="linkType"/>
+	  <result column="link_type" property="linkObject"/>
+	</resultMap>
+	
+	<select id="getSubjectInfo" parameterType="java.util.HashMap" resultMap="subjectResultVo" >
+			select s.id ,s.name,s.title,s.display_stytle,s.start_time,
+		       si.stuff_type,si.stuff_data,si.stuff_param1 ,si.stuff_param2,si.type ,si.link_type
+          from subject s, subject_item si
+         where s.id=#{subjectId} and s.id=si.subject_id
+         order by si.order_seq
+	</select>
+	
+	<select id="checkSubjectById" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+		select count(1)
+          from subject s
+         where s.id=#{subjectId} 
+	</select>
+	
+	<select id="getUserSubjectListCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+		select count(1) from xiu_show.SQ_USER_COLLECT_SUBJECT where 1=1 
+		<if test="userId !=null and  userId!=''">
+			and USER_ID=#{userId} 
+		</if>
+		<if test="subjectId !=null">
+			and SHOW_ID=#{subjectId} 
+		</if>
+	</select>
+	<select id="getUserSubjectListList" parameterType="java.util.HashMap" resultType="com.xiu.mobile.portal.model.SubjectVo">
+		select b.*,
+	       (select count(1) from subject_comment where subject_id=b.subjectId) commentNum
+	       from (
+			select a.*,rownum rowno from(
+					select 
+					s.id subjectId,s.name,s.title,s.display_stytle displayStytle,s.out_pic outPic  
+					from xiu_show.SQ_USER_COLLECT_SUBJECT u 
+					left join subject s on u.SHOW_ID=s.ID
+				    where 1=1 and u.USER_ID=#{userId}
+				  ) a where  rownum &lt; #{pageMax}
+			)b where b.rowno &gt;= #{pageMin}
+	</select>
+	
+</mapper>

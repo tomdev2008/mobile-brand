@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/mobile/!svn/ver/27860/trunk_k/servers/mobile-server/mobile-portal/src/main/resources
+END
+confInTomcat.properties
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/resources/confInTomcat.properties
+END
+update.sql
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/resources/update.sql
+END
+applicationContext-web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/mobile/!svn/ver/17806/trunk_k/servers/mobile-server/mobile-portal/src/main/resources/applicationContext-web.xml
+END
+sensitivewords.properties
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/mobile/!svn/ver/17358/trunk_k/servers/mobile-server/mobile-portal/src/main/resources/sensitivewords.properties
+END
+applicationContext-filter.xml
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/mobile/!svn/ver/17806/trunk_k/servers/mobile-server/mobile-portal/src/main/resources/applicationContext-filter.xml
+END
+memcache.properties
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/mobile/!svn/ver/18843/trunk_k/servers/mobile-server/mobile-portal/src/main/resources/memcache.properties
+END
+application.properties
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/mobile/!svn/ver/23944/trunk_k/servers/mobile-server/mobile-portal/src/main/resources/application.properties
+END
+mobile.properties
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/mobile/!svn/ver/27083/trunk_k/servers/mobile-server/mobile-portal/src/main/resources/mobile.properties
+END
+change_log.txt
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/resources/change_log.txt
+END
+applicationContext-service.xml
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/resources/applicationContext-service.xml
+END
+applicationContext-memcache.xml
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/mobile/!svn/ver/15430/trunk_k/servers/mobile-server/mobile-portal/src/main/resources/applicationContext-memcache.xml
+END
+applicationContext-dao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/resources/applicationContext-dao.xml
+END
+mybatis-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/mobile/!svn/ver/27663/trunk_k/servers/mobile-server/mobile-portal/src/main/resources/mybatis-config.xml
+END
+applicationContext-hessian-client.xml
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/mobile/!svn/ver/27155/trunk_k/servers/mobile-server/mobile-portal/src/main/resources/applicationContext-hessian-client.xml
+END
+errorMessages_zh.properties
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/resources/errorMessages_zh.properties
+END
+log4j.xml
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/mobile/!svn/ver/19441/trunk_k/servers/mobile-server/mobile-portal/src/main/resources/log4j.xml
+END

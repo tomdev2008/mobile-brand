@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd"
+       default-lazy-init="true">
+       
+	<!-- 机器人点赞Service -->
+    <bean id="praiseRobotService" class="com.xiu.show.robot.service.SyncPraiseRobotServiceImpl"/>
+ 
+    <!-- 刷点赞 -->
+    <bean id="synBrushPraiseData" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="praiseRobotService" />
+        </property>
+        <property name="targetMethod">  
+            <value>syncBrushPraiseService</value>  
+        </property>
+    </bean>
+    <bean id="synBrushPraiseTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="synBrushPraiseData" />
+        </property>
+        <property name="cronExpression">
+            <value>0 0/${show.robot.brush.data.minute.num} *  * * ?</value>
+        </property>
+    </bean>
+    
+    <!-- 24小时内用户被赞数统计定时任务 -->
+    <bean id="userPraisedStatistics" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="userRecommendManagerService" />
+        </property>
+        <property name="targetMethod">  
+            <value>callUserPraisedStatistics</value>  
+        </property>
+    </bean>
+    <bean id="userPraisedStatisticsTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="userPraisedStatistics" />
+        </property>
+        <property name="cronExpression">
+            <value>0 10 * * * ?</value>
+        </property>
+    </bean>
+    
+    <!-- 根据关注数据进行用户推荐 -->
+    <bean id="userRecommendConcernMore" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="userRecommendManagerService" />
+        </property>
+        <property name="targetMethod">  
+            <value>callUserRecommendConcernMore</value>  
+        </property>
+    </bean>
+    <bean id="userRecommendConcernMoreTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="userRecommendConcernMore" />
+        </property>
+        <property name="cronExpression">
+            <value>0 30 * * * ?</value>
+        </property>
+    </bean>
+    
+    <bean id="userRecommendConcern" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="userRecommendManagerService" />
+        </property>
+        <property name="targetMethod">  
+            <value>callUserRecommendConcern</value>  
+        </property>
+    </bean>
+    <bean id="userRecommendConcernTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="userRecommendConcern" />
+        </property>
+        <property name="cronExpression">
+            <value>0 0 1 * * ?</value>
+        </property>
+    </bean>
+    
+    <!-- 根据关注品牌数据进行用户推荐 -->
+    <bean id="userRecommendConcernBrand" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="userRecommendManagerService" />
+        </property>
+        <property name="targetMethod">  
+            <value>callUserRecommendConcernBrand</value>  
+        </property>
+    </bean>
+    <bean id="userRecommendConcernBrandTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="userRecommendConcernBrand" />
+        </property>
+        <property name="cronExpression">
+            <value>0 30 1 * * ?</value>
+        </property>
+    </bean>
+    
+    <!-- 24小时内被点赞最多的用户推荐 -->
+    <bean id="userRecommendLastedPraised" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="userRecommendManagerService" />
+        </property>
+        <property name="targetMethod">  
+            <value>callUserRecommendLastedPraised</value>  
+        </property>
+    </bean>
+    <bean id="userRecommendLastedPraisedTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="userRecommendLastedPraised" />
+        </property>
+        <property name="cronExpression">
+            <value>0 0 2 * * ?</value>
+        </property>
+    </bean>
+    
+    <!-- 被点赞次数最多的用户推荐 -->
+    <bean id="userRecommendMostPraised" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="userRecommendManagerService" />
+        </property>
+        <property name="targetMethod">  
+            <value>callUserRecommendMostPraised</value>  
+        </property>
+    </bean>
+    <bean id="userRecommendMostPraisedTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="userRecommendMostPraised" />
+        </property>
+        <property name="cronExpression">
+            <value>0 30 2 * * ?</value>
+        </property>
+    </bean>
+    
+    <!-- 从好友列表中的用户推荐 -->
+    <bean id="userRecommendFriend" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="userRecommendManagerService" />
+        </property>
+        <property name="targetMethod">  
+            <value>callUserRecommendFriend</value>  
+        </property>
+    </bean>
+    <bean id="userRecommendFriendTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="userRecommendFriend" />
+        </property>
+        <property name="cronExpression">
+            <value>0 0 3 * * ?</value>
+        </property>
+    </bean>
+    
+    <!-- 定时秀审核处理 -->
+    <bean id="checkShowFuture" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="userRecommendManagerService" />
+        </property>
+        <property name="targetMethod">  
+            <value>callCheckShowFuture</value>  
+        </property>
+    </bean>
+    <bean id="checkShowFutureTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="checkShowFuture" />
+        </property>
+        <property name="cronExpression">
+            <value>0 0/30 * * * ?</value>
+        </property>
+    </bean>
+    
+         <!-- 定时删除秀客相关数据（关注人的新秀关联数据）-->
+    <bean id="synDeleteShower" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="showerDataTaskManagerService" />
+        </property>
+        <property name="targetMethod">  
+            <value>callDeleteShowerDataTask</value>  
+        </property>
+    </bean>
+    <bean id="synDeleteShowerTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="synDeleteShower" />
+        </property>
+        <property name="cronExpression">
+            <value>0 25 3 * * ?</value>
+        </property>
+    </bean>
+    
+    
+    <!-- 执行任务 -->
+    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">  
+        <property name="triggers">  
+            <list>  
+            	<ref local="synBrushPraiseTrigger" /> 
+            	<ref local="userPraisedStatisticsTrigger" />
+            	<ref local="userRecommendConcernMoreTrigger" />
+            	<ref local="userRecommendConcernTrigger" />
+            	<ref local="userRecommendConcernBrandTrigger" />
+            	<ref local="userRecommendLastedPraisedTrigger" />
+            	<ref local="userRecommendMostPraisedTrigger" />
+            	<ref local="userRecommendFriendTrigger" />
+            	<ref local="checkShowFutureTrigger" />
+            	<ref local="synDeleteShowerTrigger" />
+            </list>  
+        </property>  
+    </bean> 
+</beans>

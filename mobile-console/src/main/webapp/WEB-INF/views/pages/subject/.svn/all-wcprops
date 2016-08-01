@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/mobile/!svn/ver/27115/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/subject
+END
+list.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/mobile/!svn/ver/26549/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/subject/list.ftl
+END
+commentInfo.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/17759/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/subject/commentInfo.ftl
+END
+commentList.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/25334/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/subject/commentList.ftl
+END
+update.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/27115/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/subject/update.ftl
+END
+create.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/27115/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/subject/create.ftl
+END
+import.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/24281/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/subject/import.ftl
+END

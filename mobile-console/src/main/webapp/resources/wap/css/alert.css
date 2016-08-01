@@ -1,0 +1,119 @@
+
+ body{background: #fff;padding: 0;margin: 0;}
+.econtainer{
+   display: none;
+    width: 960px;
+    height: 560px;
+    padding: 30px 20px 0px 20px;   
+    border: 1px solid #000;
+    position: fixed;
+    background: #fff;
+    z-index:1;
+}
+.closeAlert{
+	    cursor: pointer;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	font-size: 12px;
+}
+.choose{
+	width: 500px;
+	height: 550px;	
+	float: left;
+}
+.chooseTitle{
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	font-family:"agency fb";
+	font-size: 2rem;
+	margin-bottom: 5px;
+}
+.choose ul{
+	width: 450px;
+	 margin: 0;
+  	padding: 0;
+} 
+.choose ul li{
+	    cursor: pointer;
+	list-style: none;
+	width: 180px;
+	height: 25px;
+	border: 1px solid #a1a1a1;
+	line-height: 25px;
+	float: left;
+	font-size: 12px;	
+	margin: 5px 5px;
+}
+.imgShow{
+	width: 400px;
+	height: 550px;
+	float: right;
+}
+.showImg{
+	width: 100%;
+	height: 300px;
+	margin-top: 10px;
+	text-align: center;
+	font-size: 3rem;
+}
+.showImg img{
+	width: 100%;
+}
+.mous>div{
+	display: block;
+	clear: both;
+}
+.mous>div:first-child{
+	font-weight: bold;
+}
+.mous>div>div{
+	float: left;
+	text-align: center;
+	border: 1px solid black;
+	height: 32px;
+	line-height: 30px;
+	margin:0 -1px -1px 0;
+}
+.mous>div>div input{
+	width: 100%;
+	border: none;
+	height: 30px;
+	text-align: center;
+}
+.column1{
+	width: 50px;
+	height: 35px;
+}
+.column2{
+	width: 60px;
+}
+.column3,.column4{
+	width: 120px;
+}
+.column5{
+	width: 85px;	
+}	
+.column6{
+	width: 200px;
+}
+.column7{
+	width: 250px;
+}
+.middlesave{
+	display: block;
+  position: absolute;
+  font-family: "微软雅黑";
+  font-size: 1.5rem;
+  width: 100px;
+  height: 50px;
+  bottom: 15px;
+  left: 450px;
+}
+

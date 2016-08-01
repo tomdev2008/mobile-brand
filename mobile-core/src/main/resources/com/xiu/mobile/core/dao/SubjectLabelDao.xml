@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.core.dao.SubjectLabelDao">
+<!-- 	查询所有标签信息，不分页 -->
+	<select id="getSubjectLabel" resultType="com.xiu.mobile.core.model.SubjectLabel" parameterType="java.lang.Integer">
+		select s.label_id labelId,s.title,s.display,s.create_date createDate,s.operator,
+		       s.order_seq orderSeq from x_subject_label s where 1=1 and s.display=1
+		       and category=#{category}
+	</select>
+	<select id="getSubjectLabelSecond" resultType="com.xiu.mobile.core.model.SubjectLabel" parameterType="java.lang.Integer">
+		select f.* from (select s.label_id    labelId,
+	       s.title,
+	       s.display,
+	       s.create_date createDate,
+	       s.operator,
+	       s.order_seq   orderSeq
+	  from x_subject_label s
+	 where 1 = 1
+	   and s.display = 1
+	   and category = #{category}
+	   order by order_seq desc)f
+	   where rownum &lt; 3
+	</select>
+   <!-- 查询标签分页 -->
+   <select id="getLabelList" resultType="com.xiu.mobile.core.model.SubjectLabel"  parameterType="java.util.Map">
+	  select b.* from    
+	       (select a.*,rownum rowno from(
+		       select s.label_id labelId,s.title,s.display,s.create_date createDate,s.operator,s.category,
+		       s.order_seq orderSeq from x_subject_label s where 1=1
+		       <if test="display!=null and display!=''">
+		       		and s.display=#{display}
+		       </if>
+		       order by order_seq desc,create_date desc
+	       )a where rownum &lt; #{pageMax}
+       )b where b.rowno &gt;= #{pageMin}
+	</select>
+<!-- 	标签总数 -->
+	<select id="getLabelCount" parameterType="java.util.Map" resultType="java.lang.Integer">
+		select count(1) from x_subject_label where 1=1
+		<if test="display!=null and display!=''">
+		    and display=#{display}
+		</if>
+	</select>
+<!-- 	添加标签 -->
+	<insert id="addSubjectLabel" parameterType="com.xiu.mobile.core.model.SubjectLabel">
+		insert into x_subject_label(label_id,title,display,create_date,operator,order_seq,category) 
+		values(seq_x_subject_label.nextval,#{title},#{display},sysdate,#{operator},#{orderSeq},#{category})
+	</insert>
+<!-- 	根据ID查询标签信息 -->
+	<select id="getLabelInfo" parameterType="java.lang.Long" resultType="com.xiu.mobile.core.model.SubjectLabel">
+		select s.label_id labelId,s.title,s.display,s.create_date createDate,
+		 s.operator,s.order_seq orderSeq,category from x_subject_label s where s.label_id=#{labelId}
+	</select>
+<!-- 	修改标签信息 -->
+	<update id="updaetLabel" parameterType="com.xiu.mobile.core.model.SubjectLabel">
+		update x_subject_label set title=#{title},display=#{display},create_date=sysdate,
+		operator=#{operator},order_seq=#{orderSeq},category=#{category} where label_id=#{labelId}
+	</update>
+<!-- 	根据ID删除标签 -->
+	<delete id="deleteLabel" parameterType="java.lang.Long">
+		delete from x_subject_label where label_id=#{labelId}
+	</delete>
+<!-- 	批量查询专题/单品对应的标签 -->
+	<select id="findLabelCentreList" resultType="com.xiu.mobile.core.model.LabelCentre" parameterType="java.util.Map">
+		select l.subject_id objectId, l.label_id labelId, s.title
+		  from x_label_centre l, x_subject_label s
+		 where s.label_id = l.label_id
+		   and l.subject_id in
+	     <foreach collection="subjectId" item="subjectId" open="(" close=")"
+			separator=",">
+			#{subjectId}
+		</foreach>
+		   and s.category = #{category}
+		   and s.display = 1
+		   order by l.order_sql
+	</select>
+	<select id="findLabelBySubjectId" resultType="com.xiu.mobile.core.model.LabelCentre" parameterType="java.util.Map">
+		select l.subject_id objectId, l.label_id labelId, s.title
+		  from x_label_centre l, x_subject_label s
+		 where s.label_id = l.label_id
+		   and l.subject_id =#{subjectId}
+		   and s.category = #{category}
+		   and s.display = 1
+		   order by l.order_sql
+	</select>
+	<insert id="addLabelCentreList" parameterType="java.util.HashMap">
+		insert into x_label_centre (id, label_id, subject_id, create_time,category,order_sql)
+		  select seq_x_label_centre.nextval id,t.* from (
+		  	<foreach collection="list" item="item" index="index" separator="union all">
+		  	select #{item.labelId} label_id,
+		  	#{item.subjectId} subject_id,
+		  	sysdate,
+		  	#{item.category} category,
+		  	#{item.orderSql} orderSql
+		  	from dual
+		  	</foreach>
+		  )t
+	</insert>
+	<delete id="deleteLabelCentreList" parameterType="java.util.Map">
+		delete x_label_centre c where c.subject_id=#{subjectId} and c.category=#{category}
+	</delete>
+	<select id="findLabelIdByTitle" parameterType="java.util.Map" resultType="com.xiu.mobile.core.model.SubjectLabel">
+		select c.label_id labelId from x_subject_label c where c.title=#{title} and c.category=#{category}
+	</select>
+</mapper>

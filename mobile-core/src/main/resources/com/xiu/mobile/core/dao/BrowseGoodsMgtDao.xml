@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.core.dao.BrowseGoodsMgtDao">
+
+	
+	<delete id="deleteBrowseGoodsBatchByTime" parameterType="java.util.HashMap">
+		delete from XIU_WAP.BROWSE_GOODS_RECS 
+		where CREATE_DATE &lt; #{createDate} and CREATE_DATE &gt; #{endDate}
+	</delete>
+	
+	
+</mapper>

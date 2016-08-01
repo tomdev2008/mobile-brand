@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.portal.dao.PayForTempletDao">
+
+	<!-- 查询找朋友代付模板列表 -->
+	<select id="getPayForTempletList" parameterType="java.util.HashMap" resultType="com.xiu.mobile.core.model.PayForTemplet">
+		select t.id,t.title,t.background_color as backgroundColor,t.templet_pic as templetPic,t.order_seq as orderSeq,t.status 
+		  from pay_for_templets t
+		 where t.status = 1 
+		 order by order_seq 	 	
+  	</select>
+  	
+  	<!-- 查询找朋友代付模板数量 -->
+  	<select id="getPayForTempletCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+  		select count(1) 
+		  from pay_for_templets t
+		 where t.status = 1
+  	</select>
+  	
+</mapper>

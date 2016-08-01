@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/mobile/!svn/ver/16015/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/message
+END
+systemMessageLog.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/mobile/!svn/ver/16015/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/message/systemMessageLog.ftl
+END
+addSystemMsg.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/16015/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/message/addSystemMsg.ftl
+END
+systemMessageInfo.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/mobile/!svn/ver/16015/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/message/systemMessageInfo.ftl
+END
+systemMessageList.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/mobile/!svn/ver/16015/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/message/systemMessageList.ftl
+END

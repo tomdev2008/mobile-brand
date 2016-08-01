@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* ==========================================================
+	* Name:  登录样式
+	* Date: 2013/05/28
+	* User: haijun.chen@xiu.com
+============================================================*/
+body{
+	font-size:12px; 
+	background:url(../images/login_bg.jpg) center top repeat-x #3c7fb5; 
+	text-align:center;
+	}
+td{
+	text-align:left;
+	}
+.table{
+	   background:url(../images/login.jpg) center top no-repeat;
+	   }
+.input{height:27px;
+       line-height:24px;
+       border:none; 
+       background:none;
+       }
+.w130{
+	 width:141px;
+	 }
+.w50{
+	 width:50px;
+	 }

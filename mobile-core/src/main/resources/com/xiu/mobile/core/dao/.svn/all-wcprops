@@ -1,0 +1,161 @@
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/mobile/!svn/ver/27837/trunk_k/servers/mobile-server/mobile-core/src/main/resources/com/xiu/mobile/core/dao
+END
+SubjectLabelDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/26940/trunk_k/servers/mobile-server/mobile-core/src/main/resources/com/xiu/mobile/core/dao/SubjectLabelDao.xml
+END
+AppPatchDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/mobile/!svn/ver/26381/trunk_k/servers/mobile-server/mobile-core/src/main/resources/com/xiu/mobile/core/dao/AppPatchDao.xml
+END
+LoveGoodsDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-core/src/main/resources/com/xiu/mobile/core/dao/LoveGoodsDao.xml
+END
+BrowseGoodsMgtDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/25961/trunk_k/servers/mobile-server/mobile-core/src/main/resources/com/xiu/mobile/core/dao/BrowseGoodsMgtDao.xml
+END
+SearchDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/mobile/!svn/ver/26911/trunk_k/servers/mobile-server/mobile-core/src/main/resources/com/xiu/mobile/core/dao/SearchDao.xml
+END
+AdvertisementDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/mobile/!svn/ver/16850/trunk_k/servers/mobile-server/mobile-core/src/main/resources/com/xiu/mobile/core/dao/AdvertisementDao.xml
+END
+WellChosenBrandDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/mobile/!svn/ver/27509/trunk_k/servers/mobile-server/mobile-core/src/main/resources/com/xiu/mobile/core/dao/WellChosenBrandDao.xml
+END
+GoodsDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/mobile/!svn/ver/25494/trunk_k/servers/mobile-server/mobile-core/src/main/resources/com/xiu/mobile/core/dao/GoodsDao.xml
+END
+FindGoodsDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/24111/trunk_k/servers/mobile-server/mobile-core/src/main/resources/com/xiu/mobile/core/dao/FindGoodsDao.xml
+END
+FindMenuMgtDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/25266/trunk_k/servers/mobile-server/mobile-core/src/main/resources/com/xiu/mobile/core/dao/FindMenuMgtDao.xml
+END
+TopicDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/mobile/!svn/ver/26367/trunk_k/servers/mobile-server/mobile-core/src/main/resources/com/xiu/mobile/core/dao/TopicDao.xml
+END
+LabelDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/mobile/!svn/ver/27837/trunk_k/servers/mobile-server/mobile-core/src/main/resources/com/xiu/mobile/core/dao/LabelDao.xml
+END
+AdvertisementPlaceDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/19228/trunk_k/servers/mobile-server/mobile-core/src/main/resources/com/xiu/mobile/core/dao/AdvertisementPlaceDao.xml
+END
+DataBrandDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/27305/trunk_k/servers/mobile-server/mobile-core/src/main/resources/com/xiu/mobile/core/dao/DataBrandDao.xml
+END
+TopicTypeDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/21058/trunk_k/servers/mobile-server/mobile-core/src/main/resources/com/xiu/mobile/core/dao/TopicTypeDao.xml
+END
+WapH5ListDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/27527/trunk_k/servers/mobile-server/mobile-core/src/main/resources/com/xiu/mobile/core/dao/WapH5ListDao.xml
+END
+WapH5TemplateDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/mobile/!svn/ver/25835/trunk_k/servers/mobile-server/mobile-core/src/main/resources/com/xiu/mobile/core/dao/WapH5TemplateDao.xml
+END
+SysParamsDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/27837/trunk_k/servers/mobile-server/mobile-core/src/main/resources/com/xiu/mobile/core/dao/SysParamsDao.xml
+END
+FindSupportVersionDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/25266/trunk_k/servers/mobile-server/mobile-core/src/main/resources/com/xiu/mobile/core/dao/FindSupportVersionDao.xml
+END
+AdvertisementFrameDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/16399/trunk_k/servers/mobile-server/mobile-core/src/main/resources/com/xiu/mobile/core/dao/AdvertisementFrameDao.xml
+END
+AppVersionDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-core/src/main/resources/com/xiu/mobile/core/dao/AppVersionDao.xml
+END
+CommonDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-core/src/main/resources/com/xiu/mobile/core/dao/CommonDao.xml
+END
+AppStartManagerDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-core/src/main/resources/com/xiu/mobile/core/dao/AppStartManagerDao.xml
+END
+SubjectManagerDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/26381/trunk_k/servers/mobile-server/mobile-core/src/main/resources/com/xiu/mobile/core/dao/SubjectManagerDao.xml
+END
+WapH5ModuleDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/25956/trunk_k/servers/mobile-server/mobile-core/src/main/resources/com/xiu/mobile/core/dao/WapH5ModuleDao.xml
+END
+PayForTempletDAO.xml
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-core/src/main/resources/com/xiu/mobile/core/dao/PayForTempletDAO.xml
+END

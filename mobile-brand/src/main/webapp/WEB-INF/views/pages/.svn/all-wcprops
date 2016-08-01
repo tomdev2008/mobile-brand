@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/mobile/!svn/ver/21086/trunk_k/servers/mobile-server/mobile-brand/src/main/webapp/WEB-INF/views/pages
+END
+goodslist_search.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/21046/trunk_k/servers/mobile-server/mobile-brand/src/main/webapp/WEB-INF/views/pages/goodslist_search.ftl
+END
+goodslist_cat.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/mobile/!svn/ver/21046/trunk_k/servers/mobile-server/mobile-brand/src/main/webapp/WEB-INF/views/pages/goodslist_cat.ftl
+END
+goodslist.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/mobile/!svn/ver/21086/trunk_k/servers/mobile-server/mobile-brand/src/main/webapp/WEB-INF/views/pages/goodslist.ftl
+END

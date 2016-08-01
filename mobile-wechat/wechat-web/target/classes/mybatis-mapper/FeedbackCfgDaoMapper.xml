@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.wechat.web.dao.FeedbackCfgDao">
+	<resultMap id="feedbackCfgResult" type="feedbackCfg">
+		<result property="id" column="ID" />
+		<result property="openId" column="OPEN_ID" />
+		<result property="appId" column="APP_ID" />
+		<result property="msgType" column="MSG_TYPE" />
+		<result property="feedbackId" column="FEEDBACK_ID" />
+		<result property="transId" column="TRANS_ID" />
+		<result property="reason" column="REASON" />
+		<result property="solution" column="SOLUTION" />
+		<result property="extinfo" column="EXTINFO" />
+		<result property="appsignature" column="APPSIGNATURE" />
+		<result property="state" column="STATE" />
+		<result property="createDate" column="CREATE_DATE" />
+		<result property="creatorId" column="CREATOR_ID" />
+		<result property="creatorName" column="CREATOR_NAME" />
+	</resultMap>
+	
+	<sql id="baseWhereClause">
+		<where>
+			<trim prefixOverrides="and">
+				<if test="id != null"> AND id = #{id}</if>
+				<if test="openId != null">AND open_id = #{openId}</if>
+				<if test="appId != null">AND app_id = #{appId}</if>
+				<if test="msgType != null">AND msg_type = #{msgType}</if>
+				<if test="feedbackId != null">AND feedback_id = #{feedbackId}</if>
+				<if test="transId != null">AND trans_id = #{transId}</if>
+				<if test="reason != null">AND reason = #{reason}</if>
+				<if test="solution != null">AND solution = #{solution}</if>
+				<if test="extinfo != null">AND extinfo = #{extinfo}</if>
+				<if test="state != null">AND state = #{state}</if>
+				<if test="createDate != null">AND create_date = #{createDate}</if>
+			</trim>
+		</where>
+	</sql>
+	
+	<!-- 查询消息配置列表 -->
+	<select id="getFeedbackCfgList" resultMap="feedbackCfgResult" parameterType="java.util.Map">
+     	SELECT *
+			FROM X_WECHAT_FEEDBACK_CFG
+		  <include refid="baseWhereClause" />
+	</select>
+	
+	<!-- 查询消息配置分页列表 -->
+	<select id="getFeedbackCfgListForPage" resultMap="feedbackCfgResult" parameterType="java.util.Map">
+	 <![CDATA[
+     	SELECT *
+		  FROM (SELECT CFG.*,ROWNUM AS ROWNO
+			        FROM X_WECHAT_FEEDBACK_CFG CFG
+			       WHERE 1 = 1
+	 ]]>		         
+			 	<if test="feedBackId != null and feedBackId != '' "> 
+				     AND CFG.FEEDBACK_ID = #{feedBackId}
+				</if>
+	 <![CDATA[
+		           	 AND ROWNUM <= #{pageMax}
+		         ORDER BY CFG.CREATE_DATE DESC) TABLE_ALIAS
+		 WHERE TABLE_ALIAS.ROWNO >= #{pageMin}
+      ]]>
+	</select>
+	
+	<!-- 根据ID查询消息配置信息 -->
+	<select id="getFeedbackCfgById" resultMap="feedbackCfgResult" parameterType="java.lang.Long">
+	 <![CDATA[
+	 	SELECT CFG.*
+		        FROM X_WECHAT_FEEDBACK_CFG CFG
+		       WHERE 1 = 1
+       			 AND CFG.ID = #{id}
+      ]]>
+	</select>
+
+	<!-- 添加消息配置 -->
+	<insert id="saveFeedbackCfg" parameterType="feedbackCfg">
+		INSERT INTO X_WECHAT_FEEDBACK_CFG (ID, OPEN_ID, APP_ID, MSG_TYPE, FEEDBACK_ID, TRANS_ID, REASON, SOLUTION, EXTINFO, APPSIGNATURE, STATE, CREATE_DATE, CREATOR_ID, CREATOR_NAME)
+		VALUES (X_WECHAT_SEQ.nextval, #{openId}, #{appId}, #{msgType}, #{feedbackId}, #{transId}, #{reason}, #{solution}, #{extinfo}, #{appsignature}, #{state}, #{createDate}, #{creatorId}, #{creatorName})
+	</insert>
+
+	<!-- 修改配置 -->
+	<update id="updateFeedbackCfg" parameterType="feedbackCfg">
+		UPDATE X_WECHAT_FEEDBACK_CFG CFG
+		   SET CFG.OPEN_ID     = #{openId},
+		       CFG.APP_ID    = #{appId},
+		       CFG.MSG_TYPE = #{msgType},
+		       CFG.FEEDBACK_ID = #{feedbackId},
+		       CFG.TRANS_ID = #{transId},
+		       CFG.REASON = #{reason},
+		       CFG.SOLUTION = #{solution},
+		       CFG.EXTINFO = #{extinfo},
+		       CFG.APPSIGNATURE = #{appsignature},
+		       CFG.STATE = #{state},
+		       CFG.CREATE_DATE = #{createDate},
+		       CFG.CREATOR_ID = #{creatorId},
+		       CFG.CREATOR_NAME = #{creatorName}
+		 WHERE CFG.ID = #{id}
+	</update>
+
+	<!-- 根据ID配置 -->
+	<delete id="deleteFeedbackCfg" parameterType="java.lang.Long">
+		DELETE FROM X_WECHAT_FEEDBACK_CFG CFG WHERE CFG.ID=#{id}
+	</delete>
+</mapper>

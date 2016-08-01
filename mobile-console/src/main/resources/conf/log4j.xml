@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>  <!-- Log4J Configuration for online -->
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<!-- Appenders -->
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="[%d{yyyy-MM-dd HH:mm:ss.SSS}][%p][%t] %c{1}.%M(%L) | %m%n" />
+		</layout>
+	</appender>
+	<!-- Appenders -->
+	<appender name="appAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="/www/logs/madmin/comment-web.log" />
+		<param name="Encoding" value="UTF-8" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="[%d{yyyy-MM-dd HH:mm:ss.SSS}][%p][%t] %c{1}.%M(%L) | %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="eiAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="/www/logs/madmin/comment-web_ei.log" />
+		<param name="Encoding" value="UTF-8" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%p [%t] %c{1} |%X{ssoUserId}| %m%n" />
+		</layout>
+	</appender>
+	<appender name="PTAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="/www/logs/madmin/comment-portal_pt.log" />
+		<param name="Encoding" value="UTF-8" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%p [%t] %c{1} |%X{ssoUserId}| %m%n" />
+		</layout>
+	</appender>
+	<appender name="errorAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="/www/logs/madmin/error.log" />
+		<param name="Encoding" value="UTF-8" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="[%d{yyyy-MM-dd HH:mm:ss.SSS}][%p][%t] %c{1}.%M(%L) | %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="ERROR" />
+			<param name="LevelMin" value="ERROR" />
+		</filter>
+	</appender>
+
+	<!-- Application Loggers -->
+	<logger name="com.xiu">
+		<level value="INFO" />
+		<appender-ref ref="appAppender" />
+	</logger>
+	<logger name="com.ibatis" additivity="true">
+		<level value="INFO" />
+	</logger>
+	<logger name="java.sql.Connection" additivity="true">
+		<level value="INFO" />
+	</logger>
+	<logger name="java.sql.Statement" additivity="true">
+		<level value="INFO" />
+	</logger>
+	<logger name="java.sql.PreparedStatement" additivity="true">
+		<level value="INFO" />
+	</logger>
+	<logger name="java.sql.ResultSet" additivity="true">
+		<level value="INFO" />
+	</logger>
+
+	<!-- EI AccessLog Loggers, suggest let it output to a file in online env -->
+	<logger name="com.xiu.common.utils.HessianClientInterceptor">
+		<level value="ERROR" />
+		<appender-ref ref="eiAppender" />
+	</logger>
+	<!-- Performance AccessLog Loggers -->
+	<logger name="com.xiu.common.logger.PerfInterceptor">
+		<level value="ERROR" />
+		<appender-ref ref="appAppender" />
+	</logger>
+	<!-- Exception Loggers, suggest let it output to error file in online env -->
+	<logger name="com.xiu.common.web.exception.resolver.BaseCommonMappingExceptionResolver">
+		<level value="ERROR" />
+		<appender-ref ref="appAppender" />
+	</logger>
+
+	<!-- BoneCP Loggers, suggest let it output to a file in online env -->
+	<logger name="com.jolbox.bonecp">
+		<level value="ERROR" />
+		<appender-ref ref="appAppender" />
+	</logger>
+
+	<!-- Spring Loggers -->
+	<logger name="org.springframework">
+		<level value="INFO" />
+		<appender-ref ref="appAppender" />
+	</logger>
+
+	<!-- Root Logger DEBUG-->
+	<root>
+		<priority value="INFO" />
+		<appender-ref ref="console" />
+		<appender-ref ref="appAppender" />
+		<appender-ref ref="errorAppender" />
+	</root>
+
+</log4j:configuration>

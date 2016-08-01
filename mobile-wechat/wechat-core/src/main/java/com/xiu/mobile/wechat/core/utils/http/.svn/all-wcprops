@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-core/src/main/java/com/xiu/mobile/wechat/core/utils/http
+END
+TrustAnyTrustManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-core/src/main/java/com/xiu/mobile/wechat/core/utils/http/TrustAnyTrustManager.java
+END
+MySSLConnectionSocketFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-core/src/main/java/com/xiu/mobile/wechat/core/utils/http/MySSLConnectionSocketFactory.java
+END

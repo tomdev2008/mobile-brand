@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<settings>
+		<!-- changes from the defaults -->
+		<setting name="lazyLoadingEnabled" value="false" />
+		<!-- JdbcType enumeration. Most common are: NULL, VARCHAR and OTHER -->
+		<setting name="jdbcTypeForNull" value="NULL" />
+	</settings>
+
+	<typeAliases>
+		<!-- console.model 
+		<typeAlias alias="articleCfg" type="com.xiu.mobile.wechat.console.model.ArticleCfgVo" />
+		<typeAlias alias="materialCfg" type="com.xiu.mobile.wechat.console.model.MaterialCfgVo" />
+		<typeAlias alias="menuCfg" type="com.xiu.mobile.wechat.console.model.MenuCfgVo" />
+		<typeAlias alias="messageCfg" type="com.xiu.mobile.wechat.console.model.MessageCfgVo" />
+		-->
+		<!-- web.model -->
+		<typeAlias alias="bindingCfg" type="com.xiu.mobile.wechat.web.model.BindingCfgVo" />
+		<typeAlias alias="feedbackCfg" type="com.xiu.mobile.wechat.web.model.FeedbackCfgVo" />
+		<typeAlias alias="jumpMenuVo" type="com.xiu.mobile.wechat.web.model.JumpMenuVo" />
+	</typeAliases>
+
+	<mappers>
+		<mapper resource="mybatis-mapper/BindingCfgDaoMapper.xml" />
+		<mapper resource="mybatis-mapper/FeedbackCfgDaoMapper.xml" />
+		<mapper resource="mybatis-mapper/JumpMenuDaoMapper.xml" />
+		<!-- 
+		<mapper resource="mybatis-mapper/ArticleCfgDaoMapper.xml" />
+		<mapper resource="mybatis-mapper/MaterialCfgDaoMapper.xml" />
+		<mapper resource="mybatis-mapper/MenuCfgDaoMapper.xml" />
+		<mapper resource="mybatis-mapper/MessageCfgDaoMapper.xml" />
+		 -->
+	</mappers>
+
+</configuration>

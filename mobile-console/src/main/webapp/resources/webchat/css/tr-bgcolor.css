@@ -1,0 +1,17 @@
+/* 偶数行样式 E1F4EE*/
+.tableBgColor .even {
+	background: #FFFFFF;
+}
+/* 奇数行样式 E1F4EE*/
+.tableBgColor .odd {
+	background: #FFFFFF;
+}
+/* 鼠标掠过行样式 CCCC99*/
+.tableBgColor .over {
+	background: #EAEAEA;
+}
+/* 选中行样式 BFDFFF*/
+.tableBgColor .selected {
+	background: #6699FF;
+	color: #FFFFFF;
+}

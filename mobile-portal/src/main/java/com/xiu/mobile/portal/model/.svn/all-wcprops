@@ -1,0 +1,833 @@
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/mobile/!svn/ver/27663/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model
+END
+CommentUserResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/17598/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/CommentUserResult.java
+END
+XiuWordDataVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/24043/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/XiuWordDataVo.java
+END
+QuestionGame.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/QuestionGame.java
+END
+CommentResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/17598/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/CommentResult.java
+END
+ActivityVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/ActivityVo.java
+END
+AddressUpdateOutParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/AddressUpdateOutParam.java
+END
+OrderResBo.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/OrderResBo.java
+END
+SimpleTopicActivityVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/SimpleTopicActivityVo.java
+END
+BookmarkIitemBo.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/BookmarkIitemBo.java
+END
+AddressListQueryInParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/AddressListQueryInParam.java
+END
+GoodsVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/mobile/!svn/ver/17394/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/GoodsVo.java
+END
+HeadDO.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/mobile/!svn/ver/17164/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/HeadDO.java
+END
+UseCouponVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/UseCouponVO.java
+END
+ShakeWinInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/ShakeWinInfo.java
+END
+CheckRepeatedRespVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/CheckRepeatedRespVo.java
+END
+GamePlayer.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/GamePlayer.java
+END
+SubjectCommentVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/mobile/!svn/ver/17698/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/SubjectCommentVO.java
+END
+ProvinceRegionCityVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/ProvinceRegionCityVo.java
+END
+GoodsInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/GoodsInfo.java
+END
+RecommendRegBo.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/RecommendRegBo.java
+END
+WellChosenBrandBo.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/WellChosenBrandBo.java
+END
+RefundGoodsInfoVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/21355/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/RefundGoodsInfoVo.java
+END
+CommoSummaryOutParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/mobile/!svn/ver/21349/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/CommoSummaryOutParam.java
+END
+BookmarkIitemVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/18738/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/BookmarkIitemVo.java
+END
+PayReqVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/24319/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/PayReqVO.java
+END
+OrderDetailOutParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/24829/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/OrderDetailOutParam.java
+END
+WellChosenBrandVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/WellChosenBrandVo.java
+END
+PageVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/PageVo.java
+END
+CouponBo.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/CouponBo.java
+END
+QueryActivityVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/QueryActivityVo.java
+END
+OrderBaseInfoVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/24829/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/OrderBaseInfoVo.java
+END
+OrderReqVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/24865/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/OrderReqVO.java
+END
+TopicFilterVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/25177/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/TopicFilterVO.java
+END
+BrandTopicVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/18415/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/BrandTopicVo.java
+END
+TopicActivityGoodsVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/TopicActivityGoodsVo.java
+END
+UserPayPlatform.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/UserPayPlatform.java
+END
+GoodsDetailSkuItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/23643/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/GoodsDetailSkuItem.java
+END
+ShoppingCart.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/24271/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/ShoppingCart.java
+END
+QueryAddressParamInParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/QueryAddressParamInParam.java
+END
+OrderReqBo.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/OrderReqBo.java
+END
+CardExpendsVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/CardExpendsVO.java
+END
+OrderDetailInParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/OrderDetailInParam.java
+END
+CouponVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/21262/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/CouponVo.java
+END
+IntegralVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/24417/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/IntegralVo.java
+END
+PriceCompareVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/mobile/!svn/ver/17306/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/PriceCompareVo.java
+END
+OrderListInParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/OrderListInParam.java
+END
+MessageCode.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/MessageCode.java
+END
+OrderListOutParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/OrderListOutParam.java
+END
+ReceiverInfoVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/mobile/!svn/ver/19715/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/ReceiverInfoVo.java
+END
+CommentProdResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/17598/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/CommentProdResult.java
+END
+BindUserInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/BindUserInfo.java
+END
+BookmarkIitemListVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/BookmarkIitemListVo.java
+END
+VAcctChangeDetailVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/VAcctChangeDetailVo.java
+END
+PayMethodInParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/PayMethodInParam.java
+END
+MktActInfoVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/15621/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/MktActInfoVo.java
+END
+DeviceVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/DeviceVo.java
+END
+TopicFilterItemVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/25177/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/TopicFilterItemVO.java
+END
+ShakeWinDesc.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/24540/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/ShakeWinDesc.java
+END
+WithdrawItemVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/WithdrawItemVo.java
+END
+BrowseGoodsModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/mobile/!svn/ver/19141/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/BrowseGoodsModel.java
+END
+GoodsCategoryVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/16742/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/GoodsCategoryVO.java
+END
+VomitSayVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/VomitSayVo.java
+END
+TopicCategoryVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/16742/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/TopicCategoryVO.java
+END
+SubjectItemVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/26416/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/SubjectItemVo.java
+END
+AppVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/mobile/!svn/ver/27154/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/AppVo.java
+END
+PriceComponentVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/PriceComponentVo.java
+END
+WithdrawBankVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/WithdrawBankVo.java
+END
+OrderSummaryVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/mobile/!svn/ver/24829/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/OrderSummaryVo.java
+END
+CalculateOrderVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/CalculateOrderVO.java
+END
+ShoppingCartGoodsVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/24271/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/ShoppingCartGoodsVo.java
+END
+OrderSummaryOutParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/mobile/!svn/ver/24829/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/OrderSummaryOutParam.java
+END
+GoodsSkuVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/GoodsSkuVo.java
+END
+AddressAddOutParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/AddressAddOutParam.java
+END
+CalculateOrderBo.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/mobile/!svn/ver/17533/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/CalculateOrderBo.java
+END
+GoodsSkuItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/22923/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/GoodsSkuItem.java
+END
+UserAddressOperationInParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/UserAddressOperationInParam.java
+END
+AddressDataListVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/AddressDataListVo.java
+END
+QuestionPlayer.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/QuestionPlayer.java
+END
+ProvinceRegionCityListOutParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/ProvinceRegionCityListOutParam.java
+END
+AskBuyOrderVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/16206/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/AskBuyOrderVO.java
+END
+RefundOrderInfoVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/20894/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/RefundOrderInfoVo.java
+END
+OrderPayInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/24626/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/OrderPayInfo.java
+END
+DataBrandBo.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/DataBrandBo.java
+END
+RefundContactVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/RefundContactVo.java
+END
+PayOrderItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/24273/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/PayOrderItem.java
+END
+FavorBrandBo.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/FavorBrandBo.java
+END
+CxListVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/CxListVo.java
+END
+DataPrdInfoBo.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/DataPrdInfoBo.java
+END
+Topic.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/mobile/!svn/ver/26847/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/Topic.java
+END
+CommoPropOutParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/CommoPropOutParam.java
+END
+PayOrder.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/PayOrder.java
+END
+DataBrandVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/mobile/!svn/ver/27313/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/DataBrandVo.java
+END
+CancelOrderVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/CancelOrderVO.java
+END
+GoodsDetailsVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/mobile/!svn/ver/25308/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/GoodsDetailsVO.java
+END
+SysParamsVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/mobile/!svn/ver/27663/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/SysParamsVo.java
+END
+QueryTopicsVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/QueryTopicsVo.java
+END
+PayTradeItemPara.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/mobile/!svn/ver/16881/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/PayTradeItemPara.java
+END
+CommentListResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/17598/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/CommentListResult.java
+END
+AddressUpdateVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/AddressUpdateVo.java
+END
+ResultDO.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/17164/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/ResultDO.java
+END
+PayMethodOutParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/PayMethodOutParam.java
+END
+SubjectVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/mobile/!svn/ver/26416/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/SubjectVo.java
+END
+QueryUserAddressDetailInParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/QueryUserAddressDetailInParam.java
+END
+AddressBo.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/AddressBo.java
+END
+RefundLogisticsVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/RefundLogisticsVo.java
+END
+FlexibleItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/FlexibleItem.java
+END
+PayInfoVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/PayInfoVO.java
+END
+OrderPayConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/mobile/!svn/ver/24241/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/OrderPayConfig.java
+END
+GoodsSizeVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/mobile/!svn/ver/15749/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/GoodsSizeVO.java
+END
+OrderGoodsVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/17522/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/OrderGoodsVO.java
+END
+AdvertisementVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/23808/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/AdvertisementVo.java
+END
+GoodsDetailBo.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/22883/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/GoodsDetailBo.java
+END
+ResultHeadDO.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/15749/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/ResultHeadDO.java
+END
+BusinessStatistic.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/26416/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/BusinessStatistic.java
+END
+MemberInfoVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/MemberInfoVo.java
+END
+AddressVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/AddressVo.java
+END
+ProvinceRegionCityOutParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/ProvinceRegionCityOutParam.java
+END
+OrderStatisticsVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/OrderStatisticsVo.java
+END
+OrderInvoiceVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/mobile/!svn/ver/18804/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/OrderInvoiceVO.java
+END
+CommoSummaryVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/mobile/!svn/ver/18938/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/CommoSummaryVo.java
+END
+RefundApplyVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/RefundApplyVo.java
+END
+AddressOutParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/AddressOutParam.java
+END
+ShowUserInfoVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/mobile/!svn/ver/18615/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/ShowUserInfoVo.java
+END
+CarryInfoVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/CarryInfoVo.java
+END
+GoodsCommentVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/mobile/!svn/ver/17598/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/GoodsCommentVO.java
+END
+GoodsDetailVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/22883/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/GoodsDetailVo.java
+END
+ActivityGoodsBo.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/ActivityGoodsBo.java
+END
+GoodItemVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/26416/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/GoodItemVO.java
+END
+CardVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/CardVO.java
+END
+QueryUserAddressListOutParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/QueryUserAddressListOutParam.java
+END
+CouponReqVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/CouponReqVO.java
+END
+CommentBOResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/17598/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/CommentBOResult.java
+END
+LoginResVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/LoginResVo.java
+END
+OrderResVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/OrderResVO.java
+END
+UserInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/18979/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/UserInfo.java
+END
+BrandVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/BrandVo.java
+END
+ResultGoodsDO.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/15749/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/ResultGoodsDO.java
+END
+ProductTypeBrandVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/15708/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/ProductTypeBrandVO.java
+END

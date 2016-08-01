@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.simple.dao.SimpleTopicActivityDao">
+	
+	<resultMap id="simpleTopicActivityVoResult" type="simpleTopicActivityVo">
+		<result property="id" column="id" />
+		<result property="activityId" column="activity_id" />
+		<result property="name" column="name" />
+		<result property="startTime" column="start_time" />
+		<result property="endTime" column="end_time" />
+		<result property="orderSeq" column="order_seq" />
+		<result property="mobilePic" column="mobile_pic" />
+		<result property="display" column="display" />
+		<result property="modifiedByMobile" column="modified_by_mobile" />
+		<result property="displayColNum" column="display_col_num" />
+		<result property="topicTypeId" column="topicTypeId" />
+	</resultMap>
+
+	<select id="selectAll" resultMap="simpleTopicActivityVoResult">
+		select id,activity_id,name,start_time,end_time,order_seq,mobile_pic,
+		display,modified_by_mobile,display_col_num,topictypeid from xiu_wap.simple_topic_activity
+	</select>
+</mapper>

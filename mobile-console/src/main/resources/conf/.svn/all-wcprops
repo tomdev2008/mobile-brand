@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/mobile/!svn/ver/26563/trunk_k/servers/mobile-server/mobile-console/src/main/resources/conf
+END
+change_log.txt
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/resources/conf/change_log.txt
+END
+memcache.properties
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/mobile/!svn/ver/25493/trunk_k/servers/mobile-server/mobile-console/src/main/resources/conf/memcache.properties
+END
+application.properties
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/mobile/!svn/ver/26563/trunk_k/servers/mobile-server/mobile-console/src/main/resources/conf/application.properties
+END
+log4j.xml
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/resources/conf/log4j.xml
+END

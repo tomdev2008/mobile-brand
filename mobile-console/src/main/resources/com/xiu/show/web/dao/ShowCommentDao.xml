@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.show.web.dao.ShowCommentDao">
+		
+	<!-- 评论Map -->
+	<resultMap id="commentMap" type="com.xiu.show.web.model.CommentVO">
+		<result column="ID" property="id" />
+		<result column="USER_ID" property="userId" />
+		<result column="SHOW_ID" property="showId" />
+		<result column="PET_NAME" property="petName" />
+		<result column="HEAD_PORTRAIT" property="headPortrait" />
+		<result column="DELETE_FLAG" property="deleteFlag" />
+		<result column="create_date" property="commentDate" />
+		<result column="show_flag" property="showFlag" />
+	</resultMap>
+	<!-- 获取查询总数 -->
+	<select id="getCommentCount" resultType="int" parameterType="java.util.Map">
+	   select count(1) from sq_comment c, xiu_uc.v_uuc_user_sq_info u
+	     where  c.user_id = u.user_id
+           <if test="content!=null and content !=''">
+            <![CDATA[and c.content like '%'||#{content}||'%'  ]]>
+           </if>
+          
+           <if test="showId!=null and showId !=''">
+            <![CDATA[and c.show_id=#{showId} ]]>
+           </if>
+            <if test="startDate!=null and startDate !=''">
+             <![CDATA[and  trunc(c.create_date) >=  #{startDate}]]>
+           </if>
+           <if test="endDate!=null and endDate !=''">
+                <![CDATA[and trunc(c.create_date) <=  #{endDate}]]>
+           </if> 
+            
+           <if test="commentName!=null and commentName !=''">
+               <![CDATA[and u.pet_name like '%'||#{commentName}||'%']]>
+           </if>
+           <if test="commentStatus!=null and commentStatus !=''">
+               <![CDATA[and c.delete_flag =#{commentStatus}]]>
+           </if>
+	</select>
+	
+     <!-- 获取查询列表 -->
+	<select id="getCommentList" resultMap="commentMap" parameterType="java.util.Map">
+	   select 
+		        b.*
+		   from (select a.*, rownum rowno
+		           from (select c.*,u.pet_name,s.delete_flag as show_flag
+		                   from sq_comment c, xiu_uc.v_uuc_user_sq_info u,sq_show s
+		                  where  c.user_id = u.user_id 
+		                    and c.show_id = s.id
+                         <if test="content!=null and content !=''">
+		                   <![CDATA[and c.content like '%'||#{content}||'%'  ]]>
+		                  </if>
+		                 
+		                  <if test="showId!=null and showId !=''">
+		                   <![CDATA[and c.show_id=#{showId} ]]>
+		                  </if>
+		                   <if test="startDate!=null and startDate !=''">
+		                    <![CDATA[and  trunc(c.create_date) >=  #{startDate}]]>
+		                  </if>
+		                  <if test="endDate!=null and endDate !=''">
+		                       <![CDATA[and trunc(c.create_date) <=  #{endDate}]]>
+		                  </if> 
+		                   
+		                  <if test="commentName!=null and commentName !=''">
+		                      <![CDATA[and u.pet_name like '%'||#{commentName}||'%']]>
+		                  </if>
+		                  <if test="commentStatus!=null  and commentStatus !=''">
+		                      <![CDATA[and c.delete_flag =#{commentStatus}]]>
+		                  </if>
+		                  order by c.create_date desc) a
+		          where rownum &lt; #{endRow}) b
+		  where b.rowno &gt;= #{startRow}
+	</select>
+
+
+	<select id="getCommentById"  resultMap="commentMap"  parameterType="java.lang.Long">
+		select c.*,u.pet_name,s.delete_flag as show_flag
+		  from sq_comment c, xiu_uc.v_uuc_user_sq_info u, sq_show s
+		 where c.user_id = u.user_id
+           and c.show_id = s.id
+		   and c.id = #{commentId}
+	</select>
+	
+	<update id="deleteComment" parameterType="java.lang.Long" >
+	   update sq_comment set  delete_flag=3  where  id=#{commentId}
+	</update>
+	
+	<update id="deleteBatchComments" parameterType="java.util.HashMap">
+		update  sq_comment set delete_flag=3 where id in
+		<foreach collection="ids" item="id" open="(" close=")"
+			separator=",">
+			#{id}
+		</foreach>
+	</update>
+	
+</mapper>

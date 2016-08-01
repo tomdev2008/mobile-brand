@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Always ensure to use the correct XML header as above! -->
+<mapper namespace="com.xiu.mobile.portal.dao.TopicActivityDao">
+
+    <resultMap id="activityResultMap" type="hashmap">
+		<result column="id" property="activityId"  />
+		<result column="name" property="activityName"  />
+		<result column="activity_pic" property="activityPic"  />
+		<result column="brand_name" property="brandName"  />
+		<result column="activity_date" property="activityDate"  />
+		<result column="end_date" property="activityEndDate"  />
+		<result column="rest_time" property="restTime"  />
+	</resultMap>
+	
+	<resultMap id="goodsResultMap" type="com.xiu.mobile.portal.model.GoodsVo">
+		<result column="goods_id" property="goodsSn"  />
+		<result column="name" property="goodsName"  />
+		<result column="activity_price" property="activityPrice"  />
+	</resultMap>
+	
+	<resultMap id="hotSaleResultMap" type="com.xiu.mobile.portal.model.GoodsVo">
+		<result column="xiu_code" property="goodsSn"  />
+	</resultMap>
+	
+	<resultMap id="versionResultMap" type="hashmap">
+		<result column="version" property="version"  />
+		<result column="update_content" property="updateContent"  />
+		<result column="down_url" property="downUrl"  />
+	</resultMap>
+	
+	<resultMap id="brandResultMap" type="hashmap">
+		<result column="brand_id" property="brandId"  />
+		<result column="brand_code" property="brandCode"  />
+		<result column="chinese_name" property="chineseName"  />
+		<result column="other_name" property="otherName"  />
+		<result column="brand_img" property="brandImg"  />
+	</resultMap>
+	
+	<resultMap id="activityBannerResultMap" type="hashmap">
+		<result column="sub_type" property="type"  />
+		<result column="url" property="url"  />
+	</resultMap>
+	
+	<resultMap id="topCatalogResultMap" type="hashmap">
+		<result column="category_id" property="catID"  />
+		<result column="category_name" property="catName"  />
+		<result column="category_detail" property="catDetail"  />
+		<result column="category_pic" property="catImg"  />
+		<result column="solr_query" property="solr"  /> 
+	</resultMap>
+	
+	<resultMap id="topBrandResultMap" type="hashmap">
+		<result column="brand_id" property="brandId"  />
+		<result column="brand_name" property="chineseName"  />
+		<result column="brand_detail" property="otherName"  />
+		<result column="brand_pic" property="brandImg"  /> 
+	</resultMap>
+	<!-- 根据CatentryId编号查询商品，或SKU的属性项和属性值 -->
+	<select id="queryNewAttrValByCatentryId" resultType="hashmap" parameterType="map">
+	select name, value
+	  from xiu_cms.syn_attr_val_view t
+	 where t.catentry_id = #{catentry_id}
+	   and t.store_id = #{store_id}
+	</select>
+	
+	<!-- 根据id查询商品 -->
+	<select id="queryOldAttrValByCatentryId" resultType="hashmap" parameterType="map">
+	select productoldattr as attrs
+	  from xiu_cms.syn_catent_full_view t
+	 where t.productoldattr is not null
+	   and t.catentry_id = #{catentry_id}
+	   and t.store_id = #{store_id}
+	</select>
+	
+	<select id="queryTopicActivityGoodsList" parameterType="map" resultMap="goodsResultMap">
+		<![CDATA[
+		select * from (select rownum as rn, t.* from ( 
+		select g.goods_id, g.name, g.activity_price
+		from xiu_cms.cms_goods g
+		where g.deleted = 'N' and g.activity_id= #{activityId}
+		order by g.goodscatagorder desc,g.order_seq desc
+		) t where rownum <= #{endPos}) where rn > #{startPos}
+		]]>
+	</select>
+	
+	<select id="queryAllActivityGoodsList" parameterType="map" resultMap="goodsResultMap">
+		<![CDATA[
+		select g.goods_id, g.name, g.activity_price
+		from xiu_cms.cms_goods g
+		where g.deleted = 'N' and g.activity_id= #{activityId}
+		order by g.goodscatagorder desc,g.order_seq desc
+		]]>
+	</select>
+	
+	<select id="queryTopicActivityGoodsTotal" parameterType="map" resultType="int">
+		<![CDATA[ 
+		select count(*)
+		from xiu_cms.cms_goods g
+		where g.deleted = 'N' and g.activity_id= #{activityId}
+		]]>
+	</select>
+	
+	<select id="queryHotSaleGoodsList" parameterType="map" resultMap="hotSaleResultMap">
+		<![CDATA[
+		select *
+		  from (select rownum as rn, t.*
+		          from (select cl.xiu_code
+		                  from xiu_cx.cx_list cl
+		                 where cl.cx_id = #{activityId}
+		                 order by rowid asc) t
+		         where rownum <= #{endPos})
+		 where rn > #{startPos}
+		]]>
+	</select>
+	
+	<select id="queryHotSaleGoodsCount" parameterType="map" resultType="int">
+		<![CDATA[ 
+		 select count(*) from xiu_cx.cx_list cl where cl.cx_id = #{activityId}
+		]]>
+	</select>
+
+	<!-- 查询卖场下所有的商品ID -->
+	<select id="getAllGoodsIdByTopicId" parameterType="java.lang.String" resultType="java.lang.String">
+		select listagg(g.goodsnumber,',') within group (order by g.goodsnumber) goods_ids
+		  from xiu_cms.cms_goods g
+	     where g.deleted = 'N' and g.activity_id= #{activityId}
+	     order by g.goodscatagorder desc,g.order_seq desc
+	</select>
+	
+	<!-- 查询卖场下的商品ID列表 -->
+	<select id="getGoodsListByTopicId" parameterType="java.lang.String" resultType="java.lang.String">
+		select g.goodsnumber
+		  from xiu_cms.cms_goods g
+	     where g.deleted = 'N' and g.activity_id= #{activityId}
+	     order by g.goodscatagorder desc,g.order_seq desc
+	</select>
+	
+	<!-- 查询卖场下的商品goodsSn -->
+	<select id="getAllGoodsSnByTopicAndGoodsIds" parameterType="java.util.HashMap" resultType="java.lang.String">
+		select listagg(g.goods_id,',') within group (order by g.goods_id) goods_ids
+		  from xiu_cms.cms_goods g
+	     where g.deleted = 'N' and g.activity_id= #{activityId}
+	       and g.goodsnumber in 
+	     <foreach collection="goodsIdArr" item="item" index="index" open="(" close=")" separator=",">
+	     	#{item}
+	     </foreach>
+	     order by g.goodscatagorder desc,g.order_seq desc
+	</select>
+	
+	<!-- 查询商品走秀码列表 -->
+	<select id="getGoodsSnListByTopicAndGoodsIds" parameterType="java.util.HashMap" resultType="java.lang.String">
+		select g.goods_id
+		  from xiu_cms.cms_goods g
+	     where g.deleted = 'N' and g.activity_id= #{activityId}
+	       and g.goodsnumber in 
+	     <foreach collection="goodsIdArr" item="item" index="index" open="(" close=")" separator=",">
+	     	#{item}
+	     </foreach>
+	     order by g.goodscatagorder desc,g.order_seq desc
+	</select>
+	
+	<!-- 查询卖场下的商品数量 -->
+	<select id="getGoodsCountByTopicId" parameterType="java.lang.String" resultType="java.lang.Integer">
+		select count(1)
+		  from xiu_cms.cms_goods g
+	     where g.deleted = 'N' and g.activity_id= #{activityId}
+	</select>
+	
+	<select id="goodsCategoryList" parameterType="java.lang.String" resultType="com.xiu.mobile.portal.model.GoodsCategoryVO">
+		select g.goodsnumber goodsId,g.goods_id goodsSn
+		  from xiu_cms.cms_goods g
+	     where g.deleted = 'N' and g.activity_id= #{activityId}
+	</select>
+	
+	<!-- 查询品牌名称ByName -->
+	<select id="getBrandNameByGoods" parameterType="java.lang.String" resultType="java.util.HashMap">
+		select b.en_name,b.brand_name cn_name
+		from xiu_goods.x_data_prd_info p, xiu_goods.x_data_brand b
+		where p.product_id = #{goodsId} and p.brand_id = b.brand_id and rownum = 1
+	</select>
+	
+	<!-- 查询品牌名称ByName -->
+	<select id="getBrandNameByGoodIds" parameterType="java.util.HashMap" resultType="com.xiu.mobile.portal.model.GoodsVo">
+		select b.en_name brandEnName,b.brand_name brandCNName,p.product_id goodsId
+		from xiu_goods.x_data_prd_info p, xiu_goods.x_data_brand b
+		where  p.brand_id = b.brand_id and p.product_id in 
+		  <foreach collection="goodsIdArr" item="item" index="index" open="(" close=")" separator=",">
+	     	#{item}
+	     </foreach>
+	</select>
+	
+	<!-- 查询排序商品列表 -->
+	<select id="getOrderGoodsList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select goodsnumber goodsId
+		  from xiu_cms.cms_goods 
+		 where activity_id = #{activityId}
+		   and goodsnumber in 
+		   <foreach collection="goodsIdArr" item="item" index="index" open="(" close=")" separator=",">
+	       		#{item}
+	       </foreach> 
+	     order by goodscatagorder desc, order_seq desc
+	</select>
+</mapper>

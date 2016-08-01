@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.portal.dao.BusinessStatisticDao">
+
+	<select id="queryBusinessStatisticByInfo" parameterType="java.util.HashMap" resultType="com.xiu.mobile.portal.model.BusinessStatistic">
+		select 
+		    id id,
+		    type type,
+		    business_Id businessId,
+		    click_count clickCount,
+		    share_count shareCount,
+		    to_char(modify_date,'yyyy-MM-dd HH24:mi:ss') modifyDate
+			from xiu_wap.x_business_sta
+			where 1=1
+			<if test="type!=null and type!=''">and type=#{type} </if>
+			<if test="businessId!=null and businessId!=''"> and business_Id=#{businessId}</if>
+	</select>
+
+	<insert id="insertBusinessStatistic" parameterType="com.xiu.mobile.portal.model.BusinessStatistic">
+		insert into xiu_wap.x_business_sta(
+			id,
+			type,
+			business_Id,
+			click_count,
+			share_count,
+			modify_date
+		) 
+		values(
+			 xiu_wap.business_sta_seq.nextval,
+			 #{type},
+			 #{businessId},
+	 		 #{clickCount},
+			 #{shareCount},
+			 sysdate
+	 )
+	</insert>
+
+	<!-- 更新 -->
+	<update id="updateBusinessStatistic" parameterType="com.xiu.mobile.portal.model.BusinessStatistic">
+		update xiu_wap.x_business_sta
+		set 
+		<if test="type!=null and type!=''">type=#{type},</if>
+		<if test="businessId!=null and businessId!=''">business_Id=#{businessId},</if>
+		<if test="clickCount!=null and clickCount!=''">click_count=#{clickCount},</if>
+		<if test="shareCount!=null and shareCount!=''">share_count=#{shareCount},</if>
+		modify_date = sysdate
+		where id = #{id}
+	</update>
+</mapper>

@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/mobile/!svn/ver/16648/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/userManager
+END
+list.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/16648/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/userManager/list.ftl
+END
+userCommonNav.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/userManager/userCommonNav.ftl
+END
+listBatchOperate.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/userManager/listBatchOperate.ftl
+END
+userShow.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/userManager/userShow.ftl
+END
+userOperateLog.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/userManager/userOperateLog.ftl
+END
+userComment.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/userManager/userComment.ftl
+END
+userDetail.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/userManager/userDetail.ftl
+END
+userFollow.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/userManager/userFollow.ftl
+END
+userFans.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/userManager/userFans.ftl
+END
+userCommonOperate.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/userManager/userCommonOperate.ftl
+END
+userPopularity.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/userManager/userPopularity.ftl
+END
+userReport.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/show/userManager/userReport.ftl
+END

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.portal.dao.FavorBrandDao">
+		
+		<resultMap id="favorBrandResult" type="favorBrand">
+			<result property="id" column="id"/>
+			<result property="brandId" column="brand_id"/>
+			<result property="createDate" column="create_date"/>
+			<result property="userId" column="user_id" />
+			<result property="terminal" column="terminal"/>
+		</resultMap>
+		<resultMap id="brandTopicResult" type="brandTopicVo">
+		<result property="brandName" column="main_name" />
+		<result property="activityId" column="activity_id" />
+		<result property="name" column="name" />
+		<result property="startTime" column="start_time" />
+		<result property="endTime" column="end_time" />
+		<result property="mobilePic" column="mobile_pic" />
+		<result property="title" column="title" />
+
+	</resultMap>
+		<insert id="insertFavorBrand" parameterType="favorBrand">
+		 	insert into favor_brand (id,brand_id,create_date,user_id,terminal) values(favor_brand_seq.nextval,#{brandId},#{createDate},#{userId},#{terminal})
+	  	</insert>
+	  	<!-- 分页查询收藏品牌-->
+	  	<select id="getBrandByPage" resultMap="favorBrandResult" parameterType="java.util.Map">
+		 	<![CDATA[
+	       		select * from (
+				    select rownum as rowno,ii.* from(
+				 		select * from favor_brand
+				    	 where user_id=#{userId}
+				      	 order by create_date desc
+				      ) ii 
+				      )cc where cc.rowno>=#{lineMin}
+				        	and cc.rowno < #{lineMax}
+	      	]]>
+		</select>
+		<!-- 查询收藏商品总数 -->
+	  	<select id="getBrandCount" resultType="int" parameterType="long">
+		 	<![CDATA[
+	       		select count(*) from favor_brand
+				    	 where user_id=#{userId}
+	      	]]>
+		</select>
+		<!-- 检查是否已收藏某品牌 -->
+		<select id="getBrandByUserIdAndBrandId" resultMap="favorBrandResult" parameterType="java.util.Map">
+			 <![CDATA[	select * from favor_brand
+			    	 where user_id=#{userId} and brand_id=#{brandId}
+			      	 order by create_date desc
+			 ]]>
+		</select>
+		<delete id="deleteBrand" parameterType="java.util.Map">
+			delete from  favor_brand  where user_id=#{userId} and brand_id=#{brandId}
+		</delete>
+		<!-- 批量删除品牌 -->
+		<delete id="deleteBatchBrand" parameterType="java.util.Map">
+			delete from  favor_brand  where user_id=#{userId} 
+			and brand_id in
+			<foreach collection="brandIdArr" item="item" index="index" open="(" close=")" separator=",">
+	       	   #{item}
+	       </foreach>
+		</delete>
+		<!-- 分页查询收藏品牌的精选卖场信息 -->
+	<select id="queryBrandTopicList" resultMap="brandTopicResult"
+		parameterType="java.util.Map">
+		 <![CDATA[	select * from (
+			select rownum as rowno ,t.*
+			from		
+			(
+				select a.activity_id as activityId, a.name, TRUNC(a.start_time) as startTime,
+				TRUNC(a.end_time) as endTime ,a.mobile_pic as mobilePic,c.main_name as brandName,a.title
+				from xiu_wap.simple_topic_activity a,xiu_wap.brand_topic_relation b,
+				xiu_goods.x_data_brand c
+				where a.activity_id=b.activity_id and b.brand_id=c.brand_id 
+				and b.brand_id=#{brandId}
+				and a.mobile_pic is not null
+				and a.content_type <> 4
+				and a.display='Y'
+				and trunc(a.start_time) < sysdate and  trunc(a.end_time)+1 > sysdate 
+				order by a.order_seq desc)t
+			 ) tt where
+					tt.rowno>=#{lineMin}
+					and tt.rowno <#{lineMax}
+		]]>
+	</select>
+	<!-- 分页查询收藏品牌的精选卖场信息总数 -->
+	<select id="queryBrandTopicListCount" resultType="int"
+		parameterType="long">
+		 <![CDATA[ select count(a.activity_id)
+					from xiu_wap.simple_topic_activity a,xiu_wap.brand_topic_relation b
+					where a.activity_id=b.activity_id
+					and b.brand_id=#{brandId}
+					and a.mobile_pic is not null
+					and a.content_type <> 4
+					and a.display='Y'
+					and trunc(a.start_time) < sysdate and  trunc(a.end_time)+1 > sysdate 
+					]]>
+	</select>
+	<select id="queryActivityCount" resultMap="brandTopicResult"
+		parameterType="long">
+		 <![CDATA[ select a.activity_id
+					from xiu_wap.simple_topic_activity a,xiu_wap.brand_topic_relation b
+					where a.activity_id=b.activity_id
+					and b.brand_id=#{brandId}
+					and a.mobile_pic is not null
+					and a.display='Y'
+					and trunc(a.start_time) < sysdate and  trunc(a.end_time)+1 > sysdate 
+					]]>
+	</select>
+	<insert id="addNewShowByLabel" parameterType="favorBrand">
+		insert into xiu_show.sq_user_new_show
+      (id, user_id, show_id, create_date, update_date, concern_menu)
+      SELECT xiu_show.sq_user_new_show_seq.nextval, #{userId}, o.show_id, SYSDATE, SYSDATE, 2
+        FROM xiu_show.sq_brand_show o
+       WHERE o.brand_id = #{brandId}
+         and o.show_id not in
+         (select s.show_id from xiu_show.sq_user_new_show s where s.user_id=#{userId})
+	</insert>
+	<delete id="deleteLabelConcern" parameterType="java.util.Map">
+		delete xiu_show.sq_user_new_show s where s.user_id=#{userId} and s.concern_menu=2 and s.show_id in
+    (select o.show_id from xiu_show.sq_brand_show o where o.brand_id=#{brandId})
+	</delete>
+	<delete id="deleteBatchLabelConcern" parameterType="java.util.Map">
+		delete xiu_show.sq_user_new_show s where s.user_id=#{userId} and s.concern_menu=2 and s.show_id in
+    (select o.show_id from xiu_show.sq_brand_show o where o.brand_id in
+    <foreach collection="brandIdArr" item="item" index="index" open="(" close=")" separator=",">
+	     #{item}
+	 </foreach>
+    )
+	</delete>
+</mapper>

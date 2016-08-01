@@ -1,0 +1,12 @@
+K 10
+svn:ignore
+V 19
+.settings
+.project
+
+K 13
+svn:mergeinfo
+V 191
+/branches/mobile-server/2.9.0:11607,11616-11979
+/branches/mobile-server/mmkt_branch:10983-11455,11899-12014,12554,13457,13477,13528,13681,13788,13809-13810,14230,14303-14304,14437,14521-14643
+END

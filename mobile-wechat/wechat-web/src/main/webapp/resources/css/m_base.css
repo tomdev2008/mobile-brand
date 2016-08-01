@@ -1,0 +1,77 @@
+/*CSS Reset*/
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td { margin: 0; padding: 0;}
+body { font-family:'微软雅黑', Arial, Helvetica, sans-serif;}
+table { border-collapse: collapse;  border-spacing: 0;}
+h1,h2,h3,h4,h5,h6 { font-size: 100%;}
+ul,ol,li { list-style: none;}
+em,i { font-style: normal;}
+strong,b {font-weight: normal;}
+img { border: none;}
+input,img { vertical-align: middle;}
+a { text-decoration: none;}
+* {  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);}
+input,select,textarea {  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);  -webkit-appearance: none;  border: 0;  border-radius: 0; -webkit-border-radius: 0;-moz-border-radius: 0;}
+textarea:focus {  outline: 0;}
+body {color: #333;   font-size: 14px; background: #fff; -webkit-text-size-adjust: none;}
+a { color: #464646;}
+.wrap { padding-top:46px; margin: 0 auto;  position: relative; font-family:'微软雅黑', Arial, Helvetica, sans-serif;}
+/* 常用 */
+.clearfix:after { display: block; content: ''; clear: both;  visibility: hidden;}
+.fr{ float:right; }
+.fl{ float:left; }
+.tr { text-align: right; }
+.none {  display: none!important;}
+.hidden { display: none; }
+.icons { display:inline-block; background:url('../images/icons.png') no-repeat; background-size: 200px; }
+/*contianer*/
+.innerContent { padding: 15px 0 0; background-color:#fff;}
+.header { position: fixed; top: 0; height: 45px; width:100%; border-bottom:1px solid #ea7515; z-index: 99;}
+.notfixed-wrap { padding-top:0; }
+.notfixed-wrap .header{ position:static; }
+.header .l-nav{ display:-webkit-box; display:-moz-box; display:box;  background-color:#f0f0f0; padding:10px 0 9px; width:100%; height:26px; line-height:26px; }
+.header section:first-child{ position:relative;  padding:0 13px; }
+.header section:first-child .icons{  width: 15px; height:23px; background-position:0 0;  }
+.header section:last-child .loginPanel{  width: 15px; height:26px; background-position:-68px 0; }
+.header section:first-child a,#loginPanel  { position:absolute; top:-10px; left:0; display:inline-block; width:45px; height:45px;  }
+.header section:last-child{ position:relative; padding:0 13px;  }
+.header section:nth-child(2){ text-align: center; -webkit-box-flex:1; -moz-box-flex:1; box-flex:1; font-size:1.3em; color:#555; font-weight:bold; }
+#loginPanel { width:50px; left:-10px; }
+/*button*/
+.ui-btn { display:block;  height:40px; width:100%; line-height:40px; text-align: center; font-size: 1.3em; font-weight: bold;  color:#fff; cursor:pointer; font-family:'微软雅黑', Arial, Helvetica, sans-serif; -webkit-border-radius: 3px; border-radius: 3px;  -moz-border-radius: 3px;}
+.orange-btn{ background: #ea7514; border: 1px solid #EA7514;}
+.grey-btn { background-color:#949494; }
+.white-btn {border: 1px solid #dcdcdc;
+background: #fff; color: #464646;}
+/*登录模块*/
+.loginStatus{position:absolute;top:36px;right:0;width:160px;text-align:left;background:#fff;border-left:2px solid #ea7515;border-bottom:2px solid #ea7515;	z-index: 100;/*display:none;  用户信息框  隐藏*/}
+.loginStatus li{width:100%;box-sizing:border-box;height:40px;line-height:40px;border-bottom:1px solid #DADADA;background:#FFFFFF;padding-right:6%; font-size: 14px; cursor:pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+.loginStatus li a{color: #464646;display: block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.loginStatus .icons{display:inline-block;vertical-align:middle;width:22px;height:22px;margin:0 10px;}
+.loginStatus .icons.user{background-position:0 -28px;}
+.loginStatus .icons.order{background-position:0 -52px; height: 23px;}
+.loginStatus .icons.wuLiu{background-position:0 -79px;}
+.loginStatus .icons.favor{background-position:-55px -169px;}
+.loginStatus .icons.tuChao{background-position:0 -104px; height:16px;}
+.header-title { display:inline-block; width:220px; margin: 0 auto; font-size:18px; overflow: hidden; white-space: nowrap; text-overflow:ellipsis; font-weight: normal; }
+/*color*/
+.fcNum{color:#ea7515}
+/*layer*/
+.layer,.login-layer { position: fixed;top: 0;left: 0;width: 100%;height: 100%;overflow: hidden;margin: auto 0; z-index: 1000;}
+.layer-bg {position:absolute; top:0; left: 0;height: 100%;width: 100%;margin: 0 0;z-index: -100000;background: rgba(0,0,0,0.6);}
+.layer-main {position:relative; max-width:720px; min-width:320px; margin:0 auto;}
+.login-layer { background: rgba(0,0,0,0); z-index: 94; }
+/**/
+.loadding { text-align: center; }
+.tip-loadding { position: relative; top: 50%; margin: 0 auto; width:150px; background:#333; padding:15px; font-size: 12px; color:#fff; text-align:center; -webkit-box-shadow: 0 0 2px 2px rgba(0,0,0,0.3);-moz-box-shadow: 0 0 2px 2px rgba(0,0,0,0.3); box-shadow: 0 0 2px 2px rgba(0,0,0,0.3);-webkit-transition: all 0.3s linear; -moz-transition: all 0.3s linear; transition: all 0.3s linear;}
+/*返回顶部*/
+.scrollTop{position:fixed;width:42px;height:36px;border-radius:3px;background:rgba(0,0,0,.30) url('../images/icons.png')  -169px -127px no-repeat;bottom:10px;right:10px;z-index:99; background-size:200px;}
+/*footer*/
+.footer { margin-top: 20px; text-align:center; color:#999; overflow:hidden;}
+.footer .footer-link {/* padding-top: 15px; border-top:1px solid #ebebeb;*/ }
+.footer .footer-link a{ display: inline-block; margin-left:30px;color:#464646;}
+.footer .footer-link span{ display: inline-block;color:#adadad;margin-right:30px; }
+.footer .footer-c {margin: 14px auto; color:#ADADAD; font-size: 12px;}
+/**/
+.aside-title{font-size:1.2em}
+.aside-text{font-size:1.1em}
+.aside-title,.aside-text{color: #999;font-family: Arial, Helvetica, sans-serif;line-height: 25px;}

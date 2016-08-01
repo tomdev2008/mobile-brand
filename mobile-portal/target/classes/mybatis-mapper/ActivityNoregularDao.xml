@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.portal.dao.ActivityNoregularDao">
+	<resultMap id="activityResult" type="activity">
+		<result property="activityId" column="id" />
+		<result property="activityName" column="name" />
+		<result property="activityPic" column="wap_pic" />
+		<result property="brandName" column="content" />
+		<result property="activityDate" column="start_date" />
+		<result property="activityEndDate" column="end_date" />
+	</resultMap>
+
+	<resultMap id="topicResult" type="topic">
+		<result property="activity_id" column="activity_id" />
+		<result property="name" column="name" />
+		<result property="start_time" column="start_time" />
+		<result property="end_time" column="end_time" />
+		<result property="endTime" column="endTime" />
+		<result property="mobile_pic" column="mobile_pic" />
+		<result property="content_type" column="content_type" />
+		<result property="url" column="url" />
+		<result property="topicTypeId" column="topicTypeId" />
+		<result property="displayStyle" column="display_style" />
+		<result property="bannerPic" column="banner_pic" />
+		<result property="displayBannerPic" column="display_banner_pic" />
+		<result property="discount" column="discount" />
+		<result property="topicType" column="topicType" />
+		<result property="title" column="title" />
+	</resultMap>
+	
+   <select id="queryActiveList" resultMap="activityResult"  parameterType="java.util.Map">
+	 <![CDATA[
+       select id,name,wap_pic,content,start_date,end_date from xiu_cms.cms_activity_noregular 
+       where phone_type like '%5%' and deleted='N' and wap_pic is not null 
+       and start_date < sysdate and end_date > sysdate and state in (1,2,3) 
+       order by order_seq
+      ]]>                
+	</select>
+    
+    <select id="queryOutletsList" resultMap="activityResult"  parameterType="java.lang.String" >
+       <![CDATA[
+         select gilt.start_date,gilt.end_date,gilt.ID,gilt.ACTIVITY_PIC as wap_pic,gilt.NAME,gilt.BRAND_NAME as content
+          from xiu_cms.cms_activity_giltstore gilt  
+          where gilt.start_date < sysdate and gilt.end_date > sysdate
+                and gilt.state in (1,2,3) 
+                and gilt.deleted = 'N'             
+                and gilt.sub_type=1            
+                and gilt.show_on_main = 1       
+                and gilt.phone_type like '%5%' 
+         ]]>
+         <if test="_parameter!=null and _parameter!=''">
+                and gilt.sale_type=#{saleType}
+         </if>
+         <![CDATA[
+           order by gilt.start_date desc
+         ]]> 
+    </select>
+    
+   <!-- 查询卖场分页 -->
+   <select id="queryTopicList" resultMap="topicResult"  parameterType="java.util.Map" >
+		select * from (
+		select rownum as rowno , oridata.*
+		from (	
+			select t.activity_id,t.name, TRUNC(t.start_time) as start_time,TRUNC(t.end_time) as end_time ,t.mobile_pic,
+			 t.content_type ,t.url,t.display_style as displayStyle,t.banner_pic as bannerPic,t.display_banner_pic as displayBannerPic,t.discount
+			from simple_topic_activity t
+		where   t.mobile_pic is not null
+		  and t.display='Y'
+		 <![CDATA[ and t.start_time < sysdate and t.end_time > sysdate ]]>
+		
+		<if test="contentType!=null and contentType!=''">
+		    <![CDATA[ and t.content_type = #{contentType}  ]]>
+		</if>
+
+		<if test="dataType==1">
+		    <![CDATA[ and  trunc(t.start_time) = TRUNC(SYSDATE)  ]]>
+		</if>
+		<if test="dataType==2">
+		    <![CDATA[  and trunc(t.start_time)= TRUNC(SYSDATE-1)  ]]>
+		</if>
+		<if test="dataType==3">
+		     <![CDATA[ and t.activity_id=74147  ]]>
+		</if>
+		<if test="typeId!=0">
+			<if test="typeId!=2 and typeId!=3">
+				<![CDATA[ and t.topictypeid = #{typeId}  ]]>
+			</if>
+		    <if test="typeId==2 || typeId==3">
+				<![CDATA[ and (t.topictypeid = #{typeId} or t.topictypeid = 1 ) ]]>
+			</if>
+		</if>
+       <![CDATA[ 
+		 order by t.top_flag desc, t.start_time desc,t.order_seq desc) oridata
+		) table_alias where
+		table_alias.rowno>=#{lineMin}
+		and table_alias.rowno < #{lineMax}
+         ]]>
+	</select>
+	<!-- 查询卖场总数 -->
+	  <select id="getTopicTotalAmount"  resultType="int" parameterType="java.util.Map" >
+		select count(*) from (
+		select rownum as rowno , oridata.*
+		from		
+		(select t.activity_id,t.name, TRUNC(t.start_time) as start_time,TRUNC(t.end_time) as end_time ,t.mobile_pic
+		from
+	    simple_topic_activity t
+		where  t.mobile_pic is not null
+		  and t.display='Y'
+		  <![CDATA[ and t.start_time < sysdate and t.end_time > sysdate ]]>
+		<if test="contentType!=null and contentType!=''">
+		    <![CDATA[ and t.content_type = #{contentType}  ]]>
+		</if>
+		<if test="dataType==1">
+		    <![CDATA[ and  trunc(t.start_time) = TRUNC(SYSDATE)  ]]>
+		</if>
+		<if test="dataType==2">
+		    <![CDATA[  and trunc(t.start_time)= TRUNC(SYSDATE-1)  ]]>
+		</if>
+		<if test="dataType==3">
+		    <![CDATA[ and t.activity_id=74147  ]]>
+		</if>
+		<if test="typeId!=0">
+			<if test="typeId!=2 and typeId!=3">
+				<![CDATA[ and t.topictypeid = #{typeId}  ]]>
+			</if>
+		    <if test="typeId==2 || typeId==3">
+				<![CDATA[ and (t.topictypeid = #{typeId} or t.topictypeid = 1 ) ]]>
+			</if>
+		</if>
+       <![CDATA[ 
+		 ) oridata
+		) table_alias
+         ]]>
+	</select>
+	
+	<select id="getTopicByActId" resultMap="topicResult"  parameterType="java.lang.String" >
+		select activity_id,name, TRUNC(start_time) as start_time,TRUNC(end_time) as end_time,mobile_pic,content_type,end_time endTime,
+		url,display_style as displayStyle,banner_pic as bannerPic,display_banner_pic as displayBannerPic,discount,title,is_show_count_down isShowCountDown
+		from simple_topic_activity where activity_id=#{activityId}
+	</select>
+	
+	
+	
+	<!-- 查询卖场分页  增加卖场集后修改 -->
+   <select id="getTopicList" resultMap="topicResult"  parameterType="java.util.Map" >
+		select * from (
+			select rownum as rowno , oridata.* from	(
+				<![CDATA[
+				select sm.activity_id,sm.name,TRUNC(sm.start_time) as start_time,TRUNC(sm.end_time) as end_time,sm.mobile_pic,sm.content_type,
+				sm.url,sm.display_style as displayStyle,sm.banner_pic as bannerPic,sm.display_banner_pic as displayBannerPic,sm.discount
+				from xiu_wap.simple_topic_activity sm
+				left join xiu_wap.activity_set ts
+				on sm.activity_id = ts.act_id
+				where sm.mobile_pic is not null and sm.display='Y' and ts.set_id is null 
+				and (sm.display_style = 1 or (sm.display_style = 2 and sm.content_type = 4)) 
+				and start_time < sysdate and end_time > sysdate 
+				]]>
+				<if test="contentType!=null and contentType!=''">
+				    <![CDATA[ and content_type = #{contentType}  ]]>
+				</if>
+				<if test="dataType==1">
+				    <![CDATA[ and  trunc(sm.start_time) = TRUNC(SYSDATE)  ]]>
+				</if>
+				<if test="dataType==2">
+				    <![CDATA[  and trunc(sm.start_time)= TRUNC(SYSDATE-1)  ]]>
+				</if>
+				<if test="dataType==3">
+				     <![CDATA[ and sm.activity_id=74147  ]]>
+				</if>
+				<if test="typeId!=0">
+					<if test="typeId!=2 and typeId!=3">
+						<![CDATA[ and sm.topictypeid = #{typeId}  ]]>
+					</if>
+				    <if test="typeId==2 || typeId==3">
+						<![CDATA[ and (sm.topictypeid = #{typeId} or sm.topictypeid = 1 ) ]]>
+					</if>
+				</if>
+		       <![CDATA[ 
+				 order by sm.top_flag desc, sm.start_time desc,sm.order_seq desc
+			) oridata
+		) table_alias where
+		table_alias.rowno>=#{lineMin}
+		and table_alias.rowno < #{lineMax}
+         ]]>
+	</select>
+	<!-- 查询卖场总数 -->
+	  <select id="getTopicTotal"  resultType="int" parameterType="java.util.Map" >
+		select count(*) from (
+			select rownum as rowno , oridata.* from	(
+				<![CDATA[
+				select sm.activity_id,sm.name,TRUNC(sm.start_time) as start_time,TRUNC(sm.end_time) as end_time,sm.mobile_pic,sm.content_type,
+				sm.url,sm.display_style as displayStyle,sm.banner_pic as bannerPic,sm.display_banner_pic as displayBannerPic,sm.discount
+				from xiu_wap.simple_topic_activity sm
+				left join xiu_wap.activity_set ts
+				on sm.activity_id = ts.act_id
+				where sm.mobile_pic is not null and sm.display='Y' and ts.set_id is null 
+				and (sm.display_style = 1 or (sm.display_style = 2 and sm.content_type = 4)) 
+				and start_time < sysdate and end_time > sysdate 
+				]]>
+				<if test="contentType!=null and contentType!=''">
+				    <![CDATA[ and content_type = #{contentType}  ]]>
+				</if>
+				<if test="dataType==1">
+				    <![CDATA[ and  trunc(sm.start_time) = TRUNC(SYSDATE)  ]]>
+				</if>
+				<if test="dataType==2">
+				    <![CDATA[  and trunc(sm.start_time)= TRUNC(SYSDATE-1)  ]]>
+				</if>
+				<if test="dataType==3">
+				    <![CDATA[ and sm.activity_id=74147  ]]>
+				</if>
+				<if test="typeId!=0">
+					<if test="typeId!=2 and typeId!=3">
+						<![CDATA[ and sm.topictypeid = #{typeId}  ]]>
+					</if>
+				    <if test="typeId==2 || typeId==3">
+						<![CDATA[ and (sm.topictypeid = #{typeId} or sm.topictypeid = 1 ) ]]>
+					</if>
+				</if>
+		       <![CDATA[ 
+			) oridata
+		) table_alias
+         ]]>
+	</select>
+	
+	<!-- 查询二级卖场所属的卖场集 -->
+	<select id="getTopicListBySetId" parameterType="java.util.HashMap" resultMap="topicResult">
+		<![CDATA[
+		select * from (
+			select rownum as rowno, tt.* from (
+				select t.activity_id,
+				       t.name,
+				       t.start_time,
+				       t.end_time,
+				       t.order_seq,
+				       t.mobile_pic,
+				       t.topicTypeId,
+				       t.content_type,
+				       t.url,
+				       t.display_style      as displayStyle,
+				       t.banner_pic         as bannerPic, 
+				       t.display_banner_pic as displayBannerPic, 
+				       t.discount
+				 from simple_topic_activity t
+				 left join activity_set a
+				 on t.activity_id = a.act_id
+				 where t.mobile_pic is not null and t.display='Y' 
+				 and start_time < sysdate and end_time > sysdate 
+				 and a.set_id = #{set_id} and t.display_style = #{display_style} 
+				 order by t.display desc, t.start_time desc, t.order_seq desc 
+			) tt where rownum < #{lineMax} 
+		 ) where rowno >= #{lineMin}
+		 ]]>
+	</select>
+	
+	<!-- 查询卖场集下的二级卖场数量 -->
+	<select id="getTopicCountBySetId" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+		<![CDATA[
+		select count(*) as total from simple_topic_activity t
+				 left join activity_set a on t.activity_id = a.act_id 
+				 where t.mobile_pic is not null and t.display='Y' 
+				 and start_time < sysdate and end_time > sysdate 
+				 and a.set_id = #{set_id} and t.display_style = #{display_style}
+		]]> 
+	</select>
+	
+	<!-- 查询卖场分类信息 -->
+	<select id="getTopicTypeList" parameterType="java.util.HashMap" resultType="com.xiu.mobile.core.model.TopicType">
+		select t.id, t.name, t.url_status as urlStatus, t.url
+		  from topic_type t
+		 where 1=1
+		 <if test="status != null"> and t.status = #{status}</if> 
+		 order by t.status desc, t.order_seq desc
+	</select>
+	
+	<select id="getTopicListNew" resultMap="topicResult"  parameterType="java.util.Map" >
+		select * from (
+			select rownum as rowno , oridata.* from	(
+				<![CDATA[
+				select sm.activity_id,sm.name,TRUNC(sm.start_time) as start_time,TRUNC(sm.end_time) as end_time,sm.mobile_pic,sm.content_type,
+				sm.url,sm.display_style as displayStyle,sm.banner_pic as bannerPic,sm.display_banner_pic as displayBannerPic,sm.discount,sm.title
+				from xiu_wap.simple_topic_activity sm
+				left join xiu_wap.activity_set ts
+				on sm.activity_id = ts.act_id
+				where sm.mobile_pic is not null and sm.display='Y' and ts.set_id is null 
+				and (sm.display_style = 1 or (sm.display_style = 2 and sm.content_type = 4)) 
+				and start_time < sysdate and end_time > sysdate 
+				]]>
+				<if test="contentType!=null and contentType!=''">
+				    <![CDATA[ and content_type = #{contentType}  ]]>
+				</if>
+				<if test="dataType==1">
+				    <![CDATA[ and  trunc(sm.start_time) = TRUNC(SYSDATE)  ]]>
+				</if>
+				<if test="dataType==2">
+				    <![CDATA[  and trunc(sm.start_time)= TRUNC(SYSDATE-1)  ]]>
+				</if>
+				<if test="dataType==3">
+				     <![CDATA[ and sm.activity_id=74147  ]]>
+				</if>
+				<if test="typeId!=0">
+					and exists (select 1 from topic_type_relation ttr where ttr.activity_id = sm.activity_id and ttr.type_id = #{typeId})
+				</if>
+				<if test="topicTimeType!=0">
+				    <if test="topicTimeType==1">
+						<![CDATA[ and sm.end_time >= sysdate and sm.end_time <= sysdate ]]>
+					</if>
+				    <if test="topicTimeType==2">
+						<![CDATA[ and (sm.end_time < sysdate or sm.end_time > sysdate) ]]>
+					</if>
+				</if>
+		       <![CDATA[ 
+				 order by sm.top_flag desc, sm.start_time desc,sm.order_seq desc
+			) oridata
+		) table_alias where
+		table_alias.rowno>=#{lineMin}
+		and table_alias.rowno < #{lineMax}
+         ]]>
+	</select>
+	<!-- 查询卖场总数 -->
+	  <select id="getTopicTotalNew"  resultType="int" parameterType="java.util.Map" >
+		select count(*) from (
+			select rownum as rowno , oridata.* from	(
+				<![CDATA[
+				select sm.activity_id,sm.name,TRUNC(sm.start_time) as start_time,TRUNC(sm.end_time) as end_time,sm.mobile_pic,sm.content_type,
+				sm.url,sm.display_style as displayStyle,sm.banner_pic as bannerPic,sm.display_banner_pic as displayBannerPic,sm.discount
+				from xiu_wap.simple_topic_activity sm
+				left join xiu_wap.activity_set ts
+				on sm.activity_id = ts.act_id
+				where sm.mobile_pic is not null and sm.display='Y' and ts.set_id is null 
+				and (sm.display_style = 1 or (sm.display_style = 2 and sm.content_type = 4)) 
+				and start_time < sysdate and end_time > sysdate 
+				]]>
+				<if test="contentType!=null and contentType!=''">
+				    <![CDATA[ and content_type = #{contentType}  ]]>
+				</if>
+				<if test="dataType==1">
+				    <![CDATA[ and  trunc(sm.start_time) = TRUNC(SYSDATE)  ]]>
+				</if>
+				<if test="dataType==2">
+				    <![CDATA[  and trunc(sm.start_time)= TRUNC(SYSDATE-1)  ]]>
+				</if>
+				<if test="dataType==3">
+				    <![CDATA[ and sm.activity_id=74147  ]]>
+				</if>
+				<if test="typeId!=0">
+					and exists (select 1 from topic_type_relation ttr where ttr.activity_id = sm.activity_id and ttr.type_id = #{typeId})
+				</if>
+				<if test="topicTimeType!=0">
+				    <if test="topicTimeType==1">
+						<![CDATA[ and sm.end_time >= sysdate and sm.end_time <= sysdate ]]>
+					</if>
+				    <if test="topicTimeType==2">
+						<![CDATA[ and (sm.end_time < sysdate or sm.end_time > sysdate) ]]>
+					</if>
+				</if>
+		       <![CDATA[ 
+			) oridata
+		) table_alias
+	        ]]>
+	</select>
+</mapper>

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/excpetion
+END
+HandlerExceptionResolverImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/excpetion/HandlerExceptionResolverImpl.java
+END
+FromJsonToBeanFailException.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/excpetion/FromJsonToBeanFailException.java
+END
+ExceptionHandleAdvisor.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/excpetion/ExceptionHandleAdvisor.java
+END
+ParseResponseFailException.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/excpetion/ParseResponseFailException.java
+END
+DoHttpRequestFailException.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/excpetion/DoHttpRequestFailException.java
+END
+InsertDatabaseRecordException.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/excpetion/InsertDatabaseRecordException.java
+END
+LoginException.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/excpetion/LoginException.java
+END
+GoodsException.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/java/com/xiu/mobile/simple/excpetion/GoodsException.java
+END

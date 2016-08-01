@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.core.dao.LoveGoodsDao">
+		
+		<resultMap id="loveGoodsResult" type="loveGoods">
+			<result property="id" column="id"/>
+			<result property="goodsSn" column="goods_sn"/>
+			<result property="userId" column="user_id"/>
+			<result property="createDate" column="create_date"/>
+			<result property="terminal" column="terminal"/>
+			<result property="deviceId" column="device_id"/>
+			
+		</resultMap>
+		
+		 <!-- 添加喜爱商品 -->
+		 <insert id="addLovedTheGoods"  parameterType="loveGoods">
+		 insert into xiu_wap.love_goods(id,goods_sn,user_id,create_date,terminal,device_id) values(FIND_GOODS_SEQ.NEXTVAL,#{goodsSn},#{userId},#{createDate},#{terminal},#{deviceId})
+		 </insert>
+	  	 
+		<!-- 查询某用户喜爱商品 -->
+	  	<select id="getLoveGoodsList" resultMap="loveGoodsResult" parameterType="java.util.Map">
+	       	<!-- select * from  xiu_wap.love_goods where user_id=#{userId} and goods_sn=#{goodsSn} -->
+		 	<![CDATA[
+	       		select * from  xiu_wap.love_goods where device_id = #{deviceId} and goods_sn=#{goodsSn}
+	      	]]>
+		</select>
+		<!-- 查询某商品用户总数 -->
+	  	<select id="getLoveGoodsListCount" resultType="int"  parameterType="string">
+		 	<![CDATA[
+				select
+				 	(select count(1) from xiu_wap.love_goods where goods_sn = #{goodsSn}) +
+					 nvl((select f.hot_inc_num from xiu_wap.find_goods f where  f.goods_sn = #{goodsSn} 
+					 	    and f.deleted = 'N'
+			                and f.replaced = 'N'
+			                and f.start_date<=sysdate 
+			                and (f.end_date + 1)>=sysdate
+					     ), 0)
+				from dual
+	      	]]>
+		</select>
+		<delete id="delLovedTheGoods" parameterType="java.util.Map">
+			<!-- delete from   xiu_wap.love_goods   where user_id=#{userId} and goods_sn=#{goodsSn} -->
+			delete from   xiu_wap.love_goods   where device_id = #{deviceId} and goods_sn=#{goodsSn}
+		</delete>
+		
+		
+</mapper>

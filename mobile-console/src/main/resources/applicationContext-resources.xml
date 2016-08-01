@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+            http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.1.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+    
+ 	<!-- Load application configuration from database -->
+    <bean name="databaseConfiguration"
+        class=" com.xiu.mobile.core.utils.DatabaseConfiguration">
+        <constructor-arg type="javax.sql.DataSource" ref="dataSource" />
+        <constructor-arg index="1" value="APPCONFIGS" />
+        <constructor-arg index="2" value="NAME" />  
+        <constructor-arg index="3" value="KEY" />
+        <constructor-arg index="4" value="VALUE" />
+        <constructor-arg index="5" value="global" />
+    </bean>
+ 
+
+	
+    <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">  
+       <property name="jndiName" value="java:comp/env/jdbc/xiuwap"></property>  
+    </bean>  
+
+    <!-- 事务管理器配置,单数据源事务 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" >
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <bean id="springResourceLocator" class="com.xiu.mobile.core.utils.SpringResourceLocator" scope="singleton" />
+    
+</beans>

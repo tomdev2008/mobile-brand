@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiu.mobile.brand.web.dao.DeliverDao">
+
+	<resultMap id="deliverResultMap" type="com.xiu.mobile.brand.web.dao.model.DeliverModel">
+		<result property="code" column="ATTRIBUTE2" />
+		<result property="name" column="ATTRIBUTE1" />
+	</resultMap>
+
+	<select id="getAllDeliverInfo" resultMap="deliverResultMap">
+		select ATTRIBUTE2, ATTRIBUTE1 from xiu_goods.x_purch_base_business_model_mv
+	</select>
+
+</mapper>

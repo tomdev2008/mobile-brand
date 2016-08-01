@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.core.dao.TopicDao">
+	<resultMap id="topicResult" type="com.xiu.mobile.core.model.Topic">
+		<result property="id" column="id" />
+		<result property="activity_id" column="activity_id" />
+		<result property="name" column="name" />
+		<result property="start_time" column="start_time" />
+		<result property="end_time" column="end_time" />
+		<result property="order_seq" column="order_seq" />
+		<result property="topicTypeId" column="topicTypeId"/>
+	</resultMap>
+	<!-- 查询卖场分页 -->
+	<select id="getTopicList" resultType="com.xiu.mobile.core.model.Topic"
+		parameterType="java.util.Map">
+		select table_alias.*,(select listagg(tt.name,',') within group (order by ttr.type_id)
+		            from topic_type_relation ttr,topic_type tt
+		           where ttr.activity_id = table_alias.activity_id and ttr.type_id = tt.id) topicType from (
+		
+		
+		select rownum as rowno ,ori_data.*
+		from
+		 (select t.id, t.activity_id, t.name, t.start_time, t.end_time, t.order_seq, t.mobile_pic, t.display, t.display_col_num,
+		  		 t.modified_by_mobile, t.topicTypeId, t.content_type as contentType,t.url,
+		  		 t.display_style as displayStyle, t.banner_pic as bannerPic, t.display_banner_pic as displayBannerPic, t.discount, t.top_flag topFlag
+		from
+		simple_topic_activity t
+		where 1=1
+		<choose>
+			<when test="batchQuery!=null and batchQuery==1">
+				and t.activity_id in 
+				<foreach collection="activity_id" item="item" index="index" open="(" close=")" separator=",">
+		            #{item}
+		        </foreach>
+			</when>
+			<otherwise>
+				<if test="activity_id!=null and activity_id !=''"> and t.activity_id=#{activity_id} </if>
+			</otherwise>
+		</choose>
+		<if test="name!=null and name!=''"> and t.name like '%'||#{name}||'%' </if>
+	  	<if test="display!=null and display!=''"> and t.display =#{display}  </if>
+	  	<if test="contentType!=null"> and t.content_type=#{contentType} </if>
+	  	<if test="displayStyle!=null"> and t.display_style=#{displayStyle} </if>
+	  	<if test="topicTypeId!=null"> and exists (select 1 from topic_type_relation tt where tt.activity_id = t.activity_id and tt.type_id = #{topicTypeId}) </if>
+	    <if test="start_time!=null"><![CDATA[  and t.start_time >= #{start_time} ]]></if>
+	    <if test="end_time!=null"><![CDATA[  and t.end_time <= #{end_time} ]]></if>
+	    <if test="labelName!=null and labelName!=''"><![CDATA[ 
+                and t.activity_id in(       
+                select lo.object_id
+		          from xiu_goods.X_LABEL l ,xiu_goods.X_LABEL_OBJECT lo
+		         where l.label_id=lo.label_id
+		           and lo.category = #{labelType}
+		           and l.name like '%'||#{labelName}||'%'
+           )
+             ]]></if>
+         <if test="isShowCountDown!=null"><![CDATA[  and t.IS_SHOW_COUNT_DOWN = #{isShowCountDown} ]]></if>
+         <if test="isEndCanBeSearch!=null"><![CDATA[  and t.IS_END_CAN_BE_SEARCH = #{isEndCanBeSearch} ]]></if>
+	    <if test="now_time!=null">  
+	   <![CDATA[ 
+	  		 and #{now_time} >= t.start_time and #{now_time} < t.end_time   
+	   ]]>
+	    </if>
+	    <if test="status == 0">
+	     <![CDATA[
+	    	and  t.start_time >sysdate
+	    	   ]]>
+	    </if>
+	    <if test="status == 1">
+	    	  <![CDATA[and  t.start_time < sysdate and  sysdate < t.end_time  ]]>
+	    </if>
+	    <if test="status == 2">
+	    	  <![CDATA[and  t.end_time < sysdate   ]]>
+	    </if>
+	    <if test="queryType == 0">
+	    	and not exists (select 1 from activity_set a where a.act_id = t.activity_id)
+	    </if>
+		
+       <![CDATA[ 
+		 order by t.top_flag desc, t.display desc, t.start_time desc, t.order_seq desc) ori_data
+		) table_alias 
+		where
+		table_alias.rowno>=#{lineMin}
+		 and table_alias.rowno < #{lineMax}
+         ]]>
+	</select>
+
+
+	<select id="getTopicTotalCount" resultType="java.lang.String"
+		parameterType="java.util.Map">
+
+		select count(1) from simple_topic_activity t
+		where 1=1
+		<choose>
+			<when test="batchQuery!=null and batchQuery==1">
+				and t.activity_id in 
+				<foreach collection="activity_id" item="item" index="index" open="(" close=")" separator=",">
+		            #{item}
+		        </foreach>
+			</when>
+			<otherwise>
+				<if test="activity_id!=null and activity_id !=''"> and t.activity_id=#{activity_id} </if>
+			</otherwise>
+		</choose>
+		<if test="name!=null and name!=''"> and t.name like '%'||#{name}||'%' </if>
+	  	<if test="display!=null and display!=''"> and t.display =#{display}  </if>
+	  	<if test="contentType!=null"> and t.content_type=#{contentType} </if>
+	  	<if test="displayStyle!=null"> and t.display_style=#{displayStyle} </if>
+	  	<if test="topicTypeId!=null"> and exists (select 1 from topic_type_relation tt where tt.activity_id = t.activity_id and tt.type_id = #{topicTypeId}) </if>
+	    <if test="start_time!=null"><![CDATA[  and t.start_time >= #{start_time} ]]></if>
+	    <if test="end_time!=null"><![CDATA[  and t.end_time <= #{end_time} ]]></if>
+	    <if test="now_time!=null">  
+	    <if test="labelName!=null and labelName!=''"><![CDATA[ 
+                and t.activity_id in(       
+                select lo.object_id
+		          from xiu_goods.X_LABEL l ,xiu_goods.X_LABEL_OBJECT lo
+		         where l.label_id=lo.label_id
+		           and lo.category = #{labelType}
+		           and l.name like '%'||#{labelName}||'%'
+           )
+             ]]></if>
+         <if test="isShowCountDown!=null"><![CDATA[  and t.IS_SHOW_COUNT_DOWN = #{isShowCountDown} ]]></if>
+         <if test="isEndCanBeSearch!=null"><![CDATA[  and t.IS_END_CAN_BE_SEARCH = #{isEndCanBeSearch} ]]></if>
+	   <![CDATA[ 
+	  		 and #{now_time} >= t.start_time and #{now_time} < t.end_time
+	   ]]>
+	    </if>
+	    <if test="queryType == 1">
+	    	and not exists (select 1 from activity_set a where a.act_id = t.activity_id)
+	    </if>
+	</select>
+
+	<select id="getTopicByActivityId" resultType="com.xiu.mobile.core.model.Topic"
+		parameterType="java.lang.Long">
+		<![CDATA[
+        select id,activity_id,name,start_time,end_time, order_seq, mobile_pic,display,display_col_num,topicTypeId,content_type as contentType,url,
+        	display_style as displayStyle,banner_pic as bannerPic, display_banner_pic as displayBannerPic, discount, top_flag as topFlag, title,
+        	IS_SHOW_COUNT_DOWN isShowCountDown,IS_END_CAN_BE_SEARCH isEndCanBeSearch
+         from simple_topic_activity
+		where activity_id = #{activityId}
+		 ]]>
+	</select>
+	
+	<!-- 修改卖场 -->
+	<insert id="insert" parameterType="com.xiu.mobile.core.model.Topic">
+		insert into simple_topic_activity(id,activity_id,name,start_time,end_time,mobile_pic,order_seq,display,
+			display_col_num,modified_by_mobile,topicTypeId,content_type,url,display_style,banner_pic,display_banner_pic,discount,top_flag,title)
+		values(SIMPLE_TOPIC_ACTIVITY_SEQ.NEXTVAL,#{activity_id},#{name},#{start_time},#{end_time},#{mobile_pic},#{order_seq},#{display},
+			#{display_col_num},'Y',#{topicTypeId},#{contentType},#{URL},#{displayStyle},#{bannerPic},#{displayBannerPic},#{discount},#{topFlag},#{title})
+	</insert>
+
+	<!-- 修改卖场 -->
+	<update id="update" parameterType="com.xiu.mobile.core.model.Topic">
+		update simple_topic_activity
+		set
+		name=#{name},
+		title=#{title},
+		start_time=#{start_time},
+		end_time=#{end_time},
+		<if test="mobile_pic!=null and mobile_pic!=''"> mobile_pic=#{mobile_pic}, </if>
+		<if test="contentType!=null and contentType!=''"> content_type=#{contentType}, </if>
+		<if test="URL!=null and URL!=''"> url=#{URL}, </if>
+		<if test="displayStyle!=null and displayStyle!=''"> display_style=#{displayStyle}, </if>
+		<if test="bannerPic!=null and bannerPic!=''"> banner_pic=#{bannerPic}, </if>
+		<if test="displayBannerPic!=null and displayBannerPic!=''"> display_banner_pic=#{displayBannerPic}, </if>
+		<if test="discount!=null and discount!=''"> discount=#{discount}, </if>
+		<if test="isShowCountDown!=null "> IS_SHOW_COUNT_DOWN=#{isShowCountDown}, </if>
+		<if test="isEndCanBeSearch!=null "> IS_END_CAN_BE_SEARCH=#{isEndCanBeSearch}, </if>
+		order_seq= #{order_seq},
+		display= #{display},
+		display_col_num= #{display_col_num},
+		modified_by_mobile='Y',
+		topicTypeId = #{topicTypeId},
+		top_flag = #{topFlag}
+		where activity_id = #{activity_id}
+	</update>
+
+	<select id="getGoodsCountByActIds" resultType="java.util.Map" 	parameterType="java.util.Map" >
+		select activity_id , count(1) as goods_count from xiu_cms.cms_goods
+		where 
+		  activity_id in
+		<foreach collection="ids" item="id" index="index" open="(" close=")" separator=",">
+           	to_number(#{id})
+        </foreach>
+        and deleted = 'N'	
+		group by activity_id
+	</select>
+
+	<select id="callSpSynTopicDataTask"  statementType="CALLABLE">
+		{ call SP_SYN_TOPIC_DATA_TASK() }
+   </select>
+
+	<select id="callSpUpdateBrandVsTopicTask"  statementType="CALLABLE">
+		{ call SP_UPDATE_BRAND_TOPIC_TASK() }
+   </select>
+
+	<!-- 查询卖场集下的二级卖场 -->
+	<select id="queryActivityBySet" parameterType="java.util.HashMap" resultType="com.xiu.mobile.core.model.Topic">
+		select a.*,(select count(1) from xiu_cms.cms_goods cg where a.activity_id = cg.activity_id and deleted = 'N') as goods_count
+		 from (
+		select rownum as rowno, tt.* from (
+		select t.id,
+		       t.activity_id,
+		       t.name,
+		       t.start_time,
+		       t.end_time,
+		       t.order_seq,
+		       t.mobile_pic,
+		       t.display,
+		       t.display_col_num,
+		       t.modified_by_mobile,
+		       t.topicTypeId,
+		       t.content_type       as contentType,
+		       t.url,
+		       t.display_style      as displayStyle,
+		       t.banner_pic         as bannerPic,
+		       t.display_banner_pic as displayBannerPic,
+		       t.discount,
+		       t.top_flag 			as topFlag,
+		       (select listagg(tt.name,',') within group (order by ttr.type_id)
+		            from topic_type_relation ttr,topic_type tt
+		           where ttr.activity_id = t.activity_id and ttr.type_id = tt.id) topicType
+		  from simple_topic_activity t, activity_set a
+		 where t.activity_id = a.act_id and a.set_id = #{set_id}
+		 order by t.display desc, t.start_time desc, t.order_seq desc ) tt
+		 where rownum &lt; #{lineMax} 
+		 ) a where a.rowno &gt;= #{lineMin}
+	</select>
+	
+	<!-- 查询二级卖场所属的卖场集 -->
+	<select id="querySetByActivity" parameterType="java.util.HashMap" resultType="com.xiu.mobile.core.model.Topic">
+		select a.*,(select count(1) from xiu_cms.cms_goods cg where a.activity_id = cg.activity_id and deleted = 'N') as goods_count from (
+		select rownum as rowno, tt.* from (
+		select t.id,
+		       t.activity_id,
+		       t.name,
+		       t.start_time,
+		       t.end_time,
+		       t.order_seq,
+		       t.mobile_pic,
+		       t.display,
+		       t.display_col_num,
+		       t.modified_by_mobile,
+		       t.topicTypeId,
+		       t.content_type       as contentType,
+		       t.url,
+		       t.display_style      as displayStyle,
+		       t.banner_pic         as bannerPic,
+		       t.display_banner_pic as displayBannerPic,
+		       t.discount,
+		       t.top_flag 			as topFlag,
+		       (select count(1) from xiu_cms.cms_goods cg where t.activity_id = cg.activity_id and deleted = 'N') as goods_count
+		  from simple_topic_activity t, activity_set a
+		 where t.activity_id = a.set_id and a.act_id = #{act_id}
+		 order by t.display desc, t.start_time desc, t.order_seq desc ) tt
+		 where rownum &lt; #{lineMax} 
+		 ) a where a.rowno &gt;= #{lineMin}
+	</select>
+	
+	<!-- 查询卖场集下的二级卖场数量 -->
+	<select id="getActivityCountsBySet" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+		select count(*) counts from activity_set where set_id = #{set_id} 
+	</select>
+	
+	<!-- 查询二级卖场所属卖场集数量 -->
+	<select id="getSetCountsByActivity" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+		select count(*) counts from activity_set where act_id = #{act_id}
+	</select>
+	
+	<!-- 查询卖场集下二级卖场ID -->
+	<select id="queryActivityIdBySet" parameterType="java.lang.Integer" resultType="java.lang.String">
+		select wmsys.wm_concat(act_id) act_id from activity_set where set_id = #{set_id}
+	</select>
+	
+	<!-- 查询卖场 -->
+	<select id="queryActivity" parameterType="java.util.HashMap" resultType="com.xiu.mobile.core.model.Topic">
+		select t.id,
+		       t.activity_id,
+		       t.name,
+		       t.start_time,
+		       t.end_time,
+		       t.order_seq,
+		       t.mobile_pic,
+		       t.display,
+		       t.display_col_num,
+		       t.modified_by_mobile,
+		       t.topicTypeId,
+		       t.content_type       as contentType,
+		       t.url,
+		       t.display_style      as displayStyle,
+		       t.banner_pic         as bannerPic,
+		       t.display_banner_pic as displayBannerPic,
+		       t.discount,
+		       t.top_flag 			as topFlag,
+		       t.title,
+		       (select count(1) from xiu_cms.cms_goods cg where t.activity_id = cg.activity_id and deleted = 'N') as goods_count
+		  from simple_topic_activity t
+		 where t.activity_id=#{activity_id}
+		 <if test="contentType!=null and contentType!=''"> and t.content_type=#{contentType} </if>
+		 <if test="contentTypeNot!=null and contentTypeNot!=''"> and t.content_type !=#{contentTypeNot} </if>
+	</select>
+	
+	<!-- 批量查询卖场 -->
+	<select id="queryActivityList" parameterType="java.util.HashMap" resultType="com.xiu.mobile.core.model.Topic">
+		select t.id,
+		       t.activity_id,
+		       t.name,
+		       t.start_time,
+		       t.end_time,
+		       t.order_seq,
+		       t.mobile_pic,
+		       t.display,
+		       t.display_col_num,
+		       t.modified_by_mobile,
+		       t.topicTypeId,
+		       t.content_type       as contentType,
+		       t.url,
+		       t.display_style      as displayStyle,
+		       t.banner_pic         as bannerPic,
+		       t.display_banner_pic as displayBannerPic,
+		       t.discount,
+		       t.top_flag 			as topFlag,
+		       t.title,
+		       (select count(1) from xiu_cms.cms_goods cg where t.activity_id = cg.activity_id and deleted = 'N') as goods_count,
+		       (select listagg(tt.name,',') within group (order by ttr.type_id)
+		            from topic_type_relation ttr,topic_type tt
+		           where ttr.activity_id = t.activity_id and ttr.type_id = tt.id) topicType
+		  from simple_topic_activity t
+		 where 1=1
+		 <choose>
+			<when test="batchQuery!=null and batchQuery==1">
+				and t.activity_id in 
+				<foreach collection="activity_id" item="item" index="index" open="(" close=")" separator=",">
+		            #{item}
+		        </foreach>
+			</when>
+			<otherwise>
+				<if test="activity_id!=null and activity_id !=''"> and t.activity_id=#{activity_id} </if>
+			</otherwise>
+		</choose>
+		 <if test="contentType!=null and contentType!=''"> and t.content_type=#{contentType} </if>
+		 <if test="contentTypeNot!=null and contentTypeNot!=''"> and t.content_type !=#{contentTypeNot} </if>
+	</select>
+	
+	<!-- 查看卖场是否在卖场集下存在 -->
+	<select id="hasExistsActivitySet" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+		select count(*) counts from activity_set where act_id = #{act_id} and set_id = #{set_id}
+	</select>
+	
+	<!-- 移入卖场集 -->
+	<insert id="addActivitySet" parameterType="java.util.HashMap">
+		insert into activity_set(id,act_id,set_id,added_by,create_date)
+		values(activity_set_seq.nextval,#{act_id},#{set_id},#{userName},sysdate)
+	</insert>
+	
+	<!-- 批量移入卖场集 -->
+	<insert id="addActivitySetBatch" parameterType="java.util.HashMap">
+		insert into activity_set(id,act_id,set_id,added_by,create_date)
+		select xiu_wap.activity_set_seq.nextval id,t.* from (
+		<foreach collection="act_id" item="item" index="index" separator="union all">
+			select #{item} act_id,
+			 #{set_id} set_id,
+			 #{userName} added_by,
+			 sysdate create_date 
+			from dual
+		</foreach> 
+		) t
+		where not exists (select 1 from activity_set a where a.set_id = t.set_id and a.act_id = t.act_id)
+	</insert>
+	
+	<!-- 移出卖场集 -->
+	<delete id="deleteActivitySet" parameterType="java.util.HashMap">
+		delete from activity_set where act_id = #{act_id} and set_id = #{set_id}
+	</delete>
+	
+	<!-- 批量移出卖场集：一个卖场集下多个二级卖场-->
+	<delete id="deleteActivitySetBatch" parameterType="java.util.HashMap">
+		delete from activity_set where set_id = #{set_id} and act_id in 
+			<foreach item="act_id" index="index" collection="act_id" open="(" separator="," close=")">
+				#{act_id}
+			</foreach>
+	</delete>
+	
+	<!-- 清空卖场集 -->
+	<delete id="emptyActivitySet" parameterType="java.util.HashMap">
+		delete from activity_set where set_id = #{set_id}
+	</delete>
+	
+	<!-- 获取卖场活动Id序列 -->
+	<select id="getCMSActivitySeq" resultType="java.lang.Long">
+		select XIU_CMS.SEQ_CMS_ACTIVITY_ID.NEXTVAL from dual
+	</select>
+	
+	<!-- 增加卖场所属分类 -->
+	<insert id="insertTopicTypeRela" parameterType="java.util.HashMap">
+		insert into topic_type_relation(id,activity_id,type_id,create_date)
+		select topic_type_relation_SEQ.Nextval id,
+		       #{activity_id} activity_id,
+		       regexp_substr(#{topicTypeRela}, '[^,]+', 1, level) type_id,
+		       sysdate create_date
+		  from dual
+		connect by level &lt;=
+		           length(#{topicTypeRela}) - length(REPLACE(#{topicTypeRela}, ',', '')) + 1
+			
+	</insert>
+	
+	<!-- 删除卖场所属分类 -->
+	<delete id="deleteTopicTypeRela" parameterType="java.util.HashMap">
+		delete from topic_type_relation where activity_id = #{activity_id}
+	</delete>
+	
+	<!-- 查询要预览的卖场列表 -->
+	<select id="getPreviewTopicList" parameterType="java.util.HashMap" resultType="com.xiu.mobile.core.model.Topic">
+		select * from (
+			select rownum as rowno , oridata.* from	(
+				<![CDATA[
+				select sm.activity_id,sm.name,TRUNC(sm.start_time) as start_time,TRUNC(sm.end_time) as end_time,sm.mobile_pic,sm.content_type as contentType,
+				sm.url,sm.display_style as displayStyle,sm.banner_pic as bannerPic,sm.display_banner_pic as displayBannerPic,sm.discount,sm.top_flag topFlag,sm.title
+				from xiu_wap.simple_topic_activity sm
+				where sm.mobile_pic is not null and sm.display='Y'
+					and (sm.display_style = 1 or (sm.display_style = 2 and sm.content_type = 4)) 
+					and start_time <= #{nowTime} and end_time > #{nowTime} 
+					and not exists (select 1 from activity_set ts where sm.activity_id = ts.act_id)
+				]]>
+				<if test="topicTypeId != null and topicTypeId != ''">
+					and exists (select 1 from topic_type_relation ttr where ttr.activity_id = sm.activity_id and ttr.type_id = #{topicTypeId})
+				</if>
+		       <![CDATA[ 
+				 order by sm.top_flag desc, sm.start_time desc,sm.order_seq desc
+			) oridata
+		) table_alias where
+		table_alias.rowno>=#{lineMin}
+		and table_alias.rowno < #{lineMax}
+         ]]>
+	</select>
+	
+	<select id="getPreviewTopicCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+		select count(1)
+		  from xiu_wap.simple_topic_activity sm
+		 where sm.mobile_pic is not null and sm.display='Y'
+			and (sm.display_style = 1 or (sm.display_style = 2 and sm.content_type = 4)) 
+			and start_time &lt;= #{nowTime} and end_time &gt; #{nowTime} 
+			and not exists (select 1 from activity_set ts where sm.activity_id = ts.act_id)
+		<if test="topicTypeId != null and topicTypeId != ''">
+			and exists (select 1 from topic_type_relation ttr where ttr.activity_id = sm.activity_id and ttr.type_id = #{topicTypeId})
+		</if>
+	</select>
+	
+	
+		
+	<select id="findExistTopicActivityId" resultType="string">
+		select p.activity_id
+		from simple_topic_activity p
+		where p.activity_id in
+		<foreach collection="activityIds" item="sn" open="(" close=")" separator=",">
+		    #{sn}
+		</foreach>
+	</select>
+	
+		<!-- 查询卖场下的商品ID列表 -->
+	<select id="getGoodsMgtListByTopicId" parameterType="java.lang.String" resultType="java.lang.String">
+		select g.goodsnumber
+		  from xiu_cms.cms_goods g
+	     where g.deleted = 'N' and g.activity_id= #{activityId}
+	     order by g.goodscatagorder desc,g.order_seq desc
+	</select>
+	
+		<!-- 查询商品走秀码列表 -->
+	<select id="getGoodsSnMgtListByTopicAndGoodsIds" parameterType="java.util.HashMap" resultType="java.lang.String">
+		select g.goods_id
+		  from xiu_cms.cms_goods g
+	     where g.deleted = 'N' and g.activity_id= #{activityId}
+	       and g.goodsnumber in 
+	     <foreach collection="goodsIdArr" item="item" index="index" open="(" close=")" separator=",">
+	     	#{item}
+	     </foreach>
+	     order by g.goodscatagorder desc,g.order_seq desc
+	</select>
+	
+	<select id="getIngTopicCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+	  select count(1)
+	   from simple_topic_activity t
+	  where t.CONTENT_TYPE=1
+	   and t.START_TIME &lt; sysdate 
+	   and t.END_TIME &gt; sysdate
+	</select>
+	
+	<select id="getIngTopicIdByPage" parameterType="java.util.HashMap" resultType="long">
+       select b.ACTIVITY_ID
+       from (
+         select a.*, rownum rowno from(
+			  select t.ACTIVITY_ID
+			   from simple_topic_activity t
+			  where t.CONTENT_TYPE=1
+			   and t.START_TIME &lt; sysdate 
+			   and t.END_TIME &gt; sysdate
+			   order by t.ACTIVITY_ID desc
+	     ) a 
+	      where  rownum &lt; #{pageMax}
+        )b where b.rowno &gt;= #{pageMin}
+	</select>
+	
+	
+		
+	<select id="getSyncToSearchCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+	  select count(1)
+	   from simple_topic_activity t
+	  where t.CONTENT_TYPE=1
+	   and t.START_TIME &lt; sysdate 
+	   and t.END_TIME &gt; sysdate
+	</select>
+		
+	<select id="getSyncToSearchList" parameterType="java.util.HashMap" resultType="com.xiu.mobile.core.model.Topic">
+       select b.*
+       from (
+         select a.*, rownum rowno from(
+			  select t.*
+			   from simple_topic_activity t
+			  where t.CONTENT_TYPE=1
+			   and t.START_TIME &lt; sysdate 
+			   and t.END_TIME &gt; sysdate
+			   order by t.ACTIVITY_ID desc
+	     ) a 
+	      where  rownum &lt; #{pageMax}
+        )b where b.rowno &gt;= #{pageMin}
+	</select>
+</mapper>

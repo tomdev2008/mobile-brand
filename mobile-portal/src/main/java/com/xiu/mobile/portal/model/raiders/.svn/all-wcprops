@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/mobile/!svn/ver/24632/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/raiders
+END
+RaidersParticipate.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/mobile/!svn/ver/22826/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/raiders/RaidersParticipate.java
+END
+RaidersOrderGoodVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/mobile/!svn/ver/24632/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/raiders/RaidersOrderGoodVo.java
+END
+RaidersUserInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/mobile/!svn/ver/24532/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/raiders/RaidersUserInfo.java
+END
+RaidersGoodVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/23626/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/raiders/RaidersGoodVo.java
+END
+RaidersOrderVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/mobile/!svn/ver/22826/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/raiders/RaidersOrderVo.java
+END
+RaidersParticipateNumberVo.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/mobile/!svn/ver/22826/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/model/raiders/RaidersParticipateNumberVo.java
+END

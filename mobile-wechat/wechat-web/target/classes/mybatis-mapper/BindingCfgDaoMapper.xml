@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.wechat.web.dao.BindingCfgDao">
+	<resultMap id="bindingCfgResult" type="bindingCfg">
+		<result property="id" column="ID" />
+		<result property="xiuAccount" column="XIU_ACCOUNT" />
+		<result property="xiuPassword" column="XIU_PASSWORD" />
+		<result property="openId" column="OPEN_ID" />
+		<result property="unionId" column="UNION_ID" />
+		<result property="createDate" column="CREATE_DATE" />
+		<result property="xiuMode" column="XIU_MODE"/>
+		<result property="userId" column="USER_ID"/>
+		<result property="logonName" column="LOGON_NAME"/>
+	</resultMap>
+	
+	<!-- 查询消息配置列表 -->
+	<select id="getBindingCfgList" resultMap="bindingCfgResult" parameterType="java.util.Map">
+		<![CDATA[
+     		SELECT CFG.*
+		        FROM X_WECHAT_BINDING_CFG CFG
+		       WHERE 1 = 1
+      	]]>
+      		<if test="ids != null and ids != ''"> 
+		    	 AND CFG.ID IN 
+				<foreach collection="ids" item="id" index="index" open="(" close=")" separator=",">
+           			to_number(#{id})
+        		</foreach>	
+			</if>
+			<if test="openId != null and openId != '' "> 
+				 AND CFG.OPEN_ID = #{openId}
+			</if>
+			<if test="unionId != null and unionId != '' "> 
+				 AND CFG.UNION_ID = #{unionId}
+			</if>
+      	<![CDATA[	       
+		    ORDER BY CFG.CREATE_DATE DESC
+     	]]>
+	</select>
+	
+	<!-- 查询消息配置分页列表 -->
+	<select id="getBindingCfgListForPage" resultMap="bindingCfgResult" parameterType="java.util.Map">
+	 <![CDATA[
+     	SELECT *
+		  FROM (SELECT CFG.*,ROWNUM AS ROWNO
+			        FROM X_WECHAT_BINDING_CFG CFG
+			       WHERE 1 = 1
+	 ]]>		         
+			 	<if test="openId != null and openId != '' "> 
+				     AND CFG.OPEN_ID = #{openId}
+				</if>
+				<if test="unionId != null and unionId != '' "> 
+				     AND CFG.UNION_ID = #{unionId}
+				</if>
+				
+	 <![CDATA[
+		           	 AND ROWNUM <= #{pageMax}
+		         ORDER BY CFG.CREATE_DATE DESC) TABLE_ALIAS
+		 WHERE TABLE_ALIAS.ROWNO >= #{pageMin}
+      ]]>
+	</select>
+	
+	<!-- 根据ID查询消息配置信息 -->
+	<select id="getBindingCfgById" resultMap="bindingCfgResult" parameterType="java.lang.Long">
+	 <![CDATA[
+	 	SELECT CFG.*
+		        FROM X_WECHAT_BINDING_CFG CFG
+		       WHERE 1 = 1
+       			 AND CFG.ID = #{id}
+      ]]>
+	</select>
+	
+	<!-- 根据关键词查询消息配置信息 -->
+	<select id="getBindingCfgByOpenId" resultMap="bindingCfgResult" parameterType="java.lang.String">
+	 <![CDATA[
+       SELECT *
+		  FROM X_WECHAT_BINDING_CFG CFG
+		 WHERE 1 = 1
+		  AND CFG.OPEN_ID = #{openId}
+      ]]>
+	</select>
+		
+	<!-- 根据关键词查询消息配置信息 -->
+	<select id="getBindingCfgByUnionId" resultMap="bindingCfgResult" parameterType="java.lang.String">
+	 <![CDATA[
+       SELECT *
+		  FROM X_WECHAT_BINDING_CFG CFG
+		 WHERE 1 = 1
+		  AND CFG.UNION_ID = #{unionId}
+      ]]>
+	</select>
+	
+	
+	
+	<!-- 查询重复数据 -->
+	<select id="queryRepeatingData" resultMap="bindingCfgResult"  parameterType="java.lang.Integer">
+	 <![CDATA[
+       select *
+		  from x_wechat_binding_cfg
+		 where union_id in (
+		 	select union_id
+		      from x_wechat_binding_cfg
+		     having count(union_id) > #{count}
+		     group by union_id
+		 )
+      ]]>
+	</select>
+
+	<!-- 添加消息配置 -->
+	<insert id="saveBindingCfg" parameterType="bindingCfg">
+		INSERT INTO X_WECHAT_BINDING_CFG(ID,XIU_ACCOUNT,XIU_PASSWORD,OPEN_ID,CREATE_DATE,XIU_MODE,USER_ID,LOGON_NAME,UNION_ID)
+		VALUES(X_WECHAT_SEQ.nextval,#{xiuAccount},#{xiuPassword},#{openId},#{createDate},#{xiuMode},#{userId},#{logonName},#{unionId})
+	</insert>
+
+	<!-- 修改配置 -->
+	<update id="updateBindingCfg" parameterType="bindingCfg">
+		UPDATE X_WECHAT_BINDING_CFG CFG
+		   SET CFG.XIU_ACCOUNT     = #{xiuAccount},
+		       CFG.XIU_PASSWORD    = #{xiuPassword},
+		       CFG.OPEN_ID 		   = #{openId},
+		       CFG.USER_ID    	   = #{userId},
+		       CFG.LOGON_NAME      = #{logonName},
+		       CFG.XIU_MODE 	   = #{xiuMode},
+		       CFG.UNION_ID        = #{unionId}
+		 WHERE CFG.ID = #{id}
+	</update>
+
+	<!-- 根据ID配置 -->
+	<delete id="deleteBindingCfgById" parameterType="java.lang.Long">
+		DELETE FROM X_WECHAT_BINDING_CFG CFG WHERE CFG.ID=#{id}
+	</delete>
+	
+	<!-- 根据OPEN ID配置 -->
+	<delete id="deleteBindingCfgByOpenId" parameterType="java.lang.String">
+		DELETE FROM X_WECHAT_BINDING_CFG CFG WHERE CFG.OPEN_ID=#{openId}
+	</delete>
+	<!-- 根据UNION ID配置 -->
+	<delete id="deleteBindingCfgByUnionId" parameterType="java.lang.String">
+		DELETE FROM X_WECHAT_BINDING_CFG CFG WHERE CFG.UNION_ID=#{unionId}
+	</delete>
+</mapper>

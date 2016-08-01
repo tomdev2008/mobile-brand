@@ -1,0 +1,68 @@
+.x-box { padding: 0.5em 1.2em; }
+/*.x-box p:last-child { margin-top: 10px; color:#999; font-size: 12px;}*/
+.x-box p:last-child span:last-child { margin-left: 30px; }
+.grey-box { margin-top:10px; padding:2em 1.2em; background:#f0f0f0; }
+.x-box .icons { position:relative; background-size: 280px; }
+.x-box .icons .num{ position:absolute; top: -6px; right: -6px; display: inline-block; font-size:12px; background:#cf1700; border-radius: 15px; color:#fff; width: 18px; height: 18px; line-height: 18px; }
+.grey-box ul { display: -webkit-box; }
+.grey-box ul li { -webkit-box-flex:1; text-align:center; font-size: 14px; }
+.grey-box ul li .icons { display:block; margin:0 auto 10px; width: 30px; height:34px; }
+.grey-box ul .fk .icons { background-position:-38px -40px;  }
+.grey-box ul .sh .icons {background-position:-38px -119px; width: 34px;}  
+.grey-box ul .th .icons {background-position:-38px -79px;}
+.grey-box ul .dd .icons {background-position:-38px -162px;}
+.addr-area { margin-top: 15px; }
+.addr-list li { position:relative;  border-top:1px solid #efefef; border-bottom:1px solid #efefef; }
+.addr-list li:last-child { border-top:0; }
+.addr-list li a { display:block;padding: 1em 1.2em;}
+.addr-list li .icons {  position:absolute; top:13px; right:20px; background-position:-36px 0; width:10px; height:20px; background-size:150px;}
+/*.addr-list li:last-child { border-top-color: #fff; }*/
+.btn-area { margin-top: 2em; padding: 0 1.2em;  }
+.btn-area-1 { padding:0 1em; }
+.red-btn { background: #cf1700; }
+/*我的订单*/
+.inner-bg { background: #f1f1f1; }
+.order_con,.deta_add,.pay_fs{ position:relative; margin-bottom:12px; width:auto;  background:#fff; padding:7px 10px 10px;border: 1px solid #ebebeb;/*-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius:5px;*/}
+.order_con:last-child{ margin-bottom:0; }
+.order_con h2,.pay_fs dt{ font:16px/25px Microsoft YaHei; color:#333; border-bottom:1px solid #ebebeb; padding-bottom:5px;}
+.order_con dl{ height:100%; overflow:hidden; padding:15px 0px;}
+.order_con dt{ float:left; padding: 2px; margin-right:10px;width: 66px; height: 88px; border:1px solid #ebebeb; }
+.order_con dt img{  width: 100%; height: auto; }
+.order_con dd{ overflow: hidden; font:14px/25px Microsoft YaHei; color:#333;text-overflow: ellipsis;}
+.order_con dd.goodsName { line-height: 18px; }
+.order_con dd.goodsName h1{ font-weight: normal; }
+.order_con dd.goodsName h1 a { color:#333; }
+.order_con dd em.price{ color:#cf1700;}
+.order_con dd.gray{ color:#999; overflow:hidden;}
+.order_con  .ui-btn{ height: 36px; line-height: 38px;; font-size: 1em; }
+.order_con .icons { position:absolute; right: 10px; top: 38%; width: 13px; height: 22px; background-position:-85px 0; background-size: 150px; }
+.noorder { min-height: 200px; }
+.cancel_btn{ position: absolute; top: 7px; right: 10px; padding:2px 10px; height:20px; line-height:20px; font-size:12px; text-align:center; display:inline-block; vertical-align:middle; background:#939192; color:#fff; float:right;}
+.pname{ padding:5px 0px;}
+.pname .tit1{font:16px/30px Microsoft YaHei; color:#333;}
+.pname .tit2{font:14px/30px Microsoft YaHei; color:#939192;}
+.deta_add p{ color:#939192; line-height:30px; font-size:14px;}
+.deta_add p.clo{ color:#464646;}
+.deta_add p.clo span{ /*background:url(images/jt_icon.png) left -103px; */float:right; display:inline-block; cursor:pointer;width:12px; height:30px;}
+.pay_fs dd{ color:#939192; font:16px/25px Microsoft YaHei;}
+
+.wuliu{ position:relative;}
+/*修改支付方式*/
+#chgPayType { float:right; padding:0 5px; color: #fff; font-size:12px; background:#ea7515; border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px;  }
+.pay-layer { position: fixed;top: 0;left: 0;width: 100%;height: 100%;overflow: hidden;margin: auto 0; z-index: 1000;background: rgba(0,0,0,0.6);}
+.pay-inner{position:relative; height:100%; min-width:320px; max-width:720px; margin:0 auto;}
+.paylist-area { position:absolute; bottom:-165px; width:100%; background:#fff; }
+.pay-hd { position:relative; height: 50px; padding-left:10px; border-bottom: 1px solid #ea7515; font-size:16px; line-height:50px; }
+.pay-hd h6 { font-weight: normal; }
+.closeLayer { position: absolute; top:0px; right:15px; color:#FF0000; }
+.pay-list li { position:relative; padding:10px  0 10px 10px; height: 36px; line-height: 36px; border-bottom:1px solid #efefef;  cursor: pointer; }
+.pay-list .radio { position:absolute; width:13px; height: 13px; right: 10px; top:10px; display: block; padding: 9px; border:1px solid #cfcfcf; -webkit-border-radius: 22px; border-radius: 22px;}
+.pay-list .radio em { display: block; width:13px; height:13px; background:#dadada; -webkit-border-radius: 13px; border-radius:13px; }
+.pay-list .checked .radio { border-color :#ea7515;}
+.pay-list .checked .radio em { background-color :#ea7515;}
+.pay-list .icons { height: 36px; line-height: 36px; }
+.pay-list .wx { width: 117px; background-position:-54px -27px;}
+.pay-list .zfb { width: 107px; background-position:-52px -130px;}
+.pay-list .cft { width: 90px; background-position:-52px -63px;}
+.pay-list .card { padding-left: 104px; background-position:-52px -95px;}
+

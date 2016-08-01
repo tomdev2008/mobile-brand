@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/mobile/!svn/ver/27665/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/show/web/controller
+END
+FocusPictureController.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/mobile/!svn/ver/16012/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/show/web/controller/FocusPictureController.java
+END
+ShowStatisticsController.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/mobile/!svn/ver/27665/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/show/web/controller/ShowStatisticsController.java
+END
+UserWhiteListController.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/mobile/!svn/ver/25335/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/show/web/controller/UserWhiteListController.java
+END
+ShowReportController.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/show/web/controller/ShowReportController.java
+END
+CommentReportController.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/show/web/controller/CommentReportController.java
+END
+MessageManagerController.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/mobile/!svn/ver/16015/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/show/web/controller/MessageManagerController.java
+END
+ShowTopicController.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/mobile/!svn/ver/26842/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/show/web/controller/ShowTopicController.java
+END
+ShowController.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/27518/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/show/web/controller/ShowController.java
+END
+OperateLogController.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/show/web/controller/OperateLogController.java
+END
+ShowCommentController.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/mobile/!svn/ver/25416/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/show/web/controller/ShowCommentController.java
+END
+ShowDevelopmentController.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/show/web/controller/ShowDevelopmentController.java
+END
+ManagerUserController.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/mobile/!svn/ver/16015/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/show/web/controller/ManagerUserController.java
+END
+UserManagerController.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/show/web/controller/UserManagerController.java
+END
+ShowRecommendController.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/mobile/!svn/ver/27518/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/show/web/controller/ShowRecommendController.java
+END

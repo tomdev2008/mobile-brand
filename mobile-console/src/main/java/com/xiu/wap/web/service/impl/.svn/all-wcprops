@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/mobile/!svn/ver/26937/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/wap/web/service/impl
+END
+SearchServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/26937/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/wap/web/service/impl/SearchServiceImpl.java
+END
+MemcachedServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/mobile/!svn/ver/25703/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/wap/web/service/impl/MemcachedServiceImpl.java
+END
+DataTaskManagerServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/mobile/!svn/ver/26911/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/wap/web/service/impl/DataTaskManagerServiceImpl.java
+END

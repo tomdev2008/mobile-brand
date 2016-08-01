@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/mobile/!svn/ver/26367/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/topic
+END
+addInSet.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/topic/addInSet.ftl
+END
+list.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/mobile/!svn/ver/26367/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/topic/list.ftl
+END
+importUpdate.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/19356/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/topic/importUpdate.ftl
+END
+previewList.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/topic/previewList.ftl
+END
+createSet.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/mobile/!svn/ver/18119/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/topic/createSet.ftl
+END
+setEdit.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/mobile/!svn/ver/18119/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/topic/setEdit.ftl
+END
+h5Edit.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/mobile/!svn/ver/18119/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/topic/h5Edit.ftl
+END
+create.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/mobile/!svn/ver/18119/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/topic/create.ftl
+END
+edit.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/mobile/!svn/ver/26367/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/topic/edit.ftl
+END
+setManager.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/topic/setManager.ftl
+END

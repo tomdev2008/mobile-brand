@@ -1,0 +1,269 @@
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/mobile/!svn/ver/27663/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller
+END
+BrowseGoodsController.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/mobile/!svn/ver/19141/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/BrowseGoodsController.java
+END
+AskBuyController.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/24043/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/AskBuyController.java
+END
+SubjectController.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/mobile/!svn/ver/26554/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/SubjectController.java
+END
+TopicsController.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/24185/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/TopicsController.java
+END
+XiuWordController.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/mobile/!svn/ver/24422/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/XiuWordController.java
+END
+CouponController.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/21289/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/CouponController.java
+END
+MyOrderDetailController.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/mobile/!svn/ver/25169/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/MyOrderDetailController.java
+END
+RecommendGoodsController.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/mobile/!svn/ver/23491/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/RecommendGoodsController.java
+END
+IntegralController.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/mobile/!svn/ver/27117/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/IntegralController.java
+END
+IndexController.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/mobile/!svn/ver/24185/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/IndexController.java
+END
+LoginController.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/mobile/!svn/ver/27135/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/LoginController.java
+END
+FavorGoodsController.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/mobile/!svn/ver/23495/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/FavorGoodsController.java
+END
+CreditController.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/25793/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/CreditController.java
+END
+AdvertisementController.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/mobile/!svn/ver/24275/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/AdvertisementController.java
+END
+GoodsController.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/mobile/!svn/ver/26841/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/GoodsController.java
+END
+OrderController.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/mobile/!svn/ver/24988/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/OrderController.java
+END
+FindGoodsController.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/mobile/!svn/ver/23495/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/FindGoodsController.java
+END
+UtilController.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/24199/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/UtilController.java
+END
+WapH5ListController.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/mobile/!svn/ver/20903/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/WapH5ListController.java
+END
+ReceiverIdController.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/mobile/!svn/ver/23495/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/ReceiverIdController.java
+END
+TopicsExtController.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/mobile/!svn/ver/27506/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/TopicsExtController.java
+END
+RefundController.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/24422/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/RefundController.java
+END
+WellChosenBrandControll.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/mobile/!svn/ver/27310/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/WellChosenBrandControll.java
+END
+PayForOthersController.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/mobile/!svn/ver/24199/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/PayForOthersController.java
+END
+AddressController.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/mobile/!svn/ver/27597/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/AddressController.java
+END
+WithDrawController.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/mobile/!svn/ver/20903/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/WithDrawController.java
+END
+ShakeAndShakeController.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/mobile/!svn/ver/25043/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/ShakeAndShakeController.java
+END
+ImgVerifyCodeController.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/ImgVerifyCodeController.java
+END
+BegController.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/15425/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/BegController.java
+END
+ShoppingCartController.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/mobile/!svn/ver/27506/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/ShoppingCartController.java
+END
+QuestionGameController.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/QuestionGameController.java
+END
+MCpsController.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/MCpsController.java
+END
+CommentController.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/mobile/!svn/ver/19992/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/CommentController.java
+END
+FindMenuController.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/mobile/!svn/ver/24075/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/FindMenuController.java
+END
+SystemParamController.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/mobile/!svn/ver/27663/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/SystemParamController.java
+END
+BaseController.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/17358/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/BaseController.java
+END
+VomitSayController.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/mobile/!svn/ver/26416/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/VomitSayController.java
+END
+ChangePassController.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/mobile/!svn/ver/25620/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/ChangePassController.java
+END
+MyOrderListController.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/mobile/!svn/ver/25169/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/MyOrderListController.java
+END
+UserController.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/26914/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/UserController.java
+END
+AppController.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/27150/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/AppController.java
+END
+RegisterController.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/mobile/!svn/ver/25620/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/RegisterController.java
+END
+FavorBrandController.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/mobile/!svn/ver/27347/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/FavorBrandController.java
+END
+EncryptionController.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/mobile/!svn/ver/18782/trunk_k/servers/mobile-server/mobile-portal/src/main/java/com/xiu/mobile/portal/controller/EncryptionController.java
+END

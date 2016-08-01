@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.wechat.console.dao.MessageCfgDao">
+	<resultMap id="messageCfgResult" type="messageCfg">
+		<result property="id" column="ID" />
+		<result property="keyword" column="KEYWORD" />
+		<result property="msgType" column="MSG_TYPE" />
+		<result property="content" column="CONTENT" />
+		<result property="materialId" column="MATERIAL_ID" />
+		<result property="materialName" column="MATERIAL_NAME" />
+		<result property="dataType" column="DATA_TYPE" />
+		<result property="createDate" column="CREATE_DATE" />
+		<result property="creatorId" column="CREATOR_ID" />
+		<result property="creatorName" column="CREATOR_NAME" />
+		<result property="modifyDate" column="MODIFY_DATE" />
+		<result property="modifierId" column="MODIFIER_ID" />
+		<result property="modifierName" column="MODIFIER_NAME" />
+	</resultMap>
+	
+	<!-- 查询消息配置列表 -->
+	<select id="getMessageCfgList" resultMap="messageCfgResult" parameterType="java.util.Map">
+		<![CDATA[
+     		SELECT MAT.NAME AS MATERIAL_NAME,CFG.*
+		        FROM X_WECHAT_MESSAGE_CFG CFG ,X_WECHAT_MATERIAL_CFG MAT
+		       WHERE 1 = 1
+		         AND CFG.MATERIAL_ID = MAT.ID(+)
+      	]]>
+      		<if test="ids != null and ids != ''"> 
+		    	AND CFG.ID IN 
+				<foreach collection="ids" item="id" index="index" open="(" close=")" separator=",">
+           			to_number(#{id})
+        		</foreach>	
+			</if>
+			<if test="dataType != null and dataType != ''"> 
+		    	AND CFG.DATA_TYPE = #{dataType} 
+			</if>
+      	<![CDATA[	       
+		    ORDER BY CFG.CREATE_DATE DESC
+     	]]>
+	</select>
+	
+	<!-- 查询消息配置分页列表 -->
+	<select id="getMessageCfgListForPage" resultMap="messageCfgResult" parameterType="java.util.Map">
+	 <![CDATA[
+     	SELECT *
+		  FROM (SELECT MAT.NAME AS MATERIAL_NAME,CFG.*,ROWNUM AS ROWNO
+			        FROM X_WECHAT_MESSAGE_CFG CFG ,X_WECHAT_MATERIAL_CFG MAT
+			       WHERE 1 = 1
+			         AND CFG.MATERIAL_ID = MAT.ID(+)
+	 ]]>		         
+			 	<if test="msgType != null and msgType != '' "> 
+				     AND CFG.MSG_TYPE = #{msgType}
+				</if>
+				<if test="keyword != null and keyword != '' "> 
+				     AND CFG.KEYWORD LIKE '%'||#{keyword}||'%'
+				</if>
+				<if test="dataType != null and dataType != ''"> 
+		    		AND CFG.DATA_TYPE = #{dataType} 
+				</if>	
+	 <![CDATA[
+		           	 AND ROWNUM <= #{pageMax}
+		         ORDER BY CFG.CREATE_DATE DESC) TABLE_ALIAS
+		 WHERE TABLE_ALIAS.ROWNO >= #{pageMin}
+      ]]>
+	</select>
+	
+	<!-- 根据ID查询消息配置信息 -->
+	<select id="getMessageCfgById" resultMap="messageCfgResult" parameterType="java.lang.Long">
+	 <![CDATA[
+	 	SELECT MAT.NAME AS MATERIAL_NAME,CFG.*
+		        FROM X_WECHAT_MESSAGE_CFG CFG ,X_WECHAT_MATERIAL_CFG MAT
+		       WHERE 1 = 1
+		         AND CFG.MATERIAL_ID = MAT.ID(+)
+       			 AND CFG.ID = #{id}
+      ]]>
+	</select>
+	
+	<!-- 根据关键词查询消息配置信息 -->
+	<select id="getMessageCfgByKeyword" resultMap="messageCfgResult" parameterType="java.lang.String">
+	 <![CDATA[
+       SELECT *
+		  FROM X_WECHAT_MESSAGE_CFG CFG
+		 WHERE 1 = 1
+		   AND (CFG.KEYWORD LIKE '%,' || #{keyword} || '%' OR
+		        CFG.KEYWORD LIKE '%,' || #{keyword} || ',%' OR
+		        CFG.KEYWORD LIKE '%' || #{keyword} || ',%' OR
+		        CFG.KEYWORD = #{keyword})
+		 ORDER BY CFG.CREATE_DATE DESC
+      ]]>
+	</select>
+
+	<!-- 添加消息配置 -->
+	<insert id="saveMessageCfg" parameterType="messageCfg">
+		INSERT INTO X_WECHAT_MESSAGE_CFG(ID,KEYWORD,MSG_TYPE,CONTENT,MATERIAL_ID,DATA_TYPE,CREATE_DATE,CREATOR_ID,CREATOR_NAME,MODIFY_DATE,MODIFIER_ID,MODIFIER_NAME)
+		VALUES(X_WECHAT_SEQ.nextval,#{keyword},#{msgType},#{content},#{materialId},#{dataType},#{createDate},#{creatorId},#{creatorName},#{modifyDate},#{modifierId},#{modifierName})
+	</insert>
+
+	<!-- 修改消息配置 -->
+	<update id="updateMessageCfg" parameterType="messageCfg">
+		UPDATE X_WECHAT_MESSAGE_CFG CFG
+		   SET CFG.KEYWORD    	 = #{keyword},
+		       CFG.MSG_TYPE      = #{msgType},
+		       CFG.CONTENT       = #{content},
+		       CFG.MATERIAL_ID   = #{materialId},
+		       CFG.DATA_TYPE	 = #{dataType},
+		       CFG.MODIFY_DATE   = #{modifyDate},
+		       CFG.MODIFIER_ID   = #{modifierId},
+		       CFG.MODIFIER_NAME = #{modifierName}       
+		 WHERE CFG.ID = #{id}
+	</update>
+
+	<!-- 根据ID删除消息配置 -->
+	<delete id="deleteMessageCfg" parameterType="java.lang.Long">
+		DELETE FROM X_WECHAT_MESSAGE_CFG CFG WHERE CFG.ID=#{id}
+	</delete>
+
+</mapper>

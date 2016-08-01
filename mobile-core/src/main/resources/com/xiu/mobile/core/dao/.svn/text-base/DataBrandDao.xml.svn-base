@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.core.dao.DataBrandDao">
+		
+		<resultMap id="dataBrandResult" type="dataBrand">
+			<result property="brandId" column="brand_id"/>
+			<result property="brandName" column="brand_name"/>
+			<result property="brandCode" column="brand_code"/>
+			<result property="authimgurl" column="authimgurl"/>
+			<result property="orgauthFlag" column="orgauth_flag"/>
+			<result property="storeimgurl" column="storeimgurl"/>
+			<result property="mainName" column="main_name"/>
+			<result property="enName" column="en_name"/>
+			<result property="story" column="story"/>
+		</resultMap>
+		<!-- 根据Code查品牌 -->
+		<select id="getBrandByCode" resultMap="dataBrandResult" parameterType="string">
+				select b.brand_id as brandId,
+	            b.brand_code as brandCode,
+	            b.main_name as brandName,
+	            b.en_name as enName,
+	            case b.orgauth_flag
+	             	when 1 then b.authimgurl
+	            		else  b.storeimgurl
+	             end as authimgurl
+	          	from xiu_goods.x_data_brand b
+	      		where b.brand_code = #{brandCode}
+		</select>
+		<!-- 根据Code集合查品牌 -->
+		<select id="checkBrandCode" resultType="string">
+		select brand_code from xiu_goods.x_data_brand where brand_code in
+		<foreach collection="brandCode" item="code" open="(" close=")" separator=",">
+		   #{code}
+		</foreach>
+		</select>
+		<!-- 获得品牌详细信息 -->
+		<select id="getBrandList" resultMap="dataBrandResult" parameterType="string" >
+		<![CDATA[	select b.brand_id as brandId,
+					       b.brand_code as brandCode,
+					       b.main_name as brandName,
+					       b.main_name||'('||b.brand_code||')' as mainName,
+					      case b.orgauth_flag
+					      when 1 then
+					      b.authimgurl
+					      else
+					      b.storeimgurl
+					      end as authimgurl
+					      from xiu_goods.x_data_brand b
+					      where b.main_name like '%'||#{brandName}||'%' and b.show_flag=1
+					      order by NLSSORT( b.main_name,'NLS_SORT = SCHINESE_PINYIN_M') desc
+			 ]]>
+		</select>
+		 <select id="getWellChosenBrandList" resultMap="dataBrandResult" >
+			 <![CDATA[	select b.brand_id as brandId,
+				               b.brand_code as brandCode,
+				               b.main_name as brandName,
+				               case when b.en_name is null then b.main_name
+				                 else b.en_name end as enName,
+				               case b.orgauth_flag
+				                	when 1 then b.authimgurl
+				               		else  b.storeimgurl
+				                end as authimgurl,
+				                f.order_sequence as orderSeq,
+				                b.story
+			              from xiu_goods.x_data_brand b,xiu_wap.well_chosen_brand  f
+			              where b.brand_id = f.brand_id 
+			                	and f.deleted = 'N'
+			                    and f.replaced = 'N'
+			                    and f.banner_pic is not null
+			              order by orderSeq desc
+			 ]]>
+			 
+		</select> 
+	  	 
+		<!-- 查询某品牌 -->
+		<select id="getDataBrandByBrandId" resultMap="dataBrandResult" parameterType="java.util.Map">
+			 select t.brandid,t.brandcode,t.brandname,t.authimgurl from (
+			 select tt.*,rownum rowno from (
+				select b.brand_id as brandId,
+				       b.brand_code as brandCode,
+				       b.main_name as brandName,
+				      case b.orgauth_flag
+				        when 1 then
+				        b.authimgurl
+				        else
+				        b.storeimgurl
+				        end as authimgurl
+				from xiu_goods.x_data_brand b,xiu_wap.favor_brand f
+				where b.brand_id = f.brand_id and f.user_id = #{userId}
+				order by f.create_date desc) tt) t
+				where t.rowno &gt;= #{lineMin} and t.rowno &lt; #{lineMax}
+		</select> 
+		<select id="findAllBrands" resultType="com.xiu.mobile.core.model.DataBrandBo">
+			select distinct  x_brand_id  as brandId, cnname brandName, case when othername is null then '0'
+				                 else othername end as enName,
+			identifier brandCode 
+             from xiu_goods.X_CATEGORY_BRAND_VIEW v   
+             where exists(select 1 from xiu_goods.x_data_prd_info i where  i.onsale=1 and
+             v.X_BRAND_ID = i.BRAND_ID) 
+              and    store_id=11  
+              and   dispalyflg = 1 
+		</select>
+</mapper>

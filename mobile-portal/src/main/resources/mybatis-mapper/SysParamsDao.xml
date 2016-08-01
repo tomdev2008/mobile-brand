@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.portal.dao.SysParamsDao">
+	
+   <select id="getSysParamsList" resultType="com.xiu.mobile.portal.model.SysParamsVo" parameterType="java.util.HashMap">
+      select
+         s.param_key paramKey, 
+         s.param_value paramValue
+       from X_SYS_PARAMS s
+        where  s.IS_DELETE=0 and s.STATUS=1
+        <if test="paramKey!=null and paramKey!=''">
+            and s.param_key=#{paramKey}
+        </if>
+   </select>
+	
+</mapper>

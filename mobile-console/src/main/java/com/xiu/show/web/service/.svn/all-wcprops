@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/mobile/!svn/ver/25962/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/show/web/service
+END
+IUserWhiteListService.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/25335/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/show/web/service/IUserWhiteListService.java
+END
+IShowerDataTaskManagerService.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/mobile/!svn/ver/25493/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/show/web/service/IShowerDataTaskManagerService.java
+END
+IUserRecommendManagerService.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/mobile/!svn/ver/20889/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/show/web/service/IUserRecommendManagerService.java
+END

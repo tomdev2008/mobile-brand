@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.core.dao.AppPatchDao">
+	
+	 <!-- 添加 -->
+	<insert id="save" parameterType="com.xiu.mobile.core.model.AppPatchVO">
+	insert into APP_PATCH_INFO(
+		id,
+		name,
+		type,
+		VERSION,
+		NEED_UPDATE,
+		STATUS,
+		PATH,
+		REMARK,
+		MD5ENCODE,
+		CREAT_TIME
+		) 
+		values(
+	 	 #{id},
+		 #{name},
+		 #{type},
+		 #{version},
+		 #{needUpdate},
+		 #{status},
+		 #{path},
+		 #{remark},
+		 #{md5Encode},
+		 sysdate
+	 )
+	</insert>
+	<select id="queryIdBySeq" resultType="java.lang.Integer">
+		select APP_PATCH_SEQ.nextval from dual
+	</select>
+	
+	<update id="stopAlltypeAppPatch" parameterType="java.lang.String">
+		update APP_PATCH_INFO set status=0 where type=#{type} 
+	</update>
+	
+    <!-- 修改 -->
+	<update id="update" parameterType="advertisement">
+		update APP_PATCH_INFO set
+	    <if test="status!=null">STATUS=#{status}</if>
+		where id=#{id} 
+	</update>
+
+	
+	<!-- 查询热部署list -->
+   <select id="getAppPatchVOList" resultType="com.xiu.mobile.core.model.AppPatchVO"  parameterType="java.util.Map">
+   	select b.*
+       from (
+   		select a.*, rownum rowno from(
+		          select advs.id id,
+		              advs.name name,
+			          advs.TYPE type ,
+			          advs.VERSION version,
+			          advs.NEED_UPDATE needUpdate,
+			          advs.STATUS STATUS,
+			          advs.PATH PATH,
+			          advs.REMARK REMARK,
+			          advs.MD5ENCODE md5Encode,
+			          to_char(advs.CREAT_TIME,'yyyy-MM-dd HH24:mi:ss') createTime
+		          from APP_PATCH_INFO advs
+		         where  1=1
+		            <if test="name!=null and name !=''">
+		               <![CDATA[ and advs.name like  '%'||#{name}||'%']]>
+		           </if>
+		            <if test="type!=null and type !=''">
+		             <![CDATA[ and  advs.type =  #{type}]]>
+		           </if>
+		           <if test="status!=null and status !=''">
+		               <![CDATA[ and advs.STATUS =#{status}]]>
+		           </if>
+		          order by advs.CREAT_TIME desc 
+             )a where  rownum &lt; #{pageMax}
+            )b where b.rowno >= #{pageMin}
+   </select>
+	
+	<select id="getAppPatchVOListCount" resultType="java.lang.Integer"  parameterType="java.util.Map">
+			select count(1) 
+		          from APP_PATCH_INFO advs
+		          where  1=1
+		            <if test="name!=null and name !=''">
+		               <![CDATA[ and advs.name like  '%'||#{name}||'%']]>
+		           </if>
+		            <if test="type!=null and type !=''">
+		             <![CDATA[ and  advs.type =  #{type}]]>
+		           </if>
+		           <if test="status!=null and status !=''">
+		               <![CDATA[ and advs.status =#{status}]]>
+		           </if>
+	</select>	
+	
+	<!-- 根据code查询 -->
+	<select id="queryAppPatchVOById" resultType="com.xiu.mobile.core.model.AppPatchVO" parameterType="java.lang.Long">
+	 <![CDATA[
+       select advs.id id,
+		              advs.name name,
+			          advs.TYPE type ,
+			          advs.VERSION version,
+			          advs.NEED_UPDATE needUpdate,
+			          advs.STATUS STATUS,
+			          advs.PATH PATH,
+			          advs.REMARK REMARK,
+			          to_char(advs.CREAT_TIME,'yyyy-MM-dd HH24:mi:ss') createTime
+		          from APP_PATCH_INFO advs
+		         where   advs.id=#{id}
+      ]]>                
+	</select>
+	
+	<!-- 查询热部署list -->
+   <select id="getAppPatchVOByConditionInfo" resultType="com.xiu.mobile.core.model.AppPatchVO"  parameterType="java.util.Map">
+   		select a.*, rownum rowno from(
+		          select advs.id id,
+		              advs.name name,
+			          advs.TYPE type ,
+			          advs.VERSION version,
+			          advs.NEED_UPDATE needUpdate,
+			          advs.STATUS STATUS,
+			          advs.PATH PATH,
+			          advs.REMARK REMARK,
+			          to_char(advs.CREAT_TIME,'yyyy-MM-dd HH24:mi:ss') createTime,
+			          MD5ENCODE md5Encode
+		          from APP_PATCH_INFO advs
+		         where  1=1
+		            <if test="type!=null and type !=''">
+		             <![CDATA[ and  advs.type =  #{type}]]>
+		           </if>
+		             <if test="version!=null and version !=''">
+		             <![CDATA[ and  advs.version =  #{version}]]>
+		           </if>
+		           <if test="status!=null and status !=''">
+		               <![CDATA[ and advs.STATUS =#{status}]]>
+		           </if>
+		          order by advs.CREAT_TIME desc 
+             )a where rownum=1
+   </select>
+</mapper>

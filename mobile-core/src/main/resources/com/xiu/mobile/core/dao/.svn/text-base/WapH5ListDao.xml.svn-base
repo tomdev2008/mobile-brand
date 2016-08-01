@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.core.dao.WapH5ListDao">
+	
+   <!-- 查询专题分页 -->
+   <select id="getH5list" resultType="com.xiu.mobile.core.model.WapH5List"  parameterType="java.util.Map">
+      select b.*
+       from (
+         select a.*, rownum rowno from(
+                    select s.id,s.title,s.photo,s.operator,s.status,s.create_time createTime,s.h5_url h5Url,
+                    s.update_time updateTime,s.type,s.style from x_wap_h5_list s
+			         where 1=1
+			         <if test="status!=null and status !=''">
+						and s.status=#{status}
+		  			</if>
+		  			<if test="creatorName!=null and creatorName !=''">
+						and s.operator=#{creatorName}
+		  			</if>
+		  			<if test="title!=null and title !=''">
+						and s.title like '%'||#{title}||'%'
+		  			</if>
+		  			<if test="h5Url!=null and h5Url !=''">
+						and s.h5_url =#{h5Url}
+		  			</if>
+		  		 <if test="labelName!=null and labelName !=''"><![CDATA[ 
+		                and s.id in(       
+		                select lo.object_id
+				          from xiu_goods.X_LABEL l ,xiu_goods.X_LABEL_OBJECT lo
+				         where l.label_id=lo.label_id
+				           and lo.category = #{labelType}
+				           and l.name like '%'||#{labelName}||'%'
+		               )
+            	]]></if>
+			         order by s.create_time desc 
+             )a where  rownum &lt; #{pageMax}
+        )b where b.rowno &gt;= #{pageMin}
+	</select>
+		
+	<select id="getH5ListCount" resultType="java.lang.Integer"  parameterType="java.util.Map">
+      	select count(1)
+          from x_wap_h5_list s
+         where 1=1  
+		  <if test="status!=null and status !=''">
+			and s.status=#{status}
+		  </if>
+		   <if test="creatorName!=null and creatorName !=''">
+			and s.operator=#{creatorName}
+ 		  </if>
+ 		  <if test="title!=null and title !=''">
+			and s.title like '%'||#{title}||'%'
+ 		  </if>
+ 		  <if test="h5Url!=null and h5Url !=''">
+			and s.h5_url =#{h5Url}
+ 		  </if>
+ 		   <if test="labelName!=null and labelName !=''"><![CDATA[ 
+	                and s.id in(       
+	                select lo.object_id
+			          from xiu_goods.X_LABEL l ,xiu_goods.X_LABEL_OBJECT lo
+			         where l.label_id=lo.label_id
+			           and lo.category = #{labelType}
+			           and l.name like '%'||#{labelName}||'%'
+	               )
+           ]]></if>
+	</select>
+	<select id="findWapH5Id" resultType="java.lang.Long">
+		select seq_x_wap_h5_list.nextval from dual
+	</select>	
+	<insert id="addH5list" parameterType="com.xiu.mobile.core.model.WapH5List">
+		insert into x_wap_h5_list(id,title,photo,operator,status,create_time,h5_url,type,
+		style,template,is_share, share_content, SHARE_PHOTO, BACKGROUND_COLOR,SHARE_TITLE) 
+		values(
+			#{id},#{title},#{photo},#{operator},#{status},sysdate,#{h5Url},#{type}
+			,#{style}, #{template}, #{isShare}, #{shareContent}, #{sharePhoto}, #{bgColor},#{shareTitle})
+	</insert>
+<!-- 	根据Id查询列表信息 -->
+	<select id="getWapH5ListById" resultType="com.xiu.mobile.core.model.WapH5List" parameterType="java.lang.Long">
+		select 
+			id,title,photo,operator,status,create_time createTime,
+			h5_url h5Url,type,style,template,is_share isShare, share_content shareContent,
+			 SHARE_PHOTO sharePhoto, BACKGROUND_COLOR bgColor, SHARE_TITLE shareTitle
+		from 
+			x_wap_h5_list where id=#{id}
+	</select>
+<!-- 	修改列表信息 -->
+	<update id="updateWapH5List" parameterType="com.xiu.mobile.core.model.WapH5List">
+		update x_wap_h5_list set title=#{title},operator=#{operator},UPDATE_TIME=sysdate,
+		h5_url=#{h5Url},status=#{status},type=#{type}
+		<if test="photo!=null and photo!=''">
+			,photo=#{photo}
+		</if> 
+		<if test="sharePhoto!=null and sharePhoto!=''">
+			,SHARE_PHOTO=#{sharePhoto}
+		</if> 
+		<if test="style!=null and style!=0">
+			,style=#{style}
+		</if>
+		<if test="template != null and template != ''">
+			,template = #{template}
+		</if>
+		<if test="isShare != null ">
+			,is_share = #{isShare}
+		</if>
+		<if test="shareContent != null and shareContent != ''">
+			,share_content = #{shareContent}
+		</if>
+		<if test="shareTitle != null and shareTitle != ''">
+			,share_title = #{shareTitle}
+		</if>
+		<if test="bgColor != null and bgColor != ''">
+			,BACKGROUND_COLOR = #{bgColor}
+		</if>
+		where id=#{id}
+	</update>
+<!-- 	删除 -->
+	<delete id="deleteWapH5List">
+		delete from x_wap_h5_list where id in
+		<foreach collection="ids" item="id" open="(" close=")"
+			separator=",">
+			#{id}
+		</foreach>
+	</delete>
+	
+	<!-- 	查询组件化数据Id -->
+	<select id="findWapH5ListTypeThree" parameterType="java.lang.Long" resultType="java.lang.Long">
+		select id from x_wap_h5_list where type =3 and  ID in
+	          <foreach collection="ids" item="id" open="(" close=")"
+				separator=",">
+				#{id}
+			</foreach>
+	</select>
+	
+	
+<!-- 	查询标题是存在 -->
+	<select id="findWapH5ListTitil" parameterType="java.lang.String" resultType="java.lang.Integer">
+		select count(1) from x_wap_h5_list where title=#{title}
+	</select>
+	<select id="findH5Url" parameterType="java.lang.String" resultType="java.lang.Integer">
+		select count(1) from x_wap_h5_list where h5_url=#{url} and type in (2,3)
+	</select>
+	
+			
+	<select id="getSyncToSearchCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+	  select count(1)
+	   from x_wap_h5_list t
+	  where t.STATUS=1 
+	  <if test="lastUpdateDate != null">
+	   and t.UPDATE_TIME &gt; #{lastUpdateDate} 
+	  </if>
+	</select>
+		
+	<select id="getSyncToSearchList" parameterType="java.util.HashMap" resultType="com.xiu.mobile.core.model.WapH5List">
+       select b.*
+       from (
+         select a.*, rownum rowno from(
+			  select t.*
+			   from x_wap_h5_list t
+			  where  t.STATUS=1 
+			  <if test="lastUpdateDate != null">
+			   and t.UPDATE_TIME &gt; #{lastUpdateDate} 
+			  </if>
+			   order by t.id desc
+	     ) a 
+	      where  rownum &lt; #{pageMax}
+        )b where b.rowno &gt;= #{pageMin}
+	</select>
+	
+</mapper>

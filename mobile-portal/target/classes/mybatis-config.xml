@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<settings>
+		<!-- changes from the defaults -->
+		<setting name="lazyLoadingEnabled" value="false" />
+		<!-- JdbcType enumeration. Most common are: NULL, VARCHAR and OTHER -->
+		<setting name="jdbcTypeForNull" value="NULL" />
+	</settings>
+
+	<typeAliases>
+	    <typeAlias alias="activity" type="com.xiu.mobile.portal.model.ActivityVo" />
+		<typeAlias alias="messageCode" type="com.xiu.mobile.portal.model.MessageCode" />
+		<typeAlias alias="topicActivityGoods" type="com.xiu.mobile.portal.model.TopicActivityGoodsVo"/>
+		<typeAlias alias="cxList" type="com.xiu.mobile.portal.model.CxListVo"/>
+		<typeAlias alias="topic" type="com.xiu.mobile.portal.model.Topic"/>
+		<typeAlias alias="vomitSay" type="com.xiu.mobile.portal.model.VomitSayVo"/>
+		<typeAlias alias="recommendRegBo" type="com.xiu.mobile.portal.model.RecommendRegBo"/>
+		<typeAlias alias="bookmarkIitemVo" type="com.xiu.mobile.portal.model.BookmarkIitemBo"/>
+		<typeAlias alias="bookmarkIitemListVo" type="com.xiu.mobile.portal.model.BookmarkIitemListVo"/>
+		<typeAlias alias="appVo" type="com.xiu.mobile.portal.model.AppVo" />
+		<typeAlias alias="favorBrand" type="com.xiu.mobile.portal.model.FavorBrandBo" />
+		<typeAlias alias="brandTopicVo" type="com.xiu.mobile.portal.model.BrandTopicVo" />
+		<typeAlias alias="simpleTopicActivityVo" type="com.xiu.mobile.portal.model.SimpleTopicActivityVo" />
+		<typeAlias alias="shoppingCart" type="com.xiu.mobile.portal.model.ShoppingCart" />
+		<typeAlias alias="questionPlayer" type="com.xiu.mobile.portal.model.QuestionPlayer" />
+		<typeAlias alias="browseGoods" type="com.xiu.mobile.portal.model.BrowseGoodsModel"/>
+		<typeAlias alias="userPayPlatform" type="com.xiu.mobile.portal.model.UserPayPlatform"/>
+		<typeAlias alias="advertisementVo" type="com.xiu.mobile.portal.model.AdvertisementVo"/>
+	    <typeAlias alias="findGoods" type="com.xiu.mobile.core.model.FindGoodsVo" />
+	</typeAliases>
+	
+	<mappers>
+	    <mapper resource="mybatis-mapper/MessageCodeDao.xml"/>
+	    <mapper resource="mybatis-mapper/TopicActivityDao.xml"/>
+	    <mapper resource="mybatis-mapper/TopicActivityGoodsDao.xml"/>
+	    <mapper resource="mybatis-mapper/ActivityNoregularDao.xml"/>
+	    <mapper resource="mybatis-mapper/VomitSayDao.xml"/>
+	    <mapper resource="mybatis-mapper/BookmarkIitemDao.xml"/>
+	    <mapper resource="mybatis-mapper/BookmarkIitemListDao.xml"/>
+	    <mapper resource="mybatis-mapper/AppDao.xml"/>
+	    <mapper resource="mybatis-mapper/FavorBrandDao.xml"/>
+	    <mapper resource="mybatis-mapper/LoginDao.xml"/>
+	    <mapper resource="mybatis-mapper/SimpleTopicActivityDao.xml"/>
+	    <mapper resource="mybatis-mapper/ShoppingCartDao.xml"/>
+	    <mapper resource="mybatis-mapper/QuestionGameDao.xml"/>
+	    <mapper resource="mybatis-mapper/QuestionPlayerDao.xml"/>
+	    <mapper resource="mybatis-mapper/BrowseGoodsDao.xml"/>
+	    <mapper resource="mybatis-mapper/PayForTempletDao.xml"/>
+	    <mapper resource="mybatis-mapper/FindMenuDao.xml"/>
+	    <mapper resource="mybatis-mapper/UserPayPlatformDao.xml"/>
+	    <mapper resource="mybatis-mapper/ProductDao.xml"/>
+	    <mapper resource="mybatis-mapper/ShowUserDao.xml"/>
+	    <mapper resource="mybatis-mapper/AskBuyDao.xml"/>
+	    <mapper resource="mybatis-mapper/AdvDao.xml"/>
+	    <mapper resource="mybatis-mapper/FindGoodsApiDao.xml"/>
+	    <mapper resource="mybatis-mapper/SubjectDao.xml"/>
+	    <mapper resource="mybatis-mapper/SubjectCommentDao.xml"/>
+	    <mapper resource="mybatis-mapper/BusinessStatisticDao.xml"/>
+	    <mapper resource="mybatis-mapper/SysParamsDao.xml"/>
+	</mappers>
+
+</configuration>

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/webapp/WEB-INF/views/common
+END
+footer.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/webapp/WEB-INF/views/common/footer.ftl
+END
+header.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/webapp/WEB-INF/views/common/header.ftl
+END
+error.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/webapp/WEB-INF/views/common/error.ftl
+END
+pagination.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/webapp/WEB-INF/views/common/pagination.ftl
+END

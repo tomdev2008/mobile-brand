@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/mobile/!svn/ver/24110/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/findgoods
+END
+list.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/24110/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/findgoods/list.ftl
+END
+create.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/23475/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/findgoods/create.ftl
+END
+edit.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/23475/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/findgoods/edit.ftl
+END
+import.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/findgoods/import.ftl
+END

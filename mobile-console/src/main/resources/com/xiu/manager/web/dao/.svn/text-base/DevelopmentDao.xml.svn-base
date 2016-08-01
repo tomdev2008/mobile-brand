@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.manager.web.dao.DevelopmentDao">
+
+	<!-- insert -->
+	<insert id="queryInsertSQL" parameterType="java.util.Map">
+	  ${sql}
+	</insert>
+
+	<!-- update -->
+	<update id="queryUpdateSQL" parameterType="java.util.Map">
+	  ${sql}
+	</update>
+
+	<!-- delete -->
+	<delete id="queryDeleteSQL" parameterType="java.util.Map">
+	  ${sql}
+	</delete>
+	
+	<!-- select -->
+	<select id="querySelectSQL" resultType="java.util.Map" parameterType="java.util.Map">
+	  ${sql}
+	</select>
+
+</mapper>

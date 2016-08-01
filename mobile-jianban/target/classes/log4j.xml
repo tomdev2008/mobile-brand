@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<!-- 1. DEBUG (the least serious) 2. INFO 3. WARN 4. ERROR 5. FATAL (the most serious) -->
+	<!-- ===================================================================== -->
+	<!-- 以下是 Appenders 的定义                                                  									   -->
+	<!-- ===================================================================== -->
+	<!-- 输出到控制台 -->
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss.SSS}][%p][%t] %c{1}.%M(%L) | %m%n" />
+		</layout>
+	</appender>
+	<!-- 输出所有级别的日志（priority指定的级别以上的日志） -->
+	<appender name="server-all" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="/www/logs/mobile-jianban/server-all.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="utf-8" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss.SSS}][%p][%t] %c{1}.%M(%L) | %m%n" />
+		</layout>
+	</appender>
+	<!-- 只输出 jdbc 日志信息 -->
+	<appender name="server-jdbc" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="/www/logs/mobile-jianban/server-jdbc.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="utf-8" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss.SSS}][%p][%t] %c{1}.%M(%L) | %m%n" />
+		</layout>
+	</appender>
+	<!-- 只输出 debug 日志信息 -->
+	<appender name="server-debug" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="/www/logs/mobile-jianban/server-debug.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="utf-8" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss.SSS}][%p][%t] %c{1}.%M(%L) | %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="DEBUG" />
+			<param name="LevelMax" value="ERROR" />
+		</filter>
+	</appender>
+	<!-- 只输出 info 日志信息 -->
+	<appender name="server-info" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="/www/logs/mobile-jianban/server-info.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="utf-8" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss.SSS}][%p][%t] %c{1}.%M(%L) | %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="INFO" />
+			<param name="LevelMax" value="ERROR" />
+		</filter>
+	</appender>
+	<!-- 只输出 error 日志信息 -->
+	<appender name="server-error" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="/www/logs/mobile-jianban/server-error.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="utf-8" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss.SSS}][%p][%t] %c{1}.%M(%L) | %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="ERROR" />
+			<param name="LevelMax" value="ERROR" />
+		</filter>
+	</appender>
+	<!-- ===================================================================== -->
+	<!-- 以下是 category 的定义                                                  										   -->
+	<!-- ===================================================================== -->
+ 	<!-- <category name="org.apache.ibatis">
+		<level value="DEBUG" />
+		<appender-ref ref="server-jdbc" />
+	</category>
+	<category name="java.sql">
+		<level value="DEBUG" />
+		<appender-ref ref="server-jdbc" />
+	</category>  -->
+	<!-- 下面是打印mybatis语句的配置-->
+	<logger name="com.ibatis" additivity="true">
+		<level value="DEBUG" />
+	</logger>
+	<logger name="java.sql.Connection" additivity="true">
+		<level value="DEBUG" />
+	</logger>
+	<logger name="java.sql.Statement" additivity="true">
+		<level value="DEBUG" />
+	</logger>
+	<logger name="java.sql.PreparedStatement" additivity="true">
+		<level value="DEBUG" />
+	</logger>
+	<logger name="java.sql.ResultSet" additivity="true">
+		<level value="DEBUG" />
+	</logger>
+	<logger name="com.xiu.mobile" additivity="true">
+		<level value="DEBUG" />
+	</logger>
+	<!-- ===================================================================== -->
+	<!-- 以下是 Root logger 的定义                                                  									   -->
+	<!-- ===================================================================== -->
+	<root>
+		<priority value="INFO" />
+		<appender-ref ref="console" />
+		<appender-ref ref="server-all" />
+		<appender-ref ref="server-debug" />
+		
+		<appender-ref ref="server-error" />
+		<appender-ref ref="server-info" />
+	</root>
+</log4j:configuration>

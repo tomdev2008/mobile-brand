@@ -1,0 +1,44 @@
+package com.xiu.common.web.contants;
+
+public interface NumberConstant {
+	int NUM_NEGATIVE = -1;
+	int NUM_0 = 0;
+	int NUM_1 = 1;
+	int NUM_2 = 2;
+	int NUM_3 = 3;
+	int NUM_4 = 4;
+	int NUM_5 = 5;
+	int NUM_6 = 6;
+	int NUM_7 = 7;
+	int NUM_8 = 8;
+	int NUM_9 = 9;
+	int NUM_10 = 10;
+	int NUM_20 = 20;
+	int NUM_21 = 21;
+	int NUM_22 = 22;
+	int NUM_23 = 23;
+	int NUM_24 = 24;
+	int NUM_25 = 25;
+	int NUM_26 = 26;
+	int NUM_27 = 27;
+	int NUM_28 = 28;
+	int NUM_29 = 29;
+	int NUM_30 = 30;
+	int NUM_31 = 31;
+	int NUM_32 = 32;
+	int NUM_33 = 33;
+	int NUM_34 = 34;
+	int NUM_35 = 35;
+	int NUM_36 = 36;
+	int NUM_37 = 37;
+	int NUM_38 = 38;
+	int NUM_39 = 39;
+	int NUM_40 = 40;
+	int NUM_50 = 50;
+	int NUM_60 = 60;
+	int NUM_70 = 70;
+	int NUM_80 = 80;
+	int NUM_90 = 90;
+	int NUM_100 = 100;
+	int NUM_200 = 200;
+}

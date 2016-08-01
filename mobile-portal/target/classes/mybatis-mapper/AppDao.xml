@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.portal.dao.AppDao">
+	<resultMap id="appUpdateVo" type="appVo">
+		<result property="appId" column="app_id" />
+		<result property="appUrl" column="app_url" />
+		<result property="appType" column="app_type" />
+		<result property="appVersion" column="app_version" />
+		<result property="appSummary" column="app_summary" />
+		<result property="isLast" column="app_isLast" />
+		<result property="createTime" column="app_createTime" />
+		<result property="creator" column="app_creator" />
+	</resultMap>
+
+	<insert id="insertApp" parameterType="appVo">
+		 	insert into X_RMD_APPUPDATE 
+		 	(app_id,app_url,app_type,app_version,app_verName,app_summary,app_isLast,app_createTime,app_creator) 
+		 	values(X_RMD_APPUPDATE_SEQ.NEXTVAL,#{appUrl},#{appType},#{appVersion},#{appVerName},#{appSummary},#{isLast},#{createTime},#{creator})
+	</insert>
+	
+	<update id="updateAppIsLastByType" parameterType="java.lang.String">
+	   update X_RMD_APPUPDATE set app_isLast='N' where app_type=#{appType}
+	</update>
+	
+	<select id="selectLatestAppByType" resultMap="appUpdateVo" parameterType="java.lang.String">
+		select app_id,app_url,app_type,app_version,app_verName,app_summary,app_isLast,app_createTime,app_creator
+		from X_RMD_APPUPDATE
+		where app_isLast='Y' and app_type=#{appType}
+	</select>
+	
+	<!-- 获取最近的app启动页 -->
+	<select id="getLatelyAppStartPage" parameterType="java.util.HashMap" resultType="com.xiu.mobile.core.model.AppStartManagerModel">
+		select tt.id, tt.app_type as appType, tt.channel,  to_char(tt.start_time,'yyyy-mm-dd') as beginTime,
+				<if test="sizeType != null and sizeType != ''"> decode(#{sizeType},'3.5',tt.page_url,'4',tt.page_url_a,tt.page_url_a) as url</if>
+		        <if test="sizeType == null or sizeType == ''"> decode(tt.app_type,2,tt.page_url_a,tt.page_url) as url</if>
+		  from (select t.*
+		          from x_rmd_app_startmanager t
+		         where t.status = 1
+		           and t.start_time &lt;= trunc(sysdate)
+		           <if test="appType != null and appType != ''"> and t.app_type = #{appType}</if>
+		           <if test="channel != null and channel != ''"> and t.channel = #{channel}</if>
+		           <if test="channel == null or channel == ''"> and t.channel is null</if>
+		         order by t.start_time desc) tt
+		 where rownum = 1
+	</select>
+</mapper>

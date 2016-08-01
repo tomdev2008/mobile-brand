@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/mobile/!svn/ver/27853/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/service/impl
+END
+SuggestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/mobile/!svn/ver/26947/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/service/impl/SuggestServiceImpl.java
+END
+CatSizeServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/mobile/!svn/ver/17449/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/service/impl/CatSizeServiceImpl.java
+END
+SearchServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/mobile/!svn/ver/27829/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/service/impl/SearchServiceImpl.java
+END
+BrandServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/mobile/!svn/ver/16509/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/service/impl/BrandServiceImpl.java
+END
+SeoServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/service/impl/SeoServiceImpl.java
+END
+AttrGroupServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/service/impl/AttrGroupServiceImpl.java
+END
+ExclusiveServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/mobile/!svn/ver/25167/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/service/impl/ExclusiveServiceImpl.java
+END
+FacetFilterSerivceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/mobile/!svn/ver/25167/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/service/impl/FacetFilterSerivceImpl.java
+END
+PriceQueryServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/mobile/!svn/ver/23140/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/service/impl/PriceQueryServiceImpl.java
+END
+CatalogServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/mobile/!svn/ver/25859/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/service/impl/CatalogServiceImpl.java
+END
+LianXiangServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/mobile/!svn/ver/26947/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/service/impl/LianXiangServiceImpl.java
+END
+MutilProductServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/mobile/!svn/ver/27853/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/service/impl/MutilProductServiceImpl.java
+END

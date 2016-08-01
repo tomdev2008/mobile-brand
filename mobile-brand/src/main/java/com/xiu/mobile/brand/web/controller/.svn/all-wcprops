@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/mobile/!svn/ver/27852/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/controller
+END
+MutilProductController.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/mobile/!svn/ver/27852/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/controller/MutilProductController.java
+END
+CatalogForPageController.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/mobile/!svn/ver/25861/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/controller/CatalogForPageController.java
+END
+SuggestController.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/mobile/!svn/ver/26947/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/controller/SuggestController.java
+END
+CatSizeController.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/mobile/!svn/ver/23139/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/controller/CatSizeController.java
+END
+SearchController.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/mobile/!svn/ver/24937/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/controller/SearchController.java
+END
+BrandController.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/mobile/!svn/ver/27848/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/controller/BrandController.java
+END
+ExclusiveController.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/controller/ExclusiveController.java
+END
+PriceQueryController.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/mobile/!svn/ver/27847/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/controller/PriceQueryController.java
+END
+SearchForPageController.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/mobile/!svn/ver/23139/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/controller/SearchForPageController.java
+END
+BaseController.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/controller/BaseController.java
+END
+BrandForPageController.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/mobile/!svn/ver/23139/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/controller/BrandForPageController.java
+END
+CatalogController.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/mobile/!svn/ver/25862/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/controller/CatalogController.java
+END

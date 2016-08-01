@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/dao
+END
+UserGroupDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/dao/UserGroupDao.java
+END
+UserDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/dao/UserDao.java
+END
+UserRoleDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/dao/UserRoleDao.java
+END
+RoleDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/dao/RoleDao.java
+END
+DevelopmentDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/dao/DevelopmentDao.java
+END
+MenuDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/dao/MenuDao.java
+END
+RoleMenuDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/dao/RoleMenuDao.java
+END
+UserUserGroupDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/manager/web/dao/UserUserGroupDao.java
+END

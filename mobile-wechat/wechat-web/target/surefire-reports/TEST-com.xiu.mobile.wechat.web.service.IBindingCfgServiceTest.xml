@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite failures="0" time="1.514" errors="0" skipped="0" tests="3" name="com.xiu.mobile.wechat.web.service.IBindingCfgServiceTest">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="D:\java\SDKs\jdk6\jre\bin"/>
+    <property name="java.vm.version" value="20.0-b11"/>
+    <property name="java.vm.vendor" value="Sun Microsystems Inc."/>
+    <property name="java.vendor.url" value="http://java.sun.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) Client VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.country" value="CN"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="Service Pack 1"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="D:\pcs_workspace\mobile-server\mobile-wechat\wechat-web"/>
+    <property name="java.runtime.version" value="1.6.0_25-b06"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="basedir" value="D:\pcs_workspace\mobile-server\mobile-wechat\wechat-web"/>
+    <property name="java.endorsed.dirs" value="D:\java\SDKs\jdk6\jre\lib\endorsed"/>
+    <property name="os.arch" value="x86"/>
+    <property name="java.io.tmpdir" value="C:\Users\ADMINI~1\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Sun Microsystems Inc."/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 7"/>
+    <property name="classworlds.conf" value="D:\pcs_workspace\.metadata\.plugins\org.eclipse.m2e.core\launches\m2conf6733426088443718635.tmp"/>
+    <property name="sun.jnu.encoding" value="GBK"/>
+    <property name="java.library.path" value="D:\java\SDKs\jdk6\bin;.;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\TortoiseSVN\bin;%JAVA_HOME%\bin;F:\DevRoot\Tools\maven2\bin;D:\instantclient_10_2;%ZOOKEEPER_HOME%\bin;d:\Git\cmd"/>
+    <property name="surefire.test.class.path" value="D:\pcs_workspace\mobile-server\mobile-wechat\wechat-web\target\test-classes;D:\pcs_workspace\mobile-server\mobile-wechat\wechat-web\target\classes;e:\m2\repository\org\springframework\spring-webmvc\4.0.3.RELEASE\spring-webmvc-4.0.3.RELEASE.jar;e:\m2\repository\org\springframework\spring-beans\4.0.3.RELEASE\spring-beans-4.0.3.RELEASE.jar;e:\m2\repository\org\springframework\spring-core\4.0.3.RELEASE\spring-core-4.0.3.RELEASE.jar;e:\m2\repository\org\springframework\spring-expression\4.0.3.RELEASE\spring-expression-4.0.3.RELEASE.jar;e:\m2\repository\org\springframework\spring-web\4.0.3.RELEASE\spring-web-4.0.3.RELEASE.jar;e:\m2\repository\org\springframework\spring-context\4.0.3.RELEASE\spring-context-4.0.3.RELEASE.jar;e:\m2\repository\org\springframework\spring-aop\4.0.3.RELEASE\spring-aop-4.0.3.RELEASE.jar;e:\m2\repository\aopalliance\aopalliance\1.0\aopalliance-1.0.jar;e:\m2\repository\org\springframework\spring-jdbc\4.0.3.RELEASE\spring-jdbc-4.0.3.RELEASE.jar;e:\m2\repository\org\springframework\spring-tx\4.0.3.RELEASE\spring-tx-4.0.3.RELEASE.jar;e:\m2\repository\org\springframework\spring-test\4.0.3.RELEASE\spring-test-4.0.3.RELEASE.jar;e:\m2\repository\junit\junit\4.8.1\junit-4.8.1.jar;e:\m2\repository\org\mybatis\mybatis\3.2.7\mybatis-3.2.7.jar;e:\m2\repository\org\mybatis\mybatis-spring\1.2.2\mybatis-spring-1.2.2.jar;e:\m2\repository\com\oracle\ojdbc14\10.2.0.4.0\ojdbc14-10.2.0.4.0.jar;e:\m2\repository\com\fasterxml\jackson\core\jackson-databind\2.3.0\jackson-databind-2.3.0.jar;e:\m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.3.0\jackson-annotations-2.3.0.jar;e:\m2\repository\com\fasterxml\jackson\core\jackson-core\2.3.0\jackson-core-2.3.0.jar;e:\m2\repository\javax\servlet\servlet-api\2.5\servlet-api-2.5.jar;e:\m2\repository\com\jolbox\bonecp\0.7.1.RELEASE\bonecp-0.7.1.RELEASE-jdk5.jar;e:\m2\repository\com\google\guava\guava\r08\guava-r08.jar;e:\m2\repository\javax\servlet\jsp\jsp-api\2.1\jsp-api-2.1.jar;e:\m2\repository\javax\servlet\jstl\1.2\jstl-1.2.jar;e:\m2\repository\commons-configuration\commons-configuration\1.8\commons-configuration-1.8.jar;e:\m2\repository\commons-lang\commons-lang\2.6\commons-lang-2.6.jar;e:\m2\repository\commons-logging\commons-logging\1.1.1\commons-logging-1.1.1.jar;e:\m2\repository\dom4j\dom4j\1.6.1\dom4j-1.6.1.jar;e:\m2\repository\xml-apis\xml-apis\1.0.b2\xml-apis-1.0.b2.jar;e:\m2\repository\xstream\xstream\1.1.2\xstream-1.1.2.jar;e:\m2\repository\commons-codec\commons-codec\1.6\commons-codec-1.6.jar;e:\m2\repository\org\apache\httpcomponents\httpclient\4.3.1\httpclient-4.3.1.jar;e:\m2\repository\org\apache\httpcomponents\httpcore\4.3\httpcore-4.3.jar;e:\m2\repository\net\sf\json-lib\json-lib\2.3\json-lib-2.3-jdk15.jar;e:\m2\repository\commons-beanutils\commons-beanutils\1.8.0\commons-beanutils-1.8.0.jar;e:\m2\repository\commons-collections\commons-collections\3.2.1\commons-collections-3.2.1.jar;e:\m2\repository\net\sf\ezmorph\ezmorph\1.0.6\ezmorph-1.0.6.jar;e:\m2\repository\com\google\zxing\core\2.2\core-2.2.jar;e:\m2\repository\com\google\zxing\javase\2.2\javase-2.2.jar;e:\m2\repository\com\caucho\hessian\3.1.3\hessian-3.1.3.jar;e:\m2\repository\com\xiu\mobile\wechat-core\1.0\wechat-core-1.0.jar;e:\m2\repository\com\xiu\mobile\wechat-facade\1.0\wechat-facade-1.0.jar;e:\m2\repository\com\xiu\feedback\feedback-interface\1.0.0\feedback-interface-1.0.0.jar;e:\m2\repository\com\xiu\feedback\feedback-domain\1.0.0\feedback-domain-1.0.0.jar;e:\m2\repository\com\xiu\commons\commons-core\2.0.0\commons-core-2.0.0.jar;e:\m2\repository\com\xiu\osc\remote\order-service-center-remote\2.0\order-service-center-remote-2.0.jar;e:\m2\repository\com\xiu\osc\core\order-service-center-core\2.0\order-service-center-core-2.0.jar;e:\m2\repository\com\xiu\commons-command\1.0\commons-command-1.0.jar;e:\m2\repository\com\xiu\commons-lang\2.0\commons-lang-2.0.jar;e:\m2\repository\com\xiu\uuc\biz\facade\uuc-biz-facade\2.1.3\uuc-biz-facade-2.1.3.jar;e:\m2\repository\com\xiu\commons-dao\2.0\commons-dao-2.0.jar;e:\m2\repository\log4j\log4j\1.2.16\log4j-1.2.16.jar;e:\m2\repository\com\xiu\ssoclient\biz\facade\ssoclient-biz-facade\2.0\ssoclient-biz-facade-2.0.jar;e:\m2\repository\org\apache\tomcat\servlet-api\6.0.32\servlet-api-6.0.32.jar;e:\m2\repository\org\apache\logging\log4j\log4j-core\2.0-rc1\log4j-core-2.0-rc1.jar;e:\m2\repository\org\apache\logging\log4j\log4j-api\2.0-rc1\log4j-api-2.0-rc1.jar;e:\m2\repository\org\slf4j\slf4j-api\1.7.7\slf4j-api-1.7.7.jar;e:\m2\repository\org\slf4j\slf4j-ext\1.7.7\slf4j-ext-1.7.7.jar;e:\m2\repository\ch\qos\cal10n\cal10n-api\0.8.1\cal10n-api-0.8.1.jar;e:\m2\repository\org\slf4j\slf4j-log4j12\1.7.7\slf4j-log4j12-1.7.7.jar;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="50.0"/>
+    <property name="sun.management.compiler" value="HotSpot Client Compiler"/>
+    <property name="os.version" value="6.1"/>
+    <property name="user.home" value="D:\Users\Administrator"/>
+    <property name="user.timezone" value="Asia/Shanghai"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.6"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="user.name" value="Administrator"/>
+    <property name="java.class.path" value="/D:/eclipse/plugins/org.eclipse.m2e.maven.runtime_1.0.200.20111228-1245/jars/plexus-classworlds-2.4.jar"/>
+    <property name="java.vm.specification.version" value="1.0"/>
+    <property name="sun.arch.data.model" value="32"/>
+    <property name="java.home" value="D:\java\SDKs\jdk6\jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B -s F:\DevRoot\Tools\maven2\conf\settings.xml.portal.xml install"/>
+    <property name="java.specification.vendor" value="Sun Microsystems Inc."/>
+    <property name="user.language" value="zh"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.6.0_25"/>
+    <property name="java.ext.dirs" value="D:\java\SDKs\jdk6\jre\lib\ext;C:\Windows\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="D:\java\SDKs\jdk6\jre\lib\resources.jar;D:\java\SDKs\jdk6\jre\lib\rt.jar;D:\java\SDKs\jdk6\jre\lib\sunrsasign.jar;D:\java\SDKs\jdk6\jre\lib\jsse.jar;D:\java\SDKs\jdk6\jre\lib\jce.jar;D:\java\SDKs\jdk6\jre\lib\charsets.jar;D:\java\SDKs\jdk6\jre\lib\modules\jdk.boot.jar;D:\java\SDKs\jdk6\jre\classes"/>
+    <property name="java.vendor" value="Sun Microsystems Inc."/>
+    <property name="maven.home" value="D:\pcs_workspace\mobile-server\mobile-wechat\wechat-web\EMBEDDED"/>
+    <property name="localRepository" value="e:\m2\repository"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://java.sun.com/cgi-bin/bugreport.cgi"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="pentium_pro+mmx pentium_pro pentium+mmx pentium i486 i386 i86"/>
+  </properties>
+  <testcase time="1.491" name="testSave"/>
+  <testcase time="0" name="testDelete"/>
+  <testcase time="0" name="testGetByOpenId"/>
+</testsuite>

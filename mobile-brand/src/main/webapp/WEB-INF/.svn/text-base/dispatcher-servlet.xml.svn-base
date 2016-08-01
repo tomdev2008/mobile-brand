@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+    <!-- Scans the classpath of this application for @Components to deploy 
+        as beans -->
+    <context:component-scan base-package="com.xiu.common.web" />
+    <context:component-scan base-package="com.xiu.mobile.brand.web" />
+    
+    <!-- Enables the Spring MVC @Controller programming model -->
+    <mvc:annotation-driven validator="validator" />
+
+    <!-- Handles HTTP GET requests for /resources/** by efficiently serving 
+        up static resources in the ${webappRoot}/resources directory -->
+    <mvc:resources mapping="/resources/**" location="/resources/" />
+
+    <bean id="applicationPropertyConfigurer"
+        class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="ignoreUnresolvablePlaceholders" value="true" />
+        <property name="locations">
+            <list>
+                <!-- <value>classpath:conf/dbconfig.properties</value> -->
+                <value>classpath:conf/application.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <mvc:interceptors>
+        <bean
+            class="org.springframework.web.servlet.mvc.WebContentInterceptor">
+            <property name="cacheSeconds" value="0" />
+            <property name="useExpiresHeader" value="true" />
+            <property name="useCacheControlHeader" value="true" />
+            <property name="useCacheControlNoStore" value="true" />
+            <property name="alwaysUseFullPath" value="true" />
+            <property name="cacheMappings">
+                <props>
+                    <!-- cache for 2 hour -->
+                    <prop key="/resources/**">${web.assets.expired_time}</prop>
+                    <prop key="/script/constants.js">${web.dynamic.constantjs.expired_time}
+                    </prop>
+                    <!-- don't set cache headers -->
+                    <prop key="/**">${web.dynamic.expired_time}</prop>
+                </props>
+            </property>
+        </bean>
+        <!-- add SessionID -->
+        <bean id="sessionInterceptor"
+            class="com.xiu.common.web.interceptor.SessionInterceptor">
+        </bean>
+        <bean id="authorizationInterceptor"
+            class="com.xiu.common.web.interceptor.AuthorizationInterceptor">
+            <property name="validators">
+                <list>
+                    <ref bean="cookieValidator" />
+                </list>
+            </property>
+        </bean>
+    </mvc:interceptors>
+
+    <bean id="exceptionResolver"
+        class="com.xiu.common.web.exception.resolver.BaseCommonMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="com.xiu.common.exception.BaseException">error/exception</prop>
+            </props>
+        </property>
+        <property name="statusCodes">
+            <props>
+                <prop key="error/exception">500</prop>
+            </props>
+        </property>
+        <property name="warnLogCategory"
+            value="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver" />
+    </bean>
+    <bean
+        class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+        <property name="order" value="1" />
+        <!-- 用于开启 /userinfo/123?format=json 的支持 默认是true -->
+        <property name="favorParameter" value="true" />
+        <!-- 用于关闭 /userinfo/123.json 的支持 默认是true -->
+        <property name="favorPathExtension" value="false" />
+        <!-- 设置为true以忽略对Accept Header的支持 -->
+        <property name="ignoreAcceptHeader" value="true" />
+
+        <!-- 在没有扩展名时即: "/user/1" 时的默认展现形式 -->
+        <property name="defaultContentType" value="text/html" />
+
+        <!-- 扩展名至mimeType的映射,即 /user.json => application/json -->
+        <property name="mediaTypes">
+            <map>
+                <entry key="json" value="application/json" />
+                <entry key="jsonp" value="application/javascript" />
+            </map>
+        </property>
+        <property name="defaultViews">
+            <list>
+                <bean
+                    class="org.springframework.web.servlet.view.json.MappingJacksonJsonView">
+                    <property name="modelKey" value="data" />
+                    <property name="extractValueFromSingleKeyModel"
+                        value="true" />
+                </bean>
+                <bean class="com.xiu.common.web.view.MappingJacksonJsonpView">
+                    <property name="modelKey" value="data" />
+                    <property name="extractValueFromSingleKeyModel"
+                        value="true" />
+                </bean>
+            </list>
+        </property>
+
+    </bean>
+
+    <bean id="beansWrapper" class="freemarker.ext.beans.BeansWrapper">
+        <property name="exposureLevel"
+            value="#{T(freemarker.ext.beans.BeansWrapper).EXPOSE_SAFE}" />
+    </bean>
+
+    <bean id="appconfigModel"
+        class="com.xiu.common.web.ext.freemarker.ApacheCommonConfigurationModel">
+        <constructor-arg type="freemarker.ext.beans.BeansWrapper"
+            ref="beansWrapper" />
+        <constructor-arg
+            type="org.apache.commons.configuration.Configuration" ref="databaseConfiguration" />
+    </bean>
+
+    <bean id="staticModel" factory-bean="beansWrapper"
+        factory-method="getStaticModels" />
+
+    <bean id="userAuthInfoHolderModel" factory-bean="staticModel"
+        factory-method="get">
+        <constructor-arg type="java.lang.String"
+            value="com.xiu.common.web.utils.UserAuthInfoHolder" />
+    </bean>
+
+    <!-- FreeMarker Configurer and View Resolver -->
+    <bean id="freemarkerConfig"
+        class="com.xiu.common.web.ext.freemarker.FreeMarkerConfigurerExt">
+        <property name="templateLoaderPath" value="/WEB-INF/views/" />
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="defaultEncoding">UTF-8</prop>
+                <prop key="datetime_format">MM/dd/yyyy</prop>
+                <prop key="number_format">0.######</prop>
+                <prop key="classic_compatible">${freemarker.classic_compatible}</prop>
+                <prop key="template_update_delay">${freemarker.template_update_delay}
+                </prop>
+                <prop key="template_exception_handler">${freemarker.template_exception_handler}
+                </prop>
+            </props>
+        </property>
+        <property name="freemarkerVariables">
+            <map>
+                <entry key="xml_escape" value-ref="fmXmlEscape" />
+                <entry key="appconfig" value-ref="appconfigModel" />
+                <entry key="userAuthInfoHolder" value-ref="userAuthInfoHolderModel" />
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape" />
+	<!--JSP 通用视图解析器 -->
+	<bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="order" value="3" />
+		<property name="requestContextAttribute" value="rc" />
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+		<property name="viewClass">
+			<value>org.springframework.web.servlet.view.InternalResourceView</value>
+		</property>
+	</bean>
+    <bean id="viewResolver"
+        class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="order" value="2" />
+        <property name="exposeRequestAttributes" value="true" />
+        <property name="exposeSpringMacroHelpers" value="true" />
+        <property name="requestContextAttribute" value="rc" />
+        <property name="prefix" value="" />
+        <property name="suffix" value=".ftl" />
+        <property name="contentType" value="text/html; charset=utf-8" />
+    </bean>
+    <bean
+        class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+    <bean id="annotationMethodHandlerAdapter"
+        class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <!-- TODO: 需确认messageConverters是否可被删除 -->
+        <property name="messageConverters">
+            <list>
+                <ref bean="mappingJacksonHttpMessageConverter" />
+            </list>
+        </property>
+        <property name="webBindingInitializer">
+            <bean id="configurableWebBindingInitializer"
+                class="org.springframework.web.bind.support.ConfigurableWebBindingInitializer">
+                <property name="validator">
+                    <ref bean="validator" />
+                </property>
+            </bean>
+        </property>
+    </bean>
+    <!-- 需确认mappingJacksonHttpMessageConverter的配置是否可被删除 -->
+    <bean id="mappingJacksonHttpMessageConverter"
+        class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+        <property name="supportedMediaTypes">
+            <list>
+                <value>text/html;charset=UTF-8</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="validator"
+        class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
+    <!-- 需确认restTemplate的配置是否可被删除 -->
+    <bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
+        <property name="messageConverters">
+            <list>
+                <bean id="stringHttpMessageConverter"
+                    class="org.springframework.http.converter.StringHttpMessageConverter" />
+                <bean id="formHttpMessageConverter"
+                    class="org.springframework.http.converter.FormHttpMessageConverter" />
+            </list>
+        </property>
+    </bean>
+    <bean id="multipartResolver"
+        class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+</beans>

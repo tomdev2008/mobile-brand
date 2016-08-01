@@ -1,0 +1,36 @@
+#Application Settings for development
+
+#
+# Web Cache-Control Settings (in second)
+#
+#    0 - don't set cache headers
+# 7200 - cache for 2 hour
+web.assets.expired_time=0
+web.dynamic.expired_time=0
+web.dynamic.constantjs.expired_time=0
+#
+# FreeMarker Settings
+#
+#0 is for development only
+freemarker.template_update_delay=0
+#template_exception_handler: debug / html_debug / ignore / rethrow
+freemarker.template_exception_handler=html_debug
+freemarker.classic_compatible=false
+
+login.url=http://192.168.90.213:8080/login/index.shtml
+#cookie.domain=.vpengo.com
+cookie.domain=mbrand.xiu.com
+#192.168.8.152
+cookie.path=/
+cookie.maxAge=-1
+cookie.isSecure=false
+
+# Catalog's image url
+catalog.img.url.prefix = http://images.xiu.com/upload/images/class/
+
+#1. catalog tree cache update time(minute)
+#2. attribute cache update time(minute)
+#3. brand cache update time(hour)
+catalog.update.time = 10
+attr.update.time = 10
+brand.update.time = 1

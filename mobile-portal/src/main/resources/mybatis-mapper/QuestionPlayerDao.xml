@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.portal.dao.QuestionPlayerDao">
+		
+		<resultMap id="questionPlayerResult" type="com.xiu.mobile.portal.model.QuestionPlayer">
+			<result property="id" column="id"/>
+			<result property="maxNumber" column="maxNumber"/>
+			<result property="reallyNumber" column="reallyNumber"/>
+		</resultMap>
+	  	 
+		<!-- 获取游戏玩家统计列表数据 -->
+	  	<select id="getList" resultMap="questionPlayerResult">
+	  		<![CDATA[
+		    	select id,maxnumber,reallynumber from  xiu_wap.x_temp_question_player
+		    ]]>
+		</select>
+		
+		<!-- 获取游戏玩家统计列表数据 -->
+	  	<select id="getById" resultMap="questionPlayerResult" parameterType="java.lang.Long">
+	  		<![CDATA[
+		    	select id,maxnumber,reallynumber from  xiu_wap.x_temp_question_player where id = #{id}
+		    ]]>
+		</select>
+		
+		<!-- 修改游戏玩家统计数据信息 -->
+		<update id="updateQuestionPlayer" parameterType="questionPlayer">
+			update xiu_wap.x_temp_question_player set maxNumber = #{maxNumber},reallyNumber = #{reallyNumber} where id = #{id}
+		</update>
+		
+</mapper>

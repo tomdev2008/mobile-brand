@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/mobile/!svn/ver/16403/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/menu
+END
+list.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/menu/list.ftl
+END
+menu_left.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/menu/menu_left.ftl
+END
+menu_left_top.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/menu/menu_left_top.ftl
+END
+menu_left_bot.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/menu/menu_left_bot.ftl
+END
+create.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/menu/create.ftl
+END
+menu_center.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/menu/menu_center.ftl
+END
+edit.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/menu/edit.ftl
+END
+menu_top.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/menu/menu_top.ftl
+END
+index.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/menu/index.ftl
+END
+menu_bottom.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/16403/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/menu/menu_bottom.ftl
+END
+menu_main.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/webapp/WEB-INF/views/pages/menu/menu_main.ftl
+END

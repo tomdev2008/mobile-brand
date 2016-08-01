@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.portal.dao.TopicActivityGoodsDao">
+
+	<resultMap type="topicActivityGoods" id="topicActivityGoodsList">
+		<result property="category" column="sub_type" />
+		<result property="goodSn" column="goods_id" />
+		<result property="goodsCatagOrder" column="goodscatagorder" />
+		<result property="orderSeq" column="order_seq" />
+	</resultMap>
+	<resultMap type="cxList" id="cxList">
+		<result property="cxId" column="cx_id" />
+		<result property="xiuCode" column="xiu_code" />
+	</resultMap>
+	<select id="getAllGoodsCategoryByActivityId" resultMap="topicActivityGoodsList" parameterType="java.util.Map">
+
+
+      select sub_type, goodscatagorder
+	   from xiu_cms.cms_goods
+	  where activity_id = #{activityId}
+	    and deleted = 'N'
+	   <![CDATA[  
+	  group by sub_type, goodscatagorder
+	  ]]>
+	  order by goodscatagorder desc
+      
+	</select>
+
+	<select id="getTopicActivityGoodsByCategory" resultMap="topicActivityGoodsList" parameterType="java.util.Map">
+	 <![CDATA[
+
+       select cg.goods_id , cg.order_seq from xiu_cms.cms_goods cg where cg.activity_id=#{activityId} and cg.sub_type=#{category} 
+       and cg.deleted='N' order by cg.order_seq
+       
+      ]]>
+	</select>
+
+	<!--得到热卖商品 货物编号信息 -->
+	<select id="getCxListByActivityId" resultMap="cxList" parameterType="java.util.Map">
+	 <![CDATA[
+      
+        select cx_id,xiu_code from  cx_list where cx_id=#{activityId}
+       
+      ]]>
+	</select>
+
+	<!--得到热卖商品 货物编号信息 -->
+	<select id="getCxCountByActivityId" resultType="int" parameterType="java.util.Map">
+	 <![CDATA[
+      
+        select count(*) from  xiu_cx.cx_list where cx_id=#{activityId}
+       
+      ]]>
+	</select>
+
+</mapper>

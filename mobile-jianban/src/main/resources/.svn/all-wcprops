@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/resources
+END
+applicationContext-web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/resources/applicationContext-web.xml
+END
+mobile.properties
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/resources/mobile.properties
+END
+applicationContext-service.xml
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/resources/applicationContext-service.xml
+END
+applicationContext-dao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/resources/applicationContext-dao.xml
+END
+mybatis-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/resources/mybatis-config.xml
+END
+applicationContext-hessian-client.xml
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/resources/applicationContext-hessian-client.xml
+END
+application.properties
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/resources/application.properties
+END
+log4j.xml
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-jianban/src/main/resources/log4j.xml
+END

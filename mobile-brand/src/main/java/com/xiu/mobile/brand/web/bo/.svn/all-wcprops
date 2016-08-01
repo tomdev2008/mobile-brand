@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/mobile/!svn/ver/27828/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/bo
+END
+SuggestBo.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/bo/SuggestBo.java
+END
+TypeSuggestBo.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/26110/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/bo/TypeSuggestBo.java
+END
+FacetFilterValueBo.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/bo/FacetFilterValueBo.java
+END
+LabelSearchBo.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/26947/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/bo/LabelSearchBo.java
+END
+SearchBo.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/mobile/!svn/ver/27828/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/bo/SearchBo.java
+END
+BrandBo.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/bo/BrandBo.java
+END
+SearchHisMapBo.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/19973/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/bo/SearchHisMapBo.java
+END
+ExclusiveProductBo.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/bo/ExclusiveProductBo.java
+END
+FacetFilterBo.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/bo/FacetFilterBo.java
+END
+PriceQueryBo.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/mobile/!svn/ver/23365/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/bo/PriceQueryBo.java
+END
+CatalogBo.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/21890/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/bo/CatalogBo.java
+END
+DeliverBO.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/bo/DeliverBO.java
+END
+GoodsItemBo.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/mobile/!svn/ver/17503/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/bo/GoodsItemBo.java
+END
+MutilProductBo.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/24180/trunk_k/servers/mobile-server/mobile-brand/src/main/java/com/xiu/mobile/brand/web/bo/MutilProductBo.java
+END

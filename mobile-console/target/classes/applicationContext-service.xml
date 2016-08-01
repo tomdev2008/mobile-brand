@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd"
+       default-lazy-init="true">
+       
+    <!-- Enable @Transactional support -->        
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    
+    <!-- Activates scanning of @Service -->
+    <context:component-scan base-package="com.xiu.manager.web.biz"/> 
+    <context:component-scan base-package="com.xiu.wap.web.service"/> 
+    
+    <!-- TOPIC卖场数据从官网db同步 -->
+    <bean id="synTopicDataDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="topicService" />
+        </property>
+        <property name="targetMethod">  
+            <value>callSpSynTopicDataTask</value>  
+        </property>
+    </bean>
+    <bean id="synTopicDataTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="synTopicDataDetail" />
+        </property>
+        <property name="cronExpression">
+            <value>0 0/10 * * * ?</value>
+        </property>
+    </bean>
+    <!-- 定时更新品牌卖场关联关系 --> 
+    <bean id="updateBrandVsTopicDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="topicService" />
+        </property>
+        <property name="targetMethod">  
+            <value>callSpUpdateBrandVsTopicTask</value>  
+        </property>
+    </bean>
+    <bean id="updateBrandVsTopicTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="updateBrandVsTopicDetail" />
+        </property>
+        <property name="cronExpression">
+            <value>0 0 0/3 * * ?</value>
+        </property>
+    </bean>
+    
+    <!-- 定时更新卖场分类状态--> 
+    <bean id="updateTopicTypeStatus" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="topicTypeService" />
+        </property>
+        <property name="targetMethod">  
+            <value>callSyncUpdateTopicTypeStatusTask</value>  
+        </property>
+    </bean>
+    <bean id="updateTopicTypeStatusTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="updateTopicTypeStatus" />
+        </property>
+        <property name="cronExpression">
+            <value>0 1 * * * ?</value>
+        </property>
+    </bean>
+    
+    <!-- 商品降价提醒   每天下午两点执行  -->
+    <bean id="goodsReducedPriceNotice" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="goodsService" />
+        </property>
+        <property name="targetMethod">  
+            <value>callGoodsPriceReducedTask</value>  
+        </property>
+    </bean>
+    <bean id="goodsReducedPriceNoticeTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="goodsReducedPriceNotice" />
+        </property>
+        <property name="cronExpression">
+            <value>0 0 14 * * ?</value>
+        </property>
+    </bean>
+    
+      <!-- 在线商品数量更新  每天早上两点执行  -->
+    <bean id="goodsOnlineCountsTask" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="goodsService" />
+        </property>
+        <property name="targetMethod">  
+            <value>callOnlineGoodsTask</value>  
+        </property>
+    </bean>
+    <bean id="goodsOnlineCountsTaskTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="goodsOnlineCountsTask" />
+        </property>
+        <property name="cronExpression">
+           <!--<value>0 0 2 * * ?</value>  --> 
+           <value>0 0/5 * * * ?</value>
+        </property>
+    </bean>
+    
+        <!-- 定时删除用户浏览记录-->
+    <bean id="synDeleteUserBrowse" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="dataTaskManagerService" />
+        </property>
+        <property name="targetMethod">  
+            <value>callDeleteUserBrowseDataTask</value>  
+        </property>
+    </bean>
+    <bean id="synDeleteUserBrowseTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="synDeleteUserBrowse" />
+        </property>
+        <property name="cronExpression">
+             <value>0 25 2 * * ?</value>
+        </property>
+    </bean>
+        <!-- 定时删除用户浏览记录-->
+    <bean id="synTopicFilterCache" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="dataTaskManagerService" />
+        </property>
+        <property name="targetMethod">  
+            <value>syncTopicFilterDataToCache</value>  
+        </property>
+    </bean>
+    <bean id="synTopicFilterCacheTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="synTopicFilterCache" />
+        </property>
+        <property name="cronExpression">
+           <value>0 0 0/3 * * ?</value>
+        </property>
+    </bean>
+        <!-- 定时同步业务数据到搜索-->
+    <bean id="syncDateToService" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="searchService" />
+        </property>
+        <property name="targetMethod">  
+            <value>syncDataToSearch</value>  
+        </property>
+    </bean>
+    <bean id="syncDateToServiceTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="syncDateToService" />
+        </property>
+        <property name="cronExpression">
+           <value>0 15 2 * * ?</value>
+        </property>
+    </bean>
+        <!-- 定时查询同步关联标签数据-->
+    <bean id="syncLabelRelationDate" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="dataTaskManagerService" />
+        </property>
+        <property name="targetMethod">  
+            <value>syncLabelRelationDate</value>  
+        </property>
+    </bean>
+    <bean id="syncLabelRelationDateTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="syncLabelRelationDate" />
+        </property>
+        <property name="cronExpression">
+           <value>0 25 3 * * ?</value>
+        </property>
+    </bean>
+    
+    
+    <!-- 执行任务 -->
+    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">  
+        <property name="triggers">  
+            <list>  
+            	<ref local="synTopicDataTrigger" /> 
+            	<ref local="updateBrandVsTopicTrigger" />   
+            	<ref local="updateTopicTypeStatusTrigger" />   
+            	<ref local="goodsReducedPriceNoticeTrigger" />   
+            	<ref local="synDeleteUserBrowseTrigger" />   
+            	<ref local="synTopicFilterCacheTrigger" /> 
+            	<ref local="goodsOnlineCountsTaskTrigger"/>
+            	<ref local="syncDateToServiceTrigger" />   
+            	<ref local="syncLabelRelationDateTrigger" />   
+            </list>  
+        </property>  
+    </bean> 
+    
+</beans>

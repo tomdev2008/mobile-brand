@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.simple.dao.ActivityNoregularDao">
+	<resultMap id="activityResult" type="activity">
+		<result property="activityId" column="id" />
+		<result property="activityName" column="name" />
+		<result property="activityPic" column="wap_pic" />
+		<result property="brandName" column="content" />
+		<result property="activityDate" column="start_date" />
+		<result property="activityEndDate" column="end_date" />
+	</resultMap>
+	
+	<resultMap id="topicResult" type="topic">
+		<result property="activity_id" column="activity_id" />
+		<result property="name" column="name" />
+		<result property="start_time" column="start_time" />
+		<result property="end_time" column="end_time" />
+		<result property="mobile_pic" column="mobile_pic" />
+	</resultMap>
+	
+   <select id="queryActiveList" resultMap="activityResult"  parameterType="java.util.Map">
+	 <![CDATA[
+       select id,name,wap_pic,content,start_date,end_date from xiu_cms.cms_activity_noregular 
+       where phone_type like '%5%' and deleted='N' and wap_pic is not null 
+       and start_date < sysdate and end_date > sysdate and state in (1,2,3) 
+       order by order_seq
+      ]]>                
+	</select>
+    
+    <select id="queryOutletsList" resultMap="activityResult"  parameterType="java.lang.String" >
+       <![CDATA[
+         select gilt.start_date,gilt.end_date,gilt.ID,gilt.ACTIVITY_PIC as wap_pic,gilt.NAME,gilt.BRAND_NAME as content
+          from xiu_cms.cms_activity_giltstore gilt  
+          where gilt.start_date < sysdate and gilt.end_date > sysdate
+                and gilt.state in (1,2,3) 
+                and gilt.deleted = 'N'             
+                and gilt.sub_type=1            
+                and gilt.show_on_main = 1       
+                and gilt.phone_type like '%5%' 
+         ]]>
+         <if test="_parameter!=null and _parameter!=''">
+                and gilt.sale_type=#{saleType}
+         </if>
+         <![CDATA[
+           order by gilt.start_date desc
+         ]]> 
+    </select>
+    
+   <!-- 查询卖场分页 -->
+   <select id="queryTopicList" resultMap="topicResult"  parameterType="java.util.Map" >
+		select * from (
+		select rownum as rowno , oridata.*
+		from		
+		(select activity_id,name, TRUNC(start_time) as start_time,TRUNC(end_time) as end_time ,mobile_pic
+		from
+	    simple_topic_activity
+		where 1=1 
+		  and mobile_pic is not null
+		  and display='Y'
+		  <![CDATA[ and  trunc(start_time) < sysdate and  trunc(end_time)+1 > sysdate ]]>
+		<if test="dataType==1">
+		    <![CDATA[ and  trunc(start_time) = TRUNC(SYSDATE)  ]]>
+		</if>
+		<if test="dataType==2">
+		    <![CDATA[  and trunc(start_time)= TRUNC(SYSDATE-1)  ]]>
+		</if>
+		<if test="dataType==3">
+		    <![CDATA[  and trunc(start_time) < TRUNC(SYSDATE-1)   ]]>
+		</if>
+		<if test="typeId!=0">
+			<if test="typeId!=2 and typeId!=3">
+				<![CDATA[ and topictypeid = #{typeId}  ]]>
+			</if>
+		    <if test="typeId==2 || typeId==3">
+				<![CDATA[ and (topictypeid = #{typeId} or topictypeid = 1 ) ]]>
+			</if>
+		</if>
+       <![CDATA[ 
+		 order by start_time desc,order_seq desc) oridata
+		) table_alias where
+		table_alias.rowno>=#{lineMin}
+		and table_alias.rowno < #{lineMax}
+         ]]>
+	</select>
+	<!-- 查询卖场总数 -->
+	  <select id="getTopicTotalAmount"  resultType="int" parameterType="java.util.Map" >
+		select count(*) from (
+		select rownum as rowno , oridata.*
+		from		
+		(select activity_id,name, TRUNC(start_time) as start_time,TRUNC(end_time) as end_time ,mobile_pic
+		from
+	    simple_topic_activity
+		where 1=1 
+		  and mobile_pic is not null
+		  and display='Y'
+		  <![CDATA[ and  trunc(start_time) < sysdate and  trunc(end_time)+1 > sysdate ]]>
+		<if test="dataType==1">
+		    <![CDATA[ and  trunc(start_time) = TRUNC(SYSDATE)  ]]>
+		</if>
+		<if test="dataType==2">
+		    <![CDATA[  and trunc(start_time)= TRUNC(SYSDATE-1)  ]]>
+		</if>
+		<if test="dataType==3">
+		    <![CDATA[  and trunc(start_time) < TRUNC(SYSDATE-1)   ]]>
+		</if>
+		<if test="typeId!=0">
+			<if test="typeId!=2 and typeId!=3">
+				<![CDATA[ and topictypeid = #{typeId}  ]]>
+			</if>
+		    <if test="typeId==2 || typeId==3">
+				<![CDATA[ and (topictypeid = #{typeId} or topictypeid = 1 ) ]]>
+			</if>
+		</if>
+       <![CDATA[ 
+		 order by order_seq desc) oridata
+		) table_alias
+         ]]>
+	</select>
+	
+	<select id="queryTopicNameByActivityId" resultType="java.lang.String"  parameterType="java.lang.String" >
+		select name from simple_topic_activity where activity_id=#{activityId}
+	</select>
+</mapper>

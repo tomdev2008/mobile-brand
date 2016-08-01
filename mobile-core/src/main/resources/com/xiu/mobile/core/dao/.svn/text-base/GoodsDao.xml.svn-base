@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.core.dao.GoodsDao">
+	
+	<resultMap id="goodsResult" type="goods">
+		<result property="id" column="id"/>
+		<result property="goodsId" column="product_id"/>
+		<result property="goodsSn" column="product_sn"/>
+		<result property="goodsName" column="product_name"/>
+		<result property="createTime" column="product_create"/>
+		<result property="mainSku" column="main_sku"/>
+	</resultMap>
+	
+	<select id="getGoodsBySn" resultMap="goodsResult">
+		select p.product_id,p.product_name,p.product_sn,p.product_create,p.main_sku
+		from xiu_goods.x_data_prd_info p
+		where p.product_sn = #{sn}
+	</select>
+	
+	<select id="getGoodsById" resultMap="goodsResult">
+		select p.product_id,p.product_name,p.product_sn,p.product_create,p.main_sku
+		from xiu_goods.x_data_prd_info p
+		where p.product_id = #{productId}
+	</select>
+	
+	<select id="checkGoodsSn" resultType="string">
+		select p.product_sn
+		from xiu_goods.x_data_prd_info p
+		where p.product_sn in
+		<foreach collection="goodsSn" item="sn" open="(" close=")" separator=",">
+		    #{sn}
+		</foreach>
+	</select>
+	
+	<select id="getGoodsSnByGoodsId" resultType="java.lang.String" parameterType="java.lang.String">
+		select product_sn as goodsSn 
+		  from xiu_goods.x_data_prd_info dpi
+		 where dpi.product_id = #{goodsId}
+	</select>
+	<select id="getBrandIdByGoodsSn" resultType="long" parameterType="java.lang.String">
+		select brand_id brandId 
+		  from xiu_goods.x_data_prd_info dpi
+		 where dpi.product_sn = #{goodsSn}
+	</select>
+		<select id="getSupplierDisplayName" resultType="string" parameterType="java.lang.String">
+		select sup.vendor_name_alt 
+		<![CDATA[  from xiu_goods.XIU_XOP_SUPPLIERS  sup ]]>
+		 where sup.vendor_code = #{supplierCode}
+	</select>
+	
+	<!-- 品牌信息Map -->
+	<resultMap id="brandInfoMap" type="com.xiu.mobile.core.model.BrandInfoVO">
+		<result column="BRAND_ID" property="brandId"/>
+		<result column="MAIN_NAME" property="brandName"/>
+		<result column="LOGO" property="logo"/>
+		<result column="SHOW_NUM" property="showNum"/>
+		<result column="en_name" property="enName"/>
+		<result column="cn_name" property="cnName"/>
+	</resultMap>
+	
+	<!-- 查询品牌信息 -->
+	<select id="getBrandInfoByBrandId" parameterType="java.lang.String" resultMap="brandInfoMap">
+		select b.brand_id,
+               b.main_name,
+               b.en_name,
+			   b.brand_name cn_name,
+               case b.orgauth_flag
+                 when 1 then b.authimgurl else b.storeimgurl
+               end as logo,
+               nvl((select x.value from xiu_show.v_sq_brand_statistics x where x.brand_id = b.brand_id and x.service_type_id = 1),0) show_num 
+          from xiu_goods.x_data_brand b
+         where b.brand_id = #{brandId} 
+	</select>
+	
+	<!-- 查询礼品包装商品列表 -->
+	<select id="getPackagingProductList" resultType="java.util.HashMap">
+		select value from xiu_goods.v_appconfigs_packagingproduct where 1=1
+	</select>
+	
+	<resultMap type="java.util.HashMap" id="goodsInfoMap">
+		<result column="description" property="description" jdbcType="CLOB" javaType="java.lang.String" />
+		<result column="sizeimgurl" property="sizeImgUrl" />
+		<result column="bannerimgname" property="bannerImgName" />
+		<result column="global_flag" property="globalFlag" />
+		<result column="product_create" property="productCreate" />
+	</resultMap>
+	
+	<!-- 查询商品信息：描述、尺码、创建时间 -->
+	<select id="getGoodsInfo" parameterType="java.lang.String" resultMap="goodsInfoMap">
+		select c.description,
+		       t.sizeimgurl,
+		       t.product_create,
+		       b.bannerimgname,
+		       t.global_flag
+		  from xiu_goods.x_catentry_attr_clob c, xiu_goods.x_data_prd_info t
+		  left join xiu_goods.x_data_brand b
+		    on t.brand_id = b.brand_id
+		 where t.product_id = #{goodsId}
+		   and t.product_id = c.catentry_id
+		   AND c.store_id = 10154
+	</select>
+	
+	<!-- 查询关注商品数量 -->
+	<select id="getFavorGoodsCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+		select count(1) from xiu_goods.iitem 
+		 where user_id = #{userId} 
+		   <if test="goodsId!=null and goodsId!=''">
+		   	and catentry_id = #{goodsId}
+		   </if>
+	</select>
+	
+	<!-- 查询是否支持求购 -->
+	<select id="getSupportAskBuy" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+		select count(1) counts
+		  from producttype_brand 
+		 where type_name = #{type} and upper(brand_name) in (upper(#{brandName}),upper(#{brandOtherName}))
+	</select>
+	
+	<!-- 查询支持求购信息 -->
+	<select id="getSupportAskBuyInfo" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select type_name,brand_name
+		  from producttype_brand 
+		 where type_name = #{type} and upper(brand_name) in (upper(#{brandName}),upper(#{brandOtherName}))
+	</select>
+	
+	<!-- 查询上架的商品走秀码列表 -->
+	<select id="getGoodsListOnSale" resultType="java.lang.String">
+		select distinct a.product_sn 
+		  from xiu_goods.x_data_prd_info a, xiu_goods.iitem b
+		 where a.onsale = 1 and a.product_id = b.catentry_id
+	</select>
+	
+	<!-- 插入商品价格降价记录All -->
+	<insert id="addGoodsReducedPriceAll">
+		insert into xiu_wap.goods_reducedprice
+	      (id, user_id, goods_id, goods_sn, concern_time, concern_price, push_status, create_date, update_date)
+	      select xiu_wap.goods_reducedprice_seq.nextval,
+	             i.user_id, i.catentry_id, d.product_sn, i.lastupdate, nvl(i.field2,0), 0, sysdate, sysdate
+	        from xiu_goods.x_data_prd_info d, xiu_goods.iitem i
+	       where d.onsale = 1 and d.product_id = i.catentry_id
+	         and not exists (select 1 from xiu_wap.goods_reducedprice g
+	                          where i.user_id = g.user_id and i.catentry_id = g.goods_id)
+	</insert>
+	
+	<!-- 插入商品最终价 -->
+	<insert id="addGoodsFinalPrice" parameterType="java.util.HashMap">
+		insert into goods_finalprice(goods_sn,final_price)
+		select substr(a, 0, instr(a, '#', 1, 1) - 1) goods_sn,
+               substr(a, instr(a, '#', 1, 1) + 1, length(a)) price
+          from (select regexp_substr(#{goodsPrice}, '[^,]+', 1, level) a
+                  from dual
+                connect by level &lt;= length(#{goodsPrice})-length(REPLACE(#{goodsPrice}, ',', '')) + 1)
+	</insert>
+	
+	<!-- 更新商品最终价 -->
+	<update id="updateGoodsFinalPrice">
+		update goods_reducedprice a
+		   set a.final_price = (select b.final_price from goods_finalprice b where a.goods_sn = b.goods_sn),
+		       a.update_date = sysdate
+		 where exists (select 1 from goods_finalprice d where a.goods_sn = d.goods_sn)
+	</update>
+	
+	<!-- 更新商品差价 -->
+	<update id="updateGoodsDiffPirce">
+		update goods_reducedprice
+		   set diff_price = concern_price - nvl(push_price, final_price),
+		   	   update_date = sysdate
+		 where update_date > sysdate - 1 / 4 and final_price is not null
+	</update>
+	
+	<!-- 查询用户商品降价信息 -->
+	<select id="getUserGoodsReducedPrice" resultType="java.util.HashMap">
+		select t.user_id,t.goods_id,t.goods_sn,t.diff_price
+		  from (select user_id, goods_id, goods_sn, diff_price,
+		               row_number() over(partition by user_id order by diff_price desc) rowno
+		          from goods_reducedprice
+		         where update_date > sysdate - 1 / 4
+		           and diff_price > 0) t
+		 where t.rowno = 1
+	</select>
+	
+		<!-- 发货地Map -->
+	<resultMap id="deliverInfoMap" type="com.xiu.mobile.core.model.DeliverInfo">
+		<result column="spaceFlag" property="code"/>
+		<result column="sendAddress" property="city"/>
+		<result column="sendDate" property="deliveryTimeInfo"/>
+		<result column="country" property="country"/>
+		<result column="pictureUrl" property="flowImgURL"/>
+	</resultMap>
+	
+	
+		<!-- 查询发货地信息 -->
+	<select id="getDeliverInfoByProduct" parameterType="java.util.HashMap" resultMap="deliverInfoMap">
+		select purch.attribute1 sendAddress,
+		       purch.attribute2 spaceFlag,
+		       purch.attribute7 pictureUrl,
+		       purch.attribute8 sendDate,
+		       case
+		         when t.space_method is null then ''
+		         when purch.attribute2 like '1%' and length(purch.attribute2) = 3 then 'China'
+		       else 'Other'
+		       end country
+		  from xiu_goods.x_data_prd_info t, xiu_goods.x_purch_base_business_model purch
+		 where t.product_id = #{productId} and t.space_method = purch.business_model_id
+	</select>
+	
+	
+	
+</mapper>

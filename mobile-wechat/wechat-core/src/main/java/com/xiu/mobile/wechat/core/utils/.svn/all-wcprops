@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-core/src/main/java/com/xiu/mobile/wechat/core/utils
+END
+WeixinSignUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-core/src/main/java/com/xiu/mobile/wechat/core/utils/WeixinSignUtil.java
+END
+ConfigUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-core/src/main/java/com/xiu/mobile/wechat/core/utils/ConfigUtil.java
+END
+WeChatApiUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-core/src/main/java/com/xiu/mobile/wechat/core/utils/WeChatApiUtil.java
+END
+HessianClientInterceptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-core/src/main/java/com/xiu/mobile/wechat/core/utils/HessianClientInterceptor.java
+END
+HessianProxyFactoryBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-core/src/main/java/com/xiu/mobile/wechat/core/utils/HessianProxyFactoryBean.java
+END
+HttpUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-core/src/main/java/com/xiu/mobile/wechat/core/utils/HttpUtil.java
+END

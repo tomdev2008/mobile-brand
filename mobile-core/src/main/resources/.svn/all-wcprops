@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/mobile/!svn/ver/27837/trunk_k/servers/mobile-server/mobile-core/src/main/resources
+END
+mybatis-core-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/mobile/!svn/ver/16175/trunk_k/servers/mobile-server/mobile-core/src/main/resources/mybatis-core-config.xml
+END
+applicationContext-core-aop.xml
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-core/src/main/resources/applicationContext-core-aop.xml
+END
+applicationContext-core-service.xml
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/mobile/!svn/ver/25494/trunk_k/servers/mobile-server/mobile-core/src/main/resources/applicationContext-core-service.xml
+END
+applicationContext-core.xml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-core/src/main/resources/applicationContext-core.xml
+END
+applicationContext-core-dao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-core/src/main/resources/applicationContext-core-dao.xml
+END

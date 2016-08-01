@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/mobile/!svn/ver/26579/trunk_k/servers/mobile-server/mobile-core/src/main/java/com/xiu/mobile/core/constants
+END
+LinkType.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/mobile/!svn/ver/24178/trunk_k/servers/mobile-server/mobile-core/src/main/java/com/xiu/mobile/core/constants/LinkType.java
+END
+ErrConstants.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/25683/trunk_k/servers/mobile-server/mobile-core/src/main/java/com/xiu/mobile/core/constants/ErrConstants.java
+END
+GoodsConstant.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/25494/trunk_k/servers/mobile-server/mobile-core/src/main/java/com/xiu/mobile/core/constants/GoodsConstant.java
+END
+RequestInletEnum.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-core/src/main/java/com/xiu/mobile/core/constants/RequestInletEnum.java
+END
+GoodsIndexFieldEnum.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-core/src/main/java/com/xiu/mobile/core/constants/GoodsIndexFieldEnum.java
+END
+FacetPriceRangeQueryEnum.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-core/src/main/java/com/xiu/mobile/core/constants/FacetPriceRangeQueryEnum.java
+END
+GlobalConstants.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/26579/trunk_k/servers/mobile-server/mobile-core/src/main/java/com/xiu/mobile/core/constants/GlobalConstants.java
+END
+EnumContants.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/25698/trunk_k/servers/mobile-server/mobile-core/src/main/java/com/xiu/mobile/core/constants/EnumContants.java
+END
+SearchSortOrderEnum.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-core/src/main/java/com/xiu/mobile/core/constants/SearchSortOrderEnum.java
+END

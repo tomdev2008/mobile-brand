@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.manager.web.dao.MenuDao">
+	<resultMap id="menuResult" type="menu">
+		<result property="id" column="id" />
+		<result property="menuName" column="menu_name" />
+		<result property="menuUrl" column="menu_url" />
+		<result property="parentId" column="parentId" />
+		<result property="createDt" column="create_dt" />
+		<result property="memo" column="memo" />
+		<result property="status" column="status" />
+		<result property="dispunm" column="dispunm" />
+		<result property="version" column="version" />
+	</resultMap>
+	
+    <!-- 根据订单ID查询所有的菜单 -->
+	<select id="getMenu" resultMap="menuResult" parameterType="java.lang.Long">
+		<![CDATA[select * from x_rmd_menus where id=#{id}]]>
+	</select>
+	
+	<!-- 根据菜单名称查询 -->
+	<select id="getMenuBymenuName" resultMap="menuResult" parameterType="java.lang.String">
+		<![CDATA[select * from x_rmd_menus where menu_name=#{menuName}]]>
+	</select>
+	
+	<!-- 查询一级菜单(状态:启用) -->
+	<select id="getOneMenuList" resultMap="menuResult">
+		<![CDATA[select * from x_rmd_menus where status=1 and  parentId is null order by create_dt desc]]>
+	</select>
+	
+	<select id="getOneMenuListById" resultMap="menuResult" parameterType="java.lang.Long">
+		<![CDATA[select * from x_rmd_menus where status=1 and id=#{menuId} and  parentId is null]]>
+	</select>
+	
+	<!-- 查询二级菜单(状态:启用) -->
+	<select id="getTwoMenuList" resultMap="menuResult" parameterType="java.lang.Long">
+		<![CDATA[select * from x_rmd_menus where status=1 and  parentId=#{parentId} order by create_dt asc]]>
+	</select>
+	
+	<!-- 查询菜单(状态:启用、停用) 分页-->
+	<select id="getMenuListAll" resultMap="menuResult"  parameterType="java.util.Map">
+		<![CDATA[
+		  SELECT *
+              FROM (SELECT tt.*, ROWNUM AS rowno
+                FROM (select * from x_rmd_menus where 1=1
+          ]]>            
+           <if test="menu_name!=null">
+		      and menu_name like  '%'||#{menu_name}||'%'
+		  </if>
+		  <if test="status!=null">
+		      and status=#{status}
+		  </if>           
+           <![CDATA[            
+              order by create_dt desc) tt
+              WHERE ROWNUM <= #{pageMax}) table_alias
+              WHERE table_alias.rowno >= #{pageMin}
+		  ]]>
+	</select>
+	<select id="getMenuTotalCount" resultType="java.lang.String"  parameterType="java.util.Map">
+		<![CDATA[select count(id) from x_rmd_menus where 1=1 ]]>
+		  <if test="menu_name!=null">
+		      and menu_name like  '%'||#{menu_name}||'%'
+		  </if>
+		  <if test="status!=null">
+		      and status=#{status}
+		  </if>
+	</select>
+	
+	<!-- 添加菜单 -->
+	<insert id="addMenu" parameterType="menu">
+		<selectKey keyProperty="id" resultType="java.lang.Long"  order="BEFORE">
+			select X_RMD_MENUS_SEQ.nextval from dual
+		</selectKey>
+		insert into
+		x_rmd_menus (id, menu_name, menu_url, parentid, create_dt,memo,status,version)
+		values(#{id},#{menuName},#{menuUrl},#{parentId},#{createDt},#{memo},#{status},1)
+	</insert>
+	
+	<!-- 修改菜单 -->
+	<update id="updateMenu" parameterType="menu">
+	   <![CDATA[update x_rmd_menus set menu_name=#{menuName},menu_url=#{menuUrl},parentid=#{parentId},memo=#{memo},status=#{status} where  id=#{id} ]]>
+	</update>
+	
+	<!-- 修改菜单的状态 -->
+	<update id="updateStatus" parameterType="java.util.Map">
+	   <![CDATA[update x_rmd_menus set status=#{status} where  id=#{id} ]]>
+	</update>
+	
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.core.dao.FindSupportVersionDao">
+	<insert id="addSupportVersionDao" parameterType="com.xiu.mobile.core.model.FindSupportVersion">
+		insert into x_find_support_version(id,find_menu_id,app_source,app_system,start_version,last_version,create_time,type)
+			values(seq_x_find_support_version.nextval,#{findMenuId},#{appSource},#{appSystem},
+			#{startVersion},#{lastVersion},sysdate,#{type})
+	</insert>
+	<select id="getSupportVersionList" parameterType="java.util.Map" resultType="com.xiu.mobile.core.model.FindSupportVersion">
+		select v.app_source appSource,
+	       v.app_system appSystem,
+	       v.create_time createTime,
+	       v.find_menu_id findMenuId,
+	       v.start_version startVersion,
+	       v.last_version lastVersion,
+	       v.id
+	  from x_find_support_version v
+	 where v.find_menu_id =#{findMenuId} and v.type=#{type}
+	</select>
+	<delete id="deleteSupportVersion" parameterType="java.lang.Long">
+		delete x_find_support_version where find_menu_id=#{findMenuId}
+	</delete>
+</mapper>

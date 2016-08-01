@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.core.dao.AppVersionDao">
+	
+	<resultMap id="appVersionResult" type="appVersion">
+		<result property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="content" column="content"/>
+		<result property="pubTime" column="pub_time"/>
+		<result property="type" column="type"/>
+		<result property="url" column="url"/>
+		<result property="versionNo" column="version_no"/>
+		<result property="status" column="status"/>
+		<result property="forcedUpdate" column="forced_update"/>
+		<result property="forcedBeforeVerno" column="forced_before_verno"/>
+	</resultMap>
+	
+	<!-- 查询最新版本的App安装包url -->
+	<select id="getNewestAppVersion" parameterType="int"  resultMap="appVersionResult">
+	 select * from X_RMD_APPVERSION where type=#{type} and status=1 and version_no=
+		(select max(version_no) from X_RMD_APPVERSION where type=#{type} and status=1)
+	</select>
+	
+	<select id="getVersionById" parameterType="java.lang.Long" resultMap="appVersionResult">
+	    select * from XIU_WAP.X_RMD_APPVERSION where id = #{id}
+	</select>
+	
+	<!-- 分页查询发现商品 -->
+  	<select id="getVersionListByParam" resultMap="appVersionResult" parameterType="java.util.Map">
+       	select * from (
+       	   select rownum as rowno ,ori_data.* from (
+       	     select * from XIU_WAP.X_RMD_APPVERSION
+		     where 1 = 1
+		     <if test="versionNo!=null"> and version_no = #{versionNo} </if>
+		     <if test="content!=null and content!=''"> and content like '%'||#{content}||'%' </if>
+	         <if test="sDate!=null"> and trunc(pub_time) >= #{sDate} </if>
+	         <if test="eDate!=null"> 
+	           <![CDATA[
+	              and trunc(pub_time) <= #{eDate} 
+	           ]]>
+	         </if>	      
+	         <if test="status!=null"> and status = #{status} </if>
+	         order by pub_time desc
+	       ) ori_data
+		) table_alias 
+		where
+		   table_alias.rowno >= #{pageMin}
+		   <![CDATA[
+		   and table_alias.rowno < #{pageMax}
+		   ]]>     				    	
+	</select>
+	
+	<select id="getVersionCountByParam" resultType="int" parameterType="java.util.Map">
+	    select count(id) from XIU_WAP.X_RMD_APPVERSION
+	    where 1 = 1
+	    <if test="versionNo!=null"> and version_no = #{versionNo} </if>
+		<if test="content!=null and content!=''"> and content like '%'||#{content}||'%' </if>
+	    <if test="sDate!=null"> and trunc(pub_time) >= #{sDate} </if>
+	    <if test="eDate!=null"> 
+	      <![CDATA[
+	        and trunc(pub_time) < #{eDate} 
+	      ]]>
+	    </if>	      
+	    <if test="status!=null"> and status = #{status}</if>
+	</select>
+	
+	<update id="updateVersion" parameterType="appVersion">
+	    update XIU_WAP.X_RMD_APPVERSION set
+		name = #{name},
+		CONTENT = #{content},
+		pub_time = #{pubTime},
+		type = #{type},
+		<if test="url != null and url != ''">
+		url = #{url},
+		</if>
+		VERSION_NO = #{versionNo},
+		status = #{status},
+		forced_update = #{forcedUpdate},
+		forced_before_verno = #{forcedBeforeVerno}
+		where ID = #{id}
+	</update>
+	
+	<update id="updateStatus" parameterType="java.util.Map">
+	    update XIU_WAP.X_RMD_APPVERSION set
+		status = #{status}
+		where ID = #{id}
+	</update>
+	
+	<insert id="saveVersion" parameterType="appVersion">
+	   <selectKey keyProperty="id" resultType="java.lang.Long"  order="BEFORE">
+			select X_RMD_APPUPDATE_SEQ.nextval from dual
+		</selectKey>
+		insert into XIU_WAP.X_RMD_APPVERSION
+		(id, name, content, pub_time, type, url, version_no, status, forced_update, forced_before_verno)
+		values
+		(#{id}, #{name}, #{content}, #{pubTime}, #{type}, #{url}, #{versionNo}, #{status}, #{forcedUpdate}, #{forcedBeforeVerno})
+	</insert>
+	
+	<delete id="deleteVersion" parameterType="java.lang.Long">
+		delete from XIU_WAP.X_RMD_APPVERSION where id = #{id}
+	</delete>
+
+	<insert id="insertDownloadRecord" parameterType="com.xiu.mobile.core.model.AppDownloadModel">
+	   <selectKey keyProperty="id" resultType="java.lang.Long"  order="BEFORE">
+			select X_RMD_APP_DOWNLOAD_SEQ.nextval from dual
+		</selectKey>
+		insert into XIU_WAP.x_rmd_app_download
+		  (id, app_type, version_no, download_date, version_name, refer, query_string)
+		values
+		  (#{id},#{appType}, #{versionNo}, sysdate, #{versionName}, #{refer},#{queryString} )
+	</insert>
+	
+</mapper>

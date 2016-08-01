@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.portal.dao.ShowUserDao">
+
+	<!-- 查询秀客用户信息 -->
+  	<select id="getShowUserInfo" parameterType="java.util.HashMap" resultType="com.xiu.mobile.portal.model.ShowUserInfoVo">
+  		select talent_flag talentFlag
+  		  from xiu_show.v_sq_user_info 
+  		 where user_id = #{userId}
+  	</select>
+	<!-- 查询秀客用户信息 -->
+  	<select id="getManagerAuthority" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+	    select count(1)
+          from xiu_show.v_sq_manager_info
+		where user_id = #{userId} and device_id = #{deviceId} 
+  	</select>
+
+	<!-- 查询用户秀客社区的秀数量 -->
+  	<select id="getUserShowCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+  		select count(1) counts
+  		  from xiu_show.v_sq_user_show_info
+  		 where user_id = #{userId}
+  	</select>
+</mapper>

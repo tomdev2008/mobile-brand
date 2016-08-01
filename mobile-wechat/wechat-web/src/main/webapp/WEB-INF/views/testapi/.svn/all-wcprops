@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/webapp/WEB-INF/views/testapi
+END
+update_feedback.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/webapp/WEB-INF/views/testapi/update_feedback.jsp
+END
+index.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/webapp/WEB-INF/views/testapi/index.jsp
+END
+edit_address.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/webapp/WEB-INF/views/testapi/edit_address.jsp
+END
+wxm-pay-api-demo.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/webapp/WEB-INF/views/testapi/wxm-pay-api-demo.jsp
+END
+QRCode.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/webapp/WEB-INF/views/testapi/QRCode.jsp
+END
+payment.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/webapp/WEB-INF/views/testapi/payment.jsp
+END
+cross_domain_test.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/webapp/WEB-INF/views/testapi/cross_domain_test.jsp
+END
+order_query.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/webapp/WEB-INF/views/testapi/order_query.jsp
+END
+deliver_notify.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-wechat/wechat-web/src/main/webapp/WEB-INF/views/testapi/deliver_notify.jsp
+END

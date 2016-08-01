@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.portal.dao.ShoppingCartDao">
+		
+		<resultMap id="shoppingCartResult" type="shoppingCart">
+			<result property="id" column="id"/>
+			<result property="goodsSn" column="goods_sn"/>
+			<result property="goodsSku" column="goods_sku"/>
+			<result property="userId" column="user_id"/>
+			<result property="quantity" column="quantity"/>
+			<result property="createDate" column="create_date"/>
+			<result property="platform" column="platform"/>
+			<result property="checked" column="checked"/>
+			<result property="goodsSource" column="goods_source"/>
+			<result property="referrerPageId" column="referrer_page_id"/>
+		</resultMap>
+		
+		 <!-- 添加商品到购物车 -->
+		 <insert id="addGoods"  parameterType="shoppingCart">
+		 	insert into xiu_goods.shopping_cart_items(id,goods_sn,goods_sku,user_id,quantity,create_date,platform,checked,goods_source,referrer_page_id) 
+		 	values(xiu_goods.SHOPPING_CART_ITEMS_SEQ.NEXTVAL,#{goodsSn},#{goodsSku},#{userId},#{quantity},#{createDate},#{platform},#{checked},#{goodsSource},#{referrerPageId})
+		 </insert>
+	  	 
+		<!-- 查询购物车所有商品 -->
+	  	<select id="getGoodsList" resultMap="shoppingCartResult" parameterType="java.util.Map">
+		    select * from(
+			select a.*,rownum from(
+       		select id,goods_sn,goods_sku,user_id,quantity,create_date,platform,checked,goods_source,referrer_page_id from  xiu_goods.shopping_cart_items where user_id = #{userId}
+       		<if test="goodsSku != null">
+				<![CDATA[ and goods_sku = #{goodsSku} ]]>
+			</if>
+			order by create_date desc
+			)a)where rownum between 1 and 50
+		</select>
+		
+		<!-- 分页查询购物车商品信息 -->
+		<select id="getPageList" resultMap="shoppingCartResult" parameterType="java.util.Map">
+			select * from (
+				select rownum as rowno ,ori_data.* from
+			 		(
+			 			select id,goods_sn,goods_sku,user_id,quantity,create_date,platform,checked,goods_source,referrer_page_id from xiu_goods.shopping_cart_items
+					 	where user_id=#{userId} 
+					 	order by create_date desc
+					 ) ori_data
+			) <![CDATA[ table_alias where table_alias.rowno>=#{lineMin} and table_alias.rowno < #{lineMax} ]]>
+		</select>
+		
+		<!-- 查询购物车商品总数 -->
+		<select id="getPageListCount" resultType="java.lang.Integer" parameterType="java.util.Map">
+			<![CDATA[
+				select count(*) from xiu_goods.shopping_cart_items where user_id = #{userId}
+			]]>
+		</select>
+		
+		<!-- 查询购物车商品总数 -->
+	  	<select id="getGoodsTotal" resultType="java.lang.Integer"  parameterType="java.util.Map">
+		 	<![CDATA[
+				select coalesce(sum(quantity),0) as total from(
+					select a.*,rownum from(
+		       			select id,goods_sn,goods_sku,user_id,quantity,create_date,platform,checked,goods_source from  xiu_goods.shopping_cart_items where user_id = #{userId}
+						order by create_date desc
+					) a
+				) where rownum between 1 and 50
+	      	]]>
+		</select>
+		
+		<!-- 移除某商品 -->
+		<delete id="delGoodsById" parameterType="java.lang.String">
+			delete from xiu_goods.shopping_cart_items where id = #{id}
+		</delete>
+		
+		<!-- 移除某商品 -->
+		<delete id="delGoodsBySku" parameterType="java.util.Map">
+			delete from xiu_goods.shopping_cart_items where user_id = #{userId} and goods_sku in
+			<foreach item="sku" index="index" collection="skuList" open="(" separator="," close=")">
+				#{sku}
+			</foreach>
+		</delete>
+		
+		<!-- 修改购物车商品信息 -->
+		<update id="updateGoods" parameterType="shoppingCart">
+			update xiu_goods.shopping_cart_items set user_id = #{userId},goods_sn = #{goodsSn},goods_sku = #{goodsSku},
+					quantity = #{quantity},create_date = #{createDate},platform = #{platform},checked = #{checked},goods_source = #{goodsSource}  where id = #{id}
+		</update>
+			<!-- 修改购物车商品信息 -->
+		<update id="updateShoppingCartGoods" parameterType="shoppingCart">
+			update xiu_goods.shopping_cart_items set quantity = #{quantity},checked = #{checked} where id = #{id}
+		</update>
+		
+		<!-- 勾选或反选所有的商品 -->
+		<update id="updateCheckedAll" parameterType="java.util.Map">
+			update xiu_goods.shopping_cart_items set checked = #{checked} where user_id = #{userId}
+		</update>
+		
+		<!-- 查询购物车的商品数量ByGoodsSn -->
+		<select id="getGoodsCountByGoodsSn" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+			select sum(quantity) quantity
+			  from xiu_goods.shopping_cart_items
+			 where user_id = #{userId} and goods_sn = #{goodsSn}
+		</select>
+</mapper>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+		
+	<bean id="userManagerService" class="com.xiu.common.web.utils.HessianProxyFactoryBean">
+	  	<property name="serviceUrl" value="http://cas.xiu.com/remoting/userManagerService"/> 
+	  	<property name="overloadEnabled" value="true"/>
+	  	<property name="serviceInterface">
+	   		<value>com.xiu.usermanager.provider.UserManagerService</value>
+	 	</property>
+	</bean>  
+	
+	<!-- UUC用户中心 -->
+	<bean id="userManageFacade" class="com.xiu.common.web.utils.HessianProxyFactoryBean">
+		<property name="serviceUrl"	value="http://uuc.xiu.com/remote/userManageFacade" />
+		<property name="serviceInterface" value="com.xiu.uuc.facade.UserManageFacade" />
+	</bean> 
+			
+	<bean id="goodsCenterService"
+		class="com.xiu.common.web.utils.HessianProxyFactoryBean">
+		<property name="serviceUrl"	value="http://product.xiu.com/webapp/wcs/stores/hessianService" />
+		<property name="serviceInterface" value="com.xiu.commerce.hessian.server.GoodsCenterService" />
+	</bean>
+
+	
+	<bean id="inventoryService"
+		class="com.xiu.common.web.utils.HessianProxyFactoryBean">
+		<property name="serviceUrl"	value="http://channel-web.xiu.com/remoting/inventoryservice" />
+		<property name="serviceInterface" value="com.xiu.channel.inventory.api.InventoryService" />
+	</bean>
+
+</beans>

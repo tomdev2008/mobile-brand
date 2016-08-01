@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/mobile/!svn/ver/27837/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/wap/web/controller
+END
+PayForTempletController.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/wap/web/controller/PayForTempletController.java
+END
+SubjectController.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mobile/!svn/ver/27194/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/wap/web/controller/SubjectController.java
+END
+AppPatchController.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mobile/!svn/ver/26377/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/wap/web/controller/AppPatchController.java
+END
+WellChosenBrandImportController.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/wap/web/controller/WellChosenBrandImportController.java
+END
+FindGoodsImportController.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/mobile/!svn/ver/23517/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/wap/web/controller/FindGoodsImportController.java
+END
+AdvertisementController.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/mobile/!svn/ver/24077/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/wap/web/controller/AdvertisementController.java
+END
+WellChosenBrandController.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/wap/web/controller/WellChosenBrandController.java
+END
+GoodsController.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/17660/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/wap/web/controller/GoodsController.java
+END
+FindGoodsController.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/26379/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/wap/web/controller/FindGoodsController.java
+END
+FindMenuMgtController.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/25265/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/wap/web/controller/FindMenuMgtController.java
+END
+TopicController.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/27329/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/wap/web/controller/TopicController.java
+END
+LabelController.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mobile/!svn/ver/27665/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/wap/web/controller/LabelController.java
+END
+AdvertisementPlaceController.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/mobile/!svn/ver/16400/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/wap/web/controller/AdvertisementPlaceController.java
+END
+TopicTypeController.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/24697/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/wap/web/controller/TopicTypeController.java
+END
+WapH5ListController.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/27602/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/wap/web/controller/WapH5ListController.java
+END
+WapH5TemplateController.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/mobile/!svn/ver/24831/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/wap/web/controller/WapH5TemplateController.java
+END
+NoticeController.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/mobile/!svn/ver/16227/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/wap/web/controller/NoticeController.java
+END
+WapH5PageController.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/mobile/!svn/ver/27735/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/wap/web/controller/WapH5PageController.java
+END
+AdvertisementFrameController.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/mobile/!svn/ver/16400/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/wap/web/controller/AdvertisementFrameController.java
+END
+NoticePlaceController.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mobile/!svn/ver/16227/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/wap/web/controller/NoticePlaceController.java
+END
+AppVersionController.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/wap/web/controller/AppVersionController.java
+END
+SystemParamsController.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/mobile/!svn/ver/27837/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/wap/web/controller/SystemParamsController.java
+END
+AppStartManagerController.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/mobile/!svn/ver/15285/trunk_k/servers/mobile-server/mobile-console/src/main/java/com/xiu/wap/web/controller/AppStartManagerController.java
+END

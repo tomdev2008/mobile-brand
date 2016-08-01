@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.portal.dao.FindMenuDao">
+	
+	<select id="getFindMenuList" parameterType="java.util.HashMap" resultType="com.xiu.mobile.core.model.FindMenuMgt">
+		select t.id,t.name,t.font_color as fontColor,t.icon_url as iconUrl, t.slogan, t.block,
+             t.order_seq as orderSeq,t.type,t.url,t.status,t.wap_url as wapUrl,t.version,t.is_need_login isNeedLogin
+          from find_menu_mgt t
+         where t.status = 1 and  t.block &lt;=10    
+         order by t.block, t.order_seq desc
+	</select>
+	
+	<select id="getFindMenuCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+		select count(1)
+          from find_menu_mgt t
+         where t.status = 1  and  t.block &lt;=10 
+	</select>
+	
+	<select id="getFindMenuById" parameterType="java.util.HashMap" resultType="com.xiu.mobile.core.model.FindMenuMgt">
+		select t.id,t.name,t.font_color as fontColor,t.icon_url as iconUrl, t.slogan, t.block,
+             t.order_seq as orderSeq,t.type,t.url,t.status,t.create_date as createDate,t.wap_url as wapUrl,t.version,t.is_need_login isNeedLogin
+          from find_menu_mgt t
+         where t.id = #{id}
+	</select>
+	
+	<select id="getFindChannelVersion" parameterType="java.util.HashMap" resultType="com.xiu.mobile.core.model.MobileCommonData">
+		select t.id,t.name,t.key,t.value,t.value_num as valueNum,t.biz_type as bizType,t.description
+		  from mobile_common_data t
+		 where t.key = #{key}
+	</select>
+	
+		
+	<select id="getFindMenuIndexList" parameterType="java.util.HashMap" resultType="com.xiu.mobile.core.model.FindMenuMgt">
+		select t.id,t.name,t.font_color as fontColor,t.icon_url as iconUrl, t.block, t.animation,
+             t.type,t.url,t.wap_url as wapUrl,t.version,t.is_need_login isNeedLogin,t.support_version supportVersion
+          from find_menu_mgt t
+         where t.status = 1 and  t.block=11     
+         order by t.block, t.order_seq desc
+	</select>
+	
+		
+	<select id="getFindMenuListByBlock" parameterType="java.lang.Long" resultType="com.xiu.mobile.core.model.FindMenuMgt">
+		select t.id,
+		       t.name,
+		       t.font_color as fontColor,
+		       t.icon_url   as iconUrl,
+		       t.slogan,
+		       t.block,
+		       t.order_seq  as orderSeq,
+		       t.type,
+		       t.url,
+		       t.status,
+		       t.wap_url    as wapUrl,
+		       t.version,
+		       t.animation,
+		       t.bg_color bgColor,
+		       t.icon_click_url iconClickUrl,
+		       t.is_need_login isNeedLogin
+		  from find_menu_mgt t
+		 where t.status = 1
+		   and t.block =  #{block}
+		 order by t.order_seq desc
+	</select>
+	<select id="getSupportVersionList" parameterType="java.util.Map" resultType="com.xiu.mobile.core.model.FindSupportVersion">
+		select v.app_source appSource,
+	       v.app_system appSystem,
+	       v.create_time createTime,
+	       v.find_menu_id findMenuId,
+	       v.start_version startVersion,
+	       v.last_version lastVersion,
+	       v.id
+	  from x_find_support_version v
+	 where v.type=#{type} and v.find_menu_id in
+	 <foreach collection="findMenuId" item="findMenuId" open="(" close=")"
+			separator=",">
+			#{findMenuId}
+	</foreach>
+	</select>
+</mapper>

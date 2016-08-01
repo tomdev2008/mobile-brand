@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiu.mobile.portal.dao.BookmarkIitemDao">
+		
+		<resultMap id="iitemResult" type="bookmarkIitemVo">
+			<result property="catentryId" column="catentry_id"/>
+			<result property="iitemlistId" column="iitemlist_id"/>
+			<result property="memberId" column="member_id"/>
+			<result property="storeentId" column="storeent_id"/>
+			<result property="lastupdate" column="lastupdate"/>
+			<result property="sequence" column="sequence"/>
+			<result property="field1" column="field1"/>
+			<result property="field2" column="field2" />
+			<result property="field3" column="field3" />
+			<result property="userId" column="user_id" />
+			<result property="optcounter" column="optcounter" />
+			<result property="quantity" column="quantity"/>
+			<result property="terminalType" column="terminal_type"/>
+		</resultMap>
+		
+		<insert id="insertIitem" parameterType="bookmarkIitemVo">
+		 	insert into xiu_goods.iitem (catentry_id,iitemlist_id,storeent_id,lastupdate,field2,user_id,terminal_type) values(#{catentryId},#{iitemlistId},#{storeentId},#{lastupdate},#{field2},#{userId},#{terminalType})
+	  	</insert>
+		
+
+	  	<!-- 分页查询收藏商品 -->
+	  	<select id="getIitemByPage" resultMap="iitemResult" parameterType="java.util.Map">
+		 	<![CDATA[
+	       		select * from (
+				    select rownum as rowno,ii.* from(
+				 		select * from xiu_goods.iitem 
+				    	 where user_id=#{userId}
+				      	 order by lastupdate desc
+				      ) ii 
+				      )cc where cc.rowno>=#{lineMin}
+				        	and cc.rowno < #{lineMax}
+	      	]]>
+		</select>
+		<!-- 查询收藏商品总数 -->
+	  	<select id="getIitemCount" resultType="int" parameterType="long">
+		 	<![CDATA[
+	       		select count(*) from xiu_goods.iitem
+				    	 where user_id=#{userId}
+				      	 order by lastupdate desc
+	      	]]>
+		</select>
+		<!-- 检查是否已收藏某商品 -->
+		<select id="getItemByUserIdAndCatentryId" resultMap="iitemResult" parameterType="java.util.Map">
+			 <![CDATA[	select * from xiu_goods.iitem
+			    	 where user_id=#{userId} and catentry_id=#{catentryId}
+			      	 order by lastupdate desc
+			 ]]>
+		</select>
+
+		<delete id="deleteIitem" parameterType="java.util.Map">
+			delete from  xiu_goods.iitem  where user_id=#{userId} and catentry_id=#{catentryId}
+		</delete>
+		
+		<!-- 批量删除收藏商品 -->
+		<delete id="deleteBatchIitem" parameterType="java.util.Map">
+			delete from  xiu_goods.iitem  where user_id=#{userId} and catentry_id in
+		   <foreach collection="goodsIdArr" item="item" index="index" open="(" close=")" separator=",">
+	       	   #{item}
+	       </foreach>
+		</delete>
+	
+	<!-- 查询收藏的商品列表 -->
+	<select id="getFavorGoodsVoListByGoods" parameterType="java.util.HashMap" resultMap="iitemResult">
+		select catentry_id
+		  from xiu_goods.iitem 
+		 where user_id = #{userId}
+		   and catentry_id in 
+		   <foreach collection="goodsIdArr" item="item" index="index" open="(" close=")" separator=",">
+	       	   #{item}
+	       </foreach>
+	</select>	
+	<!-- 查询收藏的商品列表 -->
+	<select id="getFavorGoodsListByGoods" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select catentry_id
+		  from xiu_goods.iitem 
+		 where user_id = #{userId}
+		   and catentry_id in 
+		   <foreach collection="goodsIdArr" item="item" index="index" open="(" close=")" separator=",">
+	       	   #{item}
+	       </foreach>
+	</select>	
+	
+	<!-- 查询商品的收藏数量 -->
+	<select id="getGoodsFavorCounts" parameterType="java.lang.String" resultType="java.lang.Integer">
+		select count(1) counts from xiu_goods.iitem where catentry_id=#{goodsId}
+	</select>
+	
+	<!-- 删除商品降价信息 -->
+	<delete id="deleteGoodsReducedPriceInfo" parameterType="java.lang.String">
+		delete from goods_reducedprice where goods_id = #{goodsId}
+	</delete>
+</mapper>
